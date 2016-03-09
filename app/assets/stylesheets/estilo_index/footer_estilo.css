@@ -1,0 +1,11 @@
+footer {
+
+}
+
+.rodape {
+	position: relative;
+	
+	height: 30px;
+	background-color: #000;
+	top: 10px;
+}

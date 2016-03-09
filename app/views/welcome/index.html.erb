@@ -1,0 +1,44 @@
+
+	<header>
+		<div class="img-fundo">
+			<%= render "cabecalho" %>
+		</div>
+
+		<div class="container">			
+			<%= render "menu" %>
+		</div>
+	</header>
+	<!-- Corpo Principal -->
+	<div class="corpo">
+		<div class="container">
+
+			<div class="banner-pri">
+				 <%= render "banner" %>
+			</div>
+			
+			<div class="painel-noticias">				
+				<span class="text-ultima">&Uacute;LTIMAS </span>
+				<span class="text-noticias">NOT&Iacute;CIAS</span>		
+				
+				<%= render 'left' %>
+				<%= render 'middle' %>
+				<%= render 'right' %>
+			</div>
+			
+			<div class="anuncios">
+				<div class="anuncio-maior">ANUNCIO</div>
+				<div class="anuncio-menor">ANUNCIO</div>
+			</div>
+
+			<div class="painel-palavras">
+				<div class="parte-maior">PALAVRAS</div>
+				<div class="parte-menor">TOP 5 MUSICAS</div>
+			</div>
+
+			<div class="painel-midia-sociais">
+				<div class="midia-maior">FACEBOOK</div>
+				<div class="midia-anuncio-menor">ANUNCIO</div>
+			</div>
+
+		</div>
+	</div>	

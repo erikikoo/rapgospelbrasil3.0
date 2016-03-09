@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<%= image_tag @artist_data.logo.url(:medium) %>
+
+<nav>
+	<ul>
+		<li><%= link_to 'Historia', @artist_data.historia  %></li>
+		<li><%= link_to 'Album', discography_path(@artist_data.id), remote: true%></li>
+		<li>Videos</li>
+		<li><%= link_to 'Contatos', phone_path(@contato.id) %></li>
+	</ul>
+</nav>
+
+<div id="container-artistas">
+	
+</div>
+
+<%= link_to 'Edit', edit_artist_data_path(@artist_data) %> |
+<%= link_to 'Back', artist_datas_path %>

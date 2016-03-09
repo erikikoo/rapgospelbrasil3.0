@@ -1,0 +1,60 @@
+a:active, a:hover, a:visited, a:link {
+	color:#000;
+}
+
+
+
+.img-fundo {
+	height: 460px;
+	width: 100%;
+}
+
+.fundo {
+	position: relative;
+	top:-341px;
+	height: 472px;
+	z-index: -1;
+	background-image: url("FundoCabecalho.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 97%;		
+}
+
+.logo {
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	width: 432px;
+	height: 333px;
+	background-image: url("LogoCabecalho.png");
+}
+
+.menu {		
+	list-style: none;
+	font-size: 20px;	
+	top: 385px;
+	z-index: 1;	
+	width: 990px;
+	
+}
+
+.menu ul li {
+	display: inline;
+}
+
+.menu ul li a {
+	-webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+	display: inline-block;
+	text-align: center;
+	padding: 15px 20px;	
+	text-decoration: none;
+	vertical-align: middle;		
+	border:#AA1C20 1px solid; 
+	color: #AA1C20;
+
+}
+.menu ul li a:hover {	
+	background-color: #AA1C20;
+	color:#fff;
+	
+}

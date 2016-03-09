@@ -1,0 +1,40 @@
+<nav>
+  <ul>
+    <li><%= link_to 'Agenda', new_commitment_path %></li>
+    <li><%= link_to 'Email',new_email_path %></li>
+    <li><%= link_to 'Telefone', new_phone_path%></li>
+    <li><%= link_to 'Discografia', new_discography_path %></li>
+    <li><%= link_to 'Endereço do Show',new_eddress_show_path %></li>
+    <li><%= link_to 'Membros', new_member_path%></li>
+  </ul>
+</nav>
+
+
+<%= simple_form_for(@artist_data, html: {multipart: true}) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="field">
+    <%= f.input :nome %><br>    
+  </div>
+
+  <%= f.input :logo, as: :file %>
+
+  <div class="field">
+    <%= f.input :historia %><br>    
+  </div>
+  <fieldset>
+      <legend>Contato</legend>
+      <%= f.simple_fields_for :emails do |e|%>             
+         <%= e.input :email %><br>
+      <% end %>
+
+      <%= f.simple_fields_for :phones do |p|%>  
+          <%= p.input :telefone %>
+      <% end %>
+
+  </fieldset>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

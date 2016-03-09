@@ -1,0 +1,17 @@
+
+
+.container {
+	width: 999px;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+body {
+	min-width: 999px;
+	height: 100%;
+	background-image: url("FundoPagina.jpg");
+	top:-10px;
+	
+}
+

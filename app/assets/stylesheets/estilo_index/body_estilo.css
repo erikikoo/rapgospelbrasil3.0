@@ -1,0 +1,121 @@
+.banner-pri {
+	position: relative;
+	
+	width: 960px;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.painel-noticias {
+	position: relative;	
+	top: 20px;
+	height: 290px;
+	border: #000 1px solid;
+	
+}
+
+.left {
+	position: relative;
+	width:350px;
+	
+}
+
+.middle {
+	position: relative;
+	width:250px;
+	top:-171px;
+	left:360px;
+	
+}
+
+.right {
+	position: relative;
+	width:350px;
+	left:620px;
+	top:-252px;
+	
+}
+
+.anuncios {
+	position: relative;
+	height: 100px;
+	
+	margin-top: 40px;
+	border: #000 1px solid;
+}
+
+.anuncio-maior {
+	position: absolute;
+	width: 690px;
+	left: 10px;
+	height: 90px;
+	top: 5px;
+	
+	
+} 
+
+.anuncio-menor {
+	position: absolute;
+	width: 280px;
+	height: 90px;
+	top: 5px;
+	left: 710px;
+	
+} 
+
+.painel-palavras {
+	position: relative;
+	height: 250px;
+	
+	margin-top: 20px;
+	border: #000 1px solid;
+}
+
+.parte-maior {
+	position: absolute;
+	width: 590px;
+	left: 10px;
+	height: 240px;
+	top: 5px;
+	
+} 
+
+.parte-menor {
+	position: absolute;
+	width: 380px;
+	height: 240px;
+	top: 5px;
+	left: 610px;
+	
+}
+
+.painel-midia-sociais {
+	position: relative;
+	height: 250px;
+	
+	margin-top: 20px;
+	border: #000 1px solid;
+}
+
+.midia-maior {
+	position: absolute;
+	width: 490px;
+	left: 10px;
+	height: 240px;
+	top: 5px;
+	
+} 
+
+.midia-anuncio-menor {
+	position: absolute;
+	width: 480px;
+	height: 240px;
+	top: 5px;
+	left: 510px;
+	
+}
+footer {
+	height: 20px;	
+	border: #000 1px solid;
+}

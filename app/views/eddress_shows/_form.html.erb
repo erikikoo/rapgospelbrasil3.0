@@ -1,0 +1,16 @@
+<%= simple_form_for(@eddress_show) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :commitment %>
+    <%= f.input :local %>
+    <%= f.input :endereco %>
+    <%= f.input :numero %>
+    <%= f.input :telefone %>
+    <%= f.input :site %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

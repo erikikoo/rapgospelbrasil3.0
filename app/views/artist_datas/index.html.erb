@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+
+
+
+  <div class="artistas">
+    <% @artist_datas.each do |artist_data| %>
+       <p>
+         <%= link_to(image_tag(artist_data.logo.url(:medium)), artist_data_path(artist_data))  %>
+         <br/>
+         <%= artist_data.nome %>
+       </p> 
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+
+<%= link_to 'New Artist data', new_artist_data_path %>

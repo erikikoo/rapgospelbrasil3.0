@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Discographys</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Artist data</th>
+      <th>Nome</th>
+      <th>Data</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @discographys.each do |discography| %>
+      <tr>
+        <td><%= discography.artist_data %></td>
+        <td><%= discography.nome %></td>
+        <td><%= discography.data %></td>
+        <td><%= link_to 'Show', discography %></td>
+        <td><%= link_to 'Edit', edit_discography_path(discography) %></td>
+        <td><%= link_to 'Destroy', discography, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Discography', new_discography_path %>
