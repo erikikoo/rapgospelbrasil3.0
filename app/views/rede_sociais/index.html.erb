@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Rede Sociais</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Artist data</th>
+      <th>Facebook</th>
+      <th>Twitter</th>
+      <th>Instagram</th>
+      <th>Googleplus</th>
+      <th>Linkedid</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rede_sociais.each do |rede_social| %>
+      <tr>
+        <td><%= rede_social.artist_data %></td>
+        <td><%= rede_social.facebook %></td>
+        <td><%= rede_social.twitter %></td>
+        <td><%= rede_social.instagram %></td>
+        <td><%= rede_social.googleplus %></td>
+        <td><%= rede_social.linkedid %></td>
+        <td><%= link_to 'Show', rede_social %></td>
+        <td><%= link_to 'Edit', edit_rede_social_path(rede_social) %></td>
+        <td><%= link_to 'Destroy', rede_social, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rede social', new_rede_social_path %>

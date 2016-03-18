@@ -18,7 +18,7 @@ class CommitmentsControllerTest < ActionController::TestCase
 
   test "should create commitment" do
     assert_difference('Commitment.count') do
-      post :create, commitment: { artist_data_id: @commitment.artist_data_id, data: @commitment.data, hora: @commitment.hora }
+      post :create, commitment: { artist_data_id: @commitment.artist_data_id, data: @commitment.data, endereco: @commitment.endereco, hora: @commitment.hora, local: @commitment.local, numero: @commitment.numero, site: @commitment.site, telefone: @commitment.telefone }
     end
 
     assert_redirected_to commitment_path(assigns(:commitment))
@@ -35,7 +35,7 @@ class CommitmentsControllerTest < ActionController::TestCase
   end
 
   test "should update commitment" do
-    patch :update, id: @commitment, commitment: { artist_data_id: @commitment.artist_data_id, data: @commitment.data, hora: @commitment.hora }
+    patch :update, id: @commitment, commitment: { artist_data_id: @commitment.artist_data_id, data: @commitment.data, endereco: @commitment.endereco, hora: @commitment.hora, local: @commitment.local, numero: @commitment.numero, site: @commitment.site, telefone: @commitment.telefone }
     assert_redirected_to commitment_path(assigns(:commitment))
   end
 

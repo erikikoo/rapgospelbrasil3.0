@@ -1,8 +1,13 @@
 source 'https://rubygems.org'
 
 
-#ajax
-
+ gem 'rails-i18n'
+#bootstrap
+gem 'twitter-bootstrap-rails'
+#Devise
+gem 'devise'
+#ckeditor
+gem 'ckeditor', '~> 4.1', '>= 4.1.6'
 #PAPERCLIP
 gem "paperclip", "~> 4.3"
 #simple-form	
@@ -11,11 +16,14 @@ gem 'simple_form'
 gem 'rails', '4.2.6'
 # Use mysql as the database for Active Record
 
+
+gem 'execjs'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
+gem 'coffee-script-source', '1.8.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

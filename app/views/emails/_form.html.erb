@@ -1,13 +1,11 @@
-<%= simple_form_for(@email) do |f| %>
+<%= simple_form_for(@email, remote: true) do |f| %>
   <%= f.error_notification %>
 
-  <div class="field">
-    <%= f.input :artist_data_id %><br>    
-  </div>
+  
   <div class="field">
     <%= f.input :email %><br>
   </div>
   <div class="actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, 'Adicionar Email' %>
   </div>
 <% end %>

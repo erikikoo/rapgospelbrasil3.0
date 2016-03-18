@@ -1,0 +1,23 @@
+<p>
+	<% if @profile == "adm" %>
+		<%= link_to 'Adicionar email', '/novo_email', remote: true, :class => 'btn btn-default'  %>
+	<% end %>
+</p>
+<% if @artist_data.emails.empty? %>
+	<h5>Não possui agenda cadastrado </h5>
+<% else %>
+	<div class="painel-show-adm">
+		
+		<% @artist_data.emails.each do |email| %>			
+			<p>
+				<strong>Email: </strong><%= email.email %>
+				<br />
+				<% if @profile == "adm" %>
+					<%= link_to "edit","/edit_email/#{email.id}/adm", :class => "btn btn-default ", :remote => true %>
+
+			       	<%= link_to 'Destroy', "/remove_email/#{email.id}/adm", method: :delete, :remote => true ,data: { confirm: 'Are you sure?' } , class: 'btn btn-danger'%>
+				<% end %>
+			</p>
+		<% end %>		
+	</div>	
+<% end %>

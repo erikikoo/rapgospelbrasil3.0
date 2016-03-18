@@ -10,9 +10,7 @@ class DiscographysController < ApplicationController
   # GET /discographys/1
   # GET /discographys/1.json
   def show
-    respond_to do |format|
-      format.js {render :show, location: @discography}
-    end
+    
   end
 
   # GET /discographys/new
@@ -28,10 +26,12 @@ class DiscographysController < ApplicationController
   # POST /discographys.json
   def create
     @discography = Discography.new(discography_params)
+    @discography.artist_data_id = current_artist.id
 
     respond_to do |format|
+      
       if @discography.save
-        format.html { redirect_to @discography, notice: 'Discography was successfully created.' }
+        format.html { redirect_to "/show_disco/#{current_artist.id}/adm", notice: 'Discography was successfully created.' }
         format.json { render :show, status: :created, location: @discography }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class DiscographysController < ApplicationController
   def update
     respond_to do |format|
       if @discography.update(discography_params)
-        format.html { redirect_to @discography, notice: 'Discography was successfully updated.' }
+        format.html { redirect_to "/show_disco/#{current_artist.id}/adm", notice: 'Discography was successfully updated.' }
         format.json { render :show, status: :ok, location: @discography }
       else
         format.html { render :edit }
@@ -59,10 +59,12 @@ class DiscographysController < ApplicationController
   def destroy
     @discography.destroy
     respond_to do |format|
-      format.html { redirect_to discographys_url, notice: 'Discography was successfully destroyed.' }
+      format.html { redirect_to "/show_disco/#{current_artist.id}/adm", notice: 'Discography was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

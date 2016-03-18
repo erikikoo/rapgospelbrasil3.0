@@ -1,0 +1,16 @@
+<%= simple_form_for(@rede_social, remote: true) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    
+    <%= f.input :facebook %>
+    <%= f.input :twitter %>
+    <%= f.input :instagram %>
+    <%= f.input :googleplus %>
+    <%= f.input :linkedid %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, 'Inserir' %>
+  </div>
+<% end %>

@@ -1,12 +1,11 @@
-<%= simple_form_for(@phone) do |f| %>
+<%= simple_form_for(@phone, remote: true) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :artist_data %>
-    <%= f.input :telefone %>
+      <%= f.input :telefone %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, 'Inserir Numero' %>
   </div>
 <% end %>

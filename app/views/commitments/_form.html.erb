@@ -1,21 +1,18 @@
-<%= simple_form_for(@commitment) do |f| %>
+<%= simple_form_for(@commitment, remote: true) do |f| %>
+  
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :artist_data %>
-    <%= f.input :data %>
+    <%= f.input :local, error: 'Campo obrigatório' %>
+    <%= f.input :endereco, error: 'Campo obrigatório' %>
+    <%= f.input :numero, error: 'Campo obrigatório' %>
+    <%= f.input :telefone, error: 'Campo obrigatório' %>
+    <%= f.input :site %>
+    <%= f.input :data, start_year: Date.today.year %>
     <%= f.input :hora %>
   </div>
 
-  <%= f.simple_fields_for :eddress_shows do |e|%>
-	<%= e.input :local %>
-    <%= e.input :endereco %>
-    <%= e.input :numero %>
-    <%= e.input :telefone %>
-    <%= e.input :site %>
-  <% end %>
-
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, "Criar Show" %>
   </div>
 <% end %>

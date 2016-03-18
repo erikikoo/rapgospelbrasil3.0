@@ -1,0 +1,19 @@
+<p>
+	<% if @profile == "adm" %>
+		<%= link_to 'Adicionar video', '/novo_video', remote: true ,:class => 'btn btn-default'  %>
+	<% end %>
+</p>
+<% if @artist_data.videos.empty? %>
+	<h5>Não possui video cadastrado </h5>
+<% else %>
+	<% @artist_data.videos.each do |video| %>				
+			<p>
+				<%= raw(video.link) %> 	<br />	
+				
+				<% if @profile == "adm" %>
+					<%= link_to 'Remover', "/remove_video/#{video.id}/adm", method: :delete, :remote => true ,data: { confirm: 'Are you sure?' } , class: 'btn btn-danger'%>
+				<% end %>
+			</p>
+		</div>
+	<% end %>
+<% end %>

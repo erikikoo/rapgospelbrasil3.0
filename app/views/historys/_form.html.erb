@@ -1,0 +1,12 @@
+<%= simple_form_for(@history) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :artist_data %>
+    <%= f.input :historia %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Incluir" %>
+  </div>
+<% end %>

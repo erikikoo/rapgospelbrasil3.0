@@ -15,7 +15,6 @@ class CommitmentsController < ApplicationController
   # GET /commitments/new
   def new
     @commitment = Commitment.new
-    @commitment.eddress_shows.build
   end
 
   # GET /commitments/1/edit
@@ -25,13 +24,17 @@ class CommitmentsController < ApplicationController
   # POST /commitments
   # POST /commitments.json
   def create
-    @commitment = Commitment.new(commitment_params)    
+    @commitment = Commitment.new(commitment_params)
+    @commitment.artist_data_id = current_artist.id
     respond_to do |format|
       if @commitment.save
-        format.html { redirect_to @commitment, notice: 'Commitment was successfully created.' }
-        format.json { render :show, status: :created, location: @commitment }
+        format.html { redirect_to "/show_agenda/#{current_artist.id}/adm", notice: 'Commitment was successfully created.' }
+        format.json { render :show, status: :created, location: @commitment }        
       else
-        format.html { render :new }
+        #flash[:notice] = 'Ocorreu um erro'
+        format.html { render :new, notice: 'Commitment was successfully created.' }
+        
+        format.js {render :new, notice: "Opsss!!! existe error @commitment.errors.count" }
         format.json { render json: @commitment.errors, status: :unprocessable_entity }
       end
     end
@@ -42,7 +45,7 @@ class CommitmentsController < ApplicationController
   def update
     respond_to do |format|
       if @commitment.update(commitment_params)
-        format.html { redirect_to @commitment, notice: 'Commitment was successfully updated.' }
+        format.html { redirect_to "/show_agenda/#{current_artist.id}/adm", notice: 'Commitment was successfully updated.' }
         format.json { render :show, status: :ok, location: @commitment }
       else
         format.html { render :edit }
@@ -69,6 +72,6 @@ class CommitmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def commitment_params
-      params.require(:commitment).permit(:artist_data_id, :data, :hora, :eddress_shows_attributes => [:local, :endereco, :numero, :telefone, :site])
+      params.require(:commitment).permit(:artist_data_id, :local, :endereco, :numero, :telefone, :site, :data, :hora)
     end
 end

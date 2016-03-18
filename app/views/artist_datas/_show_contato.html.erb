@@ -1,0 +1,14 @@
+<% if @artist_data.phones.empty? %>
+	<h5>Não possui contato cadastrado </h5>
+<% else %>
+	<div class="contato-telefone">
+		<% @artist_data.phones.each do |tel| %>	
+			<strong>Telefone:</strong> <%= tel.telefone %> <br />
+		<% end %>
+	</div>
+	<div class="contato-email">
+		<% @artist_data.emails.each do |email| %>	
+			<strong>Email:</strong>	<%= email.email %> <br/>
+		<% end %>
+	</div>
+<% end %>

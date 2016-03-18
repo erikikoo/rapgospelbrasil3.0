@@ -1,0 +1,23 @@
+<p>
+	<% if @profile == "adm" %>
+		<%= link_to 'Adicionar Disco', '/novo_disco', remote: true ,:class => 'btn btn-default'  %>
+	<% end %>
+</p>
+<% if @artist_data.discographys.empty? %>
+	<h5>Não possui disco cadastrado </h5>
+<% else %>
+	<% @artist_data.discographys.each do |album| %>
+		<div class="painel-show-adm text-aling">
+			<%= image_tag album.logo.url(:medium), :class => 'img-thumbnail' %>
+			<strong>Titulo: </strong> <%= album.nome %>
+			<strong>Lançamento:</strong><%= album.data.strftime('%v') %>
+			
+			<% if @profile == "adm" %>
+				<%= link_to "edit","/edit_disco/#{album.id}/adm", :class => "btn", :remote => true %>
+
+        		<%= link_to 'Destroy', "/remove_disco/#{album.id}/adm", method: :delete, :remote => true ,data: { confirm: 'Are you sure?' } , class: 'btn btn-danger'%>
+			<% end %>
+		</div>
+	<% end %>
+<% end %>
+

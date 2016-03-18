@@ -40,4 +40,6 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
   #PAPERCLIP 
   Paperclip.options[:command_path] = 'C:\Program Files (x86)\GnuWin32\bin'
+
+ 
 end

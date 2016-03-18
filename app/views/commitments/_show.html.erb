@@ -1,0 +1,30 @@
+<p>
+  <% if @profile == "adm" %>
+    <%= link_to 'Adicionar Show', '/novo_agenda', remote: true, :class => 'btn btn-default'  %>
+  <% end %>
+</p>
+<% if @artist_data.commitments.empty? %>
+  <h5>Não possui agenda cadastrado </h5>
+<% else %>
+  <div class="painel-show-adm">
+    <% @artist_data.commitments.each do |agenda| %>     
+      <p>
+      <strong>Data: </strong>     <%= agenda.data.strftime('%v') %> <br/>
+      <strong>Hora: </strong>     <%= agenda.hora.strftime("%H:%M") %> <br/>    
+      <strong>Local: </strong>    <%= agenda.local %> <br/>
+      <strong>Endereço: </strong> <%= agenda.endereco %> 
+      <strong>Num. </strong>      <%= agenda.numero %> <br/>
+      <strong>telefone: </strong> <%= agenda.telefone %> <br/>
+      <strong>Site: </strong>     <%= agenda.site %> <br />
+       
+        <% if @profile == "adm" %>
+          <%= link_to "edit","/edit_agenda/#{agenda.id}/adm", :class => "btn", :remote => true %>
+
+              <%= link_to 'Destroy', "/remove_agenda/#{agenda.id}/adm", method: :delete, :remote => true ,data: { confirm: 'Are you sure?' } , class: 'btn btn-danger'%>
+        <% end %>
+      
+    
+      </p>
+    <% end %>
+  </div>  
+<% end %>
