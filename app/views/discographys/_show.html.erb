@@ -17,8 +17,9 @@
 			<%= image_tag album.logo.url(:thumb), :class => 'img-thumbnail' %>
 			<br />
 			<strong>Titulo: </strong> <%= album.nome %>
+			<br />
 			<strong>Lançamento:</strong><%= album.data.strftime('%v') %>
-			
+			<br />
 			<% if @profile == "adm" %>
 				<%= link_to "edit","/edit_disco/#{album.id}/adm", :class => "btn btn-default", :remote => true %>
 
