@@ -1,5 +1,4 @@
-
-<p id="notice"><%= notice %></p>
+<%= render 'login/dados' %>
 
 <div class="painel-show">
 	<div class="painel-image">	
@@ -9,10 +8,10 @@
 	<div class="painel-agenda">	
 		
 		<h3>Agenda</h3>
-		<% if @teste.empty? %>
+		<% if @agenda.empty? %>
 			Não possui agenda cadastrada
 		<% else %>
-			<% @teste.each do |agenda| %>     
+			<% @agenda.each do |agenda| %>     
 		      <p>
 			      <strong>Data: </strong>     <%= agenda.data.strftime('%v') %> <br/>
 			      <strong>Hora: </strong>     <%= agenda.hora.strftime("%H:%M") %> <br/>    

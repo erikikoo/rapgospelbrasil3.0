@@ -1,0 +1,62 @@
+<div class="panel panel-default">
+	<div class="panel-heading"><h3><%= @artist_data.nome %></h3></div>
+	<div class="panel-body">
+			<div class="panel panel-default">
+				<div class="panel-heading">Contatos</div>
+				<div class="panel-body">		
+					<%= image_tag @artist_data.logo.url(:medium), :class => 'img-thumbnail' %>    
+				</div>
+			</div>		
+			<div class="panel panel-default">
+				<div class="panel-heading">Contatos</div>
+				<div class="panel-body">		
+					<%= render partial: 'artist_datas/show_contato'%>
+				</div>
+			</div>		
+		
+
+		
+			<div class="panel panel-default">
+				<div class="panel-heading">Album</div>
+				<div class="panel-body">
+					<%= render partial: 'discographys/show'%>
+				</div>
+			</div>
+		
+		
+		
+			<div class="panel panel-default">
+				<div class="panel-heading">Videos</div>
+				<div class="panel-body">
+					<%= render partial: 'videos/show'%>
+				</div>	
+			
+
+		
+			<div class="panel panel-default">
+				<div class="panel-heading">Agenda</div>
+				<div class="panel-body">
+					<%= render partial: 'commitments/show'%>
+				</div>
+			</div>			
+		
+		
+			<div class="panel panel-default">
+				<div class="panel-heading">História</div>
+				<div class="panel-body">
+					<%= render partial: 'artist_datas/show_historia'%>
+				</div>
+			</div>		
+		
+
+		
+			<div class="panel panel-default">
+				<div class="panel-heading">Redesocial</div>
+				<div class="panel-body">
+					<%= render partial: 'rede_sociais/show'%>		
+				</div>
+			</div>					
+	</div>
+
+	
+</div>

@@ -1,8 +1,14 @@
-<p>
-	<% if @profile == "adm" %>
+<% if !@status.nil? %>
+  <p>
+    <div class="alert alert-success mensagem" id="mensagem"></div>
+  </p>  
+<% end %>
+
+<% if @profile == "adm" %>
+	<p>
 		<%= link_to 'Adicionar video', '/novo_video', remote: true ,:class => 'btn btn-default'  %>
-	<% end %>
-</p>
+	</p>
+<% end %>
 <% if @artist_data.videos.empty? %>
 	<h5>Não possui video cadastrado </h5>
 <% else %>

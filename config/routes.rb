@@ -1,14 +1,49 @@
 Rails.application.routes.draw do
 
+  resources :words
+  resources :notices
   devise_for :artists
 
   mount Ckeditor::Engine => '/ckeditor'
+
+
+
+  #adm
+  get 'admin/index'
+  get '/artistas/:profile'                 => 'admin#artistas'
+  get '/show_artista/:id'                  => 'admin#show_artista'
+  
+  get '/palavras/:profile'                 => 'admin#palavras'
+  get '/nova_palavra/:profile'             => 'admin#nova_palavra'
+  get '/edit_palavra/:id/:profile'         => 'admin#edit_palavra'
+  get '/show_palavra/:id/:profile'         => 'admin#show_palavra'  
+  get '/palavras/:profile/:status'         => 'admin#palavras'
+
+  get '/noticias/:profile'                 => 'admin#noticias'
+  get '/nova_noticia/:profile'             => 'admin#nova_noticia'
+  get '/edit_noticia/:id/:profile'         => 'admin#edit_noticia'
+  get '/show_noticia/:id/:profile'         => 'admin#show_noticia'  
+  get '/noticias/:profile/:status'         => 'admin#noticias'
+
+  get '/aprovar_artista/:id/:profile'      => 'admin#aprova_artista'
+  get '/bloquear_artista/:id/:profile'     => 'admin#bloquear_artista'
+  get '/desbloquear_artista/:id/:profile'  => 'admin#desbloquear_artista'
+
+  delete 'remove_artista/:id/:profile'     => 'admin#remove_artista'
+  delete 'remove_noticia/:id/:profile'     => 'admin#remove_noticia'
+  delete 'remove_palavra/:id/:profile'     => 'admin#remove_palavra'
+
+
   get 'principal/index'
+
+  get '/principal'  => 'principal#index'
 
   get 'welcome/index'
 
+
   #novo 
-  get '/novo_disco/'           => 'principal#novo_disco'
+
+  get '/novo_disco/:id'        => 'principal#novo_disco'
   get '/novo_agenda/'          => 'principal#novo_agenda'
   get '/novo_email/'           => 'principal#novo_email'
   get '/novo_telefone/'        => 'principal#novo_telefone'
@@ -16,29 +51,39 @@ Rails.application.routes.draw do
   get '/novo_rede_social/'     => 'principal#novo_rede_social'
   #rotas ajax
   #views padrão (sem login)
+  get '/principal/perfil'          => 'principal#perfil'
   get '/album/:id/:profile'        => 'artist_datas#discography'  
   get '/contato/:id'               => 'artist_datas#contact'
   get '/historia/:id'              => 'artist_datas#history'
   get '/agenda/:id/:profile'       => 'artist_datas#agenda'
-  get '/videos/:id/:profile'        => 'artist_datas#videos'
+  get '/videos/:id/:profile'       => 'artist_datas#videos'
   get '/rede_social/:id/:profile'  => 'artist_datas#rede_social'
 
   #views user
 
 
   #apresenta artista existente
-  get '/show_artista/:id'                   => 'principal#artista'
+  get '/show_artista/:id/:profile'          => 'principal#artista'
   get '/show_agenda/:id/:profile'           => 'principal#agenda'
   get '/show_disco/:id/:profile'            => 'principal#disco'
+  get '/show_historia/:id/:profile'         => 'principal#historia'
   get '/show_contato/:id'                   => 'principal#contato'
   get '/show_email/:id/:profile'            => 'principal#email'
   get '/show_telefone/:id/:profile'         => 'principal#telefone'
-  get '/show_rede_social/:id/:profile'      => 'principal#rede_social'
-  get '/show_video/:id/:profile'            => 'principal#video'
-  
-  post '/show_agenda/:id/:profile'           => 'principal#artista'
+  get '/show_rede_social/:id/:profile'      => 'principal#rede_social'  
+  get '/show_video/:id/:profile'            => 'principal#video'  
+  post '/show_agenda/:id/:profile'          => 'principal#artista'
   get '/show_agenda/:id/:profile'           => 'principal#agenda'
 
+  get '/show_artista/:id/:profile/:status'          => 'principal#artista'
+  get '/show_agenda/:id/:profile/:status'           => 'principal#agenda'
+  get '/show_disco/:id/:profile/:status'            => 'principal#disco'
+  get '/show_contato/:id/:status'                   => 'principal#contato'
+  get '/show_email/:id/:profile/:status'            => 'principal#email'
+  get '/show_telefone/:id/:profile/:status'         => 'principal#telefone'
+  get '/show_rede_social/:id/:profile/:status'      => 'principal#rede_social'
+  get '/show_video/:id/:profile/:status'            => 'principal#video'
+  
 
   #edita artista existente
   get '/edit_artista/:id'                 => 'principal#artista'

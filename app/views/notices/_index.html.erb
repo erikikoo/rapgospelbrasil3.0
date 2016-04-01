@@ -1,0 +1,39 @@
+<% if !@status.nil? %>
+  <p>
+    <div class="alert alert-success mensagem" id="mensagem"></div>
+  </p>  
+<% end %>
+
+
+
+  <% if @profile == "adm" %>
+    <p>
+      <%= link_to 'Adicionar Noticia', '/nova_noticia/adm', remote: true ,:class => 'btn btn-default'  %>  
+    </p>
+    
+  <% end %>
+
+<% if @notices.nil? || @notices.empty? %>
+    <h5>Não existem noticias cadastradas</h5>  
+<% end %>
+
+
+  <% @notices.each do |notice| %>
+      <div class="container-noticias text-justify">
+        <p>
+          <h4><%= notice.titulo %></h4>        
+            <td ><%= sub_texto(notice.noticia) %></td>            
+            <br/>
+            <p>
+              <strong>Criando em : </strong><%= notice.created_at.strftime('%d/%m/%Y') %>
+            </p>
+            <% if @profile == "adm" %>
+              <td><%= link_to 'Show', "/show_noticia/#{notice.id}/adm" ,class: 'btn btn-default', remote: true %></td>
+              <td><%= link_to 'Edit', "/edit_noticia/#{notice.id}/adm", class: 'btn btn-default', remote: true %></td>
+              <td><%= link_to 'Destroy', "/remove_noticia/#{notice.id}/adm", class: 'btn btn-danger',remote: true ,method: :delete, data: { confirm: 'Deseja realmente excluir esta noticia?' } %></td>
+            <% end %>
+          
+        </p>
+    </div>
+<% end %>
+

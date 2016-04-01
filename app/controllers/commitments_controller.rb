@@ -34,7 +34,7 @@ class CommitmentsController < ApplicationController
         #flash[:notice] = 'Ocorreu um erro'
         format.html { render :new, notice: 'Commitment was successfully created.' }
         
-        format.js {render :new, notice: "Opsss!!! existe error @commitment.errors.count" }
+        format.js {render :new }
         format.json { render json: @commitment.errors, status: :unprocessable_entity }
       end
     end
@@ -48,7 +48,7 @@ class CommitmentsController < ApplicationController
         format.html { redirect_to "/show_agenda/#{current_artist.id}/adm", notice: 'Commitment was successfully updated.' }
         format.json { render :show, status: :ok, location: @commitment }
       else
-        format.html { render :edit }
+        format.js { render :edit }
         format.json { render json: @commitment.errors, status: :unprocessable_entity }
       end
     end

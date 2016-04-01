@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 
 
+gem 'remotipart', '~> 1.2'
+#Minimal authorization
+gem 'pundit'
+#tradução
  gem 'rails-i18n'
 #bootstrap
 gem 'twitter-bootstrap-rails'
@@ -9,7 +13,7 @@ gem 'devise'
 #ckeditor
 gem 'ckeditor', '~> 4.1', '>= 4.1.6'
 #PAPERCLIP
-gem "paperclip", "~> 4.3"
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 #simple-form	
 gem 'simple_form'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

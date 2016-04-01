@@ -1,4 +1,6 @@
-<%= simple_form_for(@artist_data, html: {multipart: true, remote: true}) do |f| %>
+<strong><%= "id #{current_artist.id}" %></strong>
+
+<%= simple_form_for(@artist_data, html: {remote: true, multipart: true}) do |f| %>
   
   <%= f.error_notification %>
 
@@ -31,6 +33,6 @@
   
 
   <div class="actions">
-    <%= f.button :submit, 'Atualizar dados' %>
+    <%= f.button :submit %>
   </div>
 <% end %>

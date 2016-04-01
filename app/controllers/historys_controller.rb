@@ -45,7 +45,7 @@ class HistorysController < ApplicationController
         format.html { redirect_to @history, notice: 'History was successfully updated.' }
         format.json { render :show, status: :ok, location: @history }
       else
-        format.html { render :edit }
+        format.js { render :edit }
         format.json { render json: @history.errors, status: :unprocessable_entity }
       end
     end

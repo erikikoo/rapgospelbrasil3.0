@@ -1,1 +1,8 @@
-$('.painel-artistas-adm').html('<%= escape_javascript (render partial: "rede_sociais/new.html.erb") %>');
+$('.painel-artistas-art').html('<%= escape_javascript (render partial: "rede_sociais/new.html.erb") %>');
+<% if @status == 'success' %>
+	<%= render partial: 'mensagem/success'%>
+<% elsif @status == 'remover' %>
+	<%= render partial: 'mensagem/destroy'%>
+<% elsif @status == 'atualizar' %>
+	<%= render partial: 'mensagem/update'%>
+<% end %>

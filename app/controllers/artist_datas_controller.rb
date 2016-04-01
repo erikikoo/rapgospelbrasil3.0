@@ -1,16 +1,17 @@
 class ArtistDatasController < ApplicationController
   before_action :set_artist_data, only: [:show,:edit, :update, :destroy, :videos, :discography, :contact, :history, :agenda, :rede_social]
-  before_action :authenticate_artist!, only: [:new ,:edit, :update, :destroy]
+  
+  
   # GET /artist_datas
   # GET /artist_datas.json
   def index
-    @artist_datas = ArtistData.all
+    @artist_data = ArtistData.where('aprovado = ? and bloqueado = ?', 1,0)    
   end
 
   # GET /artist_datas/1
   # GET /artist_datas/1.json
   def show
-    @teste = Commitment.where("artist_data_id = ?", params[:id]).limit(2)
+    @agenda = Commitment.where("artist_data_id = ?", params[:id]).limit(2)
   end
 
   # GET /artist_datas/new
@@ -30,14 +31,14 @@ class ArtistDatasController < ApplicationController
   # POST /artist_datas.json
   def create
     @artist_data = ArtistData.new(artist_data_params)
-    @artist_data.artist_id = current_artist.id
+    @artist_data.artist_id = session[:current_id]
 
     respond_to do |format|
       if @artist_data.save
-        format.html { redirect_to principal_index_path(current_artist.id), notice: 'Artist data was successfully created.' }
+        format.html { redirect_to 'principal/perfil'}
         format.json { render :show, status: :created, location: @artist_data }
       else
-        format.html { render :new }
+        format.js { render :new }
         format.json { render json: @artist_data.errors, status: :unprocessable_entity }
       end
     end
@@ -47,15 +48,16 @@ class ArtistDatasController < ApplicationController
   # PATCH/PUT /artist_datas/1.json
   def update
     respond_to do |format|
-      if @artist_data.id == current_artist.id
+      #if @artist_data.id == current_artist.id
+      @current_id = params[:id]
         if @artist_data.update(artist_data_params)
-          format.html { render principal_index_path, notice: 'Artist data was successfully updated.' }
+          format.html { render 'principal/perfil' }
           format.json { render :show, status: :ok, location: @artist_data }
         else
           format.html { render :edit }
           format.json { render json: @artist_data.errors, status: :unprocessable_entity }
         end
-      end
+      #end
     end
   end
 
@@ -65,7 +67,7 @@ class ArtistDatasController < ApplicationController
     
       @artist_data.destroy
       respond_to do |format|
-        format.html { redirect_to artist_datas_url, notice: 'Artist data was successfully destroyed.' }
+        format.html { redirect_to "/artistas/adm", notice: 'Artist data was successfully destroyed.' }
         format.json { head :no_content }
       end
 
@@ -96,7 +98,7 @@ class ArtistDatasController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
 
     def set_artist_data
-      @artist_data = ArtistData.find(params[:id])
+      @artist_data = ArtistData.find(params[:id])   
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

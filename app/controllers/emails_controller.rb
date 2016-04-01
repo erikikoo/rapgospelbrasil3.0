@@ -31,8 +31,8 @@ class EmailsController < ApplicationController
         format.html { redirect_to "/show_email/#{current_artist.id}/adm", notice: 'Email was successfully created.' }
         format.json { render :show, status: :created, location: @email }
       else
-        format.html { render :new }
-        format.json { render json: @email.errors, status: :unprocessable_entity }
+        format.js { render :new }
+        #format.json { render json: @email.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -45,7 +45,7 @@ class EmailsController < ApplicationController
         format.html { redirect_to "/show_email/#{current_artist.id}/adm", notice: 'Email was successfully updated.' }
         format.json { render :show, status: :ok, location: @email }
       else
-        format.html { render :edit }
+        format.js { render :edit }
         format.json { render json: @email.errors, status: :unprocessable_entity }
       end
     end

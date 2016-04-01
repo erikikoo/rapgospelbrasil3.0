@@ -11,49 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160318152702) do
-
-  create_table "admins", force: :cascade do |t|
-    t.string   "email",              limit: 255, default: "", null: false
-    t.string   "encrypted_password", limit: 255, default: "", null: false
-    t.integer  "sign_in_count",      limit: 4,   default: 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip", limit: 255
-    t.string   "last_sign_in_ip",    limit: 255
-    t.integer  "failed_attempts",    limit: 4,   default: 0
-    t.string   "unlock_token",       limit: 255
-    t.datetime "locked_at"
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
-  end
+ActiveRecord::Schema.define(version: 20160328181023) do
 
   create_table "artist_datas", force: :cascade do |t|
     t.string   "nome",              limit: 255
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
     t.string   "logo_file_name",    limit: 255
     t.string   "logo_content_type", limit: 255
     t.integer  "logo_file_size",    limit: 4
     t.datetime "logo_updated_at"
     t.integer  "artist_id",         limit: 4
+    t.integer  "aprovado",          limit: 2,   default: 0
+    t.boolean  "bloqueado",                     default: false
   end
 
   add_index "artist_datas", ["artist_id"], name: "index_artist_datas_on_artist_id", using: :btree
 
   create_table "artists", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "email",                  limit: 255, default: "",    null: false
+    t.string   "encrypted_password",     limit: 255, default: "",    null: false
     t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.integer  "sign_in_count",          limit: 4,   default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
+    t.boolean  "admin",                              default: false
   end
 
   add_index "artists", ["email"], name: "index_artists_on_email", unique: true, using: :btree
@@ -122,14 +110,15 @@ ActiveRecord::Schema.define(version: 20160318152702) do
 
   add_index "historys", ["artist_data_id"], name: "index_historys_on_artist_data_id", using: :btree
 
-  create_table "memberes", force: :cascade do |t|
+  create_table "notices", force: :cascade do |t|
     t.integer  "artist_data_id", limit: 4
-    t.string   "nome",           limit: 255
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.text     "noticia",        limit: 65535
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.string   "titulo",         limit: 255
   end
 
-  add_index "memberes", ["artist_data_id"], name: "index_memberes_on_artist_data_id", using: :btree
+  add_index "notices", ["artist_data_id"], name: "index_notices_on_artist_data_id", using: :btree
 
   create_table "phones", force: :cascade do |t|
     t.integer  "artist_data_id", limit: 4
@@ -162,13 +151,24 @@ ActiveRecord::Schema.define(version: 20160318152702) do
 
   add_index "videos", ["artist_data_id"], name: "index_videos_on_artist_data_id", using: :btree
 
+  create_table "words", force: :cascade do |t|
+    t.integer  "artist_data_id", limit: 4
+    t.string   "titulo",         limit: 255
+    t.text     "texto",          limit: 65535
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "words", ["artist_data_id"], name: "index_words_on_artist_data_id", using: :btree
+
   add_foreign_key "artist_datas", "artists"
   add_foreign_key "commitments", "artist_datas"
   add_foreign_key "discographys", "artist_datas"
   add_foreign_key "emails", "artist_datas"
   add_foreign_key "historys", "artist_datas"
-  add_foreign_key "memberes", "artist_datas"
+  add_foreign_key "notices", "artist_datas"
   add_foreign_key "phones", "artist_datas"
   add_foreign_key "rede_sociais", "artist_datas"
   add_foreign_key "videos", "artist_datas"
+  add_foreign_key "words", "artist_datas"
 end

@@ -1,6 +1,11 @@
 class DiscographysController < ApplicationController
   before_action :set_discography, only: [:show, :edit, :update, :destroy]
 
+  
+
+
+
+  before_action :get_artist_current, only: [:show]
   # GET /discographys
   # GET /discographys.json
   def index
@@ -16,6 +21,7 @@ class DiscographysController < ApplicationController
   # GET /discographys/new
   def new
     @discography = Discography.new
+    
   end
 
   # GET /discographys/1/edit
@@ -24,20 +30,16 @@ class DiscographysController < ApplicationController
 
   # POST /discographys
   # POST /discographys.json
-  def create
-    @discography = Discography.new(discography_params)
-    @discography.artist_data_id = current_artist.id
-
-    respond_to do |format|
-      
-      if @discography.save
-        format.html { redirect_to "/show_disco/#{current_artist.id}/adm", notice: 'Discography was successfully created.' }
-        format.json { render :show, status: :created, location: @discography }
-      else
-        format.html { render :new }
-        format.json { render json: @discography.errors, status: :unprocessable_entity }
-      end
+  def create    
+    @discography = Discography.new(discography_params)    
+    @artist_data = ArtistData.find(@discography.artist_data_id)
+    @profile = "adm"
+    
+    @discography.save       
+    respond_to do |format|       
+      format.js {render :create, location: @profile }
     end
+   
   end
 
   # PATCH/PUT /discographys/1
@@ -45,10 +47,10 @@ class DiscographysController < ApplicationController
   def update
     respond_to do |format|
       if @discography.update(discography_params)
-        format.html { redirect_to "/show_disco/#{current_artist.id}/adm", notice: 'Discography was successfully updated.' }
+        format.html { redirect_to "/show_disco/#{session[:current_id]}/adm", notice: 'Discography was successfully updated.' }
         format.json { render :show, status: :ok, location: @discography }
       else
-        format.html { render :edit }
+        format.js { render :edit }
         format.json { render json: @discography.errors, status: :unprocessable_entity }
       end
     end
@@ -72,8 +74,14 @@ class DiscographysController < ApplicationController
       @discography = Discography.find(params[:id])
     end
 
+    def get_artist_current
+     @artist_data = ArtistData.find(params[:id])
+    end
+
+    
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def discography_params
-      params.require(:discography).permit(:artist_data_id, :nome, :data, :logo)
+      params.require(:discography).permit(:nome, :data, :logo, :artist_data_id)
     end
 end

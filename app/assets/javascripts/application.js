@@ -16,5 +16,16 @@
 //= require ckeditor/init
 //= require twitter/bootstrap
 //= require twitter/bootstrap/modal
+//= require jquery.remotipart
 //= require_tree .
 
+$(document).ready(function() {
+  $(document).ajaxStart(function() {    
+      $(".mascara").show();    
+  });
+  
+  $(document).ajaxStop(function() {
+    $(".mascara").hide();
+  });  
+     
+});

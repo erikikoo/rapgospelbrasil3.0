@@ -1,0 +1,32 @@
+
+
+<div class="artistas">
+    <% @artists.each do |artist| %>      
+      <div class="painel-show-adm text-aling">
+	      <% if !artist.aprovado? %>
+			<span class="text-danger artista-nao-aprovado"><h5>Aguardando aprovação</h5></span>
+	      <% end %>
+	      <% if artist.bloqueado? %>
+			<span class="text-danger artista-nao-aprovado"><h5>Bloqueado</h5></span>
+	      <% end %>
+	      
+		  <% if @adm.id == artist.id %>
+			<span class="text-info artista-nao-aprovado"><h5>Administrador</h5></span>
+		  <% end %>
+		  
+	      <%= image_tag artist.logo.url(:medium), :class => 'img-thumbnail' %>      
+	      <%= artist.nome %>
+	      <% if @profile == "adm" %>        
+	        <%= link_to "Vizualizar","/show_artista/#{artist.id}", :class => "btn btn-default btn-xs", :remote => true %>
+
+		        <% if  @adm.id != artist.id %>
+		        	<% if  artist.aprovado? and !artist.bloqueado?  %>	
+		        		<%= link_to 'Bloquear', "/bloquear_artista/#{artist.id}/adm", :remote => true ,data: { confirm: 'Você está prestes a bloquear este artista, confirma ?' } , class: 'btn btn-warning btn-xs'%>
+		        	<% end %>		        	
+		      	<% end %>	
+	      <% end %>
+    </div>
+  
+    <% end %>  
+ </div>
+

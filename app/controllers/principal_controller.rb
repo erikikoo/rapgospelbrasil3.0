@@ -1,40 +1,89 @@
 class PrincipalController < ApplicationController
-  before_action :set_artistas, only: [:artista, :agenda, :contato, :disco, :email, :telefone, :video, :rede_social]
-  before_action :authenticate_artist!, only: [:artista, :index]
+  before_action :set_artistas, only: [:agenda, :contato, :disco, :email, :telefone, :video, :rede_social, :historia]
   before_action :set_discos, only: [:edit_disco, :remove_disco]
   before_action :set_agendas, only: [:edit_agenda, :remove_agenda]
   before_action :set_emails, only: [:edit_email, :remove_email]
   before_action :set_phones, only: [:edit_telefone, :remove_telefone]
   before_action :set_videos, only: [:remove_video]
   before_action :set_rede_sociais, only: [:edit_rede_social, :remove_rede_social]
-  
+  before_action :get_artist_current, only: [:remove_rede_social,:remove_agenda,:remove_telefone, :remove_email, :remove_disco, :remove_video]
+
+  before_action :authenticate_artist!
   before_action :get_model_user
   
-  
   def index
+    @artist_data = ArtistData.find_by("id=?",current_artist.id) 
+    session[:current_id] = current_artist.id
   end
 
   def artista
+    @artist_data = ArtistData.where("id=?",current_artist.id)
+    if @artist_data.empty?
+        @artist_data = ArtistData.new
+        @artist_data.phones.build
+        @artist_data.emails.build
+        @artist_data.build_history
+        render 'artist_datas/novo_artista'
+    else
+         @artist_data = ArtistData.find(current_artist.id)
+        render :artista
+    end
+  end
+
+  def perfil
+    @artist_data = ArtistData.find_by(current_artist.id)
+
+    if @artist_data.nil?
+      @artist_data = ArtistData.new
+
+        @artist_data.phones.build
+        @artist_data.emails.build
+        @artist_data.build_history
+      render 'artist_datas/novo_artista'
+    else
+      render :perfil
+    end
+    
   end
 ###########################################################33  
-  def agenda     
+  def agenda  
+  if params[:status]
+        @status = params[:status]
+     end     
   end
-  def novo_agenda
-     
-     @commitment = Commitment.new
-          
+  def novo_agenda     
+     @commitment = Commitment.new          
   end
   def edit_agenda
 
   end
   def remove_agenda      
       @commitment.destroy
-      @artist_data = ArtistData.find(current_artist.id)
-      flash[:notice] = "Removido"
+      
+      render :agenda
+  end
+###########################################################33
+  def historia  
+    if params[:status]
+        @status = params[:status]
+     end     
+  end
+  def novo_historia
+     @commitment = Commitment.new          
+  end
+  def edit_historia
+
+  end
+  def remove_historia      
+      @commitment.destroy
+      
       render :agenda
   end
 ###########################################################33
   def telefone
+    if params[:status]
+        @status = params[:status]
+     end  
   end
   def novo_telefone
     @phone = Phone.new 
@@ -44,11 +93,14 @@ class PrincipalController < ApplicationController
 
   def remove_telefone  
       @phone.destroy
-      @artist_data = ArtistData.find(current_artist.id)
+      
       render :telefone
   end
 ###########################################################33
   def email
+    if params[:status]
+        @status = params[:status]
+     end  
   end
 
   def novo_email
@@ -58,37 +110,46 @@ class PrincipalController < ApplicationController
   end
   def remove_email      
       @email.destroy
-      @artist_data = ArtistData.find(current_artist.id)
+      
       render :email
   end
   ###########################################################33
             #DISCO#
-  def disco   
+  def disco  
+    if params[:status]
+        @status = params[:status]
+    end       
   end
   def novo_disco
-    @discography = Discography.new 
+    @discography = Discography.new
+    @discography.artist_data_id = current_artist.id
   end
   def edit_disco    
   end
   def remove_disco      
       @discography.destroy
-      @artist_data = ArtistData.find(current_artist.id)
+      
       render :disco
   end
 ###########################################################33
-  def video   
+  def video  
+  if params[:status]
+        @status = params[:status]
+     end   
   end
 
   def novo_video
     @video = Video.new 
   end  
   def remove_video
-      @video.destroy
-      @artist_data = ArtistData.find(current_artist.id)
+      @video.destroy      
       render :video
   end
 ###########################################################33
-  def rede_social   
+  def rede_social 
+    if params[:status]
+        @status = params[:status]
+     end  
   end
   
   def novo_rede_social
@@ -98,12 +159,17 @@ class PrincipalController < ApplicationController
   end
   
   def remove_rede_social      
-      @rede_social.destroy
-      @artist_data = ArtistData.find(current_artist.id)
+      @rede_social.destroy     
       render :rede_social
   end
 ###########################################################33
   private
+
+ 
+
+  def get_artist_current
+     @artist_data = ArtistData.find(current_artist.id)
+  end
 
   def get_model_user
      @profile = params[:profile] 

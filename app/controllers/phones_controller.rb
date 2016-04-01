@@ -33,7 +33,7 @@ class PhonesController < ApplicationController
         format.html { redirect_to "/show_telefone/#{current_artist.id}/adm", notice: 'Phone was successfully created.' }
         format.json { render :show, status: :created, location: @phone }
       else
-        format.html { render :new }
+        format.js { render :new }
         format.json { render json: @phone.errors, status: :unprocessable_entity }
       end
     end
@@ -47,7 +47,7 @@ class PhonesController < ApplicationController
         format.html { redirect_to "/show_telefone/#{current_artist.id}/adm", notice: 'Phone was successfully updated.' }
         format.json { render :show, status: :ok, location: @phone }
       else
-        format.html { render :edit }
+        format.js { render :edit }
         format.json { render json: @phone.errors, status: :unprocessable_entity }
       end
     end

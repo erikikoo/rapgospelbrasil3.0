@@ -1,10 +1,12 @@
-<%= simple_form_for(@discography, html: {multipart: true, remote: :true}) do |f| %>
+<%= simple_form_for(@discography, remote: true) do |f| %>
   <%= f.error_notification %>
-
+	
   <div class="form-inputs">
     <%= f.file_field :logo %>
     <%= f.input :nome %>
     <%= f.input :data %>
+    <%= f.input :artist_data_id, as: :hidden %>
+    
   </div>
 
   
@@ -13,3 +15,4 @@
     <%= f.button :submit, 'Incluir Disco' %>
   </div>
 <% end %>
+

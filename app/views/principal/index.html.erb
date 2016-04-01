@@ -1,48 +1,33 @@
-  <div class="login"></div>
+<%= render partial: 'login/carregando' %>
 
- <div class="mensagem alert alert-success"><h3><%= notice %></h3></div>
-
-
-
-
-
-<div class="dados-login">
-    <% if artist_signed_in? %>      
-      <div class="btn-group">
-        <a class="btn btn-default" href=""><i class="icon-user icon-white"></i> <%= current_artist.email %> </a>
-        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a> 
-        
-        <ul class="dropdown-menu">
-          <li>
-            <%= link_to destroy_artist_session_path, method: :delete do %>
-              <i class='glyphicon glyphicon-log-out'>Logout</i>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to principal_index_path do %>
-              <i class='glyphicon glyphicon-user'>Perfil</i>
-            <% end %>    
-          </li>          
-      </ul>
-    </div>
-  <% end %>
-</div>
+<%= render partial: 'login/dados' %>
 
 <div class="sidebar">
   <nav id="menu">
     <ul class='nav nav-pills nav-stacked'>
-    	<li><%= link_to 'Artista', "/show_artista/#{current_artist.id}", remote: :true, :class => 'btn btn-default' %></li>
+    	<li><%= link_to 'Artista', "/principal/perfil", remote: :true, :class => 'btn btn-default btn-sm' %></li>
       <li><%= link_to 'Agenda', "/show_agenda/#{current_artist.id}/adm", remote: :true, :class => 'btn btn-default btn-sm' %></li>
       <li><%= link_to 'Email',"/show_email/#{current_artist.id}/adm", remote: true ,:class => 'btn btn-default btn-sm' %></li>
       <li><%= link_to 'Telefone', "/show_telefone/#{current_artist.id}/adm", remote: true, :class => 'btn btn-default btn-sm' %></li>
-      <li><%= link_to 'Discografia', "/show_disco/#{current_artist.id}/adm", remote: :true, :class => 'btn btn-default btn-sm' %></li>          
+      <li><%= link_to 'Discográfia', "/show_disco/#{current_artist.id}/adm", remote: :true, :class => 'btn btn-default btn-sm' %></li>          
       <li><%= link_to 'Videos', "/show_video/#{current_artist.id}/adm", remote: :true, :class => 'btn btn-default btn-sm' %></li>          
       <li><%= link_to 'Midias Sociais', "/show_rede_social/#{current_artist.id}/adm", remote: :true, :class => 'btn btn-default btn-sm' %></li>          
+      <li><%= link_to 'História', "/show_historia/#{current_artist.id}/adm", remote: :true, :class => 'btn btn-default btn-sm' %></li>          
       <li><%= link_to 'Meu Perfil', artist_data_path("#{current_artist.id}"), :class => 'btn btn-default btn-sm' %></li>
     </ul>
   </nav>
 </div>
-<div class="painel-artistas-adm">
-	
+<div class="painel-artistas-art">
+	 <div class="alert">
+      <% if !@artist_data.nil? %>
+        <% if !@artist_data.aprovado?  %>
+           <div class="alert alert-info">Aguardando liberação do perfil pelo o Adminstrado</div>
+        <% end %>
+        <% if @artist_data.bloqueado?  %>
+           <div class="alert alert-danger">Seu perfil foi bloqueado pelo adminstrado, Por favor entre em contato com erikikoo@hotmail.com</div>
+        <% end %> 
+      <% end %> 
+    </div>
+   
 </div>
 

@@ -1,3 +1,8 @@
+<% if !@status.nil? %>
+  <p>
+    <div class="alert alert-success mensagem" id="mensagem"></div>
+  </p>  
+<% end %>
 <p>
 	<% if @profile == "adm" %>
 		<%= link_to 'Adicionar email', '/novo_email', remote: true, :class => 'btn btn-default'  %>
@@ -6,10 +11,10 @@
 <% if @artist_data.emails.empty? %>
 	<h5>Não possui agenda cadastrado </h5>
 <% else %>
-	<div class="painel-show-adm">
+	
 		
 		<% @artist_data.emails.each do |email| %>			
-			<p>
+			<div class="show-info">
 				<strong>Email: </strong><%= email.email %>
 				<br />
 				<% if @profile == "adm" %>
@@ -17,7 +22,8 @@
 
 			       	<%= link_to 'Destroy', "/remove_email/#{email.id}/adm", method: :delete, :remote => true ,data: { confirm: 'Are you sure?' } , class: 'btn btn-danger'%>
 				<% end %>
-			</p>
+			</div>	
 		<% end %>		
-	</div>	
+	
 <% end %>
+

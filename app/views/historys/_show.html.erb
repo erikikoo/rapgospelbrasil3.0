@@ -1,0 +1,8 @@
+
+
+<p>
+  <strong>História:</strong>
+  <%= raw(@artist_data.history.historia)%> 
+</p>
+
+<%= link_to 'Editar', edit_history_path(@artist_data.history.id), class: 'btn btn-default', remote: true %>

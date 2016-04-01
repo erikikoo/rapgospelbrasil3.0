@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
+<% if !@status.nil? %>
+  <p>
+    <div class="alert alert-success mensagem" id="mensagem"></div>
+  </p>  
+<% end %>
 
 <p>
   <% if @profile == "adm" %>

@@ -1,0 +1,12 @@
+<div class="sidebar">
+  <nav id="menu">
+    <ul class='nav nav-pills nav-stacked'>
+      <li class="btn-artistas">
+          <%= render partial: 'btn_artista' %>  
+      </li>
+      <li> <%= link_to "Noticias", '/noticias/adm', class: 'btn btn-default bdn-lg noticia', remote: true  %></li>
+      <li> <%= link_to "Palavras", '/palavras/adm', class: 'btn btn-default bdn-lg palavra', remote: true %></li>
+      
+    </ul>
+  </nav>
+</div>

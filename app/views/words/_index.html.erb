@@ -1,0 +1,34 @@
+<% if !@status.nil? %>
+  <p>
+    <div class="alert alert-success mensagem" id="mensagem"></div>
+  </p>  
+<% end %>
+<p>
+  <% if @profile == "adm" %>
+    <%= link_to 'Adicionar Palavra', '/nova_palavra/adm', remote: true ,:class => 'btn btn-default'  %>
+  <% end %>
+</p>
+<% if @words.nil? || @words.empty? %>
+     <h5>Não existem palavra cadastrada</h5>
+<% else %>
+  <% @words.each do |word| %>
+      <div class="container-noticias text-justify">
+        <p>
+          <h4><%= word.titulo %></h4>        
+            <td ><%= sub_texto(word.texto) %></td>            
+            <br/>
+            <p>
+              <strong>Criando em : </strong><%= word.created_at.strftime('%d/%m/%Y') %>
+            </p>
+            <% if @profile == "adm" %>
+              <td><%= link_to 'Show', "/show_palavra/#{word.id}/adm" ,class: 'btn btn-default', remote: true %></td>
+              <td><%= link_to 'Edit', "/edit_palavra/#{word.id}/adm", class: 'btn btn-default', remote: true %></td>
+              <td><%= link_to 'Destroy', "/remove_palavra/#{word.id}/adm", class: 'btn btn-danger',remote: true ,method: :delete, data: { confirm: 'Deseja realmente excluir esta palavra?' } %></td>
+            <% end %>
+         </p>
+      </div>
+     <% end %>
+<h2><%= @status %></h2>
+
+
+<% end %>

@@ -1,0 +1,27 @@
+<%= render partial: 'login/carregando' %>
+
+<%= render 'login/dados' %>
+
+<%= render 'menu' %>
+
+<div class="painel-artistas-adm">
+	      
+	       <div class="alert">
+            	<% if @users.count > 0 %>
+		            <div class="alert alert-success">Você possui <%= content_tag :span, @users.count > 0 ? @users.count : "" , class: 'badge' %>  <%= @users.count == 1 ? 'artista cadastrado' : 'artistas cadastrados' %>
+		            </div>
+	            <% end %> 
+            	<% if @aguandado_aprovacao.count > 0 %>
+		            <div class="alert alert-info">Você possui <%= content_tag :span, @aguandado_aprovacao.count > 0 ? @aguandado_aprovacao.count : "" , class: 'badge' %>  <%= @aguandado_aprovacao.count == 1 ? 'artista' : 'artistas' %> <%= link_to "aguardando aprovação!", "/artistas/adm", class: 'alert-link', remote: true %>
+		            </div>
+	            <% end %> 
+            	<% if @bloqueado.count > 0 %>
+		            <div class="alert alert-danger">Você possui <%= content_tag :span, @bloqueado.count > 0 ? @bloqueado.count : "" , class: 'badge' %>  <%= @bloqueado.count == 1 ? 'artista bloqueado' : 'artistas bloqueados' %>
+		            </div>
+	            <% end %> 
+            	
+         	</div>
+         	       
+
+</div>
+

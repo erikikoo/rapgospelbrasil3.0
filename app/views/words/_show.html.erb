@@ -1,0 +1,16 @@
+
+<p>
+  <strong><%= @word.titulo %></strong>  
+</p>
+
+<p>
+   <%= raw(@word.texto) %>
+
+   <span class="text-right">
+   	<strong>Criando em : </strong><%= @word.created_at.strftime('%d/%m/%Y') %>
+   </span>
+</p>
+
+<%= link_to 'Edit', "/edit_palavra/#{@word.id}/adm", class: 'btn btn-default', remote: true %> |
+<%= link_to 'Back', '/palavras/adm', class: 'btn btn-default', remote: true %>
+

@@ -2,8 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :artist_data %>
-    <%= f.input :historia %>
+     <%= f.input :historia, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'mini', :cols => 100} } %>
   </div>
 
   <div class="form-actions">

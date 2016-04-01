@@ -28,7 +28,7 @@ class RedeSociaisController < ApplicationController
     @rede_social.artist_data_id = current_artist.id
     respond_to do |format|
       if @rede_social.save
-        format.html { redirect_to "/show_rede_social/#{current_artist.id}/adm", notice: 'Rede social was successfully created.' }
+        format.html { redirect_to "/show_rede_social/#{current_artist.id}/adm/success", notice: 'Rede social was successfully created.' }
         format.json { render :show, status: :created, location: @rede_social }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class RedeSociaisController < ApplicationController
   def update
     respond_to do |format|
       if @rede_social.update(rede_social_params)
-        format.html { redirect_to "/show_rede_social/#{current_artist.id}/adm", notice: 'Rede social was successfully updated.' }
+        format.html { redirect_to "/show_rede_social/#{current_artist.id}/adm/atualizar", notice: 'Rede social was successfully updated.' }
         format.json { render :show, status: :ok, location: @rede_social }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class RedeSociaisController < ApplicationController
   def destroy
     @rede_social.destroy
     respond_to do |format|
-      format.html { redirect_to "/show_rede_social/#{current_artist.id}/adm", notice: 'Rede social was successfully destroyed.' }
+      format.html { redirect_to "/show_rede_social/#{current_artist.id}/adm/remover", notice: 'Rede social was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

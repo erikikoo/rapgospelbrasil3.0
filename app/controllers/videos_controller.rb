@@ -28,10 +28,10 @@ class VideosController < ApplicationController
     @video.artist_data_id = current_artist.id
     respond_to do |format|
       if @video.save
-        format.html { redirect_to "/show_video/#{current_artist.id}/adm", notice: 'Video was successfully created.' }
+        format.html { redirect_to "/show_video/#{current_artist.id}/adm/success", notice: 'Video was successfully created.' }
         format.json { render :show, status: :created, location: @video }
       else
-        format.html { render :new }
+        format.js { render :new }
         format.json { render json: @video.errors, status: :unprocessable_entity }
       end
     end
@@ -42,10 +42,10 @@ class VideosController < ApplicationController
   def update
     respond_to do |format|
       if @video.update(video_params)
-        format.html { redirect_to "/show_video/#{current_artist.id}/adm", notice: 'Video was successfully updated.' }
+        format.html { redirect_to "/show_video/#{current_artist.id}/adm/atualizar", notice: 'Video was successfully updated.' }
         format.json { render :show, status: :ok, location: @video }
       else
-        format.html { render :edit }
+        format.js { render :edit }
         format.json { render json: @video.errors, status: :unprocessable_entity }
       end
     end
@@ -56,7 +56,7 @@ class VideosController < ApplicationController
   def destroy
     @video.destroy
     respond_to do |format|
-      format.html { redirect_to "/show_video/#{current_artist.id}/adm", notice: 'Video was successfully destroyed.' }
+      format.html { redirect_to "/show_video/#{current_artist.id}/adm/remover", notice: 'Video was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

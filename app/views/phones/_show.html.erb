@@ -5,21 +5,16 @@
 </p>
 <% if @artist_data.phones.empty? %>
 	<h5>Não possui agenda cadastrado </h5>
-<% else %>
-	<div class="painel-show-adm">
-		<% @artist_data.phones.each do |tel| %>			
-			<p>
+<% else %>	
+	<% @artist_data.phones.each do |tel| %>			
+		<div class="show-info">
 			<strong>Numero: </strong><%= tel.telefone %> <br/>	
 				
 			<% if @profile == "adm" %>
 				<%= link_to "edit","/edit_telefone/#{tel.id}/adm", :class => "btn btn-default", :remote => true %>
-
 	        	<%= link_to 'Destroy', "/remove_telefone/#{tel.id}/adm", method: :delete, :remote => true ,data: { confirm: 'Are you sure?' } , class: 'btn btn-danger'%>
 			<% end %>
-			</p>
-			
-			
-		<% end %>
-	</div>	
+		</div>			
+	<% end %>		
 <% end %>
 
