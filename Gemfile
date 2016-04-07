@@ -55,11 +55,15 @@ group :development, :test do
   gem 'byebug'
   gem 'mysql2', '>= 0.3.13', '< 0.5'
   gem 'faker'
+
 end
 
 group :production do
 	gem 'rails_12factor'
 	gem 'pg'
+	gem 'sass-rails',   '~> 3.1.3'
+	gem 'coffee-rails', '~> 3.2.1'
+	gem 'less-rails'
 end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
