@@ -5,6 +5,7 @@
  *= require_self
  *= require_tree .
 */
+
 #mensagem {
 	position: fixed;
 	width: 100%;
