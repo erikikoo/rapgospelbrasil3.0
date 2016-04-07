@@ -4,7 +4,7 @@
 <% end %>
 
   <div class="artistas">
-    <% if !@artist_data.nil? %>
+    <% if !@artist_data.nil? || !@artist_data.empty? %>
       <% @artist_data.each do |artist_data| %>
         <div class="item-artista img-thumbnail">
            <%= link_to(image_tag(artist_data.logo.url(:thumb)), "/show_artista/#{artist_data.id}" ,remote: true)  %>
