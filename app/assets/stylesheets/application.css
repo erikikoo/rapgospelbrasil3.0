@@ -19,14 +19,14 @@
 	position: relative;
 	margin-top: 20px;
 }
-
+/*
 .logo-show {
-	width: 400px;
+	width: 450px;
 	height: auto;
 	margin-right: auto;
 	margin-left: auto;
 }
-
+*/
 .painel-artistas {
 	position: relative;
 	float: right;
@@ -144,6 +144,8 @@
 	top: -349px;
 }
 
+
+
 .painel-artistas-adm {
 	top: -144px;
 }
@@ -188,8 +190,9 @@
 
 .container-noticias {
 	margin: 10px;
-	padding: 10px 5px;
+	padding: 0px 15px 50px;
 	border: 1px solid #ccf;
+	height: auto;
 }
 
 .container-contato, .container-album, .container-videos, .container-agenda, .container-historia, .container-redesocial {
@@ -204,7 +207,7 @@
 .show-info {
 	position: relative;
 	display: inline-block;
-	width: 200px;
+	min-width: 200px;
 	min-height: 100px;
 	margin: 10px;
 	padding: 10px 5px;
@@ -250,4 +253,21 @@
 	position: relative;
 	float: left;
 	margin-top: 13px;
+	list-style: none;
+}
+
+.container {
+	width: 960px;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;	
+}
+
+.painel-video {
+	width: 560px;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+	padding-bottom:20px; 
+	border: 1px solid #eee;
 }

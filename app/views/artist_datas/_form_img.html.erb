@@ -1,0 +1,12 @@
+
+
+<%= simple_form_for(@artist_data, html: {remote: true, multipart: true}) do |f| %>
+  
+  <%= f.error_notification %>
+
+  <%= f.input :logo, as: :file %>  
+
+  <div class="actions">
+    <%= f.button :submit, 'Atualizar' %>
+  </div>
+<% end %>

@@ -11,5 +11,9 @@ module ApplicationHelper
 	def get_artist_current
     	 @artist_data = ArtistData.find(current_artist.id)
   	end
+
+  	def get_administrador
+    	@adm = Artist.find_by('admin = ?', 1)
+  	end
 	
 end

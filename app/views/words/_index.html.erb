@@ -3,32 +3,42 @@
     <div class="alert alert-success mensagem" id="mensagem"></div>
   </p>  
 <% end %>
-<p>
+
+
+
   <% if @profile == "adm" %>
-    <%= link_to 'Adicionar Palavra', '/nova_palavra/adm', remote: true ,:class => 'btn btn-default'  %>
+    <p>
+      <%= link_to 'Adicionar Palavra', '/nova_palavra/adm', remote: true ,:class => 'btn btn-default'  %>  
+    </p>
+    
   <% end %>
-</p>
-<% if @words.nil? || @words.empty? %>
-     <h5>Não existem palavra cadastrada</h5>
+
+<% if @words.empty? %>
+    <h5>Não existem palavras cadastradas</h5>  
 <% else %>
   <% @words.each do |word| %>
       <div class="container-noticias text-justify">
-        <p>
-          <h4><%= word.titulo %></h4>        
-            <td ><%= sub_texto(word.texto) %></td>            
-            <br/>
-            <p>
-              <strong>Criando em : </strong><%= word.created_at.strftime('%d/%m/%Y') %>
-            </p>
+        <div class="noticia">
+          <p>
             <% if @profile == "adm" %>
-              <td><%= link_to 'Show', "/show_palavra/#{word.id}/adm" ,class: 'btn btn-default', remote: true %></td>
-              <td><%= link_to 'Edit', "/edit_palavra/#{word.id}/adm", class: 'btn btn-default', remote: true %></td>
-              <td><%= link_to 'Destroy', "/remove_palavra/#{word.id}/adm", class: 'btn btn-danger',remote: true ,method: :delete, data: { confirm: 'Deseja realmente excluir esta palavra?' } %></td>
+              <h3><%= word.titulo %></h3>
+            <% else %>         
+              <h3><%= link_to "#{word.titulo}", "/show_palavra/#{word.id}", remote: true %></h3>
             <% end %>
-         </p>
-      </div>
-     <% end %>
-<h2><%= @status %></h2>
-
-
+          </p>
+          <td><%= sub_texto(word.texto) %></td>            
+          <br/>
+          <p>
+            <strong>Criando em : </strong><%= word.created_at.strftime('%d/%m/%Y') %>
+          </p>
+          <% if @profile == "adm" %>
+            <td><%= link_to 'Mostrar', "/show_palavra/#{word.id}/adm" ,class: 'btn btn-default', remote: true %></td>
+            <td><%= link_to 'Editar', "/edit_palavra/#{word.id}/adm", class: 'btn btn-default', remote: true %></td>
+            <td><%= link_to 'Remover', "/remove_palavra/#{word.id}/adm", class: 'btn btn-danger',remote: true ,method: :delete, data: { confirm: 'Deseja realmente excluir esta palavra?' } %></td>
+          <% end %>
+        </div>
+        
+        </div>
+  <% end %>
 <% end %>
+

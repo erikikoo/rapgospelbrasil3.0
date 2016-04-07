@@ -1,5 +1,6 @@
 class EmailsController < ApplicationController
-  before_action :set_email, only: [:show, :edit, :update, :destroy]
+  before_action :set_email, only: [:show, :edit,:update, :destroy] 
+  before_action :get_artist_current
 
   # GET /emails
   # GET /emails.json
@@ -25,10 +26,10 @@ class EmailsController < ApplicationController
   # POST /emails.json
   def create
     @email = Email.new(email_params)
-    @email.artist_data_id = current_artist.id
+    @email.artist_data_id = @artist_data.id
     respond_to do |format|
       if @email.save
-        format.html { redirect_to "/show_email/#{current_artist.id}/adm", notice: 'Email was successfully created.' }
+        format.html { redirect_to "/show_email/#{@artist_data.id}/adm", notice: 'Email was successfully created.' }
         format.json { render :show, status: :created, location: @email }
       else
         format.js { render :new }
@@ -42,7 +43,7 @@ class EmailsController < ApplicationController
   def update
     respond_to do |format|
       if @email.update(email_params)
-        format.html { redirect_to "/show_email/#{current_artist.id}/adm", notice: 'Email was successfully updated.' }
+        format.html { redirect_to "/show_email/#{@artist_data.id}/adm" }
         format.json { render :show, status: :ok, location: @email }
       else
         format.js { render :edit }
@@ -55,13 +56,17 @@ class EmailsController < ApplicationController
   # DELETE /emails/1.json
   def destroy
     @email.destroy
+
     respond_to do |format|
-      format.html { redirect_to "/show_email/#{current_artist.id}/adm", notice: 'Email was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to "/show_agenda/#{current_artist.id}/adm"}
     end
   end
 
   private
+    def get_artist_current
+      @artist_data = ArtistData.find_by('artist_id = ?', current_artist.id)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_email
       @email = Email.find(params[:id])

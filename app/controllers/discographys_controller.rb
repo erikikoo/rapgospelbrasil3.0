@@ -5,7 +5,7 @@ class DiscographysController < ApplicationController
 
 
 
-  before_action :get_artist_current, only: [:show]
+  before_action :get_artist_current
   # GET /discographys
   # GET /discographys.json
   def index
@@ -31,7 +31,8 @@ class DiscographysController < ApplicationController
   # POST /discographys
   # POST /discographys.json
   def create    
-    @discography = Discography.new(discography_params)    
+    @discography = Discography.new(discography_params) 
+    @discography.artist_data_id = @artist_data.id   
     @artist_data = ArtistData.find(@discography.artist_data_id)
     @profile = "adm"
     
@@ -47,7 +48,7 @@ class DiscographysController < ApplicationController
   def update
     respond_to do |format|
       if @discography.update(discography_params)
-        format.html { redirect_to "/show_disco/#{session[:current_id]}/adm", notice: 'Discography was successfully updated.' }
+        format.html { redirect_to "/show_disco/#{@artist_data.id}/adm"}
         format.json { render :show, status: :ok, location: @discography }
       else
         format.js { render :edit }
@@ -61,7 +62,7 @@ class DiscographysController < ApplicationController
   def destroy
     @discography.destroy
     respond_to do |format|
-      format.html { redirect_to "/show_disco/#{current_artist.id}/adm", notice: 'Discography was successfully destroyed.' }
+      format.html { redirect_to "/show_disco/#{@artist_data.id}/adm", notice: 'Discography was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -75,7 +76,7 @@ class DiscographysController < ApplicationController
     end
 
     def get_artist_current
-     @artist_data = ArtistData.find(params[:id])
+      @artist_data = ArtistData.find_by('artist_id = ?', current_artist.id)
     end
 
     

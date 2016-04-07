@@ -4,7 +4,8 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Contatos</div>
 				<div class="panel-body">		
-					<%= image_tag @artist_data.logo.url(:medium), :class => 'img-thumbnail' %>    
+					<%= image_tag @artist_data.logo.url(:medium), :class => 'img-thumbnail' %> <br/>
+					<%= link_to 'Mudar Imagem', "/edit_artista/#{@artist_data.id}", remote: true, class: 'btn btn-default' %>   
 				</div>
 			</div>		
 			<div class="panel panel-default">

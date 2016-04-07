@@ -11,7 +11,7 @@ class ArtistDatasController < ApplicationController
   # GET /artist_datas/1
   # GET /artist_datas/1.json
   def show
-    @agenda = Commitment.where("artist_data_id = ?", params[:id]).limit(2)
+    @agenda = Commitment.where("artist_data_id = ?", params[:id]).limit(2)             
   end
 
   # GET /artist_datas/new
@@ -30,17 +30,21 @@ class ArtistDatasController < ApplicationController
   # POST /artist_datas
   # POST /artist_datas.json
   def create
-    @artist_data = ArtistData.new(artist_data_params)
-    @artist_data.artist_id = session[:current_id]
+    @artist_data = ArtistData.find_by('artist_id = ?', current_artist.id)  
+    
+    if @artist_data.nil?
+      @artist_data = ArtistData.new(artist_data_params)
+      @artist_data.artist_id = current_artist.id
 
-    respond_to do |format|
-      if @artist_data.save
-        format.html { redirect_to 'principal/perfil'}
-        format.json { render :show, status: :created, location: @artist_data }
-      else
-        format.js { render :new }
-        format.json { render json: @artist_data.errors, status: :unprocessable_entity }
+      @artist_data.save       
+      respond_to do |format|       
+        format.js {render :create }
       end
+    else
+      respond_to do |format|      
+      @current_id = params[:id]
+      @artist_data.update(artist_data_params)      
+      format.js {render :create }
     end
   end
 
@@ -49,14 +53,10 @@ class ArtistDatasController < ApplicationController
   def update
     respond_to do |format|
       #if @artist_data.id == current_artist.id
-      @current_id = params[:id]
-        if @artist_data.update(artist_data_params)
-          format.html { render 'principal/perfil' }
-          format.json { render :show, status: :ok, location: @artist_data }
-        else
-          format.html { render :edit }
-          format.json { render json: @artist_data.errors, status: :unprocessable_entity }
-        end
+      #@current_id = params[:id]
+      @artist_data.update(artist_data_params)      
+      #format.js {render :create }
+    end
       #end
     end
   end
@@ -67,6 +67,7 @@ class ArtistDatasController < ApplicationController
     
       @artist_data.destroy
       respond_to do |format|
+        @artist_data.avatar = nil
         format.html { redirect_to "/artistas/adm", notice: 'Artist data was successfully destroyed.' }
         format.json { head :no_content }
       end

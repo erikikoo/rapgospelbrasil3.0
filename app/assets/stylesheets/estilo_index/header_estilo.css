@@ -31,7 +31,7 @@ a:active, a:hover, a:visited, a:link {
 .menu {		
 	list-style: none;
 	font-size: 20px;	
-	top: 385px;
+	top: -55px;
 	z-index: 1;	
 	width: 990px;
 	

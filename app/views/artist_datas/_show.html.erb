@@ -1,0 +1,51 @@
+<% if artist_signed_in? and (@artist_data.nome.nil? || @artist_data.phones.empty? || @artist_data.emails.empty? || @artist_data.history.nil?)  %>
+	<div class="alert alert-danger">Você precisa <%= link_to "concluir seu cadastro!", principal_index_path, class: 'alert-link' %></div>	
+<% else %>
+
+	<div class="painel-show">
+		<div class="painel-image">	
+			<%= image_tag(@artist_data.logo.url(:medium), :class => 'posicionamento logo-show img-thumbnail') %>	
+		</div>
+
+		<div class="painel-agenda">	
+			
+			<h3>Agenda</h3>
+			<% if @agenda.empty? %>
+				Não possui agenda cadastrada
+			<% else %>
+				<% @agenda.each do |agenda| %>     
+			      <p>
+				      <strong>Data: </strong>     <%= agenda.data.strftime('%v') %> <br/>
+				      <strong>Hora: </strong>     <%= agenda.hora.strftime("%H:%M") %> <br/>    
+				      <strong>Local: </strong>    <%= agenda.local %> <br/>
+				      <strong>Endereço: </strong> <%= agenda.endereco %> 
+				      <strong>Num. </strong>      <%= agenda.numero %> <br/>
+				      <strong>telefone: </strong> <%= agenda.telefone %> <br/>
+				      <strong>Site: </strong>     <%= agenda.site %> <br />       
+				  </p>
+				<% end %>
+				<%= link_to 'Mais', "/agenda/#{@artist_data.id}/user", remote: true %>
+			<% end %>
+
+		</div>
+	</div>
+
+		<nav class="sub-menu posicionamento"> 
+			<ul>
+				<li><%= link_to 'História', "/historia/#{@artist_data.id}", remote: true, :class => 'btn-lg btn btn-default'  %></li>
+				<li><%= link_to 'Albuns', "/album/#{@artist_data.id}/user", remote: true, :class => 'btn-lg btn btn-default' %></li>
+				<li><%= link_to 'Videos', "/videos/#{@artist_data.id}/user", remote: true, :class => 'btn-lg btn btn-default' %></li>
+				<li><%= link_to 'Contatos', "/contato/#{@artist_data.id}", remote: true, :class => 'btn-lg btn btn-default' %></li>
+				<li><%= link_to 'Agenda', "/agenda/#{@artist_data.id}/user", remote: true, :class => 'btn-lg btn btn-default' %></li>			
+			</ul>
+		</nav>
+
+	<div class="posicionamento painel-artistas">		
+		<% if @artist_data.history.nil? %>
+			Não possui História cadastrada
+		<% else %>
+			<%= render "show_historia" %>
+		<% end %>
+	</div>
+<% end %>
+

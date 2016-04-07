@@ -2,14 +2,14 @@ class AdminController < ApplicationController
   before_action :get_model_user  
   before_action :get_admin
   before_action :get_dados_artista, only: [:show_artista, :remove_artista, :aprova_artista,:bloquear_artista, :desbloquear_artista]
-  before_action :get_aguardando_aprovado, only: [:index, :artistas,:aprova_artista,:bloquear_artista,:desbloquear_artista]
-  before_action :get_bloqueado, only: [:index, :artistas,:aprova_artista,:bloquear_artista,:desbloquear_artista]
+  before_action :get_aguardando_aprovado, only: [:index, :artistas,:aprova_artista,:bloquear_artista,:desbloquear_artista, :artistas_filter]
+  before_action :get_bloqueado, only: [:index, :artistas,:aprova_artista,:bloquear_artista,:desbloquear_artista, :artistas_filter]
   before_action :get_notice_for_id, only: [:edit_noticia, :remove_noticia, :show_noticia]
   before_action :get_word_for_id, only: [:edit_palavra, :remove_palavra, :show_palavra]
-  before_action :get_all_notices, only: [:index,:remove_noticia, :success_noticia] 
+  before_action :get_all_notices, only: [:index,:remove_noticia, :success_noticia,:artistas_filter] 
   before_action :get_all_words, only: [:index, :remove_palavra, :palavras]
   before_action :get_all_artist, only: [:index,:artistas,:remove_artista,:aprova_artista, :bloquear_artista,:desbloquear_artista]
-  before_action :get_bloqueado, only: [:index]
+  before_action :get_bloqueado, only: [:index, :artistas_filter]
 
 
   before_action :authenticate_artist!
@@ -17,7 +17,8 @@ class AdminController < ApplicationController
 
 
   def index  	
-    @users = Artist.where('admin = ?', 0)
+    @users = Artist.where('admin = ?', 0)    
+    @aguardando_cadastro = ArtistData.where('nome IS ?', nil)    
     authorize @users
   end
 
@@ -25,8 +26,34 @@ class AdminController < ApplicationController
   	
   end
 
-  def show_artista
+  def show_artista    
+  end
+
+  def artistas_filter
     
+    @query = params[:option]    
+    if @query.nil?
+      @query = params[:filtro][:option]          
+    end
+    if @query == 't'
+          @artists = ArtistData.all
+        elsif @query == 'a'
+          @option = "aprovado"
+          @artists = ArtistData.where('aprovado = ? AND bloqueado = ?',1,0)
+        elsif @query == 'b'
+          @artists = ArtistData.where('bloqueado = ?',1)        
+          @option = "bloqueado"
+        elsif @query == 'ap'
+          @artists = ArtistData.where('aprovado = ? AND nome IS NOT ?', 0, nil)
+          @option = "aguardando aprovação"
+        elsif @query == 'i'
+          @artists = ArtistData.where('nome IS ?', nil)         
+          @option = "com cadastro incompleto" 
+      end
+    @profile = 'adm'
+    respond_to do |format|    
+      format.js
+    end
   end
 
   def remove_artista
@@ -67,7 +94,10 @@ class AdminController < ApplicationController
     
   end 
 
-  def show_noticia    
+  def show_noticia 
+    if params[:profile]
+        @status = params[:profile]
+     end
   end 
 
   def remove_noticia
@@ -95,6 +125,9 @@ class AdminController < ApplicationController
   end 
 
   def show_palavra
+    if params[:profile]
+        @status = params[:profile]
+     end
   end 
 
   def remove_palavra
@@ -109,7 +142,7 @@ class AdminController < ApplicationController
   end
 
   def get_all_artist
-    @artists = ArtistData.all 
+    @artists = ArtistData.all
   end
 
   def get_all_words
@@ -133,7 +166,7 @@ class AdminController < ApplicationController
   end
 
   def get_aguardando_aprovado
-    @aguandado_aprovacao = ArtistData.where('aprovado = ?', 0)
+    @aguandado_aprovacao = ArtistData.where('aprovado = ? AND nome IS NOT ?', 0, nil)
   end
   
   def get_bloqueado
@@ -143,5 +176,7 @@ class AdminController < ApplicationController
   def get_admin
     @adm = Artist.find_by('admin = ?', 1)
   end
+
+
 
 end

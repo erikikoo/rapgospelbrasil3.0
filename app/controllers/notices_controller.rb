@@ -9,7 +9,10 @@ class NoticesController < ApplicationController
 
   # GET /notices/1
   # GET /notices/1.json
-  def show
+  def show    
+    respond_to do |format|
+      format.js
+    end
   end
 
   # GET /notices/new

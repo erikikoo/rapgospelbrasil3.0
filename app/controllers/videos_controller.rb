@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
-
+  before_action :get_artist_current
   # GET /videos
   # GET /videos.json
   def index
@@ -25,10 +25,10 @@ class VideosController < ApplicationController
   # POST /videos.json
   def create
     @video = Video.new(video_params)
-    @video.artist_data_id = current_artist.id
+    @video.artist_data_id = @artist_data.id
     respond_to do |format|
       if @video.save
-        format.html { redirect_to "/show_video/#{current_artist.id}/adm/success", notice: 'Video was successfully created.' }
+        format.html { redirect_to "/show_video/#{@artist_data.id}/adm/success", notice: 'Video was successfully created.' }
         format.json { render :show, status: :created, location: @video }
       else
         format.js { render :new }
@@ -42,7 +42,7 @@ class VideosController < ApplicationController
   def update
     respond_to do |format|
       if @video.update(video_params)
-        format.html { redirect_to "/show_video/#{current_artist.id}/adm/atualizar", notice: 'Video was successfully updated.' }
+        format.html { redirect_to "/show_video/#{@artist_data.id}/adm/atualizar", notice: 'Video was successfully updated.' }
         format.json { render :show, status: :ok, location: @video }
       else
         format.js { render :edit }
@@ -56,12 +56,16 @@ class VideosController < ApplicationController
   def destroy
     @video.destroy
     respond_to do |format|
-      format.html { redirect_to "/show_video/#{current_artist.id}/adm/remover", notice: 'Video was successfully destroyed.' }
+      format.html { redirect_to "/show_video/#{@artist_data.id}/adm/remover", notice: 'Video was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
+     def get_artist_current
+      @artist_data = ArtistData.find_by('artist_id = ?', current_artist.id)
+      end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_video
       @video = Video.find(params[:id])

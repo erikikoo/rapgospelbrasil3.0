@@ -6,17 +6,29 @@ Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
 
-
+  #pagina principal
+ 
+  get 'welcome/index'
+  get '/principal'                    => 'principal#index'
+  get '/noticias'                     => 'welcome#noticia'
+  get '/palavras'                     => 'welcome#palavra'
+  get '/artistas'                     => 'welcome#artista'
+  get '/show_noticia/:id'             => 'notices#show'
+  get '/show_palavra/:id'             => 'words#show'  
+  get '/show_artista/:id'             => 'artist_datas#show'
 
   #adm
+  get '/show_artista/:id/:profile'         => 'admin#show_artista'  
   get 'admin/index'
   get '/artistas/:profile'                 => 'admin#artistas'
-  get '/show_artista/:id'                  => 'admin#show_artista'
+  get '/artistas_filter'                   => 'admin#artistas_filter'
+  get '/artistas_filter/:option'           => 'admin#artistas_filter'
+  #get '/show_artista/:id'                  => 'admin#show_artista'
   
   get '/palavras/:profile'                 => 'admin#palavras'
   get '/nova_palavra/:profile'             => 'admin#nova_palavra'
   get '/edit_palavra/:id/:profile'         => 'admin#edit_palavra'
-  get '/show_palavra/:id/:profile'         => 'admin#show_palavra'  
+  get '/show_palavra/:id/:profile'         => 'admin#show_palavra'    
   get '/palavras/:profile/:status'         => 'admin#palavras'
 
   get '/noticias/:profile'                 => 'admin#noticias'
@@ -34,15 +46,12 @@ Rails.application.routes.draw do
   delete 'remove_palavra/:id/:profile'     => 'admin#remove_palavra'
 
 
-  get 'principal/index'
+  
 
-  get '/principal'  => 'principal#index'
 
-  get 'welcome/index'
 
 
   #novo 
-
   get '/novo_disco/:id'        => 'principal#novo_disco'
   get '/novo_agenda/'          => 'principal#novo_agenda'
   get '/novo_email/'           => 'principal#novo_email'

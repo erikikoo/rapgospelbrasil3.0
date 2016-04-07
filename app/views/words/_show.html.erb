@@ -1,7 +1,7 @@
 
-<p>
-  <strong><%= @word.titulo %></strong>  
-</p>
+
+  <h3><%= @word.titulo %></h3>
+
 
 <p>
    <%= raw(@word.texto) %>
@@ -10,7 +10,7 @@
    	<strong>Criando em : </strong><%= @word.created_at.strftime('%d/%m/%Y') %>
    </span>
 </p>
-
-<%= link_to 'Edit', "/edit_palavra/#{@word.id}/adm", class: 'btn btn-default', remote: true %> |
-<%= link_to 'Back', '/palavras/adm', class: 'btn btn-default', remote: true %>
-
+<% if @status == 'adm'  %>
+	<%= link_to 'Edit', "/edit_palavra/#{@word.id}/adm", class: 'btn btn-default', remote: true %> |
+	<%= link_to 'Back', '/palavras/adm', class: 'btn btn-default', remote: true %>
+<% end %>

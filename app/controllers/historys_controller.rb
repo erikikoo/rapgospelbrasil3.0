@@ -28,7 +28,7 @@ class HistorysController < ApplicationController
 
     respond_to do |format|
       if @history.save
-        format.html { redirect_to @history, notice: 'History was successfully created.' }
+        format.html { render '/principal/perfil'}
         format.json { render :show, status: :created, location: @history }
       else
         format.html { render :new }
@@ -42,7 +42,8 @@ class HistorysController < ApplicationController
   def update
     respond_to do |format|
       if @history.update(history_params)
-        format.html { redirect_to @history, notice: 'History was successfully updated.' }
+        @artist_data = ArtistData.find_by('artist_id = ?', current_artist.id)
+        format.js
         format.json { render :show, status: :ok, location: @history }
       else
         format.js { render :edit }

@@ -12,16 +12,21 @@
 		            </div>
 	            <% end %> 
             	<% if @aguandado_aprovacao.count > 0 %>
-		            <div class="alert alert-info">Você possui <%= content_tag :span, @aguandado_aprovacao.count > 0 ? @aguandado_aprovacao.count : "" , class: 'badge' %>  <%= @aguandado_aprovacao.count == 1 ? 'artista' : 'artistas' %> <%= link_to "aguardando aprovação!", "/artistas/adm", class: 'alert-link', remote: true %>
+		            <div class="alert alert-info">Você possui <%= content_tag :span, @aguandado_aprovacao.count > 0 ? @aguandado_aprovacao.count : "" , class: 'badge' %>  <%= @aguandado_aprovacao.count == 1 ? 'artista' : 'artistas' %> <%= link_to "aguardando aprovação!", "/artistas_filter/ap", class: 'alert-link', remote: true %>
 		            </div>
 	            <% end %> 
             	<% if @bloqueado.count > 0 %>
-		            <div class="alert alert-danger">Você possui <%= content_tag :span, @bloqueado.count > 0 ? @bloqueado.count : "" , class: 'badge' %>  <%= @bloqueado.count == 1 ? 'artista bloqueado' : 'artistas bloqueados' %>
+		            <div class="alert alert-danger">Você possui <%= content_tag :span, @bloqueado.count > 0 ? @bloqueado.count : "" , class: 'badge' %>  <%= @bloqueado.count == 1 ? 'artista' : 'artistas' %> <%=link_to "bloqueado", "/artistas_filter/b", class: 'alert-link', remote: true %>
 		            </div>
-	            <% end %> 
+	            <% end %>
+				<% if @aguardando_cadastro.count > 0 %>
+		            <div class="alert alert-warning">Você possui <%= content_tag :span, @aguardando_cadastro.count > 0 ? @aguardando_cadastro.count : "" , class: 'badge' %>  <%= @aguardando_cadastro.count == 1 ? 'artista' : 'artistas' %> com <%=link_to "cadastro incompleto!", "/artistas_filter/i", class: 'alert-link', remote: true %> 
+		            </div>
+	            <% end %>
+	            
             	
-         	</div>
-         	       
+         	</div>    	
+             
 
 </div>
 

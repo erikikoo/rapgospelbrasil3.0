@@ -9,7 +9,7 @@
 		<%= link_to 'Adicionar Disco', "/novo_disco/#{@artist_data.id}", remote: true ,:class => 'btn btn-default'  %>
 	</p>
 	<% end %>
-<% if @artist_data.discographys.nil? %>
+<% if @artist_data.discographys.empty? %>
 	<h5>Não possui disco cadastrado </h5>
 <% else %>
 	<% @artist_data.discographys.each do |album| %>

@@ -18,19 +18,25 @@
               <i class='glyphicon glyphicon-log-out'> Logout</i>
             <% end %>
           </li>
-          <li>
-            <%= link_to principal_index_path do %>
-              <i class='glyphicon glyphicon-user'> Perfil</i>
-            <% end %>
+          <%if !current_artist.admin? %>   
+              <li>
+                <%= link_to principal_path do %>
+                  <i class='glyphicon glyphicon-user'> Perfil</i>
+                <% end %>
+              </li>
+          <% end %>
             <% if current_artist.admin? %>              
+              <li>
               <%= link_to admin_index_path do %>
                 <i class='glyphicon glyphicon-user'> Painel Administrador</i>
               <% end %>
+            </li>
             <% end %>
-             <%= link_to artist_datas_path do %>
-              <i class='glyphicon glyphicon-user'> Site</i>
-            <% end %>   
-          </li> 
+             <li>
+              <%= link_to root_path do %>
+                <i class='glyphicon glyphicon-user'> Site</i>
+              <% end %>   
+            </li>        
                   
       </ul>
     </div>      

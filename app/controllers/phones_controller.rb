@@ -1,6 +1,6 @@
 class PhonesController < ApplicationController
   before_action :set_phone, only: [:show, :edit, :update, :destroy]
-
+  before_action :get_artist_current
   # GET /phones
   # GET /phones.json
   def index
@@ -27,10 +27,10 @@ class PhonesController < ApplicationController
   # POST /phones.json
   def create
     @phone = Phone.new(phone_params)
-    @phone.artist_data_id = current_artist.id
+    @phone.artist_data_id = @artist_data.id
     respond_to do |format|
       if @phone.save
-        format.html { redirect_to "/show_telefone/#{current_artist.id}/adm", notice: 'Phone was successfully created.' }
+        format.html { redirect_to "/show_telefone/#{@artist_data.id}/adm", notice: 'Phone was successfully created.' }
         format.json { render :show, status: :created, location: @phone }
       else
         format.js { render :new }
@@ -44,7 +44,7 @@ class PhonesController < ApplicationController
   def update
     respond_to do |format|
       if @phone.update(phone_params)
-        format.html { redirect_to "/show_telefone/#{current_artist.id}/adm", notice: 'Phone was successfully updated.' }
+        format.html { redirect_to "/show_telefone/#{@artist_data.id}/adm", notice: 'Phone was successfully updated.' }
         format.json { render :show, status: :ok, location: @phone }
       else
         format.js { render :edit }
@@ -58,12 +58,16 @@ class PhonesController < ApplicationController
   def destroy
     @phone.destroy
     respond_to do |format|
-      format.html { redirect_to "/show_telefone/#{current_artist.id}/adm", notice: 'Phone was successfully destroyed.' }
+      format.html { redirect_to "/show_telefone/#{@artist_data.id}/adm", notice: 'Phone was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
+     def get_artist_current
+      @artist_data = ArtistData.find_by('artist_id = ?', current_artist.id)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_phone
       @phone = Phone.find(params[:id])

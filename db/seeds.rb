@@ -4,4 +4,11 @@
 # Examples:
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+   #Mayor.create(name: 'Emanuel', city: cities.first)
+  require "as-duration"
+   for i in 1..20
+   		#Email.create(artist_data_id: 9, email: Faker::Internet.email)
+   		#Phone.create(artist_data_id: 9, telefone: Faker::PhoneNumber.phone_number)
+   		
+
+   end

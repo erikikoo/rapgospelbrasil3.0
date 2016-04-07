@@ -13,27 +13,32 @@
     
   <% end %>
 
-<% if @notices.nil? || @notices.empty? %>
+<% if @notices.empty? %>
     <h5>Não existem noticias cadastradas</h5>  
-<% end %>
-
-
+<% else %>
   <% @notices.each do |notice| %>
       <div class="container-noticias text-justify">
-        <p>
-          <h4><%= notice.titulo %></h4>        
-            <td ><%= sub_texto(notice.noticia) %></td>            
-            <br/>
-            <p>
-              <strong>Criando em : </strong><%= notice.created_at.strftime('%d/%m/%Y') %>
-            </p>
+        <div class="noticia">
+          <p>
             <% if @profile == "adm" %>
-              <td><%= link_to 'Show', "/show_noticia/#{notice.id}/adm" ,class: 'btn btn-default', remote: true %></td>
-              <td><%= link_to 'Edit', "/edit_noticia/#{notice.id}/adm", class: 'btn btn-default', remote: true %></td>
-              <td><%= link_to 'Destroy', "/remove_noticia/#{notice.id}/adm", class: 'btn btn-danger',remote: true ,method: :delete, data: { confirm: 'Deseja realmente excluir esta noticia?' } %></td>
+              <h3><%= notice.titulo %></h3>
+            <% else %>         
+              <h3><%= link_to "#{notice.titulo}", "/show_noticia/#{notice.id}", remote: true %></h3>
             <% end %>
-          
-        </p>
-    </div>
+          </p>
+          <td><%= sub_texto(notice.noticia) %></td>            
+          <br/>
+          <p>
+            <strong>Criando em : </strong><%= notice.created_at.strftime('%d/%m/%Y') %>
+          </p>
+          <% if @profile == "adm" %>
+            <td><%= link_to 'Show', "/show_noticia/#{notice.id}/adm" ,class: 'btn btn-default', remote: true %></td>
+            <td><%= link_to 'Edit', "/edit_noticia/#{notice.id}/adm", class: 'btn btn-default', remote: true %></td>
+            <td><%= link_to 'Destroy', "/remove_noticia/#{notice.id}/adm", class: 'btn btn-danger',remote: true ,method: :delete, data: { confirm: 'Deseja realmente excluir esta noticia?' } %></td>
+          <% end %>
+        </div>
+        
+        </div>
+  <% end %>
 <% end %>
 

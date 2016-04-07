@@ -1,39 +1,47 @@
 class PrincipalController < ApplicationController
-  before_action :set_artistas, only: [:agenda, :contato, :disco, :email, :telefone, :video, :rede_social, :historia]
+  before_action :set_artistas, only: [:agenda, :contato, :disco, :email, :telefone, :video,  :historia]
   before_action :set_discos, only: [:edit_disco, :remove_disco]
   before_action :set_agendas, only: [:edit_agenda, :remove_agenda]
   before_action :set_emails, only: [:edit_email, :remove_email]
   before_action :set_phones, only: [:edit_telefone, :remove_telefone]
   before_action :set_videos, only: [:remove_video]
   before_action :set_rede_sociais, only: [:edit_rede_social, :remove_rede_social]
-  before_action :get_artist_current, only: [:remove_rede_social,:remove_agenda,:remove_telefone, :remove_email, :remove_disco, :remove_video]
+  before_action  :get_artist_current, only: [:remove_rede_social,:remove_agenda,:remove_telefone, :remove_email, :remove_disco, :remove_video]
 
   before_action :authenticate_artist!
   before_action :get_model_user
   
   def index
-    @artist_data = ArtistData.find_by("id=?",current_artist.id) 
-    session[:current_id] = current_artist.id
+    @artist_data = ArtistData.find_by('artist_id = ?', current_artist.id)    
+    if @artist_data.nil?
+      @artist_data = ArtistData.new       
+      #@artist_data.artist_id = current_artist.id
+      @artist_data.update_attribute(:artist_id,current_artist.id)     
+    end
+
   end
 
   def artista
-    @artist_data = ArtistData.where("id=?",current_artist.id)
-    if @artist_data.empty?
+   @artist_data = ArtistData.find_by('artist_id = ?', current_artist.id)  
+    
+    if @artist_data.nil?
         @artist_data = ArtistData.new
+       
+        
         @artist_data.phones.build
         @artist_data.emails.build
         @artist_data.build_history
         render 'artist_datas/novo_artista'
-    else
-         @artist_data = ArtistData.find(current_artist.id)
+    else 
+        @artist_data = ArtistData.new        
         render :artista
     end
   end
 
   def perfil
-    @artist_data = ArtistData.find_by(current_artist.id)
+    @artist_data = ArtistData.find_by('artist_id = ?', current_artist.id) 
 
-    if @artist_data.nil?
+    if @artist_data.nome.nil?
       @artist_data = ArtistData.new
 
         @artist_data.phones.build
@@ -46,10 +54,10 @@ class PrincipalController < ApplicationController
     
   end
 ###########################################################33  
-  def agenda  
-  if params[:status]
-        @status = params[:status]
-     end     
+  def agenda    
+    if params[:status]
+          @status = params[:status]
+    end     
   end
   def novo_agenda     
      @commitment = Commitment.new          
@@ -58,9 +66,8 @@ class PrincipalController < ApplicationController
 
   end
   def remove_agenda      
-      @commitment.destroy
-      
-      render :agenda
+      @commitment.destroy          
+      render :agenda, location: @artist_data 
   end
 ###########################################################33
   def historia  
@@ -75,8 +82,7 @@ class PrincipalController < ApplicationController
 
   end
   def remove_historia      
-      @commitment.destroy
-      
+      @commitment.destroy      
       render :agenda
   end
 ###########################################################33
@@ -92,9 +98,8 @@ class PrincipalController < ApplicationController
   end
 
   def remove_telefone  
-      @phone.destroy
-      
-      render :telefone
+      @phone.destroy      
+      render :telefone, location: @artist_data 
   end
 ###########################################################33
   def email
@@ -104,14 +109,14 @@ class PrincipalController < ApplicationController
   end
 
   def novo_email
-    @email = Email.new 
+    @email = Email.new     
   end
+  
   def edit_email    
   end
   def remove_email      
-      @email.destroy
-      
-      render :email
+      @email.destroy      
+      render :email, location: @artist_data 
   end
   ###########################################################33
             #DISCO#
@@ -146,10 +151,19 @@ class PrincipalController < ApplicationController
       render :video
   end
 ###########################################################33
-  def rede_social 
+  def rede_social     
+    @rede_social = RedeSocial.find_by('artist_data_id = ?', current_artist.id)
+    @teste = current_artist.id
     if params[:status]
         @status = params[:status]
-     end  
+    end 
+
+    if @rede_social.nil? 
+      @rede_social = RedeSocial.new            
+      render :rede_social, location: @rede_social      
+    else
+      render :edit_rede_social, location: @rede_social
+    end
   end
   
   def novo_rede_social
@@ -168,7 +182,7 @@ class PrincipalController < ApplicationController
  
 
   def get_artist_current
-     @artist_data = ArtistData.find(current_artist.id)
+     @artist_data = ArtistData.find_by('artist_id = ?', current_artist.id)
   end
 
   def get_model_user
@@ -200,6 +214,7 @@ class PrincipalController < ApplicationController
   end 
 
   def set_artistas
-  	@artist_data = ArtistData.find(params[:id])
+  	@artist_data = ArtistData.find_by('artist_id = ?', current_artist.id)
   end	
+
 end

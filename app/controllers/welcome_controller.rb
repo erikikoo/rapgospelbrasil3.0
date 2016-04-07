@@ -1,5 +1,22 @@
 class WelcomeController < ApplicationController
-  def index
-  	
+  def index  	
   end
+
+  def noticia
+  	@notices = Notice.order(created_at: :desc)
+    
+  	render 'notices/index'
+  end
+
+  def palavra
+  	@words = Word.order(created_at: :desc)
+  	render 'words/index'
+  end
+
+  def artista
+    @artist_data = ArtistData.where("aprovado = ? AND Bloqueado = ? AND nome IS NOT ?",1,0,nil)
+    render 'artist_datas/index'
+  end
+
+  
 end
