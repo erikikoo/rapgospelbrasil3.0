@@ -1,0 +1,1232 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+
+
+*/
+
+#mensagem {
+	position: fixed;
+	width: 100%;
+	margin-top: 0px;
+	height: 50px;
+	top: 0px;
+	z-index: 2;
+	left: 0px;
+}
+
+.posicionamento {
+	position: relative;
+	margin-top: 20px;
+}
+/*
+.logo-show {
+	width: 450px;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+}
+*/
+.painel-artistas {
+	position: relative;
+	float: right;
+	min-width: 1000px;
+	max-width: 1320px;
+	min-height: 300px;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 25px 25px;	
+	
+}
+
+
+
+.sub-menu {	
+	position: relative;
+	width: 701px;
+	margin-right: auto;
+	margin-left: auto;	
+}
+
+.sub-menu ul li {
+	position: relative;
+	display: inline-block;
+	list-style: none;
+}
+
+
+
+/* DISCOGRAFIA SHOW */
+.text-aling {
+	text-align: center;
+}
+
+.painel-show-adm {
+	position: relative;
+	display: inline-block;
+	margin: 20px;
+	max-width: 193px;
+	max-height: 200px;	
+	
+}
+
+.painel-show-adm p {
+	margin: 10px 5px;
+}
+
+.painel-show {
+	position: relative;
+	width: 100%;
+	height: 320px;
+}
+
+.painel-image {
+	position: absolute;
+	left: 50px;
+
+}
+
+.painel-agenda {
+	position: absolute;
+	left: 600px;
+}
+/* ARTIST-DATA */
+.item-artista {
+	position: relative;
+	display: inline-block;
+	margin: 20px;
+	max-width: 200px;
+	max-height: 200px;
+	text-align: center;
+}
+
+.dados-login {
+	text-align: right;
+	font-size: 16px;
+	width: 100%;
+	height: 90px;
+	padding: 20px;
+}
+
+
+/* Cotato Show*/
+.contato-telefone {
+
+}
+
+.contato-email {
+	position: absolute;
+	height: auto;
+	left: 184px;
+	top: 25px;
+}
+
+/*principal*/
+
+.sidebar {
+	margin: 10px 10px;
+	position: relative;
+	width: 150px;
+	height: 100%;	
+}
+
+.painel-artistas-art, .painel-artistas-adm {
+	position: relative;	
+
+	left: 200px;
+	width: 807px;
+	height: 100%;
+	padding: 5px 10px;
+		
+}
+
+.painel-artistas-art {
+	top: -349px;
+}
+
+
+
+.painel-artistas-adm {
+	top: -144px;
+}
+
+.novo {
+	margin: 20px;
+}
+
+.icoRedeSocial {
+	width: 42px;
+	height: 42px;
+}
+
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  margin-bottom: 12px;
+} 
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.painel-redesocial {
+	width: 100%;
+}
+
+.artista-nao-aprovado {
+	position: relative;
+	top: 30px;
+}
+
+.container-noticias {
+	margin: 10px;
+	padding: 0px 15px 50px;
+	border: 1px solid #ccf;
+	height: auto;
+}
+
+.container-contato, .container-album, .container-videos, .container-agenda, .container-historia, .container-redesocial {
+	position: relative;
+	border: 1px solid #eee;
+	width: 100%;
+	height: auto;
+	padding: 10px 5px;
+}
+
+
+.show-info {
+	position: relative;
+	display: inline-block;
+	min-width: 200px;
+	min-height: 100px;
+	margin: 10px;
+	padding: 10px 5px;
+	border: 1px solid #000;
+}
+
+.painel-login {
+	position: relative;
+	width: 300px;
+	height: 200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#loading {
+	position: absolute;	
+	width: 335px;
+	margin-left: 13%;
+	margin-top: 7%;
+	
+	
+}
+
+#loading img {
+	height: 40px;
+}
+
+.mascara {
+	display: none;
+	width: 284px;
+	height: 100px;
+	position: fixed;
+	right: 50%;
+	left: 50%;
+	top: 20%;
+	margin-left: -142px;	
+	background-color: yellow;
+	opacity: 0.7;
+	z-index: 99;
+}
+
+.text-perfil {
+	position: relative;
+	float: left;
+	margin-top: 13px;
+	list-style: none;
+}
+
+.container {
+	width: 960px;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;	
+}
+
+.painel-video {
+	width: 560px;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+	padding-bottom:20px; 
+	border: 1px solid #eee;
+}
+// Place all the styles related to the ArtistDatas controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Place all the styles related to the Discographys controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.show-disco {
+	position: relative;
+	width: 200px;
+	height: 200px;
+	display: inline-block;
+}
+.banner-pri {
+	position: relative;
+	
+	width: 960px;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.painel-noticias {
+	position: relative;	
+	top: 20px;
+	height: 290px;
+	border: #000 1px solid;
+	
+}
+
+.left {
+	position: relative;
+	width:350px;
+	
+}
+
+.middle {
+	position: relative;
+	width:250px;
+	top:-171px;
+	left:360px;
+	
+}
+
+.right {
+	position: relative;
+	width:350px;
+	left:620px;
+	top:-252px;
+	
+}
+
+.anuncios {
+	position: relative;
+	height: 100px;
+	
+	margin-top: 40px;
+	border: #000 1px solid;
+}
+
+.anuncio-maior {
+	position: absolute;
+	width: 690px;
+	left: 10px;
+	height: 90px;
+	top: 5px;
+	
+	
+} 
+
+.anuncio-menor {
+	position: absolute;
+	width: 280px;
+	height: 90px;
+	top: 5px;
+	left: 710px;
+	
+} 
+
+.painel-palavras {
+	position: relative;
+	height: 250px;
+	
+	margin-top: 20px;
+	border: #000 1px solid;
+}
+
+.parte-maior {
+	position: absolute;
+	width: 590px;
+	left: 10px;
+	height: 240px;
+	top: 5px;
+	
+} 
+
+.parte-menor {
+	position: absolute;
+	width: 380px;
+	height: 240px;
+	top: 5px;
+	left: 610px;
+	
+}
+
+.painel-midia-sociais {
+	position: relative;
+	height: 250px;
+	
+	margin-top: 20px;
+	border: #000 1px solid;
+}
+
+.midia-maior {
+	position: absolute;
+	width: 490px;
+	left: 10px;
+	height: 240px;
+	top: 5px;
+	
+} 
+
+.midia-anuncio-menor {
+	position: absolute;
+	width: 480px;
+	height: 240px;
+	top: 5px;
+	left: 510px;
+	
+}
+footer {
+	height: 20px;	
+	border: #000 1px solid;
+}
+footer {
+
+}
+
+.rodape {
+	position: relative;
+	
+	height: 30px;
+	background-color: #000;
+	top: 10px;
+}
+a:active, a:hover, a:visited, a:link {
+	color:#000;
+}
+
+
+
+.img-fundo {
+	height: 460px;
+	width: 100%;
+}
+
+.fundo {
+	position: relative;
+	top:-341px;
+	height: 472px;
+	z-index: -1;
+	background-image: url("FundoCabecalho.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 97%;		
+}
+
+.logo {
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	width: 432px;
+	height: 333px;
+	background-image: url("LogoCabecalho.png");
+}
+
+.menu {		
+	list-style: none;
+	font-size: 20px;	
+	top: -55px;
+	z-index: 1;	
+	width: 990px;
+	
+}
+
+.menu ul li {
+	display: inline;
+}
+
+.menu ul li a {
+	-webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+	display: inline-block;
+	text-align: center;
+	padding: 15px 20px;	
+	text-decoration: none;
+	vertical-align: middle;		
+	border:#AA1C20 1px solid; 
+	color: #AA1C20;
+
+}
+.menu ul li a:hover {	
+	background-color: #AA1C20;
+	color:#fff;
+	
+}
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+body {
+  font-family: 'Lato', sans-serif;
+  background: #353535;
+  color: #FFF;
+}
+.jumbotron h1 {
+  color: #353535;
+}
+footer {
+  margin-bottom: 0 !important;
+  margin-top: 80px;
+}
+footer p {
+  margin: 0;
+  padding: 0;
+}
+span.icon {
+  margin: 0 5px;
+  color: #D64541;
+}
+h2 {
+  color: #BDC3C7;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.mrng-60-top {
+  margin-top: 60px;
+}
+/* Global Button Styles */
+a.animated-button:link, a.animated-button:visited {
+  position: relative;
+  display: block;
+  margin: 30px auto 0;
+  padding: 14px 15px;
+  color: #fff;
+  font-size:14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  letter-spacing: .08em;
+  border-radius: 0;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+a.animated-button:link:after, a.animated-button:visited:after {
+  content: "";
+  position: absolute;
+  height: 0%;
+  left: 50%;
+  top: 50%;
+  width: 150%;
+  z-index: -1;
+  -webkit-transition: all 0.75s ease 0s;
+  -moz-transition: all 0.75s ease 0s;
+  -o-transition: all 0.75s ease 0s;
+  transition: all 0.75s ease 0s;
+}
+a.animated-button:link:hover, a.animated-button:visited:hover {
+  color: #FFF;
+  text-shadow: none;
+}
+a.animated-button:link:hover:after, a.animated-button:visited:hover:after {
+  height: 450%;
+}
+a.animated-button:link, a.animated-button:visited {
+  position: relative;
+  display: block;
+  margin: 30px auto 0;
+  padding: 14px 15px;
+  color: #fff;
+  font-size:14px;
+  border-radius: 0;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  letter-spacing: .08em;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+/* Victoria Buttons */
+
+a.animated-button.victoria-one {
+  border: 2px solid #D24D57;
+}
+a.animated-button.victoria-one:after {
+  background: #D24D57;
+  -moz-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+  transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+}
+a.animated-button.victoria-two {
+  border: 2px solid #D24D57;
+}
+a.animated-button.victoria-two:after {
+  background: #D24D57;
+  -moz-transform: translateX(-50%) translateY(-50%) rotate(25deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(25deg);
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(25deg);
+  transform: translateX(-50%) translateY(-50%) rotate(25deg);
+}
+a.animated-button.victoria-three {
+  border: 2px solid #D24D57;
+}
+a.animated-button.victoria-three:after {
+  background: #D24D57;
+  opacity: .5;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+a.animated-button.victoria-three:hover:after {
+  height: 140%;
+  opacity: 1;
+}
+a.animated-button.victoria-four {
+  border: 2px solid #D24D57;
+}
+a.animated-button.victoria-four:after {
+  background: #D24D57;
+  opacity: .5;
+  -moz-transform: translateY(-50%) translateX(-50%) rotate(90deg);
+  -ms-transform: translateY(-50%) translateX(-50%) rotate(90deg);
+  -webkit-transform: translateY(-50%) translateX(-50%) rotate(90deg);
+  transform: translateY(-50%) translateX(-50%) rotate(90deg);
+}
+a.animated-button.victoria-four:hover:after {
+  opacity: 1;
+  height: 600% !important;
+}
+/* Sandy Buttons */
+
+a.animated-button.sandy-one {
+  border: 2px solid #AEA8D3;
+  color: #FFF;
+}
+a.animated-button.sandy-one:after {
+  border: 3px solid #AEA8D3;
+  opacity: 0;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  
+}
+a.animated-button.sandy-one:hover:after {
+  height: 120% !important;
+  opacity: 1;
+  color: #FFF;
+}
+a.animated-button.sandy-two {
+  border: 2px solid #AEA8D3;
+  color: #FFF;
+}
+a.animated-button.sandy-two:after {
+  border: 3px solid #AEA8D3;
+  opacity: 0;
+  -moz-transform: translateY(-50%) translateX(-50%) rotate(90deg);
+  -ms-transform: translateY(-50%) translateX(-50%) rotate(90deg);
+  -webkit-transform: translateY(-50%) translateX(-50%) rotate(90deg);
+  transform: translateY(-50%) translateX(-50%) rotate(90deg);
+}
+a.animated-button.sandy-two:hover:after {
+  height: 600% !important;
+  opacity: 1;
+  color: #FFF;
+}
+a.animated-button.sandy-three {
+  border: 2px solid #AEA8D3;
+  color: #FFF;
+}
+a.animated-button.sandy-three:after {
+  border: 3px solid #AEA8D3;
+  opacity: 0;
+  -moz-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+  transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+}
+a.animated-button.sandy-three:hover:after {
+  height: 400% !important;
+  opacity: 1;
+  color: #FFF;
+}
+a.animated-button.sandy-four {
+  border: 2px solid #AEA8D3;
+  color: #FFF;
+}
+a.animated-button.sandy-four:after {
+  border: 3px solid #AEA8D3;
+  opacity: 0;
+  -moz-transform: translateY(-50%) translateX(-50%) rotate(25deg);
+  -ms-transform: translateY(-50%) translateX(-50%) rotate(25deg);
+  -webkit-transform: translateY(-50%) translateX(-50%) rotate(25deg);
+  transform: translateY(-50%) translateX(-50%) rotate(25deg);
+}
+a.animated-button.sandy-four:hover:after {
+  height: 400% !important;
+  opacity: 1;
+  color: #FFF;
+}
+/* Gibson Buttons */
+
+a.animated-button.gibson-one {
+  border: 2px solid #65b37a;
+  color: #FFF;
+}
+a.animated-button.gibson-one:after {
+  opacity: 0;
+  background-image: -webkit-linear-gradient( transparent 50%, rgba(101,179,122,0.2) 50%);
+  background-image: -moz-linear-gradient(transparent 50%, rgba(101,179,122,0.2) 50%);
+  background-size: 10px 10px;
+  -moz-transform: translateX(-50%) translateY(-50%) rotate(25deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(25deg);
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(25deg);
+  transform: translateX(-50%) translateY(-50%) rotate(25deg);
+}
+a.animated-button.gibson-one:hover:after {
+  height: 600% !important;
+  opacity: 1;
+  color: #FFF;
+}
+a.animated-button.gibson-two {
+  border: 2px solid #65b37a;
+  color: #FFF;
+}
+a.animated-button.gibson-two:after {
+  opacity: 0;
+  background-image: -webkit-linear-gradient( transparent 50%, rgba(101,179,122,0.2) 50%);
+  background-image: -moz-linear-gradient(transparent 50%, rgba(101,179,122,0.2) 50%);
+  background-size: 10px 10px;
+  -moz-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+  transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+}
+a.animated-button.gibson-two:hover:after {
+  height: 600% !important;
+  opacity: 1;
+  color: #FFF;
+}
+a.animated-button.gibson-three {
+  border: 2px solid #65b37a;
+  color: #FFF;
+}
+a.animated-button.gibson-three:after {
+  opacity: 0;
+  background-image: -webkit-linear-gradient( transparent 50%, rgba(101,179,122,0.2) 50%);
+  background-image: -moz-linear-gradient(transparent 50%, rgba(101,179,122,0.2) 50%);
+  background-size: 10px 10px;
+  -moz-transform: translateX(-50%) translateY(-50%) rotate(90deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(90deg);
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(90deg);
+  transform: translateX(-50%) translateY(-50%) rotate(90deg);
+}
+a.animated-button.gibson-three:hover:after {
+  height: 600% !important;
+  opacity: 1;
+  color: #FFF;
+}
+a.animated-button.gibson-four {
+  border: 2px solid #65b37a;
+  color: #FFF;
+}
+a.animated-button.gibson-four:after {
+  opacity: 0;
+  background-image: -webkit-linear-gradient( transparent 50%, rgba(101,179,122,0.2) 50%);
+  background-image: -moz-linear-gradient(transparent 50%, rgba(101,179,122,0.2) 50%);
+  background-size: 10px 10px;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+a.animated-button.gibson-four:hover:after {
+  height: 600% !important;
+  opacity: 1;
+  color: #FFF;
+}
+/* Thar Buttons */
+
+a.animated-button.thar-one {
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: 2px solid #F7CA18;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+a.animated-button.thar-one:hover {
+  color: #000 !important;
+  background-color: transparent;
+  text-shadow: none;
+}
+a.animated-button.thar-one:hover:before {
+  bottom: 0%;
+  top: auto;
+  height: 100%;
+}
+a.animated-button.thar-one:before {
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 0px;
+  width: 100%;
+  z-index: -1;
+  content: '';
+  color: #000 !important;
+  background: #F7CA18;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+a.animated-button.thar-two {
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: 2px solid #F7CA18;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+a.animated-button.thar-two:hover {
+  color: #000 !important;
+  background-color: transparent;
+  text-shadow: ntwo;
+}
+a.animated-button.thar-two:hover:before {
+  top: 0%;
+  bottom: auto;
+  height: 100%;
+}
+a.animated-button.thar-two:before {
+  display: block;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  height: 0px;
+  width: 100%;
+  z-index: -1;
+  content: '';
+  color: #000 !important;
+  background: #F7CA18;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+a.animated-button.thar-three {
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: 2px solid #F7CA18;
+  transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1) 0s;
+}
+a.animated-button.thar-three:hover {
+  color: #000 !important;
+  background-color: transparent;
+  text-shadow: nthree;
+}
+a.animated-button.thar-three:hover:before {
+  left: 0%;
+  right: auto;
+  width: 100%;
+}
+a.animated-button.thar-three:before {
+  display: block;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 100%;
+  width: 0px;
+  z-index: -1;
+  content: '';
+  color: #000 !important;
+  background: #F7CA18;
+  transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1) 0s;
+}
+a.animated-button.thar-four {
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: 2px solid #F7CA18;
+  transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1) 0s;
+}
+a.animated-button.thar-four:hover {
+  color: #000 !important;
+  background-color: transparent;
+  text-shadow: nfour;
+}
+a.animated-button.thar-four:hover:before {
+  right: 0%;
+  left: auto;
+  width: 100%;
+}
+a.animated-button.thar-four:before {
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 0px;
+  z-index: -1;
+  content: '';
+  color: #000 !important;
+  background: #F7CA18;
+  transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1) 0s;
+}
+
+
+.container {
+	width: 999px;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+body {
+	min-width: 999px;
+	height: 100%;
+	background-image: url("FundoPagina.jpg");
+	top:-10px;
+	
+}
+
+/* line 5, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/principal.css.scss */
+.menu {
+  position: absolute;
+  top: 100px;
+  left: 0px;
+  width: 150px;
+  height: auto;
+}
+/* line 1, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/scaffolds.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 9, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/scaffolds.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 15, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/scaffolds.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 21, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/scaffolds.scss */
+a {
+  color: #000;
+}
+/* line 24, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/scaffolds.scss */
+a:visited {
+  color: #666;
+}
+/* line 28, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/scaffolds.scss */
+a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+/* line 35, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/scaffolds.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 40, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/scaffolds.scss */
+#notice {
+  color: green;
+}
+
+/* line 44, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/scaffolds.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 50, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/scaffolds.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 58, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/scaffolds.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 69, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/scaffolds.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+/* line 1, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/estilo_index/header_estilo.css */
+a:active, a:hover, a:visited, a:link {
+  color: #000;
+}
+
+/* line 7, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/estilo_index/header_estilo.css */
+.img-fundo {
+  height: 460px;
+  width: 100%;
+}
+
+/* line 12, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/estilo_index/header_estilo.css */
+.fundo {
+  position: relative;
+  top: -341px;
+  height: 472px;
+  z-index: -1;
+  background-image: url("FundoCabecalho.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 97%;
+}
+
+/* line 22, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/estilo_index/header_estilo.css */
+.logo {
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+  width: 432px;
+  height: 333px;
+  background-image: url("LogoCabecalho.png");
+}
+
+/* line 31, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/estilo_index/header_estilo.css */
+.menu {
+  list-style: none;
+  font-size: 20px;
+  top: -55px;
+  z-index: 1;
+  width: 990px;
+}
+
+/* line 40, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/estilo_index/header_estilo.css */
+.menu ul li {
+  display: inline;
+}
+
+/* line 44, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/estilo_index/header_estilo.css */
+.menu ul li a {
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+  transition-duration: 0.4s;
+  display: inline-block;
+  text-align: center;
+  padding: 15px 20px;
+  text-decoration: none;
+  vertical-align: middle;
+  border: #AA1C20 1px solid;
+  color: #AA1C20;
+}
+
+/* line 56, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/estilo_index/header_estilo.css */
+.menu ul li a:hover {
+  background-color: #AA1C20;
+  color: #fff;
+}
+
+/* line 1, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/estilo_index/body_estilo.css */
+.banner-pri {
+  position: relative;
+  width: 960px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 10, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/estilo_index/body_estilo.css */
+.painel-noticias {
+  position: relative;
+  top: 20px;
+  height: 290px;
+  border: #000 1px solid;
+}
+
+/* line 18, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/estilo_index/body_estilo.css */
+.left {
+  position: relative;
+  width: 350px;
+}
+
+/* line 24, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/estilo_index/body_estilo.css */
+.middle {
+  position: relative;
+  width: 250px;
+  top: -171px;
+  left: 360px;
+}
+
+/* line 32, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/estilo_index/body_estilo.css */
+.right {
+  position: relative;
+  width: 350px;
+  left: 620px;
+  top: -252px;
+}
+
+/* line 40, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/estilo_index/body_estilo.css */
+.anuncios {
+  position: relative;
+  height: 100px;
+  margin-top: 40px;
+  border: #000 1px solid;
+}
+
+/* line 48, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/estilo_index/body_estilo.css */
+.anuncio-maior {
+  position: absolute;
+  width: 690px;
+  left: 10px;
+  height: 90px;
+  top: 5px;
+}
+
+/* line 58, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/estilo_index/body_estilo.css */
+.anuncio-menor {
+  position: absolute;
+  width: 280px;
+  height: 90px;
+  top: 5px;
+  left: 710px;
+}
+
+/* line 67, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/estilo_index/body_estilo.css */
+.painel-palavras {
+  position: relative;
+  height: 250px;
+  margin-top: 20px;
+  border: #000 1px solid;
+}
+
+/* line 75, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/estilo_index/body_estilo.css */
+.parte-maior {
+  position: absolute;
+  width: 590px;
+  left: 10px;
+  height: 240px;
+  top: 5px;
+}
+
+/* line 84, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/estilo_index/body_estilo.css */
+.parte-menor {
+  position: absolute;
+  width: 380px;
+  height: 240px;
+  top: 5px;
+  left: 610px;
+}
+
+/* line 93, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/estilo_index/body_estilo.css */
+.painel-midia-sociais {
+  position: relative;
+  height: 250px;
+  margin-top: 20px;
+  border: #000 1px solid;
+}
+
+/* line 101, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/estilo_index/body_estilo.css */
+.midia-maior {
+  position: absolute;
+  width: 490px;
+  left: 10px;
+  height: 240px;
+  top: 5px;
+}
+
+/* line 110, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/estilo_index/body_estilo.css */
+.midia-anuncio-menor {
+  position: absolute;
+  width: 480px;
+  height: 240px;
+  top: 5px;
+  left: 510px;
+}
+
+/* line 118, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/estilo_index/body_estilo.css */
+footer {
+  height: 20px;
+  border: #000 1px solid;
+}
+
+/* line 5, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/estilo_index/footer_estilo.css */
+.rodape {
+  position: relative;
+  height: 30px;
+  background-color: #000;
+  top: 10px;
+}
+
+/* line 3, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/estilo_index/principal_estilo.css */
+.container {
+  width: 999px;
+  height: auto;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* line 10, C:/Users/Erik/Desktop/Ruby/RapGospelBrasil/app/assets/stylesheets/estilo_index/principal_estilo.css */
+body {
+  min-width: 999px;
+  height: 100%;
+  background-image: url("FundoPagina.jpg");
+  top: -10px;
+}
+/* This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *
+ *
+ */
+ *
+ * @import "bootstrap" */
