@@ -21,10 +21,11 @@
 					<%= raw(video.link) %> 	<br />	
 					
 					<% if @profile == "adm" %>
-						<%= link_to 'Remover', "/remove_video/#{video.id}/adm", method: :delete, :remote => true ,data: { confirm: 'Are you sure?' } , class: 'btn btn-danger'%>
+						<%= link_to 'Remover', "/remove_video/#{video.id}/adm", method: :delete, :remote => true ,data: { confirm: 'Deseja realmente excluir este video?' } , class: 'btn btn-danger'%>
 					<% end %>
 				
 			</div>
 		<% end %>
 	<% end %>
 </div>
+

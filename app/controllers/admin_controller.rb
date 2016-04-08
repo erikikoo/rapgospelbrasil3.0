@@ -82,7 +82,7 @@ class AdminController < ApplicationController
         @status = params[:status]
      end
 
-     @notices = Notice.all      
+     @notices = Notice.order(created_at: :desc)   
   end
 
   def nova_noticia
