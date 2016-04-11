@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 
+gem 'anjlab-bootstrap-rails', '~> 3.0.0.3', :require => 'bootstrap-rails'
+
 gem 'remotipart', '~> 1.2'
 #Minimal authorization
 gem 'pundit'

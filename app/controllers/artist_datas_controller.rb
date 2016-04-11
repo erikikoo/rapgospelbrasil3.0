@@ -5,7 +5,7 @@ class ArtistDatasController < ApplicationController
   # GET /artist_datas
   # GET /artist_datas.json
   def index
-    @artist_data = ArtistData.where('aprovado = ? AND bloqueado = ?', true, false)    
+    @artist_data = ArtistData.where('"aprovado" = ? AND "bloqueado" = ?', true, false)    
   end
 
   # GET /artist_datas/1
