@@ -13,17 +13,21 @@ gem 'devise'
 #ckeditor
 gem 'ckeditor', '~> 4.1', '>= 4.1.6'
 #PAPERCLIP
-gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+gem "paperclip"
 #simple-form	
 gem 'simple_form'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use mysql as the database for Active Record
 
+#servidor precisa
+gem 'nokogiri'
+
 
 gem 'execjs'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+#gem 'sass-rails ', '5.0.4'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -42,7 +46,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+ gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -50,10 +54,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+ gem 'mysql2', '~> 0.3.18'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'mysql2', '>= 0.3.13', '< 0.5'
   gem 'faker'
 
 end

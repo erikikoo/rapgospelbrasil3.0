@@ -1,14 +1,3 @@
-GIT
-  remote: git://github.com/thoughtbot/paperclip.git
-  revision: 95acf3b898bd782f4429d42fd2d8812505390328
-  specs:
-    paperclip (5.0.0.beta1)
-      activemodel (>= 4.2.0)
-      activesupport (>= 4.2.0)
-      cocaine (~> 0.5.5)
-      mime-types
-      mimemagic (~> 0.3.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -52,7 +41,7 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
-    byebug (8.2.2)
+    byebug (8.2.3)
     ckeditor (4.1.6)
       cocaine
       orm_adapter (~> 0.5.0)
@@ -106,15 +95,20 @@ GEM
     mime-types (3.0)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0221)
-    mimemagic (0.3.1)
+    mimemagic (0.3.0)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.11.2)
-    mysql2 (0.4.3-x64-mingw32)
+    mysql2 (0.3.20-x64-mingw32)
     nokogiri (1.6.7.2-x64-mingw32)
       mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)
-    pg (0.18.4-x64-mingw32)
+    paperclip (4.3.6)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      cocaine (~> 0.5.5)
+      mime-types
+      mimemagic (= 0.3.0)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
     rack (1.6.4)
@@ -171,7 +165,7 @@ GEM
     simple_form (3.2.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
-    sprockets (3.5.2)
+    sprockets (3.6.0)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.0.4)
@@ -206,6 +200,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   byebug
   ckeditor (~> 4.1, >= 4.1.6)
   coffee-rails (~> 4.1.0)
@@ -215,9 +210,9 @@ DEPENDENCIES
   faker
   jbuilder (~> 2.0)
   jquery-rails
-  mysql2 (>= 0.3.13, < 0.5)
-  paperclip!
-  pg
+  mysql2 (~> 0.3.18)
+  nokogiri
+  paperclip
   pundit
   rails (= 4.2.6)
   rails-i18n
