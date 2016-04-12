@@ -3,7 +3,8 @@ class WelcomeController < ApplicationController
   end
 
   def noticia
-  	@notices = Notice.order(created_at: :desc)    
+  	@notices = Notice.order(created_at: :desc)
+    
   	render 'notices/index'
   end
 
@@ -13,7 +14,7 @@ class WelcomeController < ApplicationController
   end
 
   def artista
-    @artist_data = ArtistData.where("'nome IS NOT ?", nil)
+    @artist_data = ArtistData.where("'aprovado' = ? AND 'bloqueado' = ? AND nome IS NOT ?", true, false, nil)
     render 'artist_datas/index'
   end
 
