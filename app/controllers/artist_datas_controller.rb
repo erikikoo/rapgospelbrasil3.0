@@ -52,10 +52,13 @@ class ArtistDatasController < ApplicationController
   # PATCH/PUT /artist_datas/1.json
   def update
     respond_to do |format|
-      
+      #if @artist_data.id == current_artist.id
+      #@current_id = params[:id]
       @artist_data.update(artist_data_params)      
-      
+      #format.js {render :create }
     end
+      #end
+    #end
   end
 
   # DELETE /artist_datas/1
