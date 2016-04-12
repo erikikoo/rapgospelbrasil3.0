@@ -14,7 +14,7 @@ class WelcomeController < ApplicationController
   end
 
   def artista
-    @artist_data = ArtistData.where("'aprovado' = ? AND 'bloqueado' = ? AND nome IS NOT ?", true, false, nil)
+    @artist_data = ArtistData.where("aprovado = ? AND bloqueado = ? AND nome IS NOT ?", true, false, nil)
     render 'artist_datas/index'
   end
 

@@ -19,6 +19,7 @@
 //= require jquery.remotipart
 //= require_tree .
 
+
 $(document).ready(function() {
   $(document).ajaxStart(function() {    
       $(".mascara").show();    

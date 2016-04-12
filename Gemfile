@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
-
-gem 'anjlab-bootstrap-rails', '~> 3.0.0.3', :require => 'bootstrap-rails'
+gem 'autoprefixer-rails'
 
 gem 'remotipart', '~> 1.2'
 #Minimal authorization
@@ -9,6 +8,7 @@ gem 'pundit'
 #tradução
  gem 'rails-i18n'
 #bootstrap
+#gem 'bootstrap-sass', '~> 3.3.1'
 gem 'twitter-bootstrap-rails'
 #Devise
 gem 'devise'
