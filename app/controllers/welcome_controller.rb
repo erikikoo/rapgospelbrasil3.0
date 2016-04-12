@@ -13,7 +13,7 @@ class WelcomeController < ApplicationController
   end
 
   def artista
-    @artist_data = ArtistData.all
+    @artist_data = ArtistData.where("'nome IS NOT ?", nil)
     render 'artist_datas/index'
   end
 
