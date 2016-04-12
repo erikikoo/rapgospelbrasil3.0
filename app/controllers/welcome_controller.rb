@@ -13,7 +13,7 @@ class WelcomeController < ApplicationController
   end
 
   def artista
-    @artist_data = ArtistData.where("'bloqueado' = ? AND nome IS NOT ?",false, nil)
+    @artist_data = ArtistData.all
     render 'artist_datas/index'
   end
 
