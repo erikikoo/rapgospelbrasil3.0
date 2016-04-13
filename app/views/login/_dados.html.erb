@@ -1,8 +1,7 @@
 
 
 <div class="dados-login">
-  <% if artist_signed_in? %>  	  
-      <%= session[:user_id] %>
+  <% if artist_signed_in? %>  	       
       <span class="text-perfil">
         Você esta logado como <%= current_artist.admin? ? "Administrador" : "Artista"  %>
       </span>  
