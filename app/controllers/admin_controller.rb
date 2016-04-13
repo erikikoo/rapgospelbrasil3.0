@@ -43,10 +43,10 @@ class AdminController < ApplicationController
           @artists = ArtistData.where(bloqueado: true)        
           @option = "bloqueado"
         elsif @query == 'ap'
-          @artists = ArtistData.where(aprovado: false, nome: 'IS NOT NULL')
+          @artists = ArtistData.where.not(aprovado: true, nome: nil)
           @option = "aguardando aprovação"
         elsif @query == 'i'
-          @artists = ArtistData.where('nome IS ?', nil)         
+          @artists = ArtistData.where(nome: nil)         
           @option = "com cadastro incompleto" 
       end
     @profile = 'adm'
@@ -165,7 +165,7 @@ class AdminController < ApplicationController
   end
 
   def get_aguardando_aprovado
-    @aguandado_aprovacao = ArtistData.where(aprovado: false, nome: 'IS NOT NULL')
+    @aguandado_aprovacao = ArtistData.where.not(aprovado: true, nome: nil)
   end
   
   def get_bloqueado
