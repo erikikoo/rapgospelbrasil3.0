@@ -42,9 +42,10 @@ class ArtistDatasController < ApplicationController
       end
     else
       respond_to do |format|      
-      @current_id = params[:id]
-      @artist_data.update(artist_data_params)      
-      format.js {render :create }
+        @current_id = params[:id]
+        @artist_data.update(artist_data_params)      
+        format.js {render :new }
+      end
     end
   end
 

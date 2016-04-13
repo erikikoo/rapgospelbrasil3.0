@@ -14,7 +14,7 @@ class ArtistData < ActiveRecord::Base
 
 	#validates :artist_id, uniqueness: true
 	validates :nome, presence: true
-
+	
 	
 
   	has_attached_file :logo, styles: { medium: "400x250#", thumb: "250x150#" }, default_url: "missing.jpg"

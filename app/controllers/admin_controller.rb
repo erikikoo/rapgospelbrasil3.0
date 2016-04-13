@@ -22,8 +22,7 @@ class AdminController < ApplicationController
     authorize @users
   end
 
-  def artistas
-  	
+  def artistas  	
   end
 
   def show_artista    
@@ -44,7 +43,7 @@ class AdminController < ApplicationController
           @artists = ArtistData.where(bloqueado: true)        
           @option = "bloqueado"
         elsif @query == 'ap'
-          @artists = ArtistData.where('"aprovado" = ? AND nome IS NOT ?', false, nil)
+          @artists = ArtistData.where('aprovado = ? AND nome IS NOT ?', false, nil)
           @option = "aguardando aprovação"
         elsif @query == 'i'
           @artists = ArtistData.where('nome IS ?', nil)         
@@ -174,7 +173,7 @@ class AdminController < ApplicationController
   end
 
   def get_admin
-    @adm = Artist.find_by('"admin" = ?', true)
+    @adm = Artist.find_by(admin: true)
   end
 
 
