@@ -111,7 +111,6 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
-    pg (0.18.4-x64-mingw32)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
     rack (1.6.4)
@@ -216,7 +215,6 @@ DEPENDENCIES
   jquery-rails
   mysql2
   paperclip
-  pg
   pundit
   rails (= 4.2.6)
   rails-i18n

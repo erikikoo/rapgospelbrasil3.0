@@ -17,7 +17,7 @@ class AdminController < ApplicationController
 
 
   def index  	
-    @users = Artist.where('"admin" = ?', false)    
+    @users = Artist.where(admin: false)    
     @aguardando_cadastro = ArtistData.where('nome IS ?', nil)    
     authorize @users
   end
