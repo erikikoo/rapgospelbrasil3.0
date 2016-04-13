@@ -165,7 +165,7 @@ class AdminController < ApplicationController
   end
 
   def get_aguardando_aprovado
-    @aguandado_aprovacao = ArtistData.where(aprovado: false, 'nome IS NOT NULL')
+    @aguandado_aprovacao = ArtistData.where(aprovado: false)
   end
   
   def get_bloqueado
