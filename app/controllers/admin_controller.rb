@@ -43,7 +43,7 @@ class AdminController < ApplicationController
           @artists = ArtistData.where(bloqueado: true)        
           @option = "bloqueado"
         elsif @query == 'ap'
-          @artists = ArtistData.where('aprovado = ? AND nome IS NOT ?', false, nil)
+          @artists = ArtistData.where(aprovado: false, 'nome IS NOT NULL')
           @option = "aguardando aprovação"
         elsif @query == 'i'
           @artists = ArtistData.where('nome IS ?', nil)         
