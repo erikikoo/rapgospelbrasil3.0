@@ -1,0 +1,15 @@
+<div class="right">
+	<span class="text-ultima">&Uacute;LTIMO </span> <span class="titulo-noticia">VÍDEO</span>	
+	<br />	
+	<div class="imagem-noticia">
+		<% if @video.nil? %>
+			Não existem video cadastrado!!
+		<% else %>			
+			<%= raw(@video.link)  %>				
+		<% end %>
+
+		<div class="link-veja-mais">
+			<%= link_to "Mais Vídeos", '/videos' , remote: true, class: 'btn-default-index' %>
+		</div>
+	</div>
+</div>

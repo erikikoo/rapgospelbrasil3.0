@@ -6,7 +6,7 @@
 
 
 
-  <% if @profile == "adm" %>
+  <% if @profile == "admin" %>
     <p>
       <%= link_to 'Adicionar Palavra', '/nova_palavra/adm', remote: true ,:class => 'btn btn-default'  %>  
     </p>
@@ -23,10 +23,17 @@
             <% if @profile == "adm" %>
               <h3><%= word.titulo %></h3>
             <% else %>         
-              <h3><%= link_to "#{word.titulo}", "/show_palavra/#{word.id}", remote: true %></h3>
+              <h3>
+                <%= link_to "#{word.titulo}", "/show_palavra/#{word.id}", remote: true %>
+              </h3>
             <% end %>
           </p>
-          <td><%= sub_texto(word.texto) %></td>            
+          <div class="noticia">
+            <% if word.present? %>
+                <span class="imagem-noticia-list"><%= image_tag(word.imagem.url(:thumb)) %></span> 
+            <% end %>
+            <span class="texto-noticia"><%= sub_texto(word.texto,500) %></span>
+          </div>
           <br/>
           <p>
             <strong>Criando em : </strong><%= word.created_at.strftime('%d/%m/%Y') %>

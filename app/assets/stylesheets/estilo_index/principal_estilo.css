@@ -1,11 +1,16 @@
-
+a:active, a:hover, a:visited, a:link {
+	text-decoration: none;
+}
 
 .container {
-	width: 999px;
+	width: 1002px;
 	height: auto;
 	margin-right: auto;
 	margin-left: auto;
+	
 }
+
+
 
 body {
 	min-width: 999px;

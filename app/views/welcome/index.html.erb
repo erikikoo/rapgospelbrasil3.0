@@ -1,23 +1,67 @@
-	<header>		
-		<div class="img-fundo">
-			<%= render "cabecalho" %>
-		</div>
+	<%= render partial: 'login/carregando' %>	
+	 
 
-		<div class="container">			
-			<%= render "menu" %>
-		</div>
+	<header>
+		<div class="topo">
+			<%= render partial: "welcome/partial_index/cabecalho" %>
+		</div>		
 	</header>
 	<!-- Corpo Principal -->
-	<div class="corpo">
-		<div class="container">
-			<div class="body">
-				<%= render 'welcome/corpo' %>
-			</div>
+	<div class="body">
+		<div class="painel-principal">
+			<div class="container">
+				<div class="banner-pri">
+					 <%= render "welcome/partial_index/banner" %>
+				</div>
 
+				<div class="ultimos-artistas">
+					<%= render "welcome/partial_index/ultimos_artistas" %>
+				</div>			
+			</div>
 		</div>
-	</div>	
+		<div class="corpo">
+			<div class="container">
+
+				<div class="painel-noticias">				
+					<div class="left">
+						<%= render partial: 'welcome/partial_index/noticia' %>
+					</div>
+					<div class="middle">
+						
+					</div>
+					<div class="right1">
+						<%= render partial: 'welcome/partial_index/video' %>
+					</div>
+						
+				</div>
+					
+				<div class="anuncios">
+					<div class="anuncio-maior">ANUNCIO</div>
+					<div class="anuncio-menor">ANUNCIO</div>
+				</div>
+
+				<div class="painel-palavras">
+					<div class="parte-maior">
+						<%= render partial: 'welcome/partial_index/palavra' %>
+					</div>
+					<div class="parte-menor">
+						<%= render partial: 'welcome/partial_index/top5' %>
+					</div>
+				</div>
+
+				<div class="painel-midia-sociais">
+					<div class="midia-maior">
+						<%= render partial: 'welcome/partial_index/redesocial' %>
+					</div>
+					<div class="midia-anuncio-menor">ANUNCIO</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
 	<footer>
-		<div>
-			<%= render 'welcome/rodape' %>
+		<div class="rodape">
+			<%= render partial: 'welcome/partial_index/rodape' %>
 		</div>
 	</footer>
+	

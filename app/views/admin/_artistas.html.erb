@@ -16,23 +16,30 @@
 				<span class="text-danger artista-nao-aprovado"><h5>Bloqueado</h5></span>
 		      <% end %>      
 		      <% if artist.nome.nil? %>
-				<span class="text-danger artista-nao-aprovado"><h5>Cadastro Incompleto</h5></span>
+				<span class="text-danger artista-nao-aprovado">
+					<h5>Incompleto há <%= "#{get_day(artist.updated_at)} dias"  %> </h5>
+				</span>                       
 		      <% end %>      
 			  
 		      <%= image_tag artist.logo.url(:medium), :class => 'img-thumbnail' %>      
 		      <%= artist.nome %>
 		      <br />
-		      <% if @profile == "adm" %>        
-		        <%= link_to "Vizualizar","/show_artista/#{artist.id}/adm", :class => "btn btn-default btn-xs", :remote => true %>
-						
-			        <% if  @adm.id != artist.id %>
-			        	<% if  artist.aprovado? and !artist.bloqueado?  %>	
-			        		<%= link_to 'Bloquear', "/bloquear_artista/#{artist.id}/adm", :remote => true ,data: { confirm: 'Você está prestes a bloquear este artista, confirma ?' } , class: 'btn btn-warning btn-xs'%>
-			        	<% end %>		        	
-			      	<% end %>	
-		      <% end %>
-	    	</div>
-	  
+		      <% if @profile == "adm" and !artist.nome.nil? %>        
+		        <%= link_to "Vizualizar","/show_artista/#{artist.id}/admin", :class => "btn btn-default btn-xs", :remote => true %>
+			   
+			   <% end %>	
+			   
+			   <% if artist.nome.nil? and (get_day(artist.updated_at) > 9) %>
+					<%= link_to 'Excluir', "/remove_artista/#{artist.id}/adm", method: :delete ,:remote => true ,data: { confirm: 'Você está prestes a bloquear este artista, confirma ?' } , class: 'btn btn-danger btn-xs'%>
+				<% end %>
+
+			    <% if  @adm.id != artist.id %>
+			      	<% if  artist.aprovado? and !artist.bloqueado? %>	
+			       		<%= link_to 'Bloquear', "/bloquear_artista/#{artist.id}/adm", :remote => true ,data: { confirm: 'Você está prestes a bloquear este artista, confirma ?' } , class: 'btn btn-warning btn-xs'%>
+			       	<% end %>		        	
+			   	<% end %>		     
+	    	</div>	  
 	    <% end %> 
 	  <% end %>  
  </div>
+

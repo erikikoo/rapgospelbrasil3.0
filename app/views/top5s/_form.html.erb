@@ -1,0 +1,31 @@
+<%= simple_form_for(@top5, remote: true) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <!--<%= f.association :artist %>-->
+    <div class="form-inline">
+      <%= f.input :titulo, label: '1º lugar' %>    
+      <%= f.input :artista, label: 'artista' %>
+    </div>
+    <div class="form-inline">
+      <%= f.input :titulo2, label: '2º lugar' %>
+      <%= f.input :artista2, label: 'artista' %>
+    </div>
+    <div class="form-inline">
+      <%= f.input :titulo3, label: '3º lugar' %>
+      <%= f.input :artista3, label: 'artista' %>
+    </div>
+    <div class="form-inline">
+      <%= f.input :titulo4, label: '4º lugar' %>
+      <%= f.input :artista4, label: 'artista' %>
+    </div>
+    <div class="form-inline">
+      <%= f.input :titulo5, label: '5º lugar' %>        
+      <%= f.input :artista5, label: 'artista' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

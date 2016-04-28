@@ -1,8 +1,9 @@
-<%= simple_form_for(@video, remote: true) do |f| %>
+<%= simple_form_for(@video, url: "/videos#{@user}", remote: true) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
        <%= f.input :link, autofocus: true %>
+      
   </div>
 
   <div class="form-actions">

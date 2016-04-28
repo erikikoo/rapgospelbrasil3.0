@@ -32,7 +32,7 @@ class NoticesController < ApplicationController
     respond_to do |format|
       if @notice.save
         format.js { redirect_to '/noticias/adm/success' }
-        format.json { render :show, status: :created, location: @notice }
+        format.json { render :show}
       else
         format.js { render :new }
         format.json { render json: @notice.errors, status: :unprocessable_entity }
@@ -72,6 +72,6 @@ class NoticesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def notice_params
-      params.require(:notice).permit(:artist_data_id, :noticia, :titulo)
+      params.require(:notice).permit(:artist_data_id, :noticia, :titulo, :imagem)
     end
 end

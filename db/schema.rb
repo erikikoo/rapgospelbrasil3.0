@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328181023) do
+ActiveRecord::Schema.define(version: 20160424183428) do
 
   create_table "artist_datas", force: :cascade do |t|
     t.string   "nome",              limit: 255
@@ -111,11 +111,15 @@ ActiveRecord::Schema.define(version: 20160328181023) do
   add_index "historys", ["artist_data_id"], name: "index_historys_on_artist_data_id", using: :btree
 
   create_table "notices", force: :cascade do |t|
-    t.integer  "artist_data_id", limit: 4
-    t.text     "noticia",        limit: 65535
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.string   "titulo",         limit: 255
+    t.integer  "artist_data_id",      limit: 4
+    t.text     "noticia",             limit: 65535
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "titulo",              limit: 255
+    t.string   "imagem_file_name",    limit: 255
+    t.string   "imagem_content_type", limit: 255
+    t.integer  "imagem_file_size",    limit: 4
+    t.datetime "imagem_updated_at"
   end
 
   add_index "notices", ["artist_data_id"], name: "index_notices_on_artist_data_id", using: :btree
@@ -142,21 +146,45 @@ ActiveRecord::Schema.define(version: 20160328181023) do
 
   add_index "rede_sociais", ["artist_data_id"], name: "index_rede_sociais_on_artist_data_id", using: :btree
 
+  create_table "top5s", force: :cascade do |t|
+    t.integer  "artist_id",  limit: 4
+    t.string   "titulo",     limit: 255
+    t.string   "artista",    limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "titulo2",    limit: 255
+    t.string   "artista2",   limit: 255
+    t.string   "titulo3",    limit: 255
+    t.string   "artista3",   limit: 255
+    t.string   "titulo4",    limit: 255
+    t.string   "artista4",   limit: 255
+    t.string   "titulo5",    limit: 255
+    t.string   "artista5",   limit: 255
+  end
+
+  add_index "top5s", ["artist_id"], name: "index_top5s_on_artist_id", using: :btree
+
   create_table "videos", force: :cascade do |t|
     t.integer  "artist_data_id", limit: 4
     t.string   "link",           limit: 255
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "artist_id",      limit: 4
   end
 
   add_index "videos", ["artist_data_id"], name: "index_videos_on_artist_data_id", using: :btree
+  add_index "videos", ["artist_id"], name: "index_videos_on_artist_id", using: :btree
 
   create_table "words", force: :cascade do |t|
-    t.integer  "artist_data_id", limit: 4
-    t.string   "titulo",         limit: 255
-    t.text     "texto",          limit: 65535
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.integer  "artist_data_id",      limit: 4
+    t.string   "titulo",              limit: 255
+    t.text     "texto",               limit: 65535
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "imagem_file_name",    limit: 255
+    t.string   "imagem_content_type", limit: 255
+    t.integer  "imagem_file_size",    limit: 4
+    t.datetime "imagem_updated_at"
   end
 
   add_index "words", ["artist_data_id"], name: "index_words_on_artist_data_id", using: :btree
@@ -169,6 +197,8 @@ ActiveRecord::Schema.define(version: 20160328181023) do
   add_foreign_key "notices", "artist_datas"
   add_foreign_key "phones", "artist_datas"
   add_foreign_key "rede_sociais", "artist_datas"
+  add_foreign_key "top5s", "artists"
   add_foreign_key "videos", "artist_datas"
+  add_foreign_key "videos", "artists"
   add_foreign_key "words", "artist_datas"
 end

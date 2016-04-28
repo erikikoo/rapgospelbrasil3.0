@@ -138,17 +138,29 @@ class PrincipalController < ApplicationController
   end
 ###########################################################33
   def video  
-  if params[:status]
+    
+
+    if params[:status]
         @status = params[:status]
-     end   
+    end 
+   @videos = Video.where('artist_data_id = ?', current_artist.id)
   end
 
   def novo_video
     @video = Video.new 
+    @user = "/artista"
   end  
   def remove_video
-      @video.destroy      
-      render :video
+      @admin = params[:profile]
+      @video.destroy 
+      if @admin == 'admin'
+        @videos = Video.where("artist_id = ? OR artist_id = ?" ,1,2) 
+      else
+        @admin = 'adm'
+        @videos = Video.where('artist_data_id = ?', current_artist.id)
+      end
+
+      render :video, location: @admin
   end
 ###########################################################33
   def rede_social     

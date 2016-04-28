@@ -21,14 +21,18 @@
 
 
 $(document).ready(function() {
-  $(document).ajaxStart(function() {    
+  $(document).ajaxStart(function() {          
       $(".mascara").show();    
   });
   
   $(document).ajaxStop(function() {
     $(".mascara").hide();
-  });  
-     
+  }); 
+
+  $("#imagem img").attr({
+    style: ''    
+  });
+  $("#imagem img").addClass('img-index');     
 });
 
 

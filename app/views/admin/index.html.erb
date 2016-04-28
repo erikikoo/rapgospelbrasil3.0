@@ -7,8 +7,8 @@
 <div class="painel-artistas-adm">
 	      
 	       <div class="alert">
-            	<% if @users.count > 0 %>
-		            <div class="alert alert-success">Você possui <%= content_tag :span, @users.count > 0 ? @users.count : "" , class: 'badge' %>  <%= @users.count == 1 ? 'artista cadastrado' : 'artistas cadastrados' %>
+            	<% if @artist.count > 0 %>
+		            <div class="alert alert-success">Você possui <%= content_tag :span, @artist.count > 0 ? @artist.count : "" , class: 'badge' %>  <%= @artist.count == 1 ? 'artista cadastrado' : 'artistas cadastrados' %>
 		            </div>
 	            <% end %> 
             	<% if @aguandado_aprovacao.count > 0 %>
@@ -23,10 +23,15 @@
 		            <div class="alert alert-warning">Você possui <%= content_tag :span, @aguardando_cadastro.count > 0 ? @aguardando_cadastro.count : "" , class: 'badge' %>  <%= @aguardando_cadastro.count == 1 ? 'artista' : 'artistas' %> com <%=link_to "cadastro incompleto!", "/artistas_filter/i", class: 'alert-link', remote: true %> 
 		            </div>
 	            <% end %>
-	            
-            	
+	            <% if !@top5.nil? %>
+		            <% if get_day(@top5.created_at) >= 0 %>
+	            		<div class="alert alert-warning">
+	            			Top 5 com mais de uma <%= get_day(@top5.updated_at) %>
+	            		</div>
+	            	<% end %>
+            	<% end %>
          	</div>    	
              
-
+	
 </div>
 

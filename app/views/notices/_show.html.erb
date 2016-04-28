@@ -1,16 +1,19 @@
+<div class="pag-show">
+    <h3><%= @notice.titulo %></h3>
 
 
-<p>
-  <h3><%= @notice.titulo %></h3>
-</p>
-
-<p>
-	<span class="text-justify"><%= raw(@notice.noticia) %></span>
-   <span class="text-right">
-   	<strong>Criando em : </strong><%= @notice.created_at.strftime('%d/%m/%Y') %>
-   </span>
-</p>
-<% if @status == 'adm'  %>
-	<%= link_to 'Edit', "/edit_noticia/#{@notice.id}/adm", class: 'btn btn-default', remote: true %> |
-	<%= link_to 'Back', '/noticias/adm', class: 'btn btn-default', remote: true %>
-<% end %>
+  	<% if @notice.present? %>        
+          <span class="imagem-noticia-show">
+              <%= image_tag(@notice.imagem.url(:thumb)) %>
+          </span> 
+      <% end %>    
+  	<span class="text-justify"><%= raw(@notice.noticia) %></span>
+     <span class="text-right">
+     	<strong>Criando em : </strong><%= @notice.created_at.strftime('%d/%m/%Y') %>
+     </span>
+  </p>
+  <% if @status == 'adm'  %>
+  	<%= link_to 'Editar', "/edit_noticia/#{@notice.id}/adm", class: 'btn btn-default', remote: true %> |
+  	<%= link_to 'Voltar', '/noticias/adm', class: 'btn btn-default', remote: true %>
+  <% end %>
+</div>

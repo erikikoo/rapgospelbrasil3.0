@@ -1,0 +1,32 @@
+<h3>TOP 5 MÚSICAS</h3>
+<div class="top5">
+	<% if !@top5.nil? %>
+		<table>
+			<tr>
+				<td><%= image_tag('Estrela01.png') %> </td>
+				<td><strong><%= @top5.titulo %></strong></td>
+				<td><%= @top5.artista %></td>
+			</tr>
+			<tr>
+				<td><%= image_tag('Estrela02.png') %> </td>
+				<td><strong><%= @top5.titulo2 %></strong></td>
+				<td><%= @top5.artista2 %></td>
+			</tr>
+			<tr>
+				<td><%= image_tag('Estrela03.png') %> </td>
+				<td><strong><%= @top5.titulo3 %></strong></td>
+				<td><%= @top5.artista3 %></td>
+			</tr>
+			<tr>
+				<td><%= image_tag('Estrela04.png') %> </td>
+				<td><strong><%= @top5.titulo4 %></strong></td>
+				<td><%= @top5.artista4 %></td>
+			</tr>
+			<tr>
+				<td><%= image_tag('Estrela05.png') %> </td>
+				<td><strong><%= @top5.titulo5 %></strong></td>
+				<td><%= @top5.artista5 %></td>
+			</tr>
+		</table>
+	<% end %>	
+</div>

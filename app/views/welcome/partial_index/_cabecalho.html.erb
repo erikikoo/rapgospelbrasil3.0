@@ -1,0 +1,25 @@
+	<div class="fundo"></div>	
+	<div class="faixa-header"></div>
+	<div class="usuario-controle">
+		<% if artist_signed_in? %>  	  	
+			<%= link_to 'Sair', destroy_artist_session_path, method: :delete ,:class => 'btn-default-index' %>
+			<% if current_artist.admin? %>
+				<%= link_to 'Administrador', admin_index_path ,:class => 'btn-default-index' %>	
+			<% else %>
+				<%= link_to 'Perfil', principal_path ,:class => 'btn-default-index' %>
+			<% end %>
+		<% else %>
+			<%= link_to 'Novo Artista', new_artist_registration_path, :class => 'btn-default-index' %>
+			<%= link_to 'Area Restrita', new_artist_session_path, :class => 'btn-default-index' %>
+		<% end %>
+	</div>
+
+	<div class="logo">
+		<%= link_to(image_tag('LogoCabecalho.png'), root_path ) %>
+	</div>
+	<div class="painel-menu">		
+		<div class="container">
+			<%= render "welcome/partial_index/menu" %>		
+		</div>
+	</div>
+	

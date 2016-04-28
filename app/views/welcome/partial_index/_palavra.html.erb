@@ -1,0 +1,20 @@
+<h2>PALAVRAS</h2>
+<% if !@palavras.empty? %>
+	
+	<% @palavras.each do |palavra| %>
+		<%= image_tag(palavra.imagem.url(:small)) if palavra.imagem.present?  %>
+		<div class="noticia">
+				
+			<div class="noticia-texto text-justify">
+				<strong><%= link_to "#{palavra.titulo}", "/show_palavra/#{palavra.id}", remote: true %></strong>
+				<%= sub_texto(palavra.texto,200) %>		
+			</div>	
+			
+		</div>	
+	<% end %>
+	
+	<div class="link-veja-mais">
+		<%= link_to "Veja Mais", '/palavras' , remote: true, class: 'btn-default-index' %>
+	</div>
+<% end %>	
+

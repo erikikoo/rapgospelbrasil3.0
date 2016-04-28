@@ -1,0 +1,28 @@
+
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <span class="search btn btn-default"> Pesquisar </span>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        <div class="search-artistas">
+    			<ul>
+            <li><%= link_to "0-9", "search_artista/0-9", remote: true %></li>
+    				<% ('a'..'z').each do |letra| %>
+    					<li><%= link_to "#{letra}", "search_artista/#{letra}", remote: true %></li>
+    				<% end %>	
+    				<li><%= link_to "Todos", "search_artista/all", remote: true %></li>
+    			</ul>
+		    </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

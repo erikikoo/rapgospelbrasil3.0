@@ -1,16 +1,19 @@
+<div class="pag-show">
 
+    <h3><%= @word.titulo %></h3>
 
-  <h3><%= @word.titulo %></h3>
+  	<% if @word.imagem.present? %>
+         <span class="imagem-noticia-show"><%= image_tag(@word.imagem.url(:thumb)) %></span> 
+      <% end %>
+  <p class='text-justify'>
+     <%= raw(@word.texto) %>
 
-
-<p>
-   <%= raw(@word.texto) %>
-
-   <span class="text-right">
-   	<strong>Criando em : </strong><%= @word.created_at.strftime('%d/%m/%Y') %>
-   </span>
-</p>
-<% if @status == 'adm'  %>
-	<%= link_to 'Edit', "/edit_palavra/#{@word.id}/adm", class: 'btn btn-default', remote: true %> |
-	<%= link_to 'Back', '/palavras/adm', class: 'btn btn-default', remote: true %>
-<% end %>
+     <span class="text-right">
+     	<strong>Criando em : </strong><%= @word.created_at.strftime('%d/%m/%Y') %>
+     </span>
+  </p>
+  <% if @status == 'adm'  %>
+  	<%= link_to 'Editar', "/edit_palavra/#{@word.id}/adm", class: 'btn btn-default', remote: true %> |
+  	<%= link_to 'Voltar', '/palavras/adm', class: 'btn btn-default', remote: true %>
+  <% end %>
+</div>

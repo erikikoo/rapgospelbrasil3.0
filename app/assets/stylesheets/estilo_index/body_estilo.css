@@ -1,108 +1,140 @@
-.banner-pri {
-	position: relative;
-	
-	width: 960px;
-	height: auto;
-	margin-left: auto;
-	margin-right: auto;
-}
-
 .painel-noticias {
 	position: relative;	
 	top: 20px;
-	height: 290px;
-	border: #000 1px solid;
-	
+	height: 290px;	
 }
 
 .left {
 	position: relative;
-	width:350px;
-	
+	width:350px;	
+	height: 290px; 
+	margin-top: -15px;
+}
+.img-index {	
+	width: 150px;
+	height: 100px;
+}
+
+.titulo h4 {
+	position: absolute;
+	left:160px;
+	top:50px;
+	font-size: 30px;
+}
+
+.noticia p img {
+	padding: 5px;
 }
 
 .middle {
-	position: relative;
+	position: absolute;
 	width:250px;
-	top:-171px;
+	top:0px;
 	left:360px;
 	
 }
 
 .right {
-	position: relative;
+	position: absolute;
 	width:350px;
 	left:620px;
-	top:-252px;
-	
+	top:0px;
+	height: 100px;	
 }
+
+
 
 .anuncios {
 	position: relative;
-	height: 100px;
+	height: 100px;	
+	margin-top: 70px;
 	
-	margin-top: 40px;
-	border: #000 1px solid;
 }
 
 .anuncio-maior {
 	position: absolute;
-	width: 690px;
+	width: 650px;
 	left: 10px;
 	height: 90px;
 	top: 5px;
-	
-	
+	background-color: red;
+	padding-left: 10px;	
 } 
 
 .anuncio-menor {
 	position: absolute;
-	width: 280px;
+	width: 292px;
 	height: 90px;
 	top: 5px;
-	left: 710px;
+	left: 660px;
+	background-color: yellow;
 	
 } 
 
 .painel-palavras {
 	position: relative;
-	height: 250px;
-	
+	height: 250px;	
 	margin-top: 20px;
-	border: #000 1px solid;
+	
 }
 
-.parte-maior {
-	position: absolute;
+.parte-maior {	
 	width: 590px;
 	left: 10px;
 	height: 240px;
-	top: 5px;
-	
+	top: 5px;	
 } 
+.parte-maior h2 {
+	color: #000;
+}
+
+.noticia {
+	padding: 10px;
+}
+
+.noticia-texto {
+	position: relative;
+	margin-top: -69px;
+	left: 77px;
+	width: 500px;
+}
+
+.noticia-texto a {
+	color: #000;
+}
 
 .parte-menor {
 	position: absolute;
-	width: 380px;
+	width: 358px;
 	height: 240px;
-	top: 5px;
+	top: -20px;
 	left: 610px;
 	
 }
 
+.parte-menor h3 {
+	height: 35px;	
+	background-color: #000;
+	color: #fff;
+	padding-left: 30px;
+	padding-top:3px;
+}
+
+.parte-menor ul {
+	list-style: none;
+}
+
 .painel-midia-sociais {
 	position: relative;
-	height: 250px;
-	
-	margin-top: 20px;
-	border: #000 1px solid;
+	height: auto;	
+	margin-top: 20px;	
 }
 
 .midia-maior {
 	position: absolute;
 	width: 490px;
 	left: 10px;
-	height: 240px;
+	height: auto;
 	top: 5px;
 	
 } 
@@ -115,7 +147,115 @@
 	left: 510px;
 	
 }
-footer {
-	height: 20px;	
-	border: #000 1px solid;
+
+.search-artistas ul li {	
+	display: inline-block;	
+	position: relative;
+	left: -20px;
+	padding: 9px;
+}
+
+.ultimos-artistas ul li {	
+	display: inline-block;	
+	position: relative;
+	left: 150px;
+}
+
+.artistas ul {	
+	list-style: none;
+}
+
+.text-ultima {
+	color: #828282;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.titulo-noticia {
+	font-weight: bold;	
+	font-size: 20px;
+
+}
+
+.body {
+	position: relative;	
+	top:-250px;	
+}
+
+
+.painel-principal {
+	
+	z-index: 3;
+	height: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #282828;	
+}
+
+
+
+.banner-pri {
+	position: relative;
+	left: -19px;
+	margin: 20px;
+}
+
+.banner-principal {
+	position: relative;
+	left: 0px;
+}
+
+
+
+.usuario-controle {
+	width: 217px;
+	height: 30px;	
+	position: absolute;
+	top:200px;
+	left: 70%;
+	z-index: 4;
+	color: #fff;
+}
+
+.ultimos-artistas {
+	position: absolute;	
+	height: 130px;
+	width: 98%;			
+}
+.ultimos-artistas ul {
+	margin-top: -115px;
+	margin-left: 70px;
+}
+
+.ultimos-artistas ul li{
+	display: inline-block;
+	padding: 5px;
+}
+
+.link-veja-mais {
+	float: right;
+}
+
+.titulo h4 {
+	position: absolute;
+	top: 26px;
+	left: 160px;
+}
+
+.botao-veja-mais-ultima-noticia {
+	position: absolute;
+	top:115px;	
+	left:163px;
+}
+
+.btn-default-index {
+	color: #fff;
+	padding: 10px;	
+	background-color: #8E0000;
+	border: 1px solid #8E0000;
+}
+
+.btn-default-index:hover {
+	color: #8E0000;	
+	background-color: #fff;
 }

@@ -1,12 +1,17 @@
 
-<% if !artist_signed_in? %>  
-  <%= link_to 'Novo Artista', new_artist_registration_path, :class => 'btn-sm btn btn-default' %>
-<% end %>
+
 
   <div class="artistas">
+    
+    
+    <div><%= render partial: 'artist_datas/search_artist' %></div>
+    
+
+
     <% if @artist_data.empty? %>
       Não exitem artistas cadastrados
     <% else %>
+      
       <% @artist_data.each do |artist_data| %>
         <div class="item-artista img-thumbnail">
            <%= link_to(image_tag(artist_data.logo.url(:thumb)), "/show_artista/#{artist_data.id}" ,remote: true)  %>
@@ -21,7 +26,6 @@
       <% end %>
     <% end %>  
   </div>
-
   <div class="painel-artistas">
       
   </div>

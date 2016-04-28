@@ -1,29 +1,33 @@
 Rails.application.routes.draw do
 
+  resources :top5s
   resources :words
   resources :notices
   devise_for :artists
 
   mount Ckeditor::Engine => '/ckeditor'
 
-  #pagina principal
- 
+  #pagina principal 
   get 'welcome/index'
   get '/principal'                    => 'principal#index'
   get '/noticias'                     => 'welcome#noticia'
   get '/palavras'                     => 'welcome#palavra'
   get '/artistas'                     => 'welcome#artista'
+  get '/videos'                       => 'welcome#video'
   get '/show_noticia/:id'             => 'notices#show'
   get '/show_palavra/:id'             => 'words#show'  
   get '/show_artista/:id'             => 'artist_datas#show'
+  get '/search_artista/:word'         => 'artist_datas#search_artista'
 
   #adm
+  get '/top5/:profile'                     => 'admin#top5'
+
   get '/show_artista/:id/:profile'         => 'admin#show_artista'  
   get 'admin/index'
   get '/artistas/:profile'                 => 'admin#artistas'
   get '/artistas_filter'                   => 'admin#artistas_filter'
   get '/artistas_filter/:option'           => 'admin#artistas_filter'
-  #get '/show_artista/:id'                  => 'admin#show_artista'
+  
   
   get '/palavras/:profile'                 => 'admin#palavras'
   get '/nova_palavra/:profile'             => 'admin#nova_palavra'
@@ -41,15 +45,11 @@ Rails.application.routes.draw do
   get '/bloquear_artista/:id/:profile'     => 'admin#bloquear_artista'
   get '/desbloquear_artista/:id/:profile'  => 'admin#desbloquear_artista'
 
+  get '/videos/:profile'                   => 'admin#videos'
+  get '/novo_video/:profile'               => 'admin#novo_video' 
   delete 'remove_artista/:id/:profile'     => 'admin#remove_artista'
   delete 'remove_noticia/:id/:profile'     => 'admin#remove_noticia'
   delete 'remove_palavra/:id/:profile'     => 'admin#remove_palavra'
-
-
-  
-
-
-
 
   #novo 
   get '/novo_disco/:id'        => 'principal#novo_disco'
@@ -111,14 +111,18 @@ Rails.application.routes.draw do
   delete '/remove_video/:id/:profile'          => 'principal#remove_video'
   delete '/remove_rede_social/:id/:profile'    => 'principal#remove_rede_social'  
 
-  resources :discographys
-  resources :phones
-  resources :emails
-  resources :artist_datas
-  resources :rede_sociais
-  resources :videos
-  resources :commitments  
-  resources :historys
+
+  post '/videos/:user' => 'videos#create'
+
+
+  # resources :discographys
+  # resources :phones
+  # resources :emails
+   resources :artist_datas
+  # resources :rede_sociais
+   resources :videos
+  # resources :commitments  
+  # resources :historys
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

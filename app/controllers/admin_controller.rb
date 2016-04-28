@@ -2,7 +2,7 @@ class AdminController < ApplicationController
   before_action :get_model_user  
   before_action :get_admin
   before_action :get_dados_artista, only: [:show_artista, :remove_artista, :aprova_artista,:bloquear_artista, :desbloquear_artista]
-  before_action :get_aguardando_aprovado, only: [:index, :artistas,:aprova_artista,:bloquear_artista,:desbloquear_artista, :artistas_filter]
+  before_action :get_aguardando_aprovado
   before_action :get_bloqueado, only: [:index, :artistas,:aprova_artista,:bloquear_artista,:desbloquear_artista, :artistas_filter]
   before_action :get_notice_for_id, only: [:edit_noticia, :remove_noticia, :show_noticia]
   before_action :get_word_for_id, only: [:edit_palavra, :remove_palavra, :show_palavra]
@@ -17,19 +17,21 @@ class AdminController < ApplicationController
 
 
   def index  	
-    @users = Artist.where(admin: false)    
-    @aguardando_cadastro = ArtistData.where('nome IS ?', nil)    
+    @users = Artist.where(admin: false)
+    @artist = ArtistData.where.not(artist_id: @adm.id)        
+    @aguardando_cadastro = ArtistData.where(nome: nil).where.not(artist_id: @adm.id)
+    @top5 = Top5.last    
     authorize @users
   end
 
   def artistas  	
   end
 
-  def show_artista    
+  def show_artista  
+    
   end
 
-  def artistas_filter
-    
+  def artistas_filter    
     @query = params[:option]    
     if @query.nil?
       @query = params[:filtro][:option]          
@@ -75,13 +77,14 @@ class AdminController < ApplicationController
     render :artistas     
   end
 
-  def noticias
-     
+  def noticias     
      if params[:status]
         @status = params[:status]
      end
-
-     @notices = Notice.order(created_at: :desc)   
+     @notices = Notice.order(created_at: :desc) 
+     respond_to do |format|
+      format.js
+     end  
   end
 
   def nova_noticia
@@ -134,48 +137,61 @@ class AdminController < ApplicationController
       render :palavras  
   end
 
+  def top5
+    @top5 = Top5.new      
+  end
+
+  def videos    
+    @videos = Video.where("artist_id = ? OR artist_id = ?" ,1,2)
+    @teste = "/admin"
+  end
+
+  def novo_video
+    @video = Video.new    
+    
+    @user = '/admin'
+  end
+
+
   private
 
-  def get_all_notices
-     @notices = Notice.all 
-  end
+    def get_all_notices
+       @notices = Notice.all 
+    end
 
-  def get_all_artist
-    @artists = ArtistData.all
-  end
+    def get_all_artist
+      @artists = ArtistData.where.not(artist_id: @adm.id)
+    end
 
-  def get_all_words
-    @words = Word.all 
-  end
+    def get_all_words
+      @words = Word.all 
+    end
 
-  def get_dados_artista
-    @artist_data = ArtistData.find(params[:id])
-  end
+    def get_dados_artista
+      @artist_data = ArtistData.find(params[:id])
+    end
 
-  def get_notice_for_id
-    @notice = Notice.find(params[:id])
-  end
+    def get_notice_for_id
+      @notice = Notice.find(params[:id])
+    end
 
-  def get_word_for_id
-    @word = Word.find(params[:id])
-  end
+    def get_word_for_id
+      @word = Word.find(params[:id])
+    end
 
-  def get_model_user
-     @profile = params[:profile] 
-  end
+    def get_model_user
+       @profile = params[:profile] 
+    end
 
-  def get_aguardando_aprovado
-    @aguandado_aprovacao = ArtistData.where.not(aprovado: true, nome: nil)
-  end
-  
-  def get_bloqueado
-    @bloqueado = ArtistData.where(bloqueado: true)
-  end
+    def get_aguardando_aprovado
+      @aguandado_aprovacao = ArtistData.where.not(aprovado: true, nome: nil)
+    end
+    
+    def get_bloqueado
+      @bloqueado = ArtistData.where(bloqueado: true)
+    end
 
-  def get_admin
-    @adm = Artist.find_by(admin: true)
-  end
-
-
-
+    def get_admin
+      @adm = Artist.find_by(admin: true)
+    end
 end

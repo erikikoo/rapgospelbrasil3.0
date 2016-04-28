@@ -5,7 +5,7 @@ class ArtistDatasController < ApplicationController
   # GET /artist_datas
   # GET /artist_datas.json
   def index
-    @artist_data = ArtistData.where(aprovado: true, bloqueado: false)    
+    @artist_data = ArtistData.where(aprovado: true, bloqueado: false)
   end
 
   # GET /artist_datas/1
@@ -44,7 +44,7 @@ class ArtistDatasController < ApplicationController
       respond_to do |format|      
         @current_id = params[:id]
         @artist_data.update(artist_data_params)      
-        format.js {render :new }
+        format.js {render :create }
       end
     end
   end
@@ -56,7 +56,7 @@ class ArtistDatasController < ApplicationController
       #if @artist_data.id == current_artist.id
       #@current_id = params[:id]
       @artist_data.update(artist_data_params)      
-      #format.js {render :create }
+      format.js {render :create }
     end
       #end
     #end
@@ -95,6 +95,18 @@ class ArtistDatasController < ApplicationController
   def agenda
      @profile = params[:profile]   
   end  
+
+  def search_artista     
+    if params[:word] == 'all'
+        @artist_data = ArtistData.where(aprovado: true, bloqueado: false)
+    else
+      @artist_data = ArtistData.where('nome LIKE ?', "#{params[:word]}%")  
+    end
+    respond_to do |format|  
+      format.js
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

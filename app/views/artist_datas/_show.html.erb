@@ -1,7 +1,7 @@
 <% if artist_signed_in? and (@artist_data.nome.nil? || @artist_data.phones.empty? || @artist_data.emails.empty? || @artist_data.history.nil?)  %>
 	<div class="alert alert-danger">Você precisa <%= link_to "concluir seu cadastro!", principal_index_path, class: 'alert-link' %></div>	
 <% else %>
-
+	
 	<div class="painel-show">
 		<div class="painel-image">	
 			<%= image_tag(@artist_data.logo.url(:medium), :class => 'posicionamento logo-show img-thumbnail') %>	
@@ -40,7 +40,7 @@
 			</ul>
 		</nav>
 
-	<div class="posicionamento painel-artistas">		
+	<div class="posicionamento painel-artistas container">		
 		<% if @artist_data.history.nil? %>
 			Não possui História cadastrada
 		<% else %>

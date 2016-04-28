@@ -1,0 +1,14 @@
+<div class="img-ultimo-artista">
+	<%= image_tag('UltimoArtista.jpg')%>
+</div>
+<% if !@artistas.empty? %>
+	<div class="ultimos-artistas">		
+		<ul>
+			<% @artistas.each do |artista| %>
+				<!--<li><img src="https://robohash.org/YOUR-TEXT.png?size=125x100"> </li>-->
+				<li><%= image_tag artista.logo.url(:small), :class => 'img-rounded' %> </li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
+

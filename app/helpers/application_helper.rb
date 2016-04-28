@@ -1,10 +1,10 @@
 module ApplicationHelper
 
-	def sub_texto(texto)
-		 if texto.length <= 500
+	def sub_texto(texto, qnt)
+		 if texto.length <= qnt
 		 	raw(texto)
 		 else 
-		  	raw(texto[0..500]+" ... ")
+		  	raw(texto[0..qnt]+" ... ")
 		end
 	end
 
@@ -15,5 +15,15 @@ module ApplicationHelper
   	def get_administrador
     	@adm = Artist.find_by('admin = ?', 1)
   	end
+
+  	def set_video(video)		
+		"<iframe width='560' height='315' src='#{video}' frameborder='0' allowfullscreen></iframe>"
+	end
+
+	def get_day(date)
+		(((Time.now - date)/3600)/24).to_i
+	end
+	
+
 	
 end

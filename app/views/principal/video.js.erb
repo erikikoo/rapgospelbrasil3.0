@@ -1,4 +1,10 @@
-$('.painel-artistas-art').html('<%= escape_javascript (render partial: "videos/show.html.erb") %>');
+<% if @admin == 'admin' %>
+	$('.painel-artistas-adm').html('<%= escape_javascript (render partial: "videos/index") %>');
+<% else %>
+	$('.painel-artistas-art').html('<%= escape_javascript (render partial: "videos/index") %>');
+<% end %>
+
+
 <% if @status == 'success' %>
 	<%= render partial: 'mensagem/success'%>
 <% elsif @status == 'remover' %>
