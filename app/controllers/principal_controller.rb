@@ -22,7 +22,7 @@ class PrincipalController < ApplicationController
   end
 
   def artista
-   @artist_data = ArtistData.find_by(:artist_id, current_artist.id)  
+   @artist_data = ArtistData.find_by(artist_id: current_artist.id)  
     
     if @artist_data.nil?
         @artist_data = ArtistData.new
