@@ -1,6 +1,8 @@
 <h3>TOP 5 MÚSICAS</h3>
 <div class="top5">
-	<% if !@top5.nil? %>
+	<% if @top5.nil? %>
+		<h5>Não possui Top 5 cadastrado!</h5>
+	<% else %>
 		<table>
 			<tr>
 				<td><%= image_tag('Estrela01.png') %> </td>

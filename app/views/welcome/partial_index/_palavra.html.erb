@@ -1,6 +1,7 @@
 <h2>PALAVRAS</h2>
-<% if !@palavras.empty? %>
-	
+<% if @palavras.empty? %>
+	<h5>Não possui palavra cadastrada!</h5>
+<% else %>	
 	<% @palavras.each do |palavra| %>
 		<%= image_tag(palavra.imagem.url(:small)) if palavra.imagem.present?  %>
 		<div class="noticia">

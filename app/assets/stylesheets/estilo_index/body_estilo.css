@@ -26,13 +26,6 @@
 	padding: 5px;
 }
 
-.middle {
-	position: absolute;
-	width:250px;
-	top:0px;
-	left:360px;
-	
-}
 
 .right {
 	position: absolute;
@@ -142,9 +135,10 @@
 .midia-anuncio-menor {
 	position: absolute;
 	width: 480px;
-	height: 240px;
+	min-height: 145px;
 	top: 5px;
 	left: 510px;
+	background-color: red;
 	
 }
 
@@ -258,4 +252,13 @@
 .btn-default-index:hover {
 	color: #8E0000;	
 	background-color: #fff;
+}
+
+.painel-noticias-anuncio {
+	background-color: red;
+	height: 290px;
+	position: absolute;
+	width:250px;
+	top:0px;
+	left:360px;
 }
