@@ -13,7 +13,7 @@ module ApplicationHelper
   	end
 
   	def get_administrador
-    	@adm = Artist.find_by('admin = ?', 1)
+    	@adm = Artist.find_by(admin: true)
   	end
 
   	def set_video(video)		
