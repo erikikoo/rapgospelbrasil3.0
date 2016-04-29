@@ -76,13 +76,13 @@ class PrincipalController < ApplicationController
      end     
   end
   def novo_historia
-     @commitment = Commitment.new          
+     @history = Commitment.new          
   end
   def edit_historia
 
   end
   def remove_historia      
-      @commitment.destroy      
+      @history.destroy      
       render :agenda
   end
 ###########################################################33

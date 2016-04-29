@@ -115,14 +115,14 @@ Rails.application.routes.draw do
   post '/videos/:user' => 'videos#create'
 
 
-  # resources :discographys
-  # resources :phones
-  # resources :emails
+   resources :discographys
+   resources :phones
+   resources :emails
    resources :artist_datas
-  # resources :rede_sociais
+   resources :rede_sociais
    resources :videos
-  # resources :commitments  
-  # resources :historys
+   resources :commitments  
+   resources :historys
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
