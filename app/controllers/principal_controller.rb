@@ -12,17 +12,17 @@ class PrincipalController < ApplicationController
   before_action :get_model_user
   
   def index
-    @artist_data = ArtistData.find_by('artist_id = ?', current_artist.id)    
+    @artist_data = ArtistData.find_by(artist_id: current_artist.id)    
     if @artist_data.nil?
       @artist_data = ArtistData.new       
       #@artist_data.artist_id = current_artist.id
-      @artist_data.update_attribute(:artist_id,current_artist.id)     
+      @artist_data.update_attribute(:artist_id, current_artist.id)     
     end
 
   end
 
   def artista
-   @artist_data = ArtistData.find_by('artist_id = ?', current_artist.id)  
+   @artist_data = ArtistData.find_by(:artist_id, current_artist.id)  
     
     if @artist_data.nil?
         @artist_data = ArtistData.new
@@ -39,7 +39,7 @@ class PrincipalController < ApplicationController
   end
 
   def perfil
-    @artist_data = ArtistData.find_by('artist_id = ?', current_artist.id) 
+    @artist_data = ArtistData.find_by(artist_id: current_artist.id) 
 
     if @artist_data.nome.nil?
       @artist_data = ArtistData.new
@@ -143,7 +143,7 @@ class PrincipalController < ApplicationController
     if params[:status]
         @status = params[:status]
     end 
-   @videos = Video.where('artist_data_id = ?', current_artist.id)
+   @videos = Video.where(artist_data_id: current_artist.id)
   end
 
   def novo_video
@@ -157,14 +157,14 @@ class PrincipalController < ApplicationController
         @videos = Video.where("artist_id = ? OR artist_id = ?" ,1,2) 
       else
         @admin = 'adm'
-        @videos = Video.where('artist_data_id = ?', current_artist.id)
+        @videos = Video.where(artist_data_id: current_artist.id)
       end
 
       render :video, location: @admin
   end
 ###########################################################33
   def rede_social     
-    @rede_social = RedeSocial.find_by('artist_data_id = ?', current_artist.id)
+    @rede_social = RedeSocial.find_by(artist_data_id: current_artist.id)
     @teste = current_artist.id
     if params[:status]
         @status = params[:status]
@@ -191,10 +191,8 @@ class PrincipalController < ApplicationController
 ###########################################################33
   private
 
- 
-
   def get_artist_current
-     @artist_data = ArtistData.find_by('artist_id = ?', current_artist.id)
+     @artist_data = ArtistData.find_by(artist_id: current_artist.id)
   end
 
   def get_model_user
@@ -226,7 +224,7 @@ class PrincipalController < ApplicationController
   end 
 
   def set_artistas
-  	@artist_data = ArtistData.find_by('artist_id = ?', current_artist.id)
+  	@artist_data = ArtistData.find_by(artist_id: current_artist.id)
   end	
 
 end
