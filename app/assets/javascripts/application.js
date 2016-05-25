@@ -12,15 +12,21 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+// turbolinks foi removido para os plugins recarregarem ao redirecionar a pag
+// require turbolinks
 //= require ckeditor/init
-//= require twitter/bootstrap
+//= require twitter/bootstrap/
 //= require twitter/bootstrap/modal
 //= require jquery.remotipart
+//= require cloudinary
+//= require maskedinput
 //= require_tree .
 
 
 $(document).ready(function() {
+  
+  $('.blueberry').blueberry();
+  
   $(document).ajaxStart(function() {          
       $(".mascara").show();    
   });
@@ -32,7 +38,11 @@ $(document).ready(function() {
   $("#imagem img").attr({
     style: ''    
   });
-  $("#imagem img").addClass('img-index');     
+  $("#imagem img").addClass('img-index'); 
+
+  
+
+
 });
 
 

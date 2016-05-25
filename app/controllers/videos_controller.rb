@@ -1,11 +1,12 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
   before_action :get_artist_current
-  
+  before_filter :allow_iframe
+
   # GET /videos
   # GET /videos.json
   def index
-    @videos = Video.all
+    @videos = Video.order(createrd_at: :desc)
   end
 
   # GET /videos/1
@@ -27,27 +28,34 @@ class VideosController < ApplicationController
   # POST /videos.json
   def create
     @video = Video.new(video_params)
-    @admin = params[:user]
-    if @admin == 'admin'
+    @profile = params[:user]   
+    if @profile == 'admin'
       @video.artist_id = current_artist.id
     else 
       @video.artist_data_id = @artist_data.id
     end  
-    respond_to do |format|
-      if @video.save        
-        if @admin == 'admin' 
-          @videos = Video.where('artist_id = ? OR artist_id = ?', 1, 2)            
-          format.js {render :show_adm, location: @admin }
+      respond_to do |format|
+        if @video.link.length <= 60
+          if @video.save        
+            @status = 'success'
+            if @profile == 'admin' 
+              @videos = Video.where('artist_id = ? OR artist_id = ?', 1, 2)            
+              format.js {render :show_adm, location: @profile }
+            else
+              @videos = Video.where(artist_data_id: current_artist.id)            
+              @profile = 'adm'
+              format.js {render :show_art, location: @profile }
+            end
+          else
+            @status = 'error'
+            format.js { render :new }
+            
+          end
         else
-          @videos = Video.where(artist_data_id: current_artist.id)            
-          @admin = 'adm'
-          format.js {render :show_art, location: @admin}
+            @status = 'error'
+            format.js { render :new }
         end
-      else
-        format.js { render :new }
-        
-      end
-    end
+     end
   end
 
   # PATCH/PUT /videos/1
@@ -76,7 +84,7 @@ class VideosController < ApplicationController
           format.js {render :show_adm, location: @admin }
         else
           @admin = "adm"
-          format.html { redirect_to "/show_video/#{@artist_data.id}/adm/remover", notice: 'Video was successfully destroyed.' }
+          format.html { redirect_to "/show_video/#{@artist_data.id}/adm/remover"}
         end
 
       format.json { head :no_content }
@@ -98,4 +106,18 @@ class VideosController < ApplicationController
       params.require(:video).permit(:link, :profile)
     end
 
+
+    def add_video(video)     
+     "<iframe width='330' height='225' src='#{video}' frameborder='0' allowfullscreen></iframe>"      
+    end
+
+    def allow_iframe
+      response.headers.delete('X-Frame-Options')
+    end
+
+
+
+
 end
+
+

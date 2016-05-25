@@ -1,7 +1,7 @@
 <% if @aguandado_aprovacao.count > 0 %>
-	<%= link_to "/artistas/adm", class: 'btn btn-default artista', remote: :true, data: {toggle: :tab} do %>    
+	<%= link_to "/artistas/admin", class: 'btn btn-default artista', remote: :true, data: {toggle: :tab} do %>    
   		Artistas <%= content_tag :span, @aguandado_aprovacao.count, class: 'badge' %>
 	<% end %>       
 <% else %>            
-    <%= link_to "Artistas","/artistas/adm", class: 'btn btn-default artista', remote: :true %>            
+    <%= link_to "Artistas","/artistas/admin", class: 'btn btn-default artista', remote: :true %>            
 <% end %>      

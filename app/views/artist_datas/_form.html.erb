@@ -5,8 +5,8 @@
   <div class="field">
     <%= f.input :nome %><br>    
   </div>
-
-  <%= f.input :logo, as: :file %>
+  <%= f.label 'Insira uma foto ao seu perfil' %>
+  <%= f.file_field(:logo) %>
 
   <div class="field">
      

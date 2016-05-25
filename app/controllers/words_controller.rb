@@ -4,7 +4,7 @@ class WordsController < ApplicationController
   # GET /words
   # GET /words.json
   def index
-    @words = Word.all
+    @words = Word.order(created_at: :desc)
   end
 
   # GET /words/1
@@ -69,6 +69,6 @@ class WordsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def word_params
-      params.require(:word).permit(:artist_data_id, :titulo, :texto, :imagem)
+      params.require(:word).permit(:artist_data_id, :titulo, :texto, :logo)
     end
 end

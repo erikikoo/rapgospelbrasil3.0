@@ -18,9 +18,9 @@
 				<strong>Email: </strong><%= email.email %>
 				<br />
 				<% if @profile == "adm" %>
-					<%= link_to "edit","/edit_email/#{email.id}/adm", :class => "btn btn-default ", :remote => true %>
+					<%= link_to "Editar","/edit_email/#{email.id}/adm", :class => "btn btn-default ", :remote => true %>
 
-			       	<%= link_to 'Destroy', "/remove_email/#{email.id}/adm", method: :delete, :remote => true ,data: { confirm: 'Are you sure?' } , class: 'btn btn-danger'%>
+			       	<%= link_to 'Excluir', "/remove_email/#{email.id}/adm", method: :delete, :remote => true ,data: { confirm: 'Deseja excluir este email?' } , class: 'btn btn-danger'%>
 				<% end %>
 			</div>	
 		<% end %>		

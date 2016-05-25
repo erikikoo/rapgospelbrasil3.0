@@ -29,7 +29,7 @@ class CommitmentsController < ApplicationController
     @commitment.artist_data_id = @artist_data.id
     respond_to do |format|
       if @commitment.save
-        format.html { redirect_to "/show_agenda/#{current_artist.id}/adm", notice: 'Commitment was successfully created.' }
+        format.html { redirect_to "/show_agenda/#{current_artist.id}/adm"}
         format.json { render :show, status: :created, location: @commitment }        
       else
         #flash[:notice] = 'Ocorreu um erro'
@@ -73,7 +73,7 @@ class CommitmentsController < ApplicationController
   end
     # Use callbacks to share common setup or constraints between actions.
     def set_commitment
-      @commitment = Commitment.where('artist_data_id = ?', current_artist.id)
+      @commitment = Commitment.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

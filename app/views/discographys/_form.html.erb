@@ -2,9 +2,9 @@
   <%= f.error_notification %>
 	
   <div class="form-inputs">
-    <%= f.file_field :logo %>
+    <%= f.file_field(:logo) %>
     <%= f.input :nome, autofocus: true %>
-    <%= f.input :data %>
+    <%= f.input :data, start_year: 1950, end_year: Time.now.year %>
     <%= f.input :artist_data_id, as: :hidden %>
     
   </div>

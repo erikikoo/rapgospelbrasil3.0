@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+ 
   
   include Pundit
   # Prevent CSRF attacks by raising an exception.
@@ -36,6 +37,7 @@ class ApplicationController < ActionController::Base
       flash[:alert] = "Você não possui autorização para acessar este painel!"
       redirect_to(request.referrer || artist_datas_path)
     end
+
 
     
 

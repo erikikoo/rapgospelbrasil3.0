@@ -16,14 +16,18 @@ gem 'devise'
 gem 'ckeditor', '~> 4.1', '>= 4.1.6'
 #PAPERCLIP
 gem "paperclip"
+
 #simple-form	
 gem 'simple_form'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use mysql as the database for Active Record
 
-#servidor precisa
-#gem 'nokogiri'
+#storage
+gem 'cloudinary'
+
+#
+gem 'carrierwave'
 
 gem 'execjs'
 # Use SCSS for stylesheets
@@ -40,7 +44,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+gem 'turbolinks', '~> 2.5', '>= 2.5.3'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -74,3 +78,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+#jquery mask
+gem 'maskedinput-rails'

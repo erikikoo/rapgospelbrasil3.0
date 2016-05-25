@@ -4,7 +4,11 @@
 	
 	<div class="painel-show">
 		<div class="painel-image">	
-			<%= image_tag(@artist_data.logo.url(:medium), :class => 'posicionamento logo-show img-thumbnail') %>	
+			<% if @artist_data.logo.present? %>
+				<%= image_tag(@artist_data.logo.url(:perfil), class: 'posicionamento  img-thumbnail') %>	
+			<% else %>
+				<%= image_tag("ImagemArtistaSemFoto.png", with:'1500px', height:'300px', class: 'posicionamento perfil-display') %>
+			<% end %>	
 		</div>
 
 		<div class="painel-agenda">	
@@ -24,7 +28,9 @@
 				      <strong>Site: </strong>     <%= agenda.site %> <br />       
 				  </p>
 				<% end %>
+				<% if @agenda.count >= 3 %>
 				<%= link_to 'Mais', "/agenda/#{@artist_data.id}/user", remote: true %>
+				<% end %>
 			<% end %>
 
 		</div>

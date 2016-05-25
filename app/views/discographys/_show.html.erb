@@ -14,16 +14,20 @@
 <% else %>
 	<% @artist_data.discographys.each do |album| %>
 		<div class="painel-show-adm text-aling">
-			<%= image_tag album.logo.url(:thumb), :class => 'img-thumbnail' %>
+			<% if album.logo.present? %>
+				<%= image_tag album.logo.url(:thumbnail), :class => 'img-thumbnail' %>
+			<% else %>
+				<%= image_tag('MATRIZ-CD.jpg', width: '150px', height: '150px')%>
+			<% end %>
 			<br />
 			<strong>Titulo: </strong> <%= album.nome %>
 			<br />
-			<strong>Lançamento:</strong><%= album.data.strftime('%v') %>
+			<strong>Lançamento:</strong><%= album.data.strftime('%d/%m/%Y') %>
 			<br />
 			<% if @profile == "adm" %>
-				<%= link_to "edit","/edit_disco/#{album.id}/adm", :class => "btn btn-default", :remote => true %>
+				<%= link_to "Editar","/edit_disco/#{album.id}/adm", :class => "btn btn-default", :remote => true %>
 
-        		<%= link_to 'Destroy', "/remove_disco/#{album.id}/adm", method: :delete, :remote => true ,data: { confirm: 'Are you sure?' } , class: 'btn btn-danger'%>
+        		<%= link_to 'Excluir', "/remove_disco/#{album.id}/adm", method: :delete, :remote => true ,data: { confirm: 'Deseja excluir este disco?' } , class: 'btn btn-danger'%>
 			<% end %>
 		</div>
 	<% end %>

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
 
+  #index
+  get 'index'                         => 'welcome#red_index'
   #pagina principal 
   get 'welcome/index'
   get '/principal'                    => 'principal#index'
@@ -14,6 +16,8 @@ Rails.application.routes.draw do
   get '/palavras'                     => 'welcome#palavra'
   get '/artistas'                     => 'welcome#artista'
   get '/videos'                       => 'welcome#video'
+  get '/contato'                      => 'welcome#contato'
+  get '/quem_somos'                    => 'welcome#quem_somos'
   get '/show_noticia/:id'             => 'notices#show'
   get '/show_palavra/:id'             => 'words#show'  
   get '/show_artista/:id'             => 'artist_datas#show'
@@ -39,7 +43,7 @@ Rails.application.routes.draw do
   get '/nova_noticia/:profile'             => 'admin#nova_noticia'
   get '/edit_noticia/:id/:profile'         => 'admin#edit_noticia'
   get '/show_noticia/:id/:profile'         => 'admin#show_noticia'  
-  get '/noticias/:profile/:status'         => 'admin#noticias'
+  get '/noticias/:profile/:status'         => 'notices#index'
 
   get '/aprovar_artista/:id/:profile'      => 'admin#aprova_artista'
   get '/bloquear_artista/:id/:profile'     => 'admin#bloquear_artista'
@@ -58,6 +62,7 @@ Rails.application.routes.draw do
   get '/novo_telefone/'        => 'principal#novo_telefone'
   get '/novo_video/'           => 'principal#novo_video'
   get '/novo_rede_social/'     => 'principal#novo_rede_social'
+  get '/novo_top5/'            => 'top5s#new' 
   #rotas ajax
   #views padrão (sem login)
   get '/principal/perfil'          => 'principal#perfil'

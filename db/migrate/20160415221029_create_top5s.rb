@@ -3,7 +3,7 @@ class CreateTop5s < ActiveRecord::Migration
     create_table :top5s do |t|
       t.references :artist, index: true, foreign_key: true
       t.string :titulo
-      t.integer :rank
+      t.string :rank
 
       t.timestamps null: false
     end

@@ -21,13 +21,14 @@
       <% if !@artist_data.nil? %>
         <% if @artist_data.nome.nil? || @artist_data.phones.empty? || @artist_data.emails.empty? || @artist_data.history.nil? %>
            <div class="alert alert-danger">
-            Você precisa <%= link_to "concluir seu cadastro", "/principal/perfil", class: 'alert-link', remote: true %>, as seguintes informações estão pendentes:              
+            Você precisa concluir seu cadastro as seguintes informações estão pendentes:              
               <ul>
-                <%= raw("<li> Nome do artista ou banda </li> ")     if @artist_data.nome.nil? %>
-                <%= raw("<li> História do artista ou banda </li> ") if @artist_data.history.nil? %>
-                <%= raw("<li> Telefone para contato </li>  ")       if @artist_data.phones.empty? %>
-                <%= raw("<li> Email para contato </li>   ")         if @artist_data.emails.empty? %>                
+                <%= link_to raw("<li> Nome do artista ou banda </li> "), '/principal/perfil', class: 'alert-link', remote: true     if @artist_data.nome.nil? %>
+                <%= link_to raw("<li> História do artista ou banda </li> "), '/principal/perfil', class: 'alert-link', remote: true if @artist_data.history.nil? %>
+                <%= link_to raw("<li> Telefone para contato </li>  "), '/novo_telefone', class: 'alert-link', remote: true if @artist_data.phones.empty? %>
+                <%= link_to raw("<li> Email para contato </li>  "), '/novo_email', class: 'alert-link', remote: true         if @artist_data.emails.empty? %>                
               </ul>
+              
            </div>
           <% end %>       
         <% end %>

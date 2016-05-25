@@ -2,7 +2,7 @@
 
 <p>
   <strong>História:</strong>
-  <%= if !@artist_data.nil? %>
+  <% if !@artist_data.nil? %>
   	<%= raw(@artist_data.history.historia)%> 
   <% end %>
 </p>

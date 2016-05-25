@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160424183428) do
+ActiveRecord::Schema.define(version: 20160519230930) do
+
+  create_table "admins", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "artist_datas", force: :cascade do |t|
     t.string   "nome",              limit: 255
@@ -22,8 +27,9 @@ ActiveRecord::Schema.define(version: 20160424183428) do
     t.integer  "logo_file_size",    limit: 4
     t.datetime "logo_updated_at"
     t.integer  "artist_id",         limit: 4
-    t.integer  "aprovado",          limit: 2,   default: 0
+    t.boolean  "aprovado",                      default: false
     t.boolean  "bloqueado",                     default: false
+    t.string   "logo",              limit: 255
   end
 
   add_index "artist_datas", ["artist_id"], name: "index_artist_datas_on_artist_id", using: :btree
@@ -88,6 +94,7 @@ ActiveRecord::Schema.define(version: 20160424183428) do
     t.string   "logo_content_type", limit: 255
     t.integer  "logo_file_size",    limit: 4
     t.datetime "logo_updated_at"
+    t.string   "logo",              limit: 255
   end
 
   add_index "discographys", ["artist_data_id"], name: "index_discographys_on_artist_data_id", using: :btree
@@ -120,6 +127,7 @@ ActiveRecord::Schema.define(version: 20160424183428) do
     t.string   "imagem_content_type", limit: 255
     t.integer  "imagem_file_size",    limit: 4
     t.datetime "imagem_updated_at"
+    t.string   "logo",                limit: 255
   end
 
   add_index "notices", ["artist_data_id"], name: "index_notices_on_artist_data_id", using: :btree
@@ -149,17 +157,17 @@ ActiveRecord::Schema.define(version: 20160424183428) do
   create_table "top5s", force: :cascade do |t|
     t.integer  "artist_id",  limit: 4
     t.string   "titulo",     limit: 255
-    t.string   "artista",    limit: 255
+    t.integer  "artista",    limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.string   "titulo2",    limit: 255
-    t.string   "artista2",   limit: 255
+    t.integer  "artista2",   limit: 4
     t.string   "titulo3",    limit: 255
-    t.string   "artista3",   limit: 255
+    t.integer  "artista3",   limit: 4
     t.string   "titulo4",    limit: 255
-    t.string   "artista4",   limit: 255
+    t.integer  "artista4",   limit: 4
     t.string   "titulo5",    limit: 255
-    t.string   "artista5",   limit: 255
+    t.integer  "artista5",   limit: 4
   end
 
   add_index "top5s", ["artist_id"], name: "index_top5s_on_artist_id", using: :btree
@@ -185,6 +193,7 @@ ActiveRecord::Schema.define(version: 20160424183428) do
     t.string   "imagem_content_type", limit: 255
     t.integer  "imagem_file_size",    limit: 4
     t.datetime "imagem_updated_at"
+    t.string   "logo",                limit: 255
   end
 
   add_index "words", ["artist_data_id"], name: "index_words_on_artist_data_id", using: :btree

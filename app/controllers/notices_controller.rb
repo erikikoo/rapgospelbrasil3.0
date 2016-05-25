@@ -4,7 +4,7 @@ class NoticesController < ApplicationController
   # GET /notices
   # GET /notices.json
   def index
-    @notices = Notice.all
+    @notices = Notice.order(created_at: :desc)
   end
 
   # GET /notices/1
@@ -31,7 +31,7 @@ class NoticesController < ApplicationController
     @notice.artist_data_id = current_artist.id
     respond_to do |format|
       if @notice.save
-        format.js { redirect_to '/noticias/adm/success' }
+        format.js { redirect_to '/noticias/admin/success' }
         format.json { render :show}
       else
         format.js { render :new }
@@ -45,7 +45,7 @@ class NoticesController < ApplicationController
   def update
     respond_to do |format|
       if @notice.update(notice_params)
-        format.js { redirect_to '/noticias/adm/atualizar' }
+        format.js { redirect_to '/noticias/admin/atualizar' }
         format.json { render :show, status: :ok, location: @notice }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class NoticesController < ApplicationController
   def destroy
     @notice.destroy
     respond_to do |format|
-      format.js { redirect_to '/noticias/adm/atualizar' }
+      format.js { redirect_to '/noticias/admin/atualizar' }
       format.json { head :no_content }
     end
   end
@@ -72,6 +72,6 @@ class NoticesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def notice_params
-      params.require(:notice).permit(:artist_data_id, :noticia, :titulo, :imagem)
+      params.require(:notice).permit(:artist_data_id, :noticia, :titulo, :logo)
     end
 end

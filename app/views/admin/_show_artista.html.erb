@@ -5,7 +5,13 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Capa</div>
 				<div class="panel-body">		
-					<%= image_tag(@artist_data.logo.url(:medium)) %>
+					<% if @artist_data.logo.present? %>
+						<%= cl_image_tag(@artist_data.logo.url(:medium), :class => 'img-thumbnail') %>					
+					<% else %>
+						<%= image_tag("ImagemArtistaSemFoto.png", width: '250px', heigth: '250px;') %>
+					<% end %>
+					<br />	
+					
 				</div>
 			</div>		
 		

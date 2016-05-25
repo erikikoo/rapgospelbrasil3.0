@@ -1,16 +1,16 @@
 
 	<nav class="menu">		
 			<ul class="left-menu">
-				<li><a href="#">QUEM SOMOS</a></li>
+				<li><%= link_to "QUEM SOMOS", '/quem_somos', remote: true %></li>
 				<li><%= link_to "ARTISTAS", '/artistas', remote: true %></li>
 				<!--<li><a href="#">EVENTOS</a></li>-->
 				<li><%= link_to "VIDEOS", '/videos' , remote: true %></li>
 				
 			</ul>
 			<ul class='right-menu'>
-				<li><%= link_to "NOTÍCIAS", '/noticias' , remote: true %></li>
-				<li><%= link_to "PALAVRAS", '/palavras' , remote: true %></li>
-				<li><a href="#">CONTATO</a></li>
+				<li><%= link_to "NOTÍCIAS", '/noticias', remote: true %></li>
+				<li><%= link_to "PALAVRAS", '/palavras', remote: true %></li>
+				<li><%= link_to "CONTATO", '/contato', remote: true %></li>
 			</ul>
 	</nav>
 

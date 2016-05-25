@@ -21,21 +21,28 @@
 				</span>                       
 		      <% end %>      
 			  
-		      <%= image_tag artist.logo.url(:medium), :class => 'img-thumbnail' %>      
-		      <%= artist.nome %>
+			  <% if artist.logo.present? %>			  		
+		      	<%= image_tag artist.logo.url(:medium), class: 'img-thumbnail' %>      
+		      	<%= artist.nome %>
+		      <% else %>
+		      	<%= image_tag("ImagemArtistaSemFoto.png", with:'250px', height:'250px', class: 'img-thumbnail') %>
+		      	<%= artist.nome %>
+		      <% end %>
+		      
 		      <br />
-		      <% if @profile == "adm" and !artist.nome.nil? %>        
-		        <%= link_to "Vizualizar","/show_artista/#{artist.id}/admin", :class => "btn btn-default btn-xs", :remote => true %>
-			   
+		      <% if @profile == "admin" and !artist.nome.nil? %>        
+		        <%= link_to "Vizualizar","/show_artista/#{artist.id}/admin", :class => "btn btn-default btn-xs", :remote => true %>			   
 			   <% end %>	
 			   
 			   <% if artist.nome.nil? and (get_day(artist.updated_at) > 9) %>
-					<%= link_to 'Excluir', "/remove_artista/#{artist.id}/adm", method: :delete ,:remote => true ,data: { confirm: 'Você está prestes a bloquear este artista, confirma ?' } , class: 'btn btn-danger btn-xs'%>
+					
+						<%= link_to 'Excluir', "/remove_artista/#{artist.id}/adm", method: :delete ,:remote => true ,data: { confirm: 'Você está prestes a bloquear este artista, confirma ?' } , class: 'btn btn-danger btn-xs'%>
+					
 				<% end %>
 
 			    <% if  @adm.id != artist.id %>
 			      	<% if  artist.aprovado? and !artist.bloqueado? %>	
-			       		<%= link_to 'Bloquear', "/bloquear_artista/#{artist.id}/adm", :remote => true ,data: { confirm: 'Você está prestes a bloquear este artista, confirma ?' } , class: 'btn btn-warning btn-xs'%>
+			       		<%= link_to 'Bloquear', "/bloquear_artista/#{artist.id}/admin", :remote => true ,data: { confirm: 'Você está prestes a bloquear este artista, confirma ?' } , class: 'btn btn-warning btn-xs'%>
 			       	<% end %>		        	
 			   	<% end %>		     
 	    	</div>	  

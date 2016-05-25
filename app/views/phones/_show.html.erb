@@ -11,8 +11,8 @@
 			<strong>Numero: </strong><%= tel.telefone %> <br/>	
 				
 			<% if @profile == "adm" %>
-				<%= link_to "edit","/edit_telefone/#{tel.id}/adm", :class => "btn btn-default", :remote => true %>
-	        	<%= link_to 'Destroy', "/remove_telefone/#{tel.id}/adm", method: :delete, :remote => true ,data: { confirm: 'Are you sure?' } , class: 'btn btn-danger'%>
+				<%= link_to "Editar","/edit_telefone/#{tel.id}/adm", :class => "btn btn-default", :remote => true %>
+	        	<%= link_to 'Excluir', "/remove_telefone/#{tel.id}/adm", method: :delete, :remote => true ,data: { confirm: 'Deseja excluir este e-mail?' } , class: 'btn btn-danger'%>
 			<% end %>
 		</div>			
 	<% end %>		

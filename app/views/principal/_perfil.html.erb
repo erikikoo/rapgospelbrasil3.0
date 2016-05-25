@@ -4,8 +4,15 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Contatos</div>
 				<div class="panel-body">		
-					<%= image_tag @artist_data.logo.url(:medium), :class => 'img-thumbnail' %> <br/>
+					<% if @artist_data.logo.present? %>
+						<%= cl_image_tag(@artist_data.logo.url(:medium), :class => 'img-thumbnail') %>					
+					<% else %>
+						<%= image_tag("ImagemArtistaSemFoto.png", width: '250px', heigth: '250px;') %>
+					<% end %>
+					<br />
+					
 					<%= link_to 'Mudar Imagem', "/edit_artista/#{@artist_data.id}", remote: true, class: 'btn btn-default' %>   
+					
 				</div>
 			</div>		
 			<div class="panel panel-default">
@@ -49,14 +56,7 @@
 				</div>
 			</div>		
 		
-
 		
-			<div class="panel panel-default">
-				<div class="panel-heading">Redesocial</div>
-				<div class="panel-body">
-					<%= render partial: 'rede_sociais/show'%>		
-				</div>
-			</div>					
 	</div>
 
 	

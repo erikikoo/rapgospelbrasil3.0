@@ -1,1 +1,5 @@
-$('.body').html('<%= escape_javascript (render partial: "notices/index") %>'); 	
+<% if @profile == 'admin' %>
+	$('.painel-artistas-adm').html('<%= escape_javascript (render partial: "notices/index") %>'); 	
+<% else %>	
+	$('.body').html('<%= escape_javascript (render partial: "notices/index") %>'); 	
+<% end %>	
