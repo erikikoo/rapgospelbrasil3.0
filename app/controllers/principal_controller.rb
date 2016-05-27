@@ -40,7 +40,7 @@ class PrincipalController < ApplicationController
 
   def perfil
     @artist_data = ArtistData.find_by(artist_id: current_artist.id) 
-
+    @videos = Video.where(artist_data_id: params[:id])
     if @artist_data.nome.nil?
       @artist_data = ArtistData.new
 

@@ -28,7 +28,8 @@ class AdminController < ApplicationController
   def artistas  	
   end
 
-  def show_artista  
+  def show_artista 
+    @videos = Video.where('artist_data_id = ?', params[:id]) 
     
   end
 
