@@ -40,9 +40,6 @@ $(document).ready(function() {
   });
   $("#imagem img").addClass('img-index'); 
 
+
   
-
-
 });
-
-

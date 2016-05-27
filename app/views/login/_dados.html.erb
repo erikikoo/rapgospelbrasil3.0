@@ -16,31 +16,36 @@
 
           <li>
             <%= link_to destroy_artist_session_path, method: :delete do %>
-              <i class='glyphicon glyphicon-log-out'> Logout</i>
+              Sair
             <% end %>
           </li>
           <%if !current_artist.admin? %>   
               <li>
                 <%= link_to principal_path do %>
-                  <i class='glyphicon glyphicon-user'> Perfil</i>
+                  Perfil
                 <% end %>
               </li>
           <% end %>
             <% if current_artist.admin? %>              
               <li>
               <%= link_to admin_index_path do %>
-                <i class='glyphicon glyphicon-user'> Painel Admin</i>
+                Painel Admin
               <% end %>
             </li>
             <% end %>
              <li>
-              <%= link_to 'Site', root_path  %>                
+              <%= link_to 'Visitar site', root_path  %>                
             </li>        
                   
       </ul>
     </div>  
     <div class="img-perfil">
-      <%= cl_image_tag("kst0azwoh7eqwufrwzq4.jpg", :width=>60, :height=>68, :gravity=>"face", :radius=>"max", :crop=>"thumb", :background=>'#404040') %>  
+      <% if @artist_data.nil? %>
+        <%= cl_image_tag("ImagemArtistaSemFoto_hx6d8o.png", :width=>60, :height=>68, :gravity=>"face", :radius=>"max", :crop=>"thumb", :background=>'#404040') %>
+      <% elsif @artist_data.logo.present? %>
+        <%= cl_image_tag(@artist_data.logo, :width=>60, :height=>68, :gravity=>"face", :radius=>"max", :crop=>"thumb", :background=>'#404040') %>  
+       <% end %>
+
     </div>    
     <% else %>
     	

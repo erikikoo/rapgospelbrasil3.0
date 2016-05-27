@@ -1,11 +1,11 @@
 class CommitmentsController < ApplicationController
   before_action :set_commitment, only: [:show, :edit, :update, :destroy]
-
+  before_action :get_commitments , only: [:index, :update, :destroy, :create]
+  before_action :get_profile, except: [:edit]
   before_action :get_artist_current
   # GET /commitments
   # GET /commitments.json
-  def index
-    @commitments = Commitment.all
+  def index    
   end
 
   # GET /commitments/1
@@ -20,6 +20,7 @@ class CommitmentsController < ApplicationController
 
   # GET /commitments/1/edit
   def edit
+      render :new
   end
 
   # POST /commitments
@@ -29,14 +30,12 @@ class CommitmentsController < ApplicationController
     @commitment.artist_data_id = @artist_data.id
     respond_to do |format|
       if @commitment.save
-        format.html { redirect_to "/show_agenda/#{current_artist.id}/adm"}
-        format.json { render :show, status: :created, location: @commitment }        
-      else
-        #flash[:notice] = 'Ocorreu um erro'
-        format.html { render :new }
-        
-        format.js {render :new }
-        format.json { render json: @commitment.errors, status: :unprocessable_entity }
+        @status = 'success'
+        @profile = 'adm'
+        format.js { render :index }        
+      else        
+        @status = 'danger'
+        format.js {render :new }        
       end
     end
   end
@@ -46,11 +45,11 @@ class CommitmentsController < ApplicationController
   def update
     respond_to do |format|
       if @commitment.update(commitment_params)
-        format.html { redirect_to "/show_agenda/#{@artist_data.id}/adm"}
-        format.json { render :show, status: :ok, location: @commitment }
+        @status = 'success'
+        @profile = 'adm'
+        format.js { render :index }        
       else
-        format.js { render :edit }
-        format.json { render json: @commitment.errors, status: :unprocessable_entity }
+        format.js { render :new }        
       end
     end
   end
@@ -59,10 +58,10 @@ class CommitmentsController < ApplicationController
   # DELETE /commitments/1.json
   def destroy
     @commitment.destroy
-    
+    @status = 'success'
+    @profile = 'adm'
     respond_to do |format|
-      format.html { redirect_to "/show_agenda/#{current_artist.id}/adm"}
-      format.json { head :no_content }
+      format.js { render :index}      
     end
   end
 
@@ -74,6 +73,14 @@ class CommitmentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_commitment
       @commitment = Commitment.find(params[:id])
+    end
+
+    def get_commitments
+      @commitments = Commitment.all
+    end
+
+    def get_profile 
+      @profile = params[:profile]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -9,6 +9,7 @@ class DiscographysController < ApplicationController
   # GET /discographys
   # GET /discographys.json
   def index
+    @profile = params[:profile]
     @discographys = Discography.all    
   end
 
@@ -26,6 +27,7 @@ class DiscographysController < ApplicationController
 
   # GET /discographys/1/edit
   def edit
+    render :new
   end
 
   # POST /discographys
@@ -34,11 +36,11 @@ class DiscographysController < ApplicationController
     @discography = Discography.new(discography_params) 
     @discography.artist_data_id = @artist_data.id   
     @artist_data = ArtistData.find(@discography.artist_data_id)
-    @profile = "adm"
-    
-    @discography.save       
-    respond_to do |format|       
-      format.js {render :create, location: @profile }
+    @profile = "adm"    
+    if @discography.save       
+      respond_to do |format|       
+        format.js {render :index }
+      end
     end
    
   end
@@ -47,12 +49,12 @@ class DiscographysController < ApplicationController
   # PATCH/PUT /discographys/1.json
   def update
     respond_to do |format|
+      @profile = "adm"
       if @discography.update(discography_params)
-        format.html { redirect_to "/show_disco/#{@artist_data.id}/adm"}
-        format.json { render :show, status: :ok, location: @discography }
+        format.js { render :index}        
       else
-        format.js { render :edit }
-        format.json { render json: @discography.errors, status: :unprocessable_entity }
+        format.js { render :new }
+        
       end
     end
   end
@@ -61,9 +63,9 @@ class DiscographysController < ApplicationController
   # DELETE /discographys/1.json
   def destroy
     @discography.destroy
+    @profile = "adm"
     respond_to do |format|
-      format.html { redirect_to "/show_disco/#{@artist_data.id}/adm", notice: 'Discography was successfully destroyed.' }
-      format.json { head :no_content }
+      format.js { render :index }      
     end
   end
 

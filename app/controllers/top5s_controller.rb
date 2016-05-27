@@ -1,10 +1,10 @@
 class Top5sController < ApplicationController
   before_action :set_top5, only: [:show, :edit, :update, :destroy]
-
+  before_action :get_top5s, only: [:index, :create, :destroy, :update]
   # GET /top5s
   # GET /top5s.json
   def index
-    @top5s = Top5.order(created_at: :desc)    
+       
   end
 
   # GET /top5s/1
@@ -19,8 +19,8 @@ class Top5sController < ApplicationController
 
   # GET /top5s/1/edit
   def edit
+     render :new
   end
-
   # POST /top5s
   # POST /top5s.json
   def create
@@ -55,7 +55,7 @@ class Top5sController < ApplicationController
   def destroy
     @top5.destroy
     respond_to do |format|
-      format.html { redirect_to top5s_url, notice: 'Top5 was successfully destroyed.' }
+      format.js { render :index }
       format.json { head :no_content }
     end
   end
@@ -64,6 +64,10 @@ class Top5sController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_top5
       @top5 = Top5.find(params[:id])
+    end
+
+    def get_top5s
+      @top5s = Top5.order(created_at: :desc) 
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get '/artistas'                     => 'welcome#artista'
   get '/videos'                       => 'welcome#video'
   get '/contato'                      => 'welcome#contato'
-  get '/quem_somos'                    => 'welcome#quem_somos'
+  get '/quem_somos'                   => 'welcome#quem_somos'
   get '/show_noticia/:id'             => 'notices#show'
   get '/show_palavra/:id'             => 'words#show'  
   get '/show_artista/:id'             => 'artist_datas#show'
@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   #adm
   get '/top5/:profile'                     => 'admin#top5'
-
+  
   get '/show_artista/:id/:profile'         => 'admin#show_artista'  
   get 'admin/index'
   get '/artistas/:profile'                 => 'admin#artistas'
@@ -54,14 +54,14 @@ Rails.application.routes.draw do
   delete 'remove_artista/:id/:profile'     => 'admin#remove_artista'
   delete 'remove_noticia/:id/:profile'     => 'admin#remove_noticia'
   delete 'remove_palavra/:id/:profile'     => 'admin#remove_palavra'
-
+  delete 'remove_top5/:id'                => 'top5s#destroy'
   #novo 
-  get '/novo_disco/:id'        => 'principal#novo_disco'
-  get '/novo_agenda/'          => 'principal#novo_agenda'
-  get '/novo_email/'           => 'principal#novo_email'
-  get '/novo_telefone/'        => 'principal#novo_telefone'
-  get '/novo_video/'           => 'principal#novo_video'
-  get '/novo_rede_social/'     => 'principal#novo_rede_social'
+  get '/novo_disco/:id'        => 'discographys#new'
+  get '/novo_agenda/'          => 'commitments#new'
+  get '/novo_email/'           => 'emails#new'
+  get '/novo_telefone/'        => 'phones#new'
+  get '/novo_video/'           => 'videos#new'
+  
   get '/novo_top5/'            => 'top5s#new' 
   #rotas ajax
   #views padrão (sem login)
@@ -77,44 +77,32 @@ Rails.application.routes.draw do
 
 
   #apresenta artista existente
-  get '/show_artista/:id/:profile'          => 'principal#artista'
-  get '/show_agenda/:id/:profile'           => 'principal#agenda'
-  get '/show_disco/:id/:profile'            => 'principal#disco'
-  get '/show_historia/:id/:profile'         => 'principal#historia'
-  get '/show_contato/:id'                   => 'principal#contato'
-  get '/show_email/:id/:profile'            => 'principal#email'
-  get '/show_telefone/:id/:profile'         => 'principal#telefone'
-  get '/show_rede_social/:id/:profile'      => 'principal#rede_social'  
-  get '/show_video/:id/:profile'            => 'principal#video'  
-  post '/show_agenda/:id/:profile'          => 'principal#artista'
-  get '/show_agenda/:id/:profile'           => 'principal#agenda'
-
-  get '/show_artista/:id/:profile/:status'          => 'principal#artista'
-  get '/show_agenda/:id/:profile/:status'           => 'principal#agenda'
-  get '/show_disco/:id/:profile/:status'            => 'principal#disco'
-  get '/show_contato/:id/:status'                   => 'principal#contato'
-  get '/show_email/:id/:profile/:status'            => 'principal#email'
-  get '/show_telefone/:id/:profile/:status'         => 'principal#telefone'
-  get '/show_rede_social/:id/:profile/:status'      => 'principal#rede_social'
-  get '/show_video/:id/:profile/:status'            => 'principal#video'
   
-
+  get '/show_agenda/:id/:profile'           => 'commitments#index'
+  get '/show_disco/:id/:profile'            => 'discographys#index'
+  get '/show_historia/:id/:profile'         => 'historys#show'
+  
+  get '/show_email/:id/:profile'            => 'emails#index'
+  get '/show_telefone/:id/:profile'         => 'phones#index'
+  
+  get '/show_video/:id/:profile'            => 'videos#index'  
+  
   #edita artista existente
-  get '/edit_artista/:id'                 => 'principal#artista'
-  get '/edit_agenda/:id/:profile'         => 'principal#edit_agenda'
-  get '/edit_disco/:id/:profile'          => 'principal#edit_disco'  
-  get '/edit_email/:id/:profile'          => 'principal#edit_email'  
-  get '/edit_telefone/:id/:profile'       => 'principal#edit_telefone'  
-  get '/edit_rede_social/:id/:profile'    => 'principal#edit_rede_social'  
+  get '/edit_artista/:id'                 => 'artist_datas#edit'
+  get '/edit_agenda/:id/:profile'         => 'commitments#edit'
+  get '/edit_disco/:id/:profile'          => 'discographys#edit'  
+  get '/edit_email/:id/:profile'          => 'emails#edit'  
+  get '/edit_telefone/:id/:profile'       => 'phones#edit'  
+  
   
   
   #remove items
-  delete '/remove_disco/:id/:profile'          => 'principal#remove_disco'
-  delete '/remove_agenda/:id/:profile'         => 'principal#remove_agenda'
-  delete '/remove_email/:id/:profile'          => 'principal#remove_email'
-  delete '/remove_telefone/:id/:profile'       => 'principal#remove_telefone'
-  delete '/remove_video/:id/:profile'          => 'principal#remove_video'
-  delete '/remove_rede_social/:id/:profile'    => 'principal#remove_rede_social'  
+  delete '/remove_disco/:id/:profile'          => 'discographys#destroy'
+  delete '/remove_agenda/:id/:profile'         => 'commitments#destroy'
+  delete '/remove_email/:id/:profile'          => 'emails#destroy'
+  delete '/remove_telefone/:id/:profile'       => 'phones#destroy'
+  delete '/remove_video/:id/:profile'          => 'videos#destroy'
+  
 
 
   post '/videos/:user' => 'videos#create'

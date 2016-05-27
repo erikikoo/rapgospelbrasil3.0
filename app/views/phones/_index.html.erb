@@ -1,3 +1,6 @@
+<% if !@status.nil? %>  
+    <%= alert(@status, 'Show criado com sucesso!')%>  
+<% end %>
 <p>
 	<% if @profile == "adm" %>
 		<%= link_to 'Adicionar Novo Numero', '/novo_telefone', remote: true, :class => 'btn btn-default'  %>

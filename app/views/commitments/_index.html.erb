@@ -1,8 +1,11 @@
-  <% if @profile == "adm" %>
+<% if !@status.nil? %>  
+    <%= alert(@status, 'Show criado com sucesso!')%>  
+<% end %>
+<% if @profile == "adm" %>
   <p>
     <%= link_to 'Adicionar Show', '/novo_agenda', remote: true, :class => 'btn btn-default'  %>
   </p>
-  <% end %>
+<% end %>
 
 <% if @artist_data.commitments.empty? %>
   <h5>Não possui agenda cadastrado </h5>
@@ -28,4 +31,3 @@
       </div> 
     <% end %>   
 <% end %>
-

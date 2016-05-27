@@ -33,14 +33,15 @@
                 <% end %>
                 <span class="texto-noticias"><%= sub_texto(word.texto,500) %></span>
                 <br/>
-                <span class="criado-em"><strong>Data de criação : </strong><%= word.created_at.strftime('%d/%m/%Y') %></span>
-                <br/>
+                <p>
+                  <span class="criado-em"><strong>Data de criação : </strong><%= word.created_at.strftime('%d/%m/%Y') %></span>
 
-                <% if @profile == "admin" %>
-                    <td><%= link_to 'Mostar', "/show_palavra/#{word.id}/admin" ,class: 'btn btn-default', remote: true %></td>
-                    <td><%= link_to 'Editar', "/edit_palavra/#{word.id}/admin", class: 'btn btn-default', remote: true %></td>
-                    <td><%= link_to 'Remover', "/remove_palavra/#{word.id}/admin", class: 'btn btn-danger',remote: true ,method: :delete, data: { confirm: 'Deseja realmente excluir esta palavra?' } %></td>
-                <% end %>   
+                  <% if @profile == "admin" %>
+                      <td><%= link_to 'Mostar', "/show_palavra/#{word.id}/admin" ,class: 'btn btn-default', remote: true %></td>
+                      <td><%= link_to 'Editar', "/edit_palavra/#{word.id}/admin", class: 'btn btn-default', remote: true %></td>
+                      <td><%= link_to 'Remover', "/remove_palavra/#{word.id}/admin", class: 'btn btn-danger',remote: true ,method: :delete, data: { confirm: 'Deseja realmente excluir esta palavra?' } %></td>
+                  <% end %> 
+                </p>  
             </div>
         </div>
       </div>  

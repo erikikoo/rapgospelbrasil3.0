@@ -3,6 +3,8 @@
 <% else %>
 	
 	<div class="painel-show">
+		<span class="show-art-principal"><h3><%= @artist_data.nome %></h3></span>
+		
 		<div class="painel-image">	
 			<% if @artist_data.logo.present? %>
 				<%= image_tag(@artist_data.logo.url(:perfil), class: 'posicionamento  img-thumbnail') %>	
@@ -38,7 +40,7 @@
 
 		<nav class="sub-menu posicionamento"> 
 			<ul>
-				<li><%= link_to 'História', "/historia/#{@artist_data.id}", remote: true, :class => 'btn-lg btn btn-default'  %></li>
+				<li><%= link_to 'Release', "/historia/#{@artist_data.id}", remote: true, :class => 'btn-lg btn btn-default'  %></li>
 				<li><%= link_to 'Albuns', "/album/#{@artist_data.id}/user", remote: true, :class => 'btn-lg btn btn-default' %></li>
 				<li><%= link_to 'Videos', "/videos/#{@artist_data.id}/user", remote: true, :class => 'btn-lg btn btn-default' %></li>
 				<li><%= link_to 'Contatos', "/contato/#{@artist_data.id}", remote: true, :class => 'btn-lg btn btn-default' %></li>

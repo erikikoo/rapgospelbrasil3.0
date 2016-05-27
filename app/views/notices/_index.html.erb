@@ -6,45 +6,48 @@
 
   <% if @profile == "admin" %>
     <p>
-      <%= link_to 'Adicionar Noticia', '/nova_noticia/adm', remote: true ,:class => 'btn btn-default'  %>  
+      <%= link_to 'Adicionar Notícia', '/nova_noticia/admin', remote: true ,:class => 'btn btn-default'  %>  
     </p>
     
   <% end %>
 
 <% if @notices.empty? %>
-    <h5>Não existem noticias cadastradas</h5>  
+    <h5>Não existem palavras cadastradas</h5>  
 <% else %>
-  <% @notices.each do |notice| %>
+  <% @notices.each do |noticia| %>
       <div class="container-noticias text-justify">
         <div class="noticias-index">          
             <% if @profile == "admin" %>
-              <h3><%= notice.titulo %></h3>
+              <h3><%= noticia.titulo %></h3>
             <% else %>         
               <h3>
-                <%= link_to "#{notice.titulo}", "/show_noticia/#{notice.id}", remote: true %>
+                <%= link_to "#{noticia.titulo}", "/show_noticia/#{noticia.id}", remote: true %>
               </h3>
             <% end %>
           
             <div class="noticias">
-                <% if notice.logo.present? %>
+                <% if noticia.logo.present? %>
                   <span class="imagem-noticia-list">
-                    <%= image_tag(notice.logo.url(:small)) %>
+                    <%= image_tag(noticia.logo.url(:small)) %>
                   </span> 
                 <% end %>
-                <span class="texto-noticias"><%= sub_texto(notice.noticia,500) %></span>
+                <span class="texto-noticias"><%= sub_texto(noticia.noticia,500) %></span>
                 <br/>
-                <span class="criado-em"><strong>Data de criação : </strong><%= notice.created_at.strftime('%d/%m/%Y') %></span>
-                <br/>
+                <p>
+                  <span class="criado-em"><strong>Data de criação : </strong><%= noticia.created_at.strftime('%d/%m/%Y') %></span>
 
-                <% if @profile == "admin" %>
-                    <td><%= link_to 'Mostar', "/show_noticia/#{notice.id}/admin" ,class: 'btn btn-default', remote: true %></td>
-                    <td><%= link_to 'Editar', "/edit_noticia/#{notice.id}/admin", class: 'btn btn-default', remote: true %></td>
-                    <td><%= link_to 'Remover', "/remove_noticia/#{notice.id}/admin", class: 'btn btn-danger',remote: true ,method: :delete, data: { confirm: 'Deseja realmente excluir esta noticia?' } %></td>
-                <% end %> 
+                  <% if @profile == "admin" %>
+                      <td><%= link_to 'Mostar', "/show_noticia/#{noticia.id}/admin" ,class: 'btn btn-default', remote: true %></td>
+                      <td><%= link_to 'Editar', "/edit_noticia/#{noticia.id}/admin", class: 'btn btn-default', remote: true %></td>
+                      <td><%= link_to 'Remover', "/remove_noticia/#{noticia.id}/admin", class: 'btn btn-danger',remote: true ,method: :delete, data: { confirm: 'Deseja excluir esta noticia?' } %></td>
+                  <% end %> 
+                </p>  
             </div>
-            <span class='clear'></span>        
         </div>
       </div>  
   <% end %>
 <% end %>
+
+
+>
 

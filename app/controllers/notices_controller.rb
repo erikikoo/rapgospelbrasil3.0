@@ -1,10 +1,10 @@
 class NoticesController < ApplicationController
   before_action :set_notice, only: [:show, :edit, :update, :destroy]
-
+  before_action :get_notices, only: [:create]
   # GET /notices
   # GET /notices.json
   def index
-    @notices = Notice.order(created_at: :desc)
+      
   end
 
   # GET /notices/1
@@ -31,11 +31,9 @@ class NoticesController < ApplicationController
     @notice.artist_data_id = current_artist.id
     respond_to do |format|
       if @notice.save
-        format.js { redirect_to '/noticias/admin/success' }
-        format.json { render :show}
+        format.js { render :create }        
       else
-        format.js { render :new }
-        format.json { render json: @notice.errors, status: :unprocessable_entity }
+        format.js { render :new }        
       end
     end
   end
@@ -47,6 +45,7 @@ class NoticesController < ApplicationController
       if @notice.update(notice_params)
         format.js { redirect_to '/noticias/admin/atualizar' }
         format.json { render :show, status: :ok, location: @notice }
+        @profile = 'admin'
       else
         format.html { render :edit }
         format.json { render json: @notice.errors, status: :unprocessable_entity }
@@ -68,6 +67,10 @@ class NoticesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_notice
       @notice = Notice.find(params[:id])
+    end
+
+    def get_notices
+      @notices = Notice.order(created_at: :desc)  
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

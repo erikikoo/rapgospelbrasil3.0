@@ -3,7 +3,7 @@
     <h3><%= @word.titulo %></h3>
 
   	<% if @word.logo.present? %>
-         <span class="imagem-noticia-show"><%= image_tag(@word.logo.url(:small)) %></span> 
+         <span class="imagem-noticia-show"><%= image_tag(@word.logo.url(:medium)) %></span> 
       <% end %>
   <p class='text-justify'>
      <%= raw(@word.texto) %>

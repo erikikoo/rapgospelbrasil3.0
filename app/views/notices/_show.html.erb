@@ -4,19 +4,21 @@
 
   	<% if @notice.present? %>        
           <span class="imagem-noticia-show">
-              <%= image_tag(@notice.logo.url(:small)) %>
+              <%= image_tag(@notice.logo.url(:medium)) %>
           </span> 
       <% end %>    
   	<span class="text-justify"><%= raw(@notice.noticia) %></span>
      <br>
-     <span class="text-right">
+  <p>
+  
+    <% if @status == 'admin'  %>
+      <%= link_to 'Editar', "/edit_noticia/#{@notice.id}/admin", class: 'btn btn-default', remote: true %> |
+      <%= link_to 'Voltar', '/noticias/admin', class: 'btn btn-default', remote: true %>
+    <% else %>
+      <%= link_to 'Voltar', '/noticias', class: 'btn btn-default', remote: true %>
+    <% end %>
+    <span class="criado-em">
      	<strong>Data de criação : </strong><%= @notice.created_at.strftime('%d/%m/%Y') %>
-     </span>
+    </span>
   </p>
-  <% if @status == 'admin'  %>
-  	<%= link_to 'Editar', "/edit_noticia/#{@notice.id}/admin", class: 'btn btn-default', remote: true %> |
-    <%= link_to 'Voltar', '/noticias/admin', class: 'btn btn-default', remote: true %>
-  <% else %>
-    <%= link_to 'Voltar', '/noticias', class: 'btn btn-default', remote: true %>
-  <% end %>
 </div>

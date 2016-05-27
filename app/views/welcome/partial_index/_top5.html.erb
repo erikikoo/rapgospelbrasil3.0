@@ -3,7 +3,12 @@
 	<% if @top5.nil? %>
 		<h5>Não possui Top 5 cadastrado!</h5>
 	<% else %>
-		<table>
+		<table class='table table-condensed'>
+			<thead>
+				<th>Rank</th>
+				<th>Música</th>
+				<th>Artista</th>
+			</thead>
 			<tr>
 				<td><%= image_tag('Estrela01.png') %> </td>
 				<td><strong><%= @top5.titulo %></strong></td>

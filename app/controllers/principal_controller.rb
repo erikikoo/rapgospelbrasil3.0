@@ -102,22 +102,22 @@ class PrincipalController < ApplicationController
       render :telefone, location: @artist_data 
   end
 ###########################################################33
-  def email
-    if params[:status]
-        @status = params[:status]
-     end  
-  end
+  # def email
+  #   if params[:status]
+  #       @status = params[:status]
+  #    end  
+  # end
 
-  def novo_email
-    @email = Email.new     
-  end
+  # def novo_email
+  #   @email = Email.new         
+  # end
   
-  def edit_email    
-  end
-  def remove_email      
-      @email.destroy      
-      render :email, location: @artist_data 
-  end
+  # def edit_email    
+  # end
+  # def remove_email      
+  #     @email.destroy      
+  #     render :email, location: @artist_data 
+  # end
   ###########################################################33
             #DISCO#
   def disco  

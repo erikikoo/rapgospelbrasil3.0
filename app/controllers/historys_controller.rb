@@ -1,15 +1,11 @@
 class HistorysController < ApplicationController
   before_action :set_history, only: [:show, :edit, :update, :destroy]
-
-  # GET /historys
-  # GET /historys.json
-  def index
-    @historys = History.all
-  end
-
+ 
+  
   # GET /historys/1
   # GET /historys/1.json
   def show
+    @artist_data = ArtistData.find(params[:id])
   end
 
   # GET /historys/new
@@ -19,6 +15,7 @@ class HistorysController < ApplicationController
 
   # GET /historys/1/edit
   def edit
+    render :new
   end
 
   # POST /historys
@@ -28,11 +25,9 @@ class HistorysController < ApplicationController
 
     respond_to do |format|
       if @history.save
-        format.html { render '/principal/perfil'}
-        format.json { render :show, status: :created, location: @history }
+        format.html { render '/principal/perfil'}        
       else
-        format.html { render :new }
-        format.json { render json: @history.errors, status: :unprocessable_entity }
+        format.html { render :new }        
       end
     end
   end
@@ -43,11 +38,10 @@ class HistorysController < ApplicationController
     respond_to do |format|
       if @history.update(history_params)
         @artist_data = ArtistData.find_by('artist_id = ?', current_artist.id)
-        format.js
-        format.json { render :show, status: :ok, location: @history }
+        format.js { render :show }        
       else
-        format.js { render :edit }
-        format.json { render json: @history.errors, status: :unprocessable_entity }
+        format.js { render :new }
+        
       end
     end
   end
@@ -57,8 +51,7 @@ class HistorysController < ApplicationController
   def destroy
     @history.destroy
     respond_to do |format|
-      format.html { redirect_to historys_url, notice: 'History was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { :new }      
     end
   end
 

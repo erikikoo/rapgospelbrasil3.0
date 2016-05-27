@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
    #Mayor.create(name: 'Emanuel', city: cities.first)
   # require "as-duration"
-    for i in 1..20
-  	Video.create(artist_id: 1, link: Faker::Internet.email)
-    end
+    
+#Artist.create(email: 'seudesigner@outlook.com.br', password: 'filho@madozxc', password_confirmation: 'filho@madozxc', admin: true )
+#Artist.create(email: 'erikikoo@hotmail.com', password: 'HayHelena', password_confirmation: 'HayHelena', admin: true )
+    

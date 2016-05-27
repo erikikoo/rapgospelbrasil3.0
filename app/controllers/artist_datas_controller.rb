@@ -1,5 +1,5 @@
 class ArtistDatasController < ApplicationController
-  before_action :set_artist_data, only: [:show,:edit, :update, :destroy, :videos, :discography, :contact, :history, :agenda, :rede_social]
+  before_action :set_artist_data, only: [:show,:edit, :update, :destroy,  :discography, :contact, :history, :agenda, :rede_social]
   
   
   # GET /artist_datas
@@ -87,6 +87,7 @@ class ArtistDatasController < ApplicationController
   end 
 
   def videos
+    @videos = Video.where('artist_data_id = ?', params[:id] )
   end
 
   def rede_social

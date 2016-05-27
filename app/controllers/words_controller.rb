@@ -1,10 +1,10 @@
 class WordsController < ApplicationController
   before_action :set_word, only: [:show, :edit, :update, :destroy]
-
+  before_action :get_words, only: [:create, :update, :index]
   # GET /words
   # GET /words.json
   def index
-    @words = Word.order(created_at: :desc)
+    
   end
 
   # GET /words/1
@@ -28,11 +28,10 @@ class WordsController < ApplicationController
     @word.artist_data_id = current_artist.id
     respond_to do |format|
       if @word.save
-        format.html { redirect_to '/palavras/adm/success'}
-        format.json { render :show, status: :created, location: @word }
+        @profile = 'admin'
+        format.js { render :index }        
       else
-        format.html { render :new }
-        format.json { render json: @word.errors, status: :unprocessable_entity }
+        format.html { render :new }        
       end
     end
   end
@@ -42,7 +41,7 @@ class WordsController < ApplicationController
   def update
     respond_to do |format|
       if @word.update(word_params)
-        format.html { redirect_to '/palavras/adm/atualizar'}
+        format.html { redirect_to '/palavras/admin/atualizar'}
         format.json { render :show, status: :ok, location: @word }
       else
         format.html { render :edit }
@@ -56,7 +55,7 @@ class WordsController < ApplicationController
   def destroy
     @word.destroy
     respond_to do |format|
-      format.html { redirect_to '/palavras/adm/remover'}
+      format.html { redirect_to '/palavras/admin/remover'}
       format.json { head :no_content }
     end
   end
@@ -66,6 +65,10 @@ class WordsController < ApplicationController
     def set_word
       @word = Word.find(params[:id])
     end
+
+    def get_words
+      @words = Word.order(created_at: :desc)
+    end 
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def word_params

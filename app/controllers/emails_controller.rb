@@ -5,6 +5,7 @@ class EmailsController < ApplicationController
   # GET /emails
   # GET /emails.json
   def index
+    @profile = 'art'    
     @emails = Email.all
   end
 
@@ -20,6 +21,7 @@ class EmailsController < ApplicationController
 
   # GET /emails/1/edit
   def edit
+    render :new
   end
 
   # POST /emails
@@ -29,11 +31,12 @@ class EmailsController < ApplicationController
     @email.artist_data_id = @artist_data.id
     respond_to do |format|
       if @email.save
-        format.html { redirect_to "/show_email/#{@artist_data.id}/adm", notice: 'Email was successfully created.' }
-        format.json { render :show, status: :created, location: @email }
+        @profile = 'art'
+        @status = 'success'
+        format.js { render :index }        
       else
-        format.js { render :new }
-        #format.json { render json: @email.errors, status: :unprocessable_entity }
+        @status = 'danger'
+        format.js { render :new }        
       end
     end
   end
@@ -43,11 +46,12 @@ class EmailsController < ApplicationController
   def update
     respond_to do |format|
       if @email.update(email_params)
-        format.html { redirect_to "/show_email/#{@artist_data.id}/adm" }
-        format.json { render :show, status: :ok, location: @email }
+        @profile = 'art'
+        @status = 'success'
+        format.js { render :index }        
       else
-        format.js { render :edit }
-        format.json { render json: @email.errors, status: :unprocessable_entity }
+        @status = 'danger'
+        format.js { render :new }        
       end
     end
   end
@@ -56,9 +60,10 @@ class EmailsController < ApplicationController
   # DELETE /emails/1.json
   def destroy
     @email.destroy
-
+    @profile = 'art'
+        @status = 'success'
     respond_to do |format|
-      format.html { redirect_to "/show_agenda/#{current_artist.id}/adm"}
+      format.js { render :index}
     end
   end
 

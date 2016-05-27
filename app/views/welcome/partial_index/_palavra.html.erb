@@ -3,6 +3,7 @@
 	<h5>Não possui palavra cadastrada!</h5>
 <% else %>	
 	<div class="palavras">
+		<% i = 0 %>
 		<% @palavras.each do |palavra| %>
 			<div class="palavra-index">
 				<%= image_tag(palavra.logo.url(:thumbnail)) if palavra.logo.present?  %>					
@@ -13,10 +14,21 @@
 				</div>
 				<br />					
 			</div>	
-		<% end %>		
-		<div class="link-veja-mais">
-			<%= link_to "Veja Mais", '/palavras' , remote: true, class: 'btn-default-index' %>
-		</div>
+			
+			<% i = i + 1 %>
+			<% if i == 2 %>
+      			<% break %>
+   			<% end %>
+   			
+   			
+
+		 <% end %>
+			<% if @palavras.count > 2 %>
+				<div class="link-veja-mais">
+					<%= link_to "Veja Mais", '/palavras' , remote: true, class: 'btn-default-index' %>
+				</div>
+			<% end %>
+		
 	</div>
 <% end %>	
 

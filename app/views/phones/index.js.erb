@@ -1,0 +1,6 @@
+<% if @profile == 'adm' %>
+	$('.painel-artistas-art').html('<%= escape_javascript (render partial: "index") %>');
+<% else %>
+	$('#container-artistas').html('<%= escape_javascript (render partial: "index") %>');
+<% end %>
+

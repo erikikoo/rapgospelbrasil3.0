@@ -20,7 +20,8 @@ class AdminController < ApplicationController
     @users = Artist.where(admin: false)
     @artist = ArtistData.where.not(artist_id: @adm.id)        
     @aguardando_cadastro = ArtistData.where(nome: nil).where.not(artist_id: @adm.id)
-    @top5 = Top5.last    
+    @top5 = Top5.last 
+
     authorize @users
   end
 
@@ -51,7 +52,7 @@ class AdminController < ApplicationController
           @artists = ArtistData.where(nome: nil)         
           @option = "com cadastro incompleto" 
       end
-    @profile = 'adm'
+    @profile = 'admin'
     respond_to do |format|    
       format.js
     end
@@ -64,7 +65,8 @@ class AdminController < ApplicationController
 
   def aprova_artista
     @artist_data.update_attribute(:aprovado, true)        
-    render :artistas     
+    render :artistas
+    @profile = 'admin'     
   end
 
   def bloquear_artista

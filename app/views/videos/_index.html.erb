@@ -1,33 +1,29 @@
-<% if !@status.nil? %>
-  <p>
-    <div class="alert alert-success mensagem" id="mensagem"></div>
-  </p>  
+<% if !@status.nil? %>  
+    <%= alert(@status, 'Video adicionado com sucesso!')%>  
 <% end %>
+<div class="container">
+    <% if @profile == "admin" || @profile == "adm"  %>
+      <p>
+        <%= link_to 'Adicionar Video', "/novo_video#{@teste}", remote: true ,:class => 'btn btn-default'  %>  
+      </p>
+      
+    <% end %>
 
-
-
-  <% if @profile == "admin" || @profile == "adm"  %>
-    <p>
-      <%= link_to 'Adicionar Video', "/novo_video#{@teste}", remote: true ,:class => 'btn btn-default'  %>  
-    </p>
-    
+  <% if @videos.empty? %>
+      <h5>Não existem videos cadastrados!!</h5>  
+  <% else %>
+        <div class="videos">
+          <ul>
+            <% @videos.each do |video| %>      
+              <li class='img-thumbnail'>
+                <%= add_video(video.link)%>          
+                <% if @profile == "admin" || @profile == "adm" %>
+                  <br />
+                  <%= link_to 'Remover', "/remove_video/#{video.id}/#{@profile}", class: 'btn btn-danger',remote: true ,method: :delete, data: { confirm: 'Deseja realmente excluir esta video?' } %>
+                <% end %>
+            </li>        
+           <% end %>
+          </ul>
+        </div>
   <% end %>
-
-<% if @videos.empty? %>
-    <h5>Não existem videos cadastrados!!</h5>  
-<% else %>
-      <div class="videos">
-        <ul>
-          <% @videos.each do |video| %>      
-            <li class='img-thumbnail'>
-              <%= add_video(video.link)%>          
-              <% if @profile == "admin" || @profile == "adm" %>
-                <br />
-                <%= link_to 'Remover', "/remove_video/#{video.id}/#{@profile}", class: 'btn btn-danger',remote: true ,method: :delete, data: { confirm: 'Deseja realmente excluir esta video?' } %>
-              <% end %>
-          </li>        
-         <% end %>
-        </ul>
-      </div>
-<% end %>
-
+</div>

@@ -14,20 +14,25 @@
 <% if @top5s.empty? %>
     <h5>Não existem top 5 cadastrados</h5>  
 <% else %>
-  <table class="table table-striped">
-    
-    <% @top5s.each do |top5| %>
-        <div class="container-noticias text-justify">
-          <div class="noticias-index">          
+  <table class="table table-striped">    
+    <% @top5s.each do |top5| %>        
+            <p>
               <thead>
                 <th>Rank</th>
                 <th>Musica</th>
                 <th>Artista</th>
-                <th>Criado em </th>
+                
               </thead>
-              <tr>                
-                <td rowspancing='4'><h5><%= top5.created_at.strftime('%d/%m/%Y') %></h5></td>
+              <tr>
+                <td><%= top5.created_at.strftime('%d/%m/%Y') %></td>
+                <td> 
+                  <%= link_to("Editar",edit_top5_path(top5), class: 'btn btn-default', remote: true) %>
+                  <%= link_to("Apagar","/remove_top5/#{top5.id}", method: :delete, class: 'btn btn-danger', remote: true,data: { confirm: 'deseja excluir este top5?'}) %>
+                  
+                </td>
               </tr>
+              
+             
               <tr>
                 <td><strong>1ª</strong></td>
                 <td><%= top5.titulo %></td>
@@ -55,11 +60,11 @@
                 <td><strong>5ª</strong></td>
                 <td><%= top5.titulo5 %></td>
                 <td><%= top5.artista5 %></td>
-                <td></td>
+                <td></td>                
               </tr>
-            </div>
-          </div>
-        </div>  
+
+            </p>
+         
         
     <% end %>
   </table>

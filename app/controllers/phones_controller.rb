@@ -4,14 +4,8 @@ class PhonesController < ApplicationController
   # GET /phones
   # GET /phones.json
   def index
-    @phones = Phone.all
-    
-  end
-
-  # GET /phones/1
-  # GET /phones/1.json
-  def show
-    @phones = Email.find(params[:id])
+    @profile = params[:profile]
+        
   end
 
   # GET /phones/new
@@ -30,11 +24,10 @@ class PhonesController < ApplicationController
     @phone.artist_data_id = @artist_data.id
     respond_to do |format|
       if @phone.save
-        format.html { redirect_to "/show_telefone/#{@artist_data.id}/adm", notice: 'Phone was successfully created.' }
-        format.json { render :show, status: :created, location: @phone }
+        @profile = 'adm'
+        format.js { render :index }      
       else
-        format.js { render :new }
-        format.json { render json: @phone.errors, status: :unprocessable_entity }
+        format.js { render :new }        
       end
     end
   end
@@ -42,13 +35,12 @@ class PhonesController < ApplicationController
   # PATCH/PUT /phones/1
   # PATCH/PUT /phones/1.json
   def update
+    @profile = 'adm'
     respond_to do |format|
       if @phone.update(phone_params)
-        format.html { redirect_to "/show_telefone/#{@artist_data.id}/adm", notice: 'Phone was successfully updated.' }
-        format.json { render :show, status: :ok, location: @phone }
+        format.js { render :index }        
       else
-        format.js { render :edit }
-        format.json { render json: @phone.errors, status: :unprocessable_entity }
+        format.js { render :edit }        
       end
     end
   end
@@ -56,10 +48,10 @@ class PhonesController < ApplicationController
   # DELETE /phones/1
   # DELETE /phones/1.json
   def destroy
+    @profile = 'adm'
     @phone.destroy
     respond_to do |format|
-      format.html { redirect_to "/show_telefone/#{@artist_data.id}/adm", notice: 'Phone was successfully destroyed.' }
-      format.json { head :no_content }
+      format.js { render :index }      
     end
   end
 
@@ -72,6 +64,8 @@ class PhonesController < ApplicationController
     def set_phone
       @phone = Phone.find(params[:id])
     end
+
+    
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def phone_params

@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.dropdown-menu {
+	font-size: 12px;
+}
+
+
+
 @import 'estilo_index/header_estilo';
 @import 'estilo_index/body_estilo';
 @import 'estilo_index/footer_estilo';

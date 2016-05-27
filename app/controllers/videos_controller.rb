@@ -1,12 +1,12 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
+  before_action :get_videos, only: [:index, :destroy]
   before_action :get_artist_current
-  before_filter :allow_iframe
-
+ 
   # GET /videos
   # GET /videos.json
-  def index
-    @videos = Video.order(createrd_at: :desc)
+  def index   
+    @profile = params[:profile]    
   end
 
   # GET /videos/1
@@ -22,6 +22,7 @@ class VideosController < ApplicationController
 
   # GET /videos/1/edit
   def edit
+    render :new    
   end
 
   # POST /videos
@@ -65,11 +66,11 @@ class VideosController < ApplicationController
         @admin = params[:user]
 
       if @video.update(video_params)
-        format.html { redirect_to "/show_video/#{@artist_data.id}/adm/atualizar"}
-        format.json { render :show, status: :ok, location: @video }
+        @status = 'success'
+        format.js { render :index}        
       else
-        format.js { render :edit }
-        format.json { render json: @video.errors, status: :unprocessable_entity }
+        @status = 'danger'
+        format.js { render :new }        
       end
     end
   end
@@ -80,14 +81,14 @@ class VideosController < ApplicationController
     @video.destroy
     @admin = params[:user]
     respond_to do |format|
-        if @admin == 'admin'   
-          format.js {render :show_adm, location: @admin }
+        if @admin == 'admin'
+        @status = 'success'   
+          format.js {render :show_adm }
         else
-          @admin = "adm"
-          format.html { redirect_to "/show_video/#{@artist_data.id}/adm/remover"}
+          @status = 'success'
+          @profile = "adm"
+          format.js { render :show_art}
         end
-
-      format.json { head :no_content }
     end
   end
 
@@ -101,18 +102,13 @@ class VideosController < ApplicationController
       @video = Video.find(params[:id])
     end
 
+    def get_videos
+      @videos = Video.where(artist_data_id: current_artist.id)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
       params.require(:video).permit(:link, :profile)
-    end
-
-
-    def add_video(video)     
-     "<iframe width='330' height='225' src='#{video}' frameborder='0' allowfullscreen></iframe>"      
-    end
-
-    def allow_iframe
-      response.headers.delete('X-Frame-Options')
     end
 
 

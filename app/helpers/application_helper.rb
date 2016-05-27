@@ -1,9 +1,9 @@
 module ApplicationHelper
 
 	def sub_texto(texto, qnt)
-		 if texto.length <= qnt
+		if texto.length <= qnt
 		 	raw(texto)
-		 else 
+		else 
 		  	raw(texto[0..qnt]+" ... ")
 		end
 	end
@@ -20,13 +20,14 @@ module ApplicationHelper
 		(((Time.now - date)/3600)/24).to_i
 	end
 	
-	def add_video(video)
-		
-		
+	def add_video(video)		
 		video_desc = video.split('/watch?v=')
 		video = video_desc[0] + '/embed/' + video_desc[1]	
-	    raw("<iframe width='330' height='225' src='#{video}' frameborder='0' allowfullscreen></iframe>")      
-	    
+	    raw("<iframe width='300' height='225' src='#{video}' frameborder='0' allowfullscreen></iframe>")      	    
+    end
+
+    def alert(tipo, msn)
+    	raw('<p><span class="alert alert-'+tipo+'" id="mensagem">'+msn+'</span></p>')    			
     end
 
 	

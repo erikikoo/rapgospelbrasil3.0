@@ -166,7 +166,7 @@
 .painel-midia-sociais {
 	position: relative;
 	height: auto;	
-	margin-top: 20px;	
+	margin-top: 40px;	
 }
 
 .midia-maior {
@@ -290,9 +290,9 @@
 }
 
 .link-veja-mais {
-	position:absolute;
+	position:relative;
 	left:475px;
-	top:242px;	
+	/*top:242px;*/	
 }
 
 .link_videos {
@@ -342,7 +342,13 @@
 
 .img-perfil {
 	float: right;
+	margin-right: 20px;
 	padding-left: 20px;
+	margin-top: 10px;
+}
+
+.img-perfil:hover {
+	display:block;
 }
 
 .btn-controle-login {
@@ -353,4 +359,21 @@
 
 .btn-controle-login:hover  {
 	color: #930504;
+}
+
+.pag-quem-somos {
+	position:relative;
+	margin-top: 50px;	
+}
+
+.pag-quem-somos h2 {
+	margin-bottom: 30px;	
+}
+
+.table-top5 {
+	padding: 10px;
+}
+
+.show-art-principal {
+	left: 50px;
 }
