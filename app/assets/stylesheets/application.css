@@ -21,7 +21,7 @@
 	padding-top: 20px;
 }
 
-.posicionamento {
+.po1sicionamento {
 	position: relative;
 	margin-top: 20px;
 }
@@ -36,6 +36,7 @@
 	width: 701px;
 	margin-right: auto;
 	margin-left: auto;	
+	top: 30px;
 }
 
 .sub-menu ul li {
@@ -147,7 +148,7 @@
 }
 
 .painel-artistas-art {
-	top: -299px;
+	top: -288px;
 }
 
 
@@ -331,4 +332,13 @@
 .controle-login {
 	margin-top: 20px;
 	display: inline-block;	
+}
+
+.show-art-principal {
+	position:relative;
+	left: 100px;
+}
+
+.painel-artistas {
+	margin-top: 50px;
 }
