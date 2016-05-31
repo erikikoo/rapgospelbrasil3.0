@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
   def index  	
     @noticia = Notice.last
-    @palavras = Word.order(created_at: :desc)
+    @palavras = Word.order(created_at: :desc).limit(2)
     @top5 = Top5.last
     @artistas = ArtistData.where(aprovado: true, bloqueado: false).order(created_at: :desc).limit(5)
    
