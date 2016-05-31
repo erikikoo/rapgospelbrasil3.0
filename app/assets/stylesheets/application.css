@@ -18,6 +18,7 @@
 
 .corpo {
 	position: relative;	
+	height: auto;
 	padding-top: 20px;
 }
 

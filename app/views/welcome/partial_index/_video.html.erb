@@ -5,7 +5,7 @@
 		<% if @video.nil? %>
 			<h5>Não existem video cadastrado!!</h5>
 		<% else %>			
-			<%= add_video(@video.link) %>				
+			<%= add_video(@video.link,'index') %>				
 			<div class="link_videos">
 				<%= link_to "Mais Vídeos", '/videos' , remote: true, class: 'btn-default-index' %>
 			</div>

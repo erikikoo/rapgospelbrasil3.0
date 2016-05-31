@@ -1,2 +1,5 @@
-
-$('.painel-artistas-art').html('<%= escape_javascript (render partial: "videos/new") %>'); 	
+<% if @profile == 'admin' %>
+	$('.painel-artistas-adm').html('<%= escape_javascript (render partial: "videos/form") %>'); 	
+<% else %>
+	$('.painel-artistas-art').html('<%= escape_javascript (render partial: "videos/form") %>'); 	
+<% end %>

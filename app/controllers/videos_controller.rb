@@ -36,26 +36,29 @@ class VideosController < ApplicationController
       @video.artist_data_id = @artist_data.id
     end  
       respond_to do |format|
-        if @video.link.length <= 60
-          if @video.save        
-            @status = 'success'
-            if @profile == 'admin' 
-              @videos = Video.where('artist_id = ? OR artist_id = ?', 1, 2)            
-              format.js {render :show_adm, location: @profile }
-            else
-              @videos = Video.where(artist_data_id: current_artist.id)            
-              @profile = 'adm'
-              format.js {render :show_art, location: @profile }
+        if @video.link.length <= 60          
+            if @video.save
+              @status = 'success'
+              if @profile == 'admin' 
+                @videos = Video.where('artist_id = ? OR artist_id = ?', 1, 2)            
+                format.js {render :show_adm, location: @profile }
+              else
+                @videos = Video.where(artist_data_id: current_artist.id)            
+                @profile = 'adm'
+                format.js {render :show_art, location: @profile }
+              end            
             end
+          
+        else 
+          if @profile == 'admin'
+            @user = "/"+@profile
           else
-            @status = 'error'
-            format.js { render :new }
-            
+            @user = '/adm'
           end
-        else
-            @status = 'error'
-            format.js { render :new }
+          @status = 'danger'
+          format.js { render :new, location: @status }          
         end
+
      end
   end
 

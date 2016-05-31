@@ -1,7 +1,5 @@
-<% if @status == 'error' %>
-        <div class="alert alert-danger mensagem" id="mensagem">
-          Opss!! ocorreu um erro! 
-        </div>
+<% if !@status.nil? %>  
+    <%= alert(@status, 'Opss! Ocorreu um erro')%>  
 <% end %>
 <%= simple_form_for(@video, url: "/videos#{@user}", remote: true) do |f| %>
   <%= f.error_notification %>
