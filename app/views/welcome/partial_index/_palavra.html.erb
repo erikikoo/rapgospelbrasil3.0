@@ -15,12 +15,15 @@
 				<br />					
 			</div>	
 			
-			
+			<% i = i + 1 %>
+			<% if i == 2 %>
+      			<% break %>
+   			<% end %>
    			
    			
 
 		 <% end %>
-			<% if @palavras.count >= 2 %>
+			<% if @palavras.count > 2 %>
 				<div class="link-veja-mais">
 					<%= link_to "Veja Mais", '/palavras' , remote: true, class: 'btn-default-index' %>
 				</div>

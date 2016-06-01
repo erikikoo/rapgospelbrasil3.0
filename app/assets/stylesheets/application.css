@@ -294,7 +294,7 @@
 
 .palavras p {
 	position: relative;
-	float: left;
+	/*float: left;*/
 	vertical-align: middle;
 
 }
