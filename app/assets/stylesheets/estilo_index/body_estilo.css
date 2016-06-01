@@ -262,6 +262,7 @@
 	padding: 0px 15px 40px;
 	border: 1px solid #ccf;
 	height: auto;
+	clear: both;
 }
 
 .usuario-controle {
