@@ -242,7 +242,9 @@
 	background-color: #282828;	
 }
 
-
+.clear {
+	clear: both;
+}
 
 .banner-pri {
 	position: relative;
@@ -262,7 +264,7 @@
 	padding: 0px 15px 40px;
 	border: 1px solid #ccf;
 	height: auto;
-	clear: both;
+	overflow: auto;
 }
 
 .usuario-controle {
