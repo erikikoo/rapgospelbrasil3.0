@@ -23,7 +23,7 @@
 //= require_tree .
 
 
-$(document).ready(function() {
+$(document).ready(function($) {
   
   $('.blueberry').blueberry();
   
@@ -35,11 +35,6 @@ $(document).ready(function() {
     $(".mascara").hide();
   }); 
 
-  $("#imagem img").attr({
-    style: ''    
-  });
-  $("#imagem img").addClass('img-index'); 
-
-
+ 
   
 });

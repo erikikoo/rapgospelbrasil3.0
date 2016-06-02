@@ -13,7 +13,7 @@
   
     <% @artist_data.commitments.each do |agenda| %>     
       <div class="show-info">
-        <strong>Data: </strong>     <%= agenda.data.strftime('%v') %> <br/>
+        <strong>Data: </strong>     <%= agenda.data.strftime('%d/%m/%Y') %> <br/>
         <strong>Hora: </strong>     <%= agenda.hora.strftime("%H:%M") %> <br/>    
         <strong>Local: </strong>    <%= agenda.local %> <br/>
         <strong>Endereço: </strong> <%= agenda.endereco %> 
