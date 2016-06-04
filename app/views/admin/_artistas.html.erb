@@ -30,7 +30,7 @@
 		      <% end %>
 		      
 		      <br />
-		      <% if @profile == "admin" and !artist.nome.nil? %>        
+		      <% if @profile == "admin" %>        
 		        <%= link_to "Vizualizar","/show_artista/#{artist.id}/admin", :class => "btn btn-default btn-xs", :remote => true %>			   
 			   <% end %>	
 			   

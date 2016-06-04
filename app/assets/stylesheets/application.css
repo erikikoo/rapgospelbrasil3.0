@@ -346,12 +346,13 @@
 
 /*devise */
 
-.pag-login {
+.pag-login {	
 	background-image: url('http://res.cloudinary.com/dgql7hcka/image/upload/v1464892071/backgroundcadastro_canrd8.jpg');
 	background-repeat: no-repeat;
-	background-size: 100% 100%;
+	background-size: 100% 800px;
+	background-position: 0 -120px;
 	width: 100%;
-	height: 697px;
+	min-height: 667px;
 	margin-top: -20px;
 }
 
