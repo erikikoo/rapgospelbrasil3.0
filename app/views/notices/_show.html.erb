@@ -11,7 +11,7 @@
      <br>
   <p>
   
-    <% if @status == 'admin'  %>
+    <% if @profile == 'admin'  %>
       <%= link_to 'Editar', "/edit_noticia/#{@notice.id}/admin", class: 'btn btn-default', remote: true %> |
       <%= link_to 'Voltar', '/noticias/admin', class: 'btn btn-default', remote: true %>
     <% else %>

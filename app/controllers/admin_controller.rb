@@ -80,65 +80,68 @@ class AdminController < ApplicationController
     render :artistas     
   end
 
-  def noticias     
-     if params[:status]
-        @status = params[:status]
-     end
-     @notices = Notice.order(created_at: :desc) 
-     respond_to do |format|
-      format.js
-     end  
-  end
+  # def noticias     
+  #    if params[:status]
+  #       @status = params[:status]
+  #    end
+  #    @notices = Notice.order(created_at: :desc) 
+  #    respond_to do |format|
+  #     format.js
+  #    end  
+  # end
 
-  def nova_noticia
-    @notice = Notice.new
-    render :nova_noticia    
-  end
+  # def nova_noticia
+  #   @notice = Notice.new
+  #   render :nova_noticia    
+  # end
 
-  def edit_noticia
+  # def edit_noticia
     
-  end 
+  # end 
 
-  def show_noticia 
-    if params[:profile]
-        @status = params[:profile]
-     end
-  end 
+  # def show_noticia 
+  #   if params[:profile]
+  #       @status = params[:profile]
+  #    end
+  # end 
 
-  def remove_noticia
-      @notice.destroy      
-      render :noticias      
-  end
+  # def remove_noticia
+  #     @notice.destroy      
+  #     render :noticias      
+  # end
 
-  def success_noticia
-    render :noticias
-  end
+  # def success_noticia
+  #   render :noticias
+  # end
 
 
-  def palavras
-      if params[:status]
-        @status = params[:status]
-     end          
-  end
 
-  def nova_palavra
-    @word = Word.new
-    render :nova_palavra   
-  end
+  # def palavras
+  #     if params[:status]
+  #       @status = params[:status]
+  #    end          
+  # end
 
-  def edit_palavra    
-  end 
+  # def nova_palavra
+  #   @word = Word.new
+  #   render :nova_palavra   
+  # end
 
-  def show_palavra
-    if params[:profile]
-        @status = params[:profile]
-     end
-  end 
+  # def edit_palavra    
+  # end 
 
-  def remove_palavra
-      @word.destroy
-      render :palavras  
-  end
+  # def show_palavra
+  #   if params[:profile]
+  #       @status = params[:profile]
+  #    end
+  # end 
+
+  # def remove_palavra
+  #     @word.destroy
+  #     render :palavras  
+  # end
+
+
 
   def top5
     redirect_to top5s_path

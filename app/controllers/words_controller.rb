@@ -1,10 +1,10 @@
 class WordsController < ApplicationController
   before_action :set_word, only: [:show, :edit, :update, :destroy]
-  before_action :get_words, only: [:create, :update, :index]
+  before_action :get_words, only: [:create, :update, :index, :destroy]
+  before_action :get_profile , only: [:index, :update, :destroy, :show]
   # GET /words
   # GET /words.json
-  def index
-    
+  def index    
   end
 
   # GET /words/1
@@ -19,6 +19,7 @@ class WordsController < ApplicationController
 
   # GET /words/1/edit
   def edit
+    render :new
   end
 
   # POST /words
@@ -27,8 +28,8 @@ class WordsController < ApplicationController
     @word = Word.new(word_params)
     @word.artist_data_id = current_artist.id
     respond_to do |format|
+      @profile = 'admin'
       if @word.save
-        @profile = 'admin'
         format.js { render :index }        
       else
         format.html { render :new }        
@@ -40,12 +41,11 @@ class WordsController < ApplicationController
   # PATCH/PUT /words/1.json
   def update
     respond_to do |format|
+      @profile = 'admin'
       if @word.update(word_params)
-        format.html { redirect_to '/palavras/admin/atualizar'}
-        format.json { render :show, status: :ok, location: @word }
+        format.js { render :index}        
       else
-        format.html { render :edit }
-        format.json { render json: @word.errors, status: :unprocessable_entity }
+        format.html { render :new }        
       end
     end
   end
@@ -53,10 +53,10 @@ class WordsController < ApplicationController
   # DELETE /words/1
   # DELETE /words/1.json
   def destroy
+    @profile = 'admin'
     @word.destroy
     respond_to do |format|
-      format.html { redirect_to '/palavras/admin/remover'}
-      format.json { head :no_content }
+      format.js { render :index}      
     end
   end
 
@@ -68,6 +68,10 @@ class WordsController < ApplicationController
 
     def get_words
       @words = Word.order(created_at: :desc)
+    end 
+
+    def get_profile
+      @profile = params[:profile]
     end 
 
     # Never trust parameters from the scary internet, only allow the white list through.

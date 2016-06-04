@@ -1,15 +1,16 @@
 class NoticesController < ApplicationController
   before_action :set_notice, only: [:show, :edit, :update, :destroy]
-  before_action :get_notices, only: [:create]
+  before_action :get_notices, only: [:create, :update, :destroy, :index]
+  before_action :get_profile, only: [:index, :show, :destroy]
   # GET /notices
   # GET /notices.json
-  def index
-      
+  def index 
+       
   end
 
   # GET /notices/1
   # GET /notices/1.json
-  def show    
+  def show        
     respond_to do |format|
       format.js
     end
@@ -22,6 +23,7 @@ class NoticesController < ApplicationController
 
   # GET /notices/1/edit
   def edit
+    render :new
   end
 
   # POST /notices
@@ -29,6 +31,7 @@ class NoticesController < ApplicationController
   def create
     @notice = Notice.new(notice_params)
     @notice.artist_data_id = current_artist.id
+    @profile = "admin"
     respond_to do |format|
       if @notice.save
         format.js { render :create }        
@@ -43,8 +46,7 @@ class NoticesController < ApplicationController
   def update
     respond_to do |format|
       if @notice.update(notice_params)
-        format.js { redirect_to '/noticias/admin/atualizar' }
-        format.json { render :show, status: :ok, location: @notice }
+        format.js { render :index}       
         @profile = 'admin'
       else
         format.html { render :edit }
@@ -52,14 +54,13 @@ class NoticesController < ApplicationController
       end
     end
   end
-
   # DELETE /notices/1
   # DELETE /notices/1.json
   def destroy
+     
     @notice.destroy
     respond_to do |format|
-      format.js { redirect_to '/noticias/admin/atualizar' }
-      format.json { head :no_content }
+      format.js { render :index }      
     end
   end
 
@@ -71,6 +72,10 @@ class NoticesController < ApplicationController
 
     def get_notices
       @notices = Notice.order(created_at: :desc)  
+    end
+
+    def get_profile
+      @profile = params[:profile]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

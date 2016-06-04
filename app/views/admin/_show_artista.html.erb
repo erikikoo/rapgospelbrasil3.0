@@ -59,10 +59,10 @@
 	
 		
 			<% if !@artist_data.aprovado? %>
-				<%= link_to 'Aprovar',"/aprovar_artista/#{@artist_data.id}/adm", remote: true, data: { confirm: 'Deseja aprovar a publicação deste artista?' }, class: 'btn btn-lg btn-success'%>
+				<%= link_to 'Aprovar',"/aprovar_artista/#{@artist_data.id}/admin", remote: true, data: { confirm: 'Deseja aprovar a publicação deste artista?' }, class: 'btn btn-lg btn-success'%>
 			<% end %>
 			<% if  @artist_data.aprovado? and @artist_data.bloqueado?  %>	
-		    	<%= link_to 'Desbloquear', "/desbloquear_artista/#{@artist_data.id}/adm", :remote => true ,data: { confirm: 'Você está prestes a desbloquear este artista, confirma ?' } , class: 'btn btn-warning btn-lg'%>
+		    	<%= link_to 'Desbloquear', "/desbloquear_artista/#{@artist_data.id}/admin", :remote => true ,data: { confirm: 'Você está prestes a desbloquear este artista, confirma ?' } , class: 'btn btn-warning btn-lg'%>
 		    <% end %>
 	</div>
 </div>

@@ -33,16 +33,16 @@ Rails.application.routes.draw do
   get '/artistas_filter/:option'           => 'admin#artistas_filter'
   
   
-  get '/palavras/:profile'                 => 'admin#palavras'
-  get '/nova_palavra/:profile'             => 'admin#nova_palavra'
-  get '/edit_palavra/:id/:profile'         => 'admin#edit_palavra'
-  get '/show_palavra/:id/:profile'         => 'admin#show_palavra'    
-  get '/palavras/:profile/:status'         => 'admin#palavras'
+  get '/palavras/:profile'                 => 'words#index'
+  get '/nova_palavra/:profile'             => 'words#new'
+  get '/edit_palavra/:id/:profile'         => 'words#edit'
+  get '/show_palavra/:id/:profile'         => 'words#show'    
+  get '/palavras/:profile/:status'         => 'words#update'
 
-  get '/noticias/:profile'                 => 'admin#noticias'
+  get '/noticias/:profile'                 => 'notices#index'
   get '/nova_noticia/:profile'             => 'admin#nova_noticia'
-  get '/edit_noticia/:id/:profile'         => 'admin#edit_noticia'
-  get '/show_noticia/:id/:profile'         => 'admin#show_noticia'  
+  get '/edit_noticia/:id/:profile'         => 'notices#edit'
+  get '/show_noticia/:id/:profile'         => 'notices#show'  
   get '/noticias/:profile/:status'         => 'notices#index'
 
   get '/aprovar_artista/:id/:profile'      => 'admin#aprova_artista'
@@ -52,8 +52,8 @@ Rails.application.routes.draw do
   get '/videos/:profile'                   => 'admin#videos'
   get '/novo_video/:profile'               => 'admin#novo_video' 
   delete 'remove_artista/:id/:profile'     => 'admin#remove_artista'
-  delete 'remove_noticia/:id/:profile'     => 'admin#remove_noticia'
-  delete 'remove_palavra/:id/:profile'     => 'admin#remove_palavra'
+  delete 'remove_noticia/:id/:profile'     => 'notices#destroy'
+  delete 'remove_palavra/:id/:profile'     => 'words#destroy'
   delete 'remove_top5/:id'                => 'top5s#destroy'
   #novo 
   get '/novo_disco/:id'        => 'discographys#new'

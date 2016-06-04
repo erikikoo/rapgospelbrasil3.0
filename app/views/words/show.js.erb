@@ -1,1 +1,5 @@
-$('.body').html('<%= escape_javascript (render partial: "words/show") %>'); 	
+<% if @profile == 'admin' %>
+	$('.painel-artistas-adm').html('<%= escape_javascript (render partial: "words/show") %>'); 	
+<% else %>
+	$('.body').html('<%= escape_javascript (render partial: "words/show") %>'); 	
+<% end %>	

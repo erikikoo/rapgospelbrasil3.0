@@ -28,10 +28,9 @@ class Top5sController < ApplicationController
     
     respond_to do |format|
       if @top5.save
-        format.js 
+        format.js { render :index} 
       else
-        format.html { render :new }
-        format.json { render json: @top5.errors, status: :unprocessable_entity }
+        format.js { render :new }        
       end
     end
   end
@@ -41,11 +40,11 @@ class Top5sController < ApplicationController
   def update
     respond_to do |format|
       if @top5.update(top5_params)
-        format.js { render :create}
-        format.json { render :show, status: :ok, location: @top5 }
+        format.js { render :index } 
+        
       else
-        format.html { render :edit }
-        format.json { render json: @top5.errors, status: :unprocessable_entity }
+        format.js { render :edit }
+        
       end
     end
   end
@@ -55,8 +54,7 @@ class Top5sController < ApplicationController
   def destroy
     @top5.destroy
     respond_to do |format|
-      format.js { render :index }
-      format.json { head :no_content }
+      format.js { render :index }      
     end
   end
 
