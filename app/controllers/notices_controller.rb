@@ -34,8 +34,11 @@ class NoticesController < ApplicationController
     @profile = "admin"
     respond_to do |format|
       if @notice.save
+        @status = 'success'
+        @action = 'create'
         format.js { render :create }        
       else
+        @status = 'danger'
         format.js { render :new }        
       end
     end
@@ -46,11 +49,14 @@ class NoticesController < ApplicationController
   def update
     respond_to do |format|
       if @notice.update(notice_params)
-        format.js { render :index}       
         @profile = 'admin'
+        @status = 'success'
+        @action = 'update'
+        format.js { render :index}       
       else
-        format.html { render :edit }
-        format.json { render json: @notice.errors, status: :unprocessable_entity }
+        @status = 'danger'
+        format.js { render :new }
+        
       end
     end
   end
@@ -60,6 +66,8 @@ class NoticesController < ApplicationController
      
     @notice.destroy
     respond_to do |format|
+      @status = 'success'
+      @action = 'destroy'
       format.js { render :index }      
     end
   end

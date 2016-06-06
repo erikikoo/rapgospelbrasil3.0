@@ -25,8 +25,11 @@ class PhonesController < ApplicationController
     respond_to do |format|
       if @phone.save
         @profile = 'adm'
+        @status = 'success'
+        @action = 'create'
         format.js { render :index }      
       else
+        @status = 'danger'
         format.js { render :new }        
       end
     end
@@ -38,8 +41,11 @@ class PhonesController < ApplicationController
     @profile = 'adm'
     respond_to do |format|
       if @phone.update(phone_params)
+       @action = 'update'
+        @status = 'success'
         format.js { render :index }        
       else
+        @status = 'danger'
         format.js { render :edit }        
       end
     end
@@ -51,6 +57,8 @@ class PhonesController < ApplicationController
     @profile = 'adm'
     @phone.destroy
     respond_to do |format|
+      @status = 'success'
+      @action = 'destroy'
       format.js { render :index }      
     end
   end

@@ -30,9 +30,12 @@ class WordsController < ApplicationController
     respond_to do |format|
       @profile = 'admin'
       if @word.save
+        @status = 'success'
+        @action = 'create'
         format.js { render :index }        
       else
-        format.html { render :new }        
+        @status = 'danger'
+        format.js { render :new }        
       end
     end
   end
@@ -43,9 +46,12 @@ class WordsController < ApplicationController
     respond_to do |format|
       @profile = 'admin'
       if @word.update(word_params)
+        @status = 'success'
+        @action = 'update'
         format.js { render :index}        
       else
-        format.html { render :new }        
+        @status = 'danger'
+        format.js { render :new }        
       end
     end
   end
@@ -55,6 +61,8 @@ class WordsController < ApplicationController
   def destroy
     @profile = 'admin'
     @word.destroy
+    @status = 'success'
+    @action = 'destroy'
     respond_to do |format|
       format.js { render :index}      
     end

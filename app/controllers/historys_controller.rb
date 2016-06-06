@@ -38,6 +38,8 @@ class HistorysController < ApplicationController
     respond_to do |format|
       if @history.update(history_params)
         @artist_data = ArtistData.find_by('artist_id = ?', current_artist.id)
+        @status = 'success'
+        @action = 'update'
         format.js { render :show }        
       else
         format.js { render :new }

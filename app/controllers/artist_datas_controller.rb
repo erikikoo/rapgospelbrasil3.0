@@ -32,6 +32,7 @@ class ArtistDatasController < ApplicationController
   def create
     @artist_data = ArtistData.find_by('artist_id = ?', current_artist.id)  
     
+
     if @artist_data.nil?
       @artist_data = ArtistData.new(artist_data_params)
       @artist_data.artist_id = current_artist.id
@@ -52,11 +53,12 @@ class ArtistDatasController < ApplicationController
   # PATCH/PUT /artist_datas/1
   # PATCH/PUT /artist_datas/1.json
   def update
+    @artist_data = ArtistData.find_by(artist_id: current_artist.id)
     respond_to do |format|
       #if @artist_data.id == current_artist.id
       #@current_id = params[:id]
       @artist_data.update(artist_data_params)      
-      format.js {render :create }
+      format.js {render 'principal/perfil' }
     end
       #end
     #end

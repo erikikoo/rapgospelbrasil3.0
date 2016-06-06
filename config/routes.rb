@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   get '/palavras/:profile/:status'         => 'words#update'
 
   get '/noticias/:profile'                 => 'notices#index'
-  get '/nova_noticia/:profile'             => 'admin#nova_noticia'
+  get '/nova_noticia/:profile'             => 'notices#new'
   get '/edit_noticia/:id/:profile'         => 'notices#edit'
   get '/show_noticia/:id/:profile'         => 'notices#show'  
   get '/noticias/:profile/:status'         => 'notices#index'
@@ -50,7 +50,7 @@ Rails.application.routes.draw do
   get '/desbloquear_artista/:id/:profile'  => 'admin#desbloquear_artista'
 
   get '/videos/:profile'                   => 'admin#videos'
-  get '/novo_video/:profile'               => 'admin#novo_video' 
+  get '/novo_video/:profile'               => 'videos#new'
   delete 'remove_artista/:id/:profile'     => 'admin#remove_artista'
   delete 'remove_noticia/:id/:profile'     => 'notices#destroy'
   delete 'remove_palavra/:id/:profile'     => 'words#destroy'

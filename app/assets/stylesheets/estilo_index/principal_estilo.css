@@ -14,12 +14,3 @@ a:active, a:hover, a:visited, a:link {
 
 
 
-body {
-	min-width: 999px;
-	height: 100%;
-	background-image: url("FundoPagina.jpg");
-	top:-10px;
-
-	
-}
-

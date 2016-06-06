@@ -1,3 +1,13 @@
+
+body {
+	min-width: 999px;
+	height:auto;	
+	background-image: url("http://res.cloudinary.com/dgql7hcka/image/upload/v1465059543/body-img/FundoPagina.jpg");
+	top:-10px;	
+	margin-bottom: 30px;
+}
+
+
 .painel-noticias {
 	position: relative;	
 	top: 20px;
@@ -15,9 +25,10 @@
 
 .titulo  {
 	position: absolute;
-	left:133px;	
+	left:150px;	
 	width: 200px;
 	font-size: 20px;	
+	top: 10px;
 }
 
 .titulo-sem-img {	
@@ -92,7 +103,7 @@
 }
 
 .parte-maior {	
-	width: 590px;
+	width: 515px;
 	left: 10px;
 	height: 240px;
 	top: 5px;	
@@ -104,6 +115,7 @@
 
 .noticia-index {
 	position: relative;	
+	margin-top: 20px;
 	left: 20px;
 	
 }
@@ -229,7 +241,7 @@
 }
 
 
-.body {
+.bod1y {
 	position: relative;	
 	top:-250px;	
 }
@@ -264,7 +276,7 @@
 	padding: 0px 15px 40px;
 	border: 1px solid #ccf;
 	height: auto;
-	overflow: auto;
+	overflow: hidden;
 }
 
 .usuario-controle {
@@ -308,8 +320,8 @@
 
 .botao-veja-mais-ultima-noticia {
 	position: absolute;
-	top:191px;	
-	left:220px;
+	top:262px;	
+	left:250px;
 	width: 103px;	
 }
 
@@ -377,6 +389,65 @@
 	padding: 10px;
 }
 
-.show-art-principal {
-	left: 50px;
+.show-art-principal {	
+	position:relative;
+	left: 12px;
+	width: 100%;
+}
+
+.pag-show-artista {	
+	margin-top: -17px;			
+	/*min-height:785px;	*/
+}
+
+.show-art-principal h3 {	
+	padding:30px 0;	
+}
+
+.contato {
+	position: relative;
+	top: 5px;
+	left: 0;
+	height: 40px;
+	width: 510px;	
+	border-radius: 2px;
+	padding: 8px 5px;
+	background: #ccc;
+	background: -webkit-linear-gradient(#ccc, #eee, #ccc);
+	background: -moz-linear-gradient(#ccc, #eee, #ccc);
+	background: -o-linear-gradient(#ccc, #eee, #ccc);
+	box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
+	-webkit-box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
+	-moz-box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
+	-o-box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
+
+}
+
+.contato > img {
+	position: relative;
+	top: -2px;
+	padding-left: 10px;
+
+}
+
+.logo-redesocial {
+	position: absolute;
+	left: 450px;
+}
+
+.emails {
+	width: 100%;	
+	padding: 5px;
+}
+
+.emails ul {
+	position: relative;
+	left: -45px;
+}
+
+.emails ul li {
+	border: solid 1px #000;
+	padding: 5px 8px;
+	display: inline-block;
+	margin: 5px;
 }

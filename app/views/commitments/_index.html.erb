@@ -1,6 +1,16 @@
 <% if !@status.nil? %>  
-    <%= alert(@status, 'Show criado com sucesso!')%>  
+    <%= 
+      case @action
+      when 'create'
+         alert(@status, 'Show criado com sucesso!')
+      when 'update'    
+         alert(@status, 'Show atualizado com sucesso!')
+      when 'destroy'      
+         alert(@status, 'Show removido com sucesso!')
+      end    
+      %>    
 <% end %>
+
 <% if @profile == "adm" %>
   <p>
     <%= link_to 'Adicionar Show', '/novo_agenda', remote: true, :class => 'btn btn-default'  %>

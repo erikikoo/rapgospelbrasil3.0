@@ -31,6 +31,7 @@ class CommitmentsController < ApplicationController
     respond_to do |format|
       if @commitment.save
         @status = 'success'
+        @action = 'create'
         @profile = 'adm'
         format.js { render :index }        
       else        
@@ -46,6 +47,7 @@ class CommitmentsController < ApplicationController
     respond_to do |format|
       if @commitment.update(commitment_params)
         @status = 'success'
+        @action = 'update'
         @profile = 'adm'
         format.js { render :index }        
       else
@@ -60,6 +62,7 @@ class CommitmentsController < ApplicationController
     @commitment.destroy
     @status = 'success'
     @profile = 'adm'
+    @action = 'destroy'
     respond_to do |format|
       format.js { render :index}      
     end

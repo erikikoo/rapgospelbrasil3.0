@@ -1,12 +1,17 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
-  before_action :get_videos, only: [:index, :destroy]
-  before_action :get_artist_current
+  #before_action :get_videos, only: [:index, :destroy]
+  #before_action :get_artist_current
  
   # GET /videos
   # GET /videos.json
   def index   
-    @profile = params[:profile]    
+    @profile = params[:profile] 
+    if @profile == 'admin'   
+      get_videos_adm
+    else
+      get_videos
+    end    
   end
 
   # GET /videos/1
@@ -17,6 +22,12 @@ class VideosController < ApplicationController
 
   # GET /videos/new
   def new
+    @profile = params[:profile] if params[:profile].present?   
+    if current_artist.admin?
+      @user = '/admin'
+    else
+      @user = '/adm'
+    end
     @video = Video.new
   end
 
@@ -33,19 +44,21 @@ class VideosController < ApplicationController
     if @profile == 'admin'
       @video.artist_id = current_artist.id
     else 
-      @video.artist_data_id = @artist_data.id
+      @video.artist_data_id = current_artist.id
     end  
       respond_to do |format|
         if @video.link.length <= 60          
             if @video.save
               @status = 'success'
+              @action = 'create'
               if @profile == 'admin' 
-                @videos = Video.where('artist_id = ? OR artist_id = ?', 1, 2)            
-                format.js {render :show_adm, location: @profile }
+                @teste = '/admin' 
+                get_videos_adm      
+                format.js {render :show, location: @profile }
               else
-                @videos = Video.where(artist_data_id: current_artist.id)            
-                @profile = 'adm'
-                format.js {render :show_art, location: @profile }
+                get_videos           
+                @teste = '/adm'
+                format.js {render :show, location: @profile }
               end            
             end
           
@@ -62,43 +75,37 @@ class VideosController < ApplicationController
      end
   end
 
-  # PATCH/PUT /videos/1
-  # PATCH/PUT /videos/1.json
-  def update
-    respond_to do |format|
-        @admin = params[:user]
-
-      if @video.update(video_params)
-        @status = 'success'
-        format.js { render :index}        
-      else
-        @status = 'danger'
-        format.js { render :new }        
-      end
-    end
-  end
-
+  
   # DELETE /videos/1
   # DELETE /videos/1.json
   def destroy
     @video.destroy
-    @admin = params[:user]
+    @profile = params[:profile]
+    if @profile == 'admin'
+        @teste = "/"+@profile
+    else
+        @teste = '/adm'
+    end
     respond_to do |format|
-        if @admin == 'admin'
-        @status = 'success'   
-          format.js {render :show_adm }
+        if @profile == 'admin'
+        get_videos_adm             
+        @profile = 'admin'
+        @status = 'success' 
+        @action = 'destroy' 
+
+          format.js { render :show}
         else
           @status = 'success'
           @profile = "adm"
-          format.js { render :show_art}
+          @action = 'destroy'
+          get_videos
+          format.js { render :show}
         end
     end
   end
 
   private
-     def get_artist_current
-      @artist_data = ArtistData.find_by('artist_id = ?', current_artist.id)
-      end
+    
 
     # Use callbacks to share common setup or constraints between actions.
     def set_video
@@ -106,7 +113,11 @@ class VideosController < ApplicationController
     end
 
     def get_videos
-      @videos = Video.where(artist_data_id: current_artist.id)
+       @artist_data = ArtistData.find_by('artist_id = ?', current_artist.id) 
+    end
+   
+    def get_videos_adm
+      @videos = Video.where('artist_id = ? OR artist_id = ?', 1, 2) 
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

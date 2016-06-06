@@ -1,3 +1,8 @@
+<% if !@status.nil? %>  
+    <%= alert(@status, 'Opss! Ocorreu um erro')%>  
+<% end %>
+
+
 <%= simple_form_for(@notice, remote: true) do |f| %>
   <%= f.error_notification %>
 	

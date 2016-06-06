@@ -1,9 +1,15 @@
-<% if !@status.nil? %>
-  <p>
-    <div class="alert alert-success mensagem" id="mensagem"></div>
-  </p>  
+<% if !@status.nil? %>  
+    <%= 
+      case @action
+      when 'create'
+         alert(@status, 'Top 5 criado com sucesso!')
+      when 'update'    
+         alert(@status, 'Top 5 atualizado com sucesso!')
+      when 'destroy'      
+         alert(@status, 'Top 5 removido com sucesso!')
+      end    
+      %>   
 <% end %>
-
 
 <p>
    <%= link_to 'Adicionar Top 5', '/novo_top5', remote: true ,:class => 'btn btn-default'  %>  

@@ -1,5 +1,9 @@
+header {
+	background-color: red;
+}
+
 .topo {	
-	height: auto;
+	height: 288px;
 	width: 100%;	
 }
 
@@ -7,7 +11,7 @@
 	position: relative;
 	top:5px;
 	height: 292px;	
-	background-image: url("FundoCabecalho.jpg");
+	background-image: url("http://res.cloudinary.com/dgql7hcka/image/upload/v1465059400/body-img/FundoCabecalho.jpg");
 	background-repeat: no-repeat;
 	background-size: 100% 97%;		
 }
@@ -34,7 +38,7 @@
 	position: absolute;
 	top:75px;
 	height: 77px;		
-	background-image: url('FundoMenu.jpg');	
+	background-image: url('http://res.cloudinary.com/dgql7hcka/image/upload/v1465059414/body-img/FundoMenu.jpg');	
 	z-index: 1;
 	width: 100%;
 }

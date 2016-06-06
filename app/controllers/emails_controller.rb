@@ -33,6 +33,7 @@ class EmailsController < ApplicationController
       if @email.save
         @profile = 'art'
         @status = 'success'
+        @action = 'create'
         format.js { render :index }        
       else
         @status = 'danger'
@@ -48,6 +49,7 @@ class EmailsController < ApplicationController
       if @email.update(email_params)
         @profile = 'art'
         @status = 'success'
+        @action = 'update'
         format.js { render :index }        
       else
         @status = 'danger'
@@ -62,6 +64,7 @@ class EmailsController < ApplicationController
     @email.destroy
     @profile = 'art'
         @status = 'success'
+        @action = 'destroy'
     respond_to do |format|
       format.js { render :index}
     end

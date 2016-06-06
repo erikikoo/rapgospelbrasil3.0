@@ -1,4 +1,8 @@
-
+<% if !@status.nil? %>
+	<% if @action = 'update' %>
+		 <%= alert(@status, 'Release atualizada com sucesso!') %>
+	<% end %>
+<% end %>
 
 <p>
   <strong>Release:</strong>

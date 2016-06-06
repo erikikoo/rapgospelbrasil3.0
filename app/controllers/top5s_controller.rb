@@ -28,8 +28,11 @@ class Top5sController < ApplicationController
     
     respond_to do |format|
       if @top5.save
+        @status = 'success' 
+        @action = 'create'       
         format.js { render :index} 
       else
+        @status = 'danger'
         format.js { render :new }        
       end
     end
@@ -40,9 +43,12 @@ class Top5sController < ApplicationController
   def update
     respond_to do |format|
       if @top5.update(top5_params)
+        @status = 'success'
+        @action = 'update'
         format.js { render :index } 
         
       else
+        @status = 'danger'
         format.js { render :edit }
         
       end
@@ -53,6 +59,8 @@ class Top5sController < ApplicationController
   # DELETE /top5s/1.json
   def destroy
     @top5.destroy
+    @status = 'success'
+    @action = 'destroy'
     respond_to do |format|
       format.js { render :index }      
     end

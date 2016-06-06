@@ -1,7 +1,14 @@
-<% if !@status.nil? %>
-  <p>
-    <div class="alert alert-success mensagem" id="mensagem"></div>
-  </p>  
+<% if !@status.nil? %>  
+    <%= 
+      case @action
+      when 'create'
+         alert(@status, 'Palavra criado com sucesso!')
+      when 'update'    
+         alert(@status, 'Palavra atualizada com sucesso!')
+      when 'destroy'      
+         alert(@status, 'Palavra removido com sucesso!')
+      end    
+      %>  
 <% end %>
 
   <% if @profile == "admin" %>

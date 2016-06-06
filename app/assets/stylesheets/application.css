@@ -34,10 +34,9 @@
 
 .sub-menu {	
 	position: relative;
-	width: 701px;
-	margin-right: auto;
-	margin-left: auto;	
-	top: 30px;
+	width: 568px;			
+	top: 381px;
+	left:-20px;
 }
 
 .sub-menu ul li {
@@ -66,24 +65,28 @@
 	margin: 10px 5px;
 }
 
-.painel-show {
-	position: relative;
-	height: 320px;
-	width: 999px;
-	margin-left: auto;
-	margin-right: auto;
-
-}
 
 .painel-image {
 	position: absolute;
-	left: 50px;
+	left: 25px;
+	box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
+	-webkit-box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
+	-moz-box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
+	-o-box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
 
 }
 
 .painel-agenda {
 	position: absolute;
-	left: 600px;
+	width: 415px;
+	border-radius: 2px;
+	left: 560px;
+	height:355px;
+	background-color: #ccc;
+	box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
+	-webkit-box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
+	-moz-box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
+	-o-box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
 }
 /* ARTIST-DATA */
 .item-artista {
@@ -101,7 +104,7 @@
 	width: 100%;
 	height: 120px;
 	padding: 20px;
-	background-image: url("TopoPainel.jpg");
+	background-image: url("http://res.cloudinary.com/dgql7hcka/image/upload/v1465059422/body-img/TopoPainel.jpg");
 
 }
 
@@ -111,7 +114,7 @@
 	position: absolute;
 
 	left: 10px;
-	background-image: url("LogoPainelArtista.jpg");	
+	background-image: url("http://res.cloudinary.com/dgql7hcka/image/upload/v1465059416/body-img/LogoPainelArtista.jpg");	
 	z-index: 3;
 }
 
@@ -304,8 +307,7 @@
 }
 
 .videos  {
-	width: 100%;
-	padding: 5px;
+	width: 100%;	
 	list-style: none;
 }
 
@@ -335,26 +337,53 @@
 	display: inline-block;	
 }
 
-.show-art-principal {
-	position:relative;
-	left: 100px;
+.painel-artistas {	
+	margin-top: 322px;
+	margin-left: auto;
+	margin-right: auto;
+	height: auto;
+	padding:70px 10px 5px 10px;
+	width:98%;
+	background-color: #ccc;	
+	border-radius: 2px;
+	box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
+	-webkit-box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
+	-moz-box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
+	-o-box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
 }
 
-.painel-artistas {
-	margin-top: 50px;
-}
+
 
 /*devise */
 
-.pag-login {	
-	background-image: url('http://res.cloudinary.com/dgql7hcka/image/upload/v1464892071/backgroundcadastro_canrd8.jpg');
-	background-repeat: no-repeat;
-	background-size: 100% 800px;
-	background-position: 0 -120px;
-	width: 100%;
-	min-height: 667px;
-	margin-top: -20px;
+
+@media screen and (max-width: 1199px) {
+	.pag-login {	
+		background-image: url('http://res.cloudinary.com/dgql7hcka/image/upload/v1464892071/backgroundcadastro_canrd8.jpg');
+		background-repeat: no-repeat;
+		background-size: 100% 833px;
+		background-position: 0 -120px;		
+		height: 713px;
+		margin-top: -36px;
+	}
+
 }
+
+@media screen and (min-width: 1200px) {
+	.pag-login {	
+		background-image: url('http://res.cloudinary.com/dgql7hcka/image/upload/v1464892071/backgroundcadastro_canrd8.jpg');
+		background-repeat: no-repeat;
+		background-size: 100% auto;
+		background-position: 0 -120px;
+		width: 100%;
+
+		min-height: 673px;
+		height: 713px;
+		margin-top: -76px;
+	}
+}
+
+
 
 .painel-login {	
 	top: 230px;

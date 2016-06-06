@@ -1,35 +1,34 @@
 <div class="left">		
-		<span class="text-ultima">&Uacute;LTIMAS </span> <span class="titulo-noticia">NOTÍCIAS</span>
+	<span class="text-ultima">&Uacute;LTIMAS </span> <span class="titulo-noticia">NOTÍCIAS</span>
 		
-		<% if @noticia.nil? %>
-			<h5>Não existe noticias cadastradas</h5>
-		<% else %>			
-			<span class="noticia">
-				<% if @noticia.logo.present? %>
-					<span class="titulo">
-				<% else %>
-					<span class="titulo-sem-img">
-				<% end %>			
-				<%= @noticia.titulo.capitalize %>								
-				</span>
+	<% if @noticia.nil? %>
+		<h5>Não existe noticias cadastradas</h5>
+	<% else %>			
+		<div class="noticia">
+			<%= @noticia.logo.present? ? raw('<span class="titulo">') : raw('<span class="titulo-sem-img">') %>
+			<%= @noticia.titulo.capitalize %>
+		</div>
+		
+		<div class="img-noticia noticia-index">
+			<%= image_tag(@noticia.logo.url(:small)) if @noticia.logo.present?  %>									
+		</div>	
 				
-				
-					<span class="noticia-index text-justify">
-						<% if @noticia.logo.present? %>
-							<%= image_tag(@noticia.logo.url(:small))  %>									
-							<%= sub_texto(raw(@noticia.noticia),299) if !@noticia.nil? %>						
-						<% else %>
-							<span class="texto-noticia text-justify">
-								<%= sub_texto(raw(@noticia.noticia),400) if !@noticia.nil? %>	
-							</span>		
-						<% end %>	
-					</span> 
+		<div class="noticia-index text-justify">				
+			<%= sub_texto(raw(@noticia.noticia),150) if !@noticia.nil? && @noticia.logo.present? %>						
 			
-				<div class="botao-veja-mais-ultima-noticia">
-					<%= link_to "LEIA AGORA", "/show_noticia/#{@noticia.id}", remote: true , class: 'btn-default-index'  %>
-				</div>
-			</span>
-		<% end %>
+			<% if !@noticia.nil? && !@noticia.logo.present? %>		
+				<%= raw('<div class="texto-noticia text-justify">') %> 
+				<%= sub_texto(raw(@noticia.noticia),300) %>
+				<%= raw('</div>') %> 
+			<% end %>			
+
+		</div> 
+		
+		<div class="botao-veja-mais-ultima-noticia">
+			<%= link_to "LEIA AGORA", "/show_noticia/#{@noticia.id}", remote: true , class: 'btn-default-index'  %>
+		</div>
+		
+	<% end %>
 	
 </div>
 

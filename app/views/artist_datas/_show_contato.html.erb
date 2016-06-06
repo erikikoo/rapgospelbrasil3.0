@@ -2,12 +2,20 @@
 	<h5>Não possui contato cadastrado </h5>
 <% else %>
 	<div class="contato-telefone">
-		<% @artist_data.phones.each do |tel| %>	
-			<strong>Telefone:</strong> <%= tel.telefone %> <br />
-		<% end %>
+		<div class="emails">
+			<ul>				
+				<% @artist_data.phones.each do |tel| %>	
+					<li><strong>Telefone:</strong> <%= tel.telefone %> <br /></li>
+				<% end %>
+			</ul>
+		</div>
 		<hr />
-		<% @artist_data.emails.each do |email| %>	
-			<strong>Email:</strong>	<%= email.email %> <br/>
-		<% end %>
+		<div class="emails">
+			<ul>
+				<% @artist_data.emails.each do |email| %>	
+					<li><strong>Email:</strong>	<%= email.email %> <br/></li>
+				<% end %>
+			</ul>
+		</div>
 	</div>
 <% end %>

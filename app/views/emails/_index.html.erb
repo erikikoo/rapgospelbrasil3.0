@@ -1,5 +1,14 @@
 <% if !@status.nil? %>  
-    <%= alert(@status, 'Sucesso! email gravado')%>  
+    <%= 
+      case @action
+      when 'create'
+         alert(@status, 'Email criado com sucesso!')
+      when 'update'    
+         alert(@status, 'Email atualizado com sucesso!')
+      when 'destroy'      
+         alert(@status, 'Email removido com sucesso!')
+      end    
+      %>   
 <% end %>
 <p>
   <% if @profile == "art" %>

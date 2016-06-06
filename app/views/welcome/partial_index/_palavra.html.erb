@@ -23,11 +23,11 @@
    			
 
 		 <% end %>
-			<% if @palavras.count > 2 %>
-				<div class="link-veja-mais">
-					<%= link_to "Veja Mais", '/palavras' , remote: true, class: 'btn-default-index' %>
-				</div>
-			<% end %>
+		 <% if @palavras.count > 2 %>
+			<div class="link-veja-mais">
+				<%= link_to "Veja Mais", '/palavras' , remote: true, class: 'btn-default-index' %>
+			</div>
+		<% end %>
 		
 	</div>
 <% end %>	

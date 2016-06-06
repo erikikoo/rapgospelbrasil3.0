@@ -1,5 +1,14 @@
 <% if !@status.nil? %>  
-    <%= alert(@status, 'Show criado com sucesso!')%>  
+    <%= 
+      case @action
+      when 'create'
+         alert(@status, 'Telefone adicionado com sucesso!')
+      when 'update'    
+         alert(@status, 'Telefone atualizado com sucesso!')
+      when 'destroy'      
+         alert(@status, 'Telefone removido com sucesso!')
+      end    
+      %>   
 <% end %>
 <p>
 	<% if @profile == "adm" %>

@@ -38,10 +38,16 @@ class DiscographysController < ApplicationController
     @artist_data = ArtistData.find(@discography.artist_data_id)
     @profile = "adm"    
     if @discography.save       
-      respond_to do |format|       
+      respond_to do |format|
+        @status = 'success' 
+        @action = 'create'      
         format.js {render :index }
       end
+    else 
+      @status = 'danger'
+      render :new
     end
+    
    
   end
 
@@ -51,6 +57,8 @@ class DiscographysController < ApplicationController
     respond_to do |format|
       @profile = "adm"
       if @discography.update(discography_params)
+        @status = 'success'
+        @action = 'update'
         format.js { render :index}        
       else
         format.js { render :new }
@@ -65,6 +73,8 @@ class DiscographysController < ApplicationController
     @discography.destroy
     @profile = "adm"
     respond_to do |format|
+      @status = 'success'
+      @action = 'destroy'
       format.js { render :index }      
     end
   end
