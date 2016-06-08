@@ -5,7 +5,7 @@
 				<div class="panel-heading">Contatos</div>
 				<div class="panel-body">		
 					<% if @artist_data.logo.present? %>
-						<%= cl_image_tag(@artist_data.logo.url(:medium), :class => 'img-thumbnail') %>					
+						<%= cl_image_tag(@artist_data.logo.url(:perfil), :class => 'img-thumbnail') %>					
 					<% else %>
 						<%= image_tag("ImagemArtistaSemFoto.png", width: '250px', heigth: '250px;') %>
 					<% end %>
@@ -50,7 +50,7 @@
 		
 		
 			<div class="panel panel-default">
-				<div class="panel-heading">História</div>
+				<div class="panel-heading">Release</div>
 				<div class="panel-body">
 					<%= render partial: 'artist_datas/show_historia'%>
 				</div>

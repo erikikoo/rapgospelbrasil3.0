@@ -12,5 +12,10 @@ a:active, a:hover, a:visited, a:link {
 	
 }
 
+.container-videos {
+	width: 92%;
+	margin:0 auto;
+}
+
 
 

@@ -17,13 +17,13 @@
          <%= e.input :email %><br>
       <% end %>
 
-      <%= f.simple_fields_for :phones do |p|%>  
+      <%= f.simple_fields_for :phones do |p|%>   
           <%= p.input :telefone %>
       <% end %>
 <!-- ckedit -->
       <%= f.simple_fields_for :history do |h|%> 
         <p>
-          <%= h.input :historia, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'mini', :cols => 100} } %>
+          <%= h.input :historia, 'Release',:as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'mini', :cols => 100} } %>
         </p>
       <% end %>
   </fieldset>
