@@ -41,5 +41,11 @@ Rails.application.configure do
   #PAPERCLIP 
   Paperclip.options[:command_path] = 'C:\Program Files (x86)\GnuWin32\bin'
 
- 
+  # ActionMailer Config
+config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+config.action_mailer.delivery_method = :smtp
+# change to true to allow email to be sent during development
+config.action_mailer.perform_deliveries = false
+config.action_mailer.raise_delivery_errors = true
+config.action_mailer.default :charset => "utf-8"
 end
