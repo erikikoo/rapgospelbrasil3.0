@@ -1,4 +1,8 @@
-
+textarea {
+	resize: none;
+	width: 100%;
+	height: 100px;
+}
 
 a:active, a:hover, a:visited, a:link {
 	text-decoration: none;

@@ -1,10 +1,15 @@
 
+* {
+	margin: 0;
+	padding: 0;
+}
+
 body {
+
 	min-width: 999px;
 	height:auto;	
 	background-image: url("http://res.cloudinary.com/dgql7hcka/image/upload/v1465059543/body-img/FundoPagina.jpg");
-	top:-10px;	
-	margin-bottom: 30px;
+	top:-10px;		
 }
 
 
@@ -182,7 +187,7 @@ body {
 }
 
 .midia-maior {
-	position: absolute;
+	position: relative;
 	width: 490px;
 	left: 10px;
 	height: auto;
@@ -191,10 +196,10 @@ body {
 } 
 
 .midia-anuncio-menor {
-	position: absolute;
+	position: relative;
 	width: 480px;
 	min-height: 145px;
-	top: 5px;
+	top: -50px;
 	left: 510px;
 	background-color: red;
 	
@@ -241,9 +246,8 @@ body {
 }
 
 
-.bod1y {
-	position: relative;	
-	top:-250px;	
+.body {	
+	min-height: 400px;
 }
 
 
@@ -450,4 +454,51 @@ body {
 	padding: 5px 8px;
 	display: inline-block;
 	margin: 5px;
+}
+
+/* pag contato */
+
+.contato-painel-dimenssao {
+	width: 450px;
+	height: 400px;
+}
+
+.pag-contato-left {	
+	float: left;
+	margin-left: 50px;
+	margin-bottom: 50px;
+}
+
+.pag-contato-right {	
+	float: left;
+	margin-bottom: 50px;
+
+}
+
+.pag-contato-right li {
+	position: relative;
+	top: 30px;
+	list-style: none;
+	padding: 5px 0;
+}
+
+.pag-contato-left form {
+	width: 410px;
+
+}
+
+.btn-contato-enviar {
+	float: right;
+	border-radius: 5px;
+	width: 100px;
+	height: 40px;
+	background-color: #8E0000;
+	color: #fff;
+	border: 1px solid #8E0000;	
+}
+
+.btn-contato-enviar:hover {
+	border: 1px solid #8E0000;	
+	color: #8E0000;	
+	background-color: #fff;
 }

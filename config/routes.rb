@@ -1,9 +1,11 @@
+
 Rails.application.routes.draw do
 
+  devise_for :artists
   resources :top5s
   resources :words
   resources :notices
-  devise_for :artists
+  
 
   mount Ckeditor::Engine => '/ckeditor'
 
@@ -18,10 +20,13 @@ Rails.application.routes.draw do
   get '/videos'                       => 'welcome#video'
   get '/contato'                      => 'welcome#contato'
   get '/quem_somos'                   => 'welcome#quem_somos'
+  get 'termo_de_uso'                  => 'welcome#termo_de_uso'
   get '/show_noticia/:id'             => 'notices#show'
   get '/show_palavra/:id'             => 'words#show'  
   get '/show_artista/:id'             => 'artist_datas#show'
   get '/search_artista/:word'         => 'artist_datas#search_artista'
+  #pag contato 
+  post '/contato'                     => 'welcome#envia_contato'
 
   #adm
   get '/top5/:profile'                     => 'admin#top5'

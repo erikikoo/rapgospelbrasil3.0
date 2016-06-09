@@ -1,1 +1,45 @@
-<h1>pag Contato</h1>
+<% if !@status.nil? %>  
+    <%= alert(@status, 'Opss! Ocorreu um erro') if @status == 'danger '%>  
+    <%= alert(@status, 'Email enviado com sucesso! Em breve entraremos em contato') if @status == 'success'%>  
+<% end %>
+
+<div class="container">
+	<h2>Contato</h2>
+	<div class="pag-contato-left contato-painel-dimenssao">
+		<p>
+			Preencha o formulário abaixoe e nos envie uma mensagem
+		</p>	
+		<div class="contato-form">
+			<%= simple_form_for :form_contato, html: {remote: true} do |f| %>
+				<%= f.input :nome, required: true, autofocus: true %>
+				<%= f.input :email, as: :email, required: true %>
+				<%= f.input :assunto, required: true %>
+				<%= f.input :mensagem, as: :text, required: true %>
+				<%= f.button :submit, 'Enviar',class: 'btn btn-contato-enviar' %>
+			<% end %>
+		</div>
+
+	</div>
+
+	<div class="pag-contato-right contato-painel-dimenssao">
+		<ul>
+			<li>
+				<%= cl_image_tag("body-img/IconeEmailContato.png") %>
+				contato@rapgospelbrasil.com.br
+			</li>
+			<li>
+				<%= cl_image_tag("body-img/IconeWhattsContato.png") %>
+				+55 11 95269-7707
+			</li>
+			<li>
+				<%= cl_image_tag("body-img/IconeYouTubeContato.png") %>
+				YouTube
+			</li>
+			<li>
+				<%= cl_image_tag("body-img/IconeFaceContato.png") %>
+				Facebook
+			</li>
+		</ul>
+
+	</div>
+</div>

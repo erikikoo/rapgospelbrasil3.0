@@ -1,11 +1,13 @@
 class ApplicationController < ActionController::Base
  
+  before_filter :configure_permitted_parameters, if: :devise_controller?
   
   include Pundit
+  
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session
-    
+ 
 
   def pundit_user
     current_artist
@@ -31,12 +33,20 @@ class ApplicationController < ActionController::Base
   
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+
+
   private
 
     def user_not_authorized
       flash[:alert] = "Você não possui autorização para acessar este painel!"
       redirect_to(request.referrer || artist_datas_path)
     end
+
+  protected   
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :termo_de_uso) }
+    end  
+
 
 
     

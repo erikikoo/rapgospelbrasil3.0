@@ -33,10 +33,23 @@ class WelcomeController < ApplicationController
   end
   
   def contato
+  end
+
+  def envia_contato     
+    if Contato.sample_email(params[:form_contato]).deliver_later
+      @status = 'success'      
+      render :contato
+    else
+      @status = 'danger'
+      render :contato
+    end
   end  
 
   def quem_somos
   end
 
+  def termo_de_uso
+    render 'welcome/pags_index/termo_de_uso'
+  end  
   
 end
