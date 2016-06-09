@@ -36,13 +36,13 @@ class WelcomeController < ApplicationController
   end
 
   def envia_contato     
-    if Contato.sample_email(params[:form_contato]).deliver_now
-      @status = 'success'      
-      render :contato
-    else
-      @status = 'danger'
-      render :contato
-    end
+    Contato.sample_email(params[:form_contato]).deliver
+    #   @status = 'success'      
+    #   render :contato
+    # else
+    #   @status = 'danger'
+    #   render :contato
+    # end
   end  
 
   def quem_somos

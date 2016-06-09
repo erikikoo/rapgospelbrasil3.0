@@ -1,5 +1,5 @@
 class Contato < ApplicationMailer
-	default from: "erikikoo@hotmail.com"
+	default from: "240382013@eniac.com.br"
 
 	def sample_email(contato)
 		@nome = contato[:nome]
