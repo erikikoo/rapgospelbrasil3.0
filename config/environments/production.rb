@@ -67,7 +67,7 @@ Rails.application.configure do
   # SMTP settings for mailgun
   config.action_mailer.delivery_method = :smtp
   
-  config.action_mailer.default_url_options = { :host => 'www.hotmail.com' }
+  config.action_mailer.default_url_options = { :host => 'heroku.com' }
 # ActionMailer Config
 # Setup for production - deliveries, no errors raised
 config.action_mailer.delivery_method = :smtp
