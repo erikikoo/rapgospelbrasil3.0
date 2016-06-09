@@ -36,7 +36,7 @@ class WelcomeController < ApplicationController
   end
 
   def envia_contato     
-    if Contato.sample_email(params[:form_contato]).deliver_later
+    if Contato.sample_email(params[:form_contato]).deliver_now
       @status = 'success'      
       render :contato
     else
