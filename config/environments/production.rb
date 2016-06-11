@@ -67,11 +67,21 @@ Rails.application.configure do
   # SMTP settings for mailgun
 #   config.action_mailer.delivery_method = :smtp
   
-#   config.action_mailer.default_url_options = { :host => 'young-reaches-99974.herokuapp.com' }
+config.action_mailer.default_url_options = { :host => 'https://young-reaches-99974.herokuapp.com' }
 # # ActionMailer Config
 # # Setup for production - deliveries, no errors raised
-# config.action_mailer.delivery_method = :smtp
+ config.action_mailer.delivery_method = :smtp
 # config.action_mailer.perform_deliveries = true
+ActionMailer::Base.smtp_settings = {
+  :address          => 'smtp.sendgrid.net',
+  :port             => '587',
+  :authentication   => :plain,
+  :user_name        => ENV['SENDGRID_USERNAME'],
+  :password         => ENV['SENDGRID_PASSWORD'],
+  :domain           => 'heroku.com',
+  :enable_starttls_auto => true
+}
+
 # config.action_mailer.raise_delivery_errors = false
 # config.action_mailer.default :charset => "utf-8"
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to

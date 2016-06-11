@@ -43,7 +43,7 @@ class LogoUploader < CarrierWave::Uploader::Base
      process resize_to_fill: [200, 200]
    end
    version :perfil do
-     process resize_to_fill: [500, 300]
+     process resize_to_fill: [500, 390]
    end
    version :notice do
      process resize_to_fill: [100, 150]

@@ -23,7 +23,7 @@
 <!-- ckedit -->
       <%= f.simple_fields_for :history do |h|%> 
         <p>
-          <%= h.input :historia, 'Release',:as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'mini', :cols => 100} } %>
+          <%= h.input :historia,:as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'mini', :cols => 100} } %>
         </p>
       <% end %>
   </fieldset>

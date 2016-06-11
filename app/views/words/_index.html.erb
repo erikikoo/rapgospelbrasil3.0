@@ -19,7 +19,9 @@
   <% end %>
 
 <% if @words.empty? %>
-    <h5>Não existem palavras cadastradas</h5>  
+    <div class="container">
+      <h5>Não existem palavras cadastradas</h5>  
+    </div>
 <% else %>
   <% @words.each do |word| %>
       <div class="container-noticias text-justify">

@@ -11,7 +11,9 @@ class ArtistDatasController < ApplicationController
   # GET /artist_datas/1
   # GET /artist_datas/1.json
   def show
-    @agenda = Commitment.where("artist_data_id = ?", params[:id]).limit(2)             
+    #@agenda = Commitment.where("artist_data_id = ?", params[:id]).limit(2)
+  
+          
   end
 
   # GET /artist_datas/new

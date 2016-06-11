@@ -35,7 +35,7 @@
 .sub-menu {	
 	position: relative;
 	width: 568px;			
-	top: 381px;
+	top: -350px;
 	left:-20px;
 }
 
@@ -67,28 +67,30 @@
 
 
 .painel-image {
-	position: absolute;
-	left: 25px;
-	box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
-	-webkit-box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
-	-moz-box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
-	-o-box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
+	position: relative;
+	width: 500px;
+	height: 390px;
+	left: 11px;
+	box-shadow: 2px 2px 3px rgba(0,0,0,0.18);
+	-webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.18);
+	-moz-box-shadow: 2px 2px 3px rgba(0,0,0,0.18);
+	-o-box-shadow: 2px 2px 3px rgba(0,0,0,0.18);
 
 }
 
 .painel-agenda {
-	position: absolute;
+	position: relative;
+	top: -390px;
 	width: 415px;
 	border-radius: 2px;
-	left: 560px;
-	height:355px;
-	background-color: #ccc;
-	box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
-	-webkit-box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
-	-moz-box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
-	-o-box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
+	left: 550px;
+	height:450px;
+	background-color: #eee;
+	box-shadow: 2px 2px 3px rgba(0,0,0,0.18);
+	-webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.18);
+	-moz-box-shadow: 2px 2px 3px rgba(0,0,0,0.18);
+	-o-box-shadow: 2px 2px 3px rgba(0,0,0,0.18);
 }
-/* ARTIST-DATA */
 .item-artista {
 	position: relative;
 	display: inline-block;
@@ -338,18 +340,18 @@
 }
 
 .painel-artistas {	
-	margin-top: 322px;
-	margin-left: auto;
-	margin-right: auto;
+	
+	margin: -400px auto 50px auto;
+	left: 5px;
 	height: auto;
-	padding:70px 10px 5px 10px;
+	padding:60px 10px 5px 10px;
 	width:98%;
-	background-color: #ccc;	
+	background-color: #eee;	
 	border-radius: 2px;
-	box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
-	-webkit-box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
-	-moz-box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
-	-o-box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
+	box-shadow: 2px 2px 3px rgba(0,0,0,0.18);
+	-webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.18);
+	-moz-box-shadow: 2px 2px 3px rgba(0,0,0,0.18);
+	-o-box-shadow: 2px 2px 3px rgba(0,0,0,0.18);
 }
 
 

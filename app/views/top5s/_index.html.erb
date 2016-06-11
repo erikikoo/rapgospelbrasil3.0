@@ -18,7 +18,9 @@
 
 
 <% if @top5s.empty? %>
-    <h5>Não existem top 5 cadastrados</h5>  
+    <div class="container">
+      <h5>Não existem top 5 cadastrados</h5>  
+    </div>
 <% else %>
   <table class="table table-striped">    
     <% @top5s.each do |top5| %>        

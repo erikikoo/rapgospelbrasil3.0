@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :top5s
   resources :words
   resources :notices
+  resources :contacts, only: [:new, :create]
   
 
   mount Ckeditor::Engine => '/ckeditor'
@@ -26,7 +27,7 @@ Rails.application.routes.draw do
   get '/show_artista/:id'             => 'artist_datas#show'
   get '/search_artista/:word'         => 'artist_datas#search_artista'
   #pag contato 
-  post '/contato'                     => 'welcome#envia_contato'
+  
 
   #adm
   get '/top5/:profile'                     => 'admin#top5'
@@ -41,7 +42,8 @@ Rails.application.routes.draw do
   get '/palavras/:profile'                 => 'words#index'
   get '/nova_palavra/:profile'             => 'words#new'
   get '/edit_palavra/:id/:profile'         => 'words#edit'
-  get '/show_palavra/:id/:profile'         => 'words#show'    
+  get '/show_palavra/:id/:profile'         => 'words#show'
+  #get '/show_soundcloud/:id/:profile'      => 'storange_musics#index'    
   get '/palavras/:profile/:status'         => 'words#update'
 
   get '/noticias/:profile'                 => 'notices#index'

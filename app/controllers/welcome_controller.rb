@@ -35,16 +35,6 @@ class WelcomeController < ApplicationController
   def contato
   end
 
-  def envia_contato     
-    Contato.sample_email(params[:form_contato]).deliver
-    #   @status = 'success'      
-    #   render :contato
-    # else
-    #   @status = 'danger'
-    #   render :contato
-    # end
-  end  
-
   def quem_somos
   end
 

@@ -2,10 +2,10 @@
 
 <div class="artistas">
 	<%= simple_form_for :filtro do |f| %>
-		<%= f.input :option, collection: [['Todos','t'],['Aprovado','a'], ['Bloqueado','b'], ['Aguardando aprovação','ap'],['Incopleto','i']], :input_html => {"data-remote" => true, "data-url" => "/artistas_filter" } %>
+		<%= f.input :option, collection: [['Todos','t'],['Aprovado','a'], ['Bloqueado','b'], ['Aguardando aprovação','ap'],['incompleto','i']], :input_html => {"data-remote" => true, "data-url" => "/artistas_filter" } %>
 	<% end %>
     <% if @artists.nil? || @artists.empty? %>
-		Não exitem artista <%= @option %>
+		Não existe artista <%= @option %>
     <% else %>
 	    <% @artists.each do |artist| %>      
 	      <div class="painel-show-adm text-aling">

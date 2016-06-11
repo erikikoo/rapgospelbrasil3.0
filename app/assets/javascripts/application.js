@@ -33,9 +33,9 @@ $(document).ready(function($) {
   
   $(document).ajaxStop(function() {
     $(".mascara").hide();
-  }); 
+  });
 
-
- 
   
 });
+
+

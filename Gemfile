@@ -82,3 +82,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #jquery mask
 gem 'maskedinput-rails'
+
+#soundcloud
+gem 'soundcloud'
+
+#recive email
+gem 'mail_form', '~> 1.5', '>= 1.5.1'
