@@ -55,8 +55,10 @@
 						<% end %>	
 
 						<span class="logo-redesocial">
-							<%= link_to cl_image_tag("body-img/IconeTwitter.png"), "#{ @artist_data.rede_social.twitter}" , target: "_black" if @artist_data.rede_social.twitter.present? %>
-							<%= link_to cl_image_tag("body-img/IconeFacebook.png"), "#{@artist_data.rede_social.facebook}" , target: "_black" if @artist_data.rede_social.facebook.present? %>
+							<% if !@artist_data.rede_social.nil? %>
+								<%= link_to cl_image_tag("body-img/IconeTwitter.png"), "#{ @artist_data.rede_social.twitter}" , target: "_black" if @artist_data.rede_social.twitter.present? %>
+								<%= link_to cl_image_tag("body-img/IconeFacebook.png"), "#{@artist_data.rede_social.facebook}" , target: "_black" if @artist_data.rede_social.facebook.present? %>
+							<% end %>
 						</span>
 					</div>	
 				</div>
