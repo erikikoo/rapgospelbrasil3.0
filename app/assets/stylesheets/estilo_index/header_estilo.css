@@ -83,3 +83,173 @@ header {
 	color: #AA1C20;	
 }
 
+header {
+	background-color: red;
+}
+
+.topo {	
+	height: 288px;
+	width: 100%;	
+}
+
+.fundo {
+	position: relative;
+	top:5px;
+	height: 292px;	
+	background-image: url("http://res.cloudinary.com/dgql7hcka/image/upload/v1465059400/body-img/FundoCabecalho.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 97%;		
+}
+
+.logo {
+	z-index: 2;
+	position: relative;
+	top: -280px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 214px;
+	height: 236px;	
+}
+
+.faixa-header {
+	position: relative;	
+	height: 7px;
+	top:-292px;
+	background-color: #8E0000;	
+	z-index: 1;
+}
+
+.painel-menu {
+	position: absolute;
+	top:75px;
+	height: 77px;		
+	background-image: url('http://res.cloudinary.com/dgql7hcka/image/upload/v1465059414/body-img/FundoMenu.jpg');	
+	z-index: 1;
+	width: 100%;
+}
+
+.left-menu {
+	margin-left: -30px;
+	float: left;		
+}
+.left-menu ul {
+	left: -20px;
+}
+
+
+.right-menu {
+	margin-right: 45px;
+	float: right;		
+}
+
+.menu {		
+	list-style: none;
+	width: 990px;	
+}
+
+.menu ul {
+	margin-top: 10px;
+}
+
+.menu ul li {
+	display: inline;
+}
+
+.menu ul li a {	
+	font-size: 15px;	
+	display: inline-block;
+	text-align: center;
+	padding: 15px 20px;	
+	text-decoration: none;				
+	color: #fff;
+	
+}
+.menu ul li a:hover {	
+	color: #AA1C20;	
+}
+
+header {
+	background-color: red;
+}
+
+.topo {	
+	height: 288px;
+	width: 100%;	
+}
+
+.fundo {
+	position: relative;
+	top:5px;
+	height: 292px;	
+	background-image: url("http://res.cloudinary.com/dgql7hcka/image/upload/v1465059400/body-img/FundoCabecalho.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 97%;		
+}
+
+.logo {
+	z-index: 2;
+	position: relative;
+	top: -280px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 214px;
+	height: 236px;	
+}
+
+.faixa-header {
+	position: relative;	
+	height: 7px;
+	top:-292px;
+	background-color: #8E0000;	
+	z-index: 1;
+}
+
+.painel-menu {
+	position: absolute;
+	top:75px;
+	height: 77px;		
+	background-image: url('http://res.cloudinary.com/dgql7hcka/image/upload/v1465059414/body-img/FundoMenu.jpg');	
+	z-index: 1;
+	width: 100%;
+}
+
+.left-menu {
+	margin-left: -30px;
+	float: left;		
+}
+.left-menu ul {
+	left: -20px;
+}
+
+
+.right-menu {
+	margin-right: 45px;
+	float: right;		
+}
+
+.menu {		
+	list-style: none;
+	width: 990px;	
+}
+
+.menu ul {
+	margin-top: 10px;
+}
+
+.menu ul li {
+	display: inline;
+}
+
+.menu ul li a {	
+	font-size: 15px;	
+	display: inline-block;
+	text-align: center;
+	padding: 15px 20px;	
+	text-decoration: none;				
+	color: #fff;
+	
+}
+.menu ul li a:hover {	
+	color: #AA1C20;	
+}
+

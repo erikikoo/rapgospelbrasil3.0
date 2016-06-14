@@ -1,1 +1,4 @@
 $('.painel-artistas-art').html('<%= escape_javascript (render partial: "historys/new") %>'); 	
+setTimeout(function(){
+	$("#mensagem").fadeOut();
+}, 5000);

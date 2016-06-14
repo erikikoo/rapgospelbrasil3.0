@@ -1,6 +1,7 @@
 
 Rails.application.routes.draw do
 
+  resources :link_sound_clouds
   devise_for :artists
   resources :top5s
   resources :words
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
   get '/palavras'                     => 'welcome#palavra'
   get '/artistas'                     => 'welcome#artista'
   get '/videos'                       => 'welcome#video'
-  get '/contato'                      => 'welcome#contato'
+  #get '/contato'                      => 'welcome#contato'
   get '/quem_somos'                   => 'welcome#quem_somos'
   get 'termo_de_uso'                  => 'welcome#termo_de_uso'
   get '/show_noticia/:id'             => 'notices#show'
@@ -43,7 +44,7 @@ Rails.application.routes.draw do
   get '/nova_palavra/:profile'             => 'words#new'
   get '/edit_palavra/:id/:profile'         => 'words#edit'
   get '/show_palavra/:id/:profile'         => 'words#show'
-  #get '/show_soundcloud/:id/:profile'      => 'storange_musics#index'    
+  get '/show_soundcloud/:id/:profile'      => 'link_sound_clouds#index'    
   get '/palavras/:profile/:status'         => 'words#update'
 
   get '/noticias/:profile'                 => 'notices#index'
@@ -56,19 +57,22 @@ Rails.application.routes.draw do
   get '/bloquear_artista/:id/:profile'     => 'admin#bloquear_artista'
   get '/desbloquear_artista/:id/:profile'  => 'admin#desbloquear_artista'
 
-  get '/videos/:profile'                   => 'admin#videos'
-  get '/novo_video/:profile'               => 'videos#new'
-  delete 'remove_artista/:id/:profile'     => 'admin#remove_artista'
-  delete 'remove_noticia/:id/:profile'     => 'notices#destroy'
-  delete 'remove_palavra/:id/:profile'     => 'words#destroy'
-  delete 'remove_top5/:id'                => 'top5s#destroy'
+  get '/videos/:profile'                            => 'admin#videos'
+  get '/novo_video/:profile'                        => 'videos#new'
+  delete 'remove_artista/:id/:profile'              => 'admin#remove_artista'
+  delete 'remove_noticia/:id/:profile'              => 'notices#destroy'
+  delete 'remove_palavra/:id/:profile'              => 'words#destroy'
+  delete 'remover_sound_cloud/:id/:profile'     => 'link_sound_clouds#destroy'
+  delete 'remove_top5/:id'                          => 'top5s#destroy'
   #novo 
   get '/novo_disco/:id'        => 'discographys#new'
   get '/novo_agenda/'          => 'commitments#new'
   get '/novo_email/'           => 'emails#new'
   get '/novo_telefone/'        => 'phones#new'
   get '/novo_video/'           => 'videos#new'
-  
+  get '/novo_link_sound_cloud' => 'link_sound_clouds#new'
+  get '/novo_rede_social'      => 'rede_sociais#new'
+
   get '/novo_top5/'            => 'top5s#new' 
   #rotas ajax
   #views padrão (sem login)
@@ -78,7 +82,7 @@ Rails.application.routes.draw do
   get '/historia/:id'              => 'artist_datas#history'
   get '/agenda/:id/:profile'       => 'artist_datas#agenda'
   get '/videos/:id/:profile'       => 'artist_datas#videos'
-  get '/rede_social/:id/:profile'  => 'artist_datas#rede_social'
+  
 
   #views user
 
@@ -88,19 +92,20 @@ Rails.application.routes.draw do
   get '/show_agenda/:id/:profile'           => 'commitments#index'
   get '/show_disco/:id/:profile'            => 'discographys#index'
   get '/show_historia/:id/:profile'         => 'historys#show'
-  
+  get '/show_redesocial/:id/:profile'       => 'rede_sociais#index'
   get '/show_email/:id/:profile'            => 'emails#index'
   get '/show_telefone/:id/:profile'         => 'phones#index'
   
   get '/show_video/:id/:profile'            => 'videos#index'  
   
   #edita artista existente
-  get '/edit_artista/:id'                 => 'artist_datas#edit'
-  get '/edit_agenda/:id/:profile'         => 'commitments#edit'
-  get '/edit_disco/:id/:profile'          => 'discographys#edit'  
-  get '/edit_email/:id/:profile'          => 'emails#edit'  
-  get '/edit_telefone/:id/:profile'       => 'phones#edit'  
-  
+  get '/edit_artista/:id'                         => 'artist_datas#edit'
+  get '/edit_agenda/:id/:profile'                 => 'commitments#edit'
+  get '/edit_disco/:id/:profile'                  => 'discographys#edit'  
+  get '/edit_email/:id/:profile'                  => 'emails#edit'  
+  get '/edit_telefone/:id/:profile'               => 'phones#edit'  
+  get '/edit_sound_cloud/:id/:profile'            => 'link_sound_clouds#edit'  
+  get '/edit_rede_social/:id/:profile'            => 'rede_sociais#edit'
   
   
   #remove items
@@ -109,11 +114,12 @@ Rails.application.routes.draw do
   delete '/remove_email/:id/:profile'          => 'emails#destroy'
   delete '/remove_telefone/:id/:profile'       => 'phones#destroy'
   delete '/remove_video/:id/:profile'          => 'videos#destroy'
-  
+  delete '/remove_rede_social/:id/:profile'    => 'rede_sociais#destroy'
 
 
   post '/videos/:user' => 'videos#create'
-
+  get '/contato'       => 'contacts#new' 
+  post '/contato'      => 'contacts#create' 
 
    resources :discographys
    resources :phones

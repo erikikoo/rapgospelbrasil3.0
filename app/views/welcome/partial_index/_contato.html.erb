@@ -1,16 +1,11 @@
-<% if !@status.nil? %>  
-    <%= alert(@status, 'Opss! Ocorreu um erro') if @status == 'danger '%>  
-    <%= alert(@status, 'Email enviado com sucesso! Em breve entraremos em contato') if @status == 'success'%>  
-<% end %>
-
 <div class="container">
 	<h2>Contato</h2>
 	<div class="pag-contato-left contato-painel-dimenssao">
 		<p>
-			Preencha o formulário abaixoe e nos envie uma mensagem
+			Preencha o formulário abaixo e nos envie uma mensagem
 		</p>	
 		<div class="contato-form">
-			<%= simple_form_for :form_contato, html: {remote: true} do |f| %>
+			<%= simple_form_for @contact, html: {remote: true} do |f| %>
 				<%= f.input :nome, required: true, autofocus: true %>
 				<%= f.input :email, as: :email, required: true %>
 				<%= f.input :assunto, required: true %>

@@ -1,10 +1,11 @@
 class RedeSociaisController < ApplicationController
   before_action :set_rede_social, only: [:show, :edit, :update, :destroy]
   before_action :get_artist_current
+  before_action :get_profile
   # GET /rede_sociais
   # GET /rede_sociais.json
   def index
-    @rede_sociais = RedeSocial.all
+    
   end
 
   # GET /rede_sociais/1
@@ -19,19 +20,22 @@ class RedeSociaisController < ApplicationController
 
   # GET /rede_sociais/1/edit
   def edit
+
+    render :new
   end
 
   # POST /rede_sociais
   # POST /rede_sociais.json
   def create
     @rede_social = RedeSocial.new(rede_social_params)
+    @profile = 'adm'
     @rede_social.artist_data_id = @artist_data.id
+    
     respond_to do |format|
       if @rede_social.save
-        format.js 
+        format.js {render :index}
       else
-        format.html { render :new }
-        format.json { render json: @rede_social.errors, status: :unprocessable_entity }
+        format.html { render :new }        
       end
     end
   end
@@ -40,12 +44,11 @@ class RedeSociaisController < ApplicationController
   # PATCH/PUT /rede_sociais/1.json
   def update
     respond_to do |format|
+      @profile = 'adm'
       if @rede_social.update(rede_social_params)
-        format.js { render :create}
-        format.json { render :show, status: :ok, location: @rede_social }
+        format.js { render :index}        
       else
-        format.html { render :edit }
-        format.json { render json: @rede_social.errors, status: :unprocessable_entity }
+        format.js { render :edit }        
       end
     end
   end
@@ -53,17 +56,23 @@ class RedeSociaisController < ApplicationController
   # DELETE /rede_sociais/1
   # DELETE /rede_sociais/1.json
   def destroy
+    profile = 'adm'
     @rede_social.destroy
     respond_to do |format|
-      format.html { redirect_to "/show_rede_social/#{@artist_data.id}/adm/remover", notice: 'Rede social was successfully destroyed.' }
-      format.json { head :no_content }
+      format.js { render :index }
     end
   end
 
   private
     def get_artist_current
       @artist_data = ArtistData.find_by('artist_id = ?', current_artist.id)
-     end
+    end
+
+    def get_profile
+      if params[:profile]
+        @profile = params[:profile]
+      end
+    end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_rede_social

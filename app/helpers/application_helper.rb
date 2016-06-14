@@ -25,9 +25,9 @@ module ApplicationHelper
 			video_desc = video.split('/watch?v=')		
 			video = video_desc[0] + '/embed/' + video_desc[1]
 			if local == 'index' 
-		    	raw("<iframe width='330' height='225' src='#{video}' frameborder='0' allowfullscreen></iframe>")      	    	    
+		    	raw("<iframe width='330' height='225' src='#{video}' frameborder='0' allowfullscreen ></iframe>")      	    	    
 		    elsif local == 'show_video'
-		    	raw("<iframe width='290' height='225' src='#{video}' frameborder='0' allowfullscreen></iframe>") 
+		    	raw("<iframe width='290' height='225' src='#{video}' frameborder='0' allowfullscreen ></iframe>") 
 		    end		
 		
     end
