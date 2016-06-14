@@ -72,11 +72,11 @@ config.action_mailer.default_url_options = { :host => 'https://young-reaches-999
 # # Setup for production - deliveries, no errors raised
  config.action_mailer.delivery_method = :smtp
 # config.action_mailer.perform_deliveries = true
-config.action_mailer.delivery_method = :smtp
+
  config.action_mailer.smtp_settings = {
-  address: "smtp.live.com",
+  address: "smtp.gmail.com",
   port: 587,  
-  user_name: 'erikikoo@hotmail.com',
+  user_name: '240382013@eniac.edu.br',
   password: 'HayHelena',
   authentication: "plain",
   enable_starttls_auto: true
