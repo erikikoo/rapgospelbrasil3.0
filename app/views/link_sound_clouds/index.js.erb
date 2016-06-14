@@ -1,0 +1,5 @@
+$('.painel-artistas-art').html('<%= escape_javascript (render partial: "link_sound_clouds/index") %>');
+setTimeout(function(){
+	$("#mensagem").fadeOut();
+}, 5000);
+$("#product-modal").modal("hide");

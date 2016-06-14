@@ -1,0 +1,14 @@
+<% if !@status.nil? %>  
+    <%= alert(@status, 'Opps! Ocorreu um erro')%>  
+<% end %>
+<%= simple_form_for(@link_sound_cloud, remote: true) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">    
+    <%= f.input :link %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

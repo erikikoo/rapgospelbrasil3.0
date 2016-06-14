@@ -1,0 +1,5 @@
+$('#product-modal').html('<%= escape_javascript (render partial: "link_sound_clouds/new") %>');
+setTimeout(function(){
+	$("#mensagem").fadeOut();
+}, 5000);
+$("#product-modal").modal("show")

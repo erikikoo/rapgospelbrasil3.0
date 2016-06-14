@@ -1,0 +1,39 @@
+<% if !@status.nil? %>
+  <p>
+    <div class="alert alert-success mensagem" id="mensagem"></div>
+  </p>  
+<% end %>
+
+<p>
+  <% if @profile == "adm" %>
+    <%= link_to 'Adicionar Rede social', "/novo_rede_social/", remote: true, :class => 'btn btn-default'  %>
+  <% end %>
+</p>
+<% if @artist_data.rede_social.nil? %>
+  <h5>Não possui redesocial cadastrada </h5>
+<% else %>
+  <div class="painel-redesocial">   
+      <p>
+      <% if !@artist_data.rede_social.facebook.empty? %>
+        <p>
+        <strong>Facebook: </strong>     <%= @artist_data.rede_social.facebook %> <br/>
+        </p>
+      <% end %>
+      <% if !@artist_data.rede_social.twitter.empty? %>
+        <p>
+        <strong>Twitter: </strong>     <%= @artist_data.rede_social.twitter %> <br/>
+        </p>
+      <% end %>
+      
+      
+       
+        <% if @profile == "adm" %>
+          
+              <%= link_to 'Destroy', "/remove_rede_social/#{@artist_data.rede_social.id}/adm", method: :delete, :remote => true ,data: { confirm: 'Are you sure?' } , class: 'btn btn-danger'%>
+        <% end %>
+      
+      <%= @rede %>
+      </p>
+    
+  </div>  
+<% end %>

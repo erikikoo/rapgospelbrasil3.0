@@ -1,0 +1,11 @@
+
+
+<div class="contato-form">
+			<%= simple_form_for @contact, html: {remote: true} do |f| %>
+				<%= f.input :nome, required: true, autofocus: true %>
+				<%= f.input :email, as: :email, required: true %>
+				<%= f.input :assunto, required: true %>
+				<%= f.input :mensagem, as: :text, required: true %>
+				<%= f.button :submit, 'Enviar',class: 'btn btn-contato-enviar' %>
+			<% end %>
+		</div>

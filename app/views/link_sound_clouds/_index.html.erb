@@ -1,0 +1,27 @@
+<% if !@status.nil? %>  
+    <%= 
+      case @action
+      when 'create'
+         alert(@status, 'Email criado com sucesso!')
+      when 'update'    
+         alert(@status, 'Email atualizado com sucesso!')
+      when 'destroy'      
+         alert(@status, 'Email removido com sucesso!')
+      end    
+      %>   
+<% end %>
+<p>
+  <% if @profile == "adm" %>
+    <%= link_to 'Adicionar repositório', '/novo_link_sound_cloud', remote: true, :class => 'btn btn-default'  %>
+  <% end %>
+</p>
+<% if @artist_data.link_sound_cloud.nil? %>
+  <h5>Não possui um repositório de musicas cadastrados </h5>
+<% else %>
+    
+      <p>        
+        <td><%= @artist_data.link_sound_cloud.link %></td>        
+        <td><%= link_to 'Editar', "/edit_sound_cloud/#{@artist_data.link_sound_cloud.id}/adm", remote: true,class: 'btn btn-default' %></td>
+        <td><%= link_to 'Excluir', "/remover_sound_cloud/#{@artist_data.link_sound_cloud.id}/adm", remote: true, class: 'btn btn-danger' ,method: :delete, data: { confirm: 'Deseja excluir este repositório?' } %></td>
+      </p>  
+<% end %>
