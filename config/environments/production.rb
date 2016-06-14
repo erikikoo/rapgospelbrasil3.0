@@ -72,14 +72,15 @@ config.action_mailer.default_url_options = { :host => 'https://young-reaches-999
 # # Setup for production - deliveries, no errors raised
  config.action_mailer.delivery_method = :smtp
 # config.action_mailer.perform_deliveries = true
-ActionMailer::Base.smtp_settings = {
-  :address          => 'smtp.live.net',
-  :port             => '587',
-  :authentication   => :plain,
-  :user_name        => 'erikikoo@hotmail.com',
-  :password         => 'HayHelena',  
-  :enable_starttls_auto => true
-}
+config.action_mailer.delivery_method = :smtp
+ config.action_mailer.smtp_settings = {
+  address: "smtp.live.com",
+  port: 587,  
+  user_name: 'erikikoo@hotmail.com',
+  password: 'HayHelena',
+  authentication: "plain",
+  enable_starttls_auto: true
+ }
 
 # config.action_mailer.raise_delivery_errors = false
 # config.action_mailer.default :charset => "utf-8"
