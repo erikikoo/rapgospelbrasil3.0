@@ -4,7 +4,7 @@
 	  client_id: 'f4c03b2d8812aab375f54ccd52f2fd56'
 	});
 
-	var track_url = "<%= @artist_data.link_sound_cloud.link %>";
+	var track_url = "<%= @artist_data.link_sound_cloud.link if @artist_data.link_sound_cloud.present? %>";
 	SC.oEmbed(track_url, { auto_play: false }).then(function(oEmbed) {
 		$("#id-painel-agenda").html(oEmbed.html); 
 	});   
@@ -62,8 +62,9 @@
 				</div>
 
 				<div class="painel-agenda" id="id-painel-agenda">					
-					
-					
+					<% if !@artist_data.link_sound_cloud.present? %>
+						<h5>Não possui repositóiro de musicas cadastrado </h5>
+					<% end %>
 
 				</div>
 				<nav class="sub-menu"> 
