@@ -1,4 +1,5 @@
 $('.painel-artistas-art').html('<%= escape_javascript (render partial: "historys/new") %>'); 	
+$("#artist_data_history_attributes_historia").find('.ckeditor').ckeditor();
 setTimeout(function(){
 	$("#mensagem").fadeOut();
 }, 5000);

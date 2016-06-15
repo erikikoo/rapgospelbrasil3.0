@@ -3,7 +3,11 @@
 <%= simple_form_for(@artist_data, html: {remote: true, multipart: true}) do |f| %>
   
   <%= f.error_notification %>
-  
+	<% if @artist_data.logo.present? %>
+		<%= cl_image_tag(@artist_data.logo.url(:perfil), :class => 'img-thumbnail') %>					
+	<% else %>
+		<%= image_tag("ImagemArtistaSemFoto.png", width: '250px', heigth: '250px;') %>
+	<% end %>  
   <%= f.file_field(:logo) %>  
 
   <div class="actions">

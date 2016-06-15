@@ -8,7 +8,7 @@
     <%= csrf_meta_tags %>
     
     <%= stylesheet_link_tag "application", :media => "all" %>
-    <%= javascript_include_tag "https://connect.soundcloud.com/sdk/sdk-3.1.2.js" %>
+    
 
 
 
@@ -33,7 +33,9 @@
     <!-- Size should be 32 x 32 pixels -->
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
 
+    <%= javascript_include_tag "https://connect.soundcloud.com/sdk/sdk-3.1.2.js" %>
     <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.min.js" %>
     <%= javascript_include_tag "banner/jquery.blueberry" %>
     
 

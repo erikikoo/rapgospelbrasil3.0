@@ -6,13 +6,17 @@
  *= require_tree .
 */
  /*@import "bootstrap";*/
+.ckeditor {
+	resize: none;
+}
+
 #mensagem {
 	position: fixed;
 	width: 100%;
 	margin-top: 0px;
 	height: 50px;
 	top: 0px;
-	z-index: 99999;
+	z-index: 999999999;
 	left: 0px;
 }
 
@@ -144,8 +148,7 @@
 }
 
 .painel-artistas-art, .painel-artistas-adm {
-	position: relative;	
-
+	position: relative;
 	left: 200px;
 	width: 79%;
 	min-height: 220px;
@@ -154,7 +157,8 @@
 }
 
 .painel-artistas-art {
-	top: -288px;
+	
+	top: -366px;
 }
 
 
