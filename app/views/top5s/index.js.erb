@@ -1,4 +1,5 @@
 setTimeout(function(){
 	$("#mensagem").fadeOut();
 }, 5000);
+$("#product-modal").modal("hide");
 $('.painel-artistas-adm').html("<%= escape_javascript (render partial: 'top5s/index') %>");

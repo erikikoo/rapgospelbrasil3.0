@@ -1,5 +1,5 @@
 $('.painel-artistas-art').html('<%= escape_javascript (render partial: "index") %>');
-
+$("#product-modal").modal("hide");
 setTimeout(function(){
 	$("#mensagem").fadeOut();
 }, 5000);

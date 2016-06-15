@@ -1,6 +1,7 @@
 setTimeout(function(){
 	$("#mensagem").fadeOut();
 }, 5000);
+$("#product-modal").modal("hide");
 <% if @profile == 'admin' %>
 	$('.painel-artistas-adm').html('<%= escape_javascript (render partial: "videos/index") %>');
 <% else %>

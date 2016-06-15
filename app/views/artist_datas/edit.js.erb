@@ -1,7 +1,7 @@
 
-$("#product-modal").html('<%= escape_javascript (render partial: "edit") %>'); 
-$("#artist_data_history_attributes_historia").find('.ckeditor').ckeditor();
+
 setTimeout(function(){
 	$("#mensagem").fadeOut();
 }, 5000);
 $("#product-modal").modal("show");
+$("#product-modal").html('<%= escape_javascript (render partial: "edit") %>'); 

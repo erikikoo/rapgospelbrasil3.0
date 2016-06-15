@@ -1,6 +1,6 @@
-$('.painel-artistas-art').html('<%= escape_javascript (render partial: "commitments/new.html.erb") %>'); 	
+$("#product-modal").html('<%= escape_javascript (render partial: "commitments/new.html.erb") %>'); 	
 setTimeout(function(){
 	$("#mensagem").fadeOut();
 }, 5000);
-
+$("#product-modal").modal("show");
 

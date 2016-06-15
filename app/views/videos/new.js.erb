@@ -1,8 +1,9 @@
+<% if @profile == 'admin' %>
+	$("#product-modal").html('<%= escape_javascript (render partial: "videos/new") %>'); 	
+<% else %>
+	$("#product-modal").html('<%= escape_javascript (render partial: "videos/new") %>'); 	
+<% end %>
 setTimeout(function(){
 	$("#mensagem").fadeOut();
 }, 5000);
-<% if @profile == 'admin' %>
-	$('.painel-artistas-adm').html('<%= escape_javascript (render partial: "videos/form") %>'); 	
-<% else %>
-	$('.painel-artistas-art').html('<%= escape_javascript (render partial: "videos/form") %>'); 	
-<% end %>
+$("#product-modal").modal("show");
