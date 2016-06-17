@@ -5,9 +5,9 @@
 		  <%= devise_error_messages! %>
 
 		  <div class="form-inputs">
-		    <%= f.input :email, required: true, autofocus: true %>
-		    <%= f.input :password, required: true, placeholder: ("Mínino de #{@minimum_password_length} caracteres" if @minimum_password_length) %>
-		    <%= f.input :password_confirmation, required: true %>
+		    <%= f.input :email, required: true, autofocus: true, label: 'Email' %>
+		    <%= f.input :password, required: true, label: 'Senha',placeholder: ("Mínino de #{@minimum_password_length} caracteres" if @minimum_password_length) %>
+		    <%= f.input :password_confirmation, required: true, label: 'Repita a senha' %>
 		  	<p>
 		  		<%= f.check_box :termo_de_uso, required: true %> <%= link_to 'Termo de uso', '/termo_de_uso', remote: true %>
 		  	</p>

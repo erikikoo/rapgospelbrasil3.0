@@ -24,7 +24,7 @@
     </div>
 <% else %>
   <% @words.each do |word| %>
-      <div class="container-noticias text-justify">
+      <div class="container-noticias painel-show-info dimenssao-pinel-noticias-palavras text-justify">
         <div class="noticias-index">          
             <% if @profile == "admin" %>
               <h3><%= word.titulo %></h3>

@@ -22,7 +22,7 @@
 <% else %>
   
     <% @artist_data.commitments.each do |agenda| %>     
-      <div class="show-info">
+      <div class="painel-show-info">
         <strong>Data: </strong>     <%= agenda.data.strftime('%d/%m/%Y') %> <br/>
         <strong>Hora: </strong>     <%= agenda.hora.strftime("%H:%M") %> <br/>    
         <strong>Local: </strong>    <%= agenda.local %> <br/>

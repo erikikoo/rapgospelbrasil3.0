@@ -5,7 +5,7 @@
 	<div class="palavras">
 		<% i = 0 %>
 		<% @palavras.each do |palavra| %>
-			<div class="palavra-index">
+			<div class="palavra-pag-index">
 				<%= image_tag(palavra.logo.url(:thumbnail)) if palavra.logo.present?  %>					
 				<div class="texto-palavra">
 					<h4><%= link_to "#{palavra.titulo.capitalize}", "/show_palavra/#{palavra.id}", remote: true %></h4>

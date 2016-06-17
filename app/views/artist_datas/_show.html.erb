@@ -62,8 +62,7 @@
 						</span>
 					</div>	
 				</div>
-
-				<div class="painel-agenda" id="id-painel-agenda">					
+				<%= @artist_data.link_sound_cloud.present? ? raw('<div class="painel-agenda" id="id-painel-agenda">') : raw('<div class="painel-sem-agenda" id="id-painel-agenda">') %>							
 					<% if !@artist_data.link_sound_cloud.present? %>
 						<h5>Não possui repositóiro de musicas cadastrado </h5>
 					<% end %>

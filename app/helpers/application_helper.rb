@@ -27,7 +27,7 @@ module ApplicationHelper
 			if local == 'index' 
 		    	raw("<iframe width='330' height='225' src='#{video}' frameborder='0' allowfullscreen ></iframe>")      	    	    
 		    elsif local == 'show_video'
-		    	raw("<iframe width='290' height='225' src='#{video}' frameborder='0' allowfullscreen ></iframe>") 
+		    	raw("<iframe width='270' height='225' src='#{video}' frameborder='0' allowfullscreen ></iframe>") 
 		    end		
 		
     end

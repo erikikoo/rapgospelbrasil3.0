@@ -20,11 +20,11 @@
 
 <% if @notices.empty? %>
     <div class="container">
-      <h5>Não existem palavras cadastradas</h5>  
+      <h5>Não existem noticias cadastradas</h5>  
     </div>
 <% else %>
   <% @notices.each do |noticia| %>
-      <div class="container-noticias text-justify">
+      <div class="container-noticias painel-show-info dimenssao-pinel-noticias-palavras text-justify">
         <div class="noticias-index">          
             <% if @profile == "admin" %>
               <h3><%= noticia.titulo %></h3>

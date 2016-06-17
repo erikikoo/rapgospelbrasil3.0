@@ -6,9 +6,7 @@
  *= require_tree .
 */
  /*@import "bootstrap";*/
-.ckeditor {
-	resize: none;
-}
+
 
 #mensagem {
 	position: fixed;
@@ -82,6 +80,22 @@
 
 }
 
+.painel-sem-agenda {
+	position: relative;
+	top: -390px;
+	width: 415px;
+	border-radius: 2px;
+	left: 550px;
+	height:450px;
+	background-color: #eee;
+	box-shadow: 2px 2px 3px rgba(0,0,0,0.18);
+	-webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.18);
+	-moz-box-shadow: 2px 2px 3px rgba(0,0,0,0.18);
+	-o-box-shadow: 2px 2px 3px rgba(0,0,0,0.18);
+	padding: 10px;
+
+}
+
 .painel-agenda {
 	position: relative;
 	top: -390px;
@@ -127,6 +141,7 @@
 
 /* Cotato Show*/
 .contato-telefone {
+	
 
 }
 
@@ -215,14 +230,19 @@
 }
 
 
-.show-info {
+.painel-show-info {
 	position: relative;
 	display: inline-block;
-	min-width: 200px;
+	width: 100%;
 	min-height: 100px;
-	margin: 10px;
+	margin: 10px auto;
 	padding: 10px 5px;
-	border: 1px solid #000;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	box-shadow: 1px 2px #ccc;
+	-webkit-box-shadow: 1px 2px #ccc;
+	-moz-box-shadow: 1px 2px #ccc;
+	-o-box-shadow: 1px 2px #ccc;
 }
 
 .painel-login {
@@ -231,6 +251,14 @@
 	height: 200px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.painel-login a:active,.painel-login a:hover,.painel-login a:visited,.painel-login a:link {
+	color: #ffffff;
+}
+
+.painel-login + label {
+	color: #dd1111;
 }
 
 #loading {
@@ -299,6 +327,9 @@
 	float: left;	
 	padding-right: 15px;	.
 	margin-top: 22px;
+}
+.palavras {
+	width: 100%;
 }
 
 .palavras p {
@@ -395,4 +426,28 @@
 	top: 140px;
 	left: -150px;
 	color:#fff;
+}
+
+.btn-topo {
+	display: none;
+	position: fixed;
+	position:fixed;
+	top:575px;
+	right:40px;
+	background-color: #57B7DD;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+}
+
+.btn-topo i {
+	position: fixed;
+	top:588px;
+	right:54px;
+	font-size: 2rem;
+	color: #17407D;
+}
+
+.btn-topo:hover i {
+	color: #17407D;	
 }

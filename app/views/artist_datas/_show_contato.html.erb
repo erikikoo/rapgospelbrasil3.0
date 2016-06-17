@@ -2,18 +2,30 @@
 	<h5>Não possui contato cadastrado </h5>
 <% else %>
 	<div class="contato-telefone">
-		<div class="emails">
+		<div class="phones emails">
 			<ul>				
 				<% @artist_data.phones.each do |tel| %>	
-					<li><strong>Telefone:</strong> <%= tel.telefone %> <br /></li>
+					<div class="show-contato-artista">
+						<li>
+						<i class='glyphicon glyphicon-earphone'></i>
+						<strong>Telefone:</strong> <br>
+						<%= tel.telefone %> <br />
+						</li>
+					</div>
 				<% end %>
 			</ul>
 		</div>
 		<hr />
-		<div class="emails">
+		<div class="emails posiciona-email">
 			<ul>
 				<% @artist_data.emails.each do |email| %>	
-					<li><strong>Email:</strong>	<%= email.email %> <br/></li>
+					<div class="show-contato-artista">
+						<li>
+							<i class='glyphicon glyphicon-envelope'></i>
+							<strong>Email:</strong>	<br>
+							<%= email.email %> <br/>
+						</li>
+					</div>	
 				<% end %>
 			</ul>
 		</div>

@@ -129,7 +129,13 @@ body {
 }
 
 .palavra-index {
-	padding: 1px;
+	/*overflow: hidden;*/
+	padding: 5px;
+}
+
+.palavra-pag-index {
+	overflow: hidden;
+	padding: 5px;
 }
 
 .palavra-index img {
@@ -243,7 +249,7 @@ body {
 
 
 .body {	
-	min-height: 400px;
+	min-height: 446px;
 }
 
 
@@ -272,11 +278,11 @@ body {
 
 
 .container-noticias {
+	width: 100%;
 	margin: 10px;
-	padding: 0px 15px 40px;
-	border: 1px solid #ccf;
+	padding: 0px 15px 40px;	
 	height: auto;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 
 .usuario-controle {
@@ -305,8 +311,8 @@ body {
 }
 
 .link-veja-mais {
-	position:relative;
-	left:475px;
+	position: absolute;
+	left:420px;
 	/*top:242px;*/	
 }
 
@@ -322,7 +328,7 @@ body {
 	position: absolute;
 	top:262px;	
 	left:250px;
-	width: 103px;	
+	width: 130px;	
 }
 
 .btn-default-index {
@@ -356,7 +362,11 @@ body {
 
 .noticias {
 	position: relative;
+	width: 100%;
 	height: auto;
+}
+.noticias p {
+	width: 100%;
 }
 
 .img-perfil {
@@ -438,6 +448,12 @@ body {
 	left: 450px;
 }
 
+.posiciona-email {
+	position: relative;
+	top: -61px;
+}
+
+
 .emails {
 	width: 100%;	
 	padding: 5px;
@@ -449,7 +465,6 @@ body {
 }
 
 .emails ul li {
-	border: solid 1px #000;
 	padding: 5px 8px;
 	display: inline-block;
 	margin: 5px;
@@ -500,4 +515,20 @@ body {
 	border: 1px solid #8E0000;	
 	color: #8E0000;	
 	background-color: #fff;
+}
+
+.show-contato-artista {
+	float: left;
+	margin: 10px;
+	width: 150px;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	box-shadow: 1px 2px #ccc;
+	-webkit-box-shadow: 1px 2px #ccc;
+	-moz-box-shadow: 1px 2px #ccc;
+	-o-box-shadow: 1px 2px #ccc;
+}
+
+.dimenssao-pinel-noticias-palavras {
+	width: 98%;
 }

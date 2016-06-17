@@ -31,9 +31,34 @@ $(document).ready(function($) {
       $(".mascara").show();    
   });
   
+  // posiciona a tela
   $(document).ajaxStop(function() {
     $(".mascara").hide();
+    if($('html').scrollTop() < 290) {
+        $('html').animate({scrollTop : 290},800);  
+    }    
   });
+
+  // add botão top
+  $(window).scroll(function(){
+    if($(this).scrollTop() > 200) {
+      $('.btn-topo').fadeIn('fast');
+    }
+    else {
+     $('.btn-topo').fadeOut('fast'); 
+    }
+  });
+
+  // ao clicar no btn retorna para o topo
+
+  $('.btn-topo').click(function(){
+    $('html').animate({scrollTop: 0}, 800);
+    return false;
+  });
+
+
+    
+
 
 // masrcara para o form phone
   var SPMaskBehavior = function (val) {

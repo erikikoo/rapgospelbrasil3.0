@@ -12,6 +12,7 @@ gem 'pundit'
 gem 'twitter-bootstrap-rails'
 #Devise
 gem 'devise'
+gem 'devise-i18n-views'
 #ckeditor
 gem 'ckeditor', '~> 4.1', '>= 4.1.6'
 #PAPERCLIP

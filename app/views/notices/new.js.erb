@@ -1,5 +1,5 @@
+$('.painel-artistas-adm').html('<%= escape_javascript (render partial: "notices/new") %>'); 	
 setTimeout(function(){
 	$("#mensagem").fadeOut();
 }, 5000);
-/*$("#artist_data_history_attributes_historia").find('.ckeditor').ckeditor();*/
-$('.painel-artistas-adm').html('<%= escape_javascript (render partial: "notices/new") %>'); 	
+$("#artist_data_history_attributes_historia").find('.ckeditor').ckeditor();
