@@ -127,11 +127,11 @@ body {
 
 }
 
-.palavra-index {
+.palavra-index, .palavra-pag-index {
 	padding: 1px;
 }
 
-.palavra-index img {
+.palavra-index img, .palavra-pag-index img  {
 	float: left;
 	padding-right: 10px;
 	margin-top: 4px;
