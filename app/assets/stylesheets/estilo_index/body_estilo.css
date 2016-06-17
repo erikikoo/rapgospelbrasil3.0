@@ -137,6 +137,10 @@ body {
 	margin-top: 4px;
 }
 
+.palavra-pag-index {
+	max-height: 120px;
+}
+
 .texto-palavra {
 	margin-top: -10px;
 	margin-left: 70px;
