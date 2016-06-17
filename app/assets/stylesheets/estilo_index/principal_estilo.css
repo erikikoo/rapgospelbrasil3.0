@@ -9,6 +9,7 @@ a:active, a:hover, a:visited, a:link {
 }
 
 .container {
+	position: relative;
 	width: 1002px;
 	height: auto;
 	margin-right: auto;

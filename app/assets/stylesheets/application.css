@@ -413,7 +413,6 @@
 		background-size: 100% auto;
 		background-position: 0 -120px;
 		width: 100%;
-
 		min-height: 673px;
 		height: 713px;
 		margin-top: -76px;
@@ -432,9 +431,9 @@
 	display: none;
 	position: fixed;
 	position:fixed;
-	top:575px;
+	top:595px;
 	right:40px;
-	background-color: #57B7DD;
+	background-color: rgba(87, 183, 221, .5);
 	border-radius: 50%;
 	width: 50px;
 	height: 50px;
@@ -442,7 +441,7 @@
 
 .btn-topo i {
 	position: fixed;
-	top:588px;
+	top:608px;
 	right:54px;
 	font-size: 2rem;
 	color: #17407D;
@@ -450,4 +449,8 @@
 
 .btn-topo:hover i {
 	color: #17407D;	
+}
+
+.btn-topo:hover {
+	background-color: rgba(87, 183, 221, 1);
 }
