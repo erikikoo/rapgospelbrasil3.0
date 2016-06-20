@@ -7,9 +7,9 @@
       <% @artist_data.each do |artist_data| %>
         <div class="item-artista">
            <% if artist_data.logo.present? %>
-            <%= link_to(image_tag(artist_data.logo.url(:medium), class: 'img-thumbnail'), "/show_artista/#{artist_data.id}" ,remote: true)  %>
+            <%= link_to(image_tag(artist_data.logo.url(:medium), class: 'img-thumbnail'), "/show_artista/#{artist_data.id}" ,remote: true, class: "artista-profile")  %>
            <% else %>
-            <%= link_to(image_tag("ImagemArtistaSemFoto.png", with:'200px', height:'200px', class: 'img-thumbnail' ),"/show_artista/#{artist_data.id}", remote: true) %>
+            <%= link_to(image_tag("ImagemArtistaSemFoto.png", with:'200px', height:'200px', class: 'img-thumbnail artista-profile' ),"/show_artista/#{artist_data.id}", remote: true) %>
            <% end %> 
            <br/>
            <span class="text-center"> <%= artist_data.nome %> </span>

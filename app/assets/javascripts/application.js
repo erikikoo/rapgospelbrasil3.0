@@ -22,6 +22,11 @@
 //= require maskedinput
 //= require_tree .
 
+ 
+
+ function altScroll(altura) { // function centraliza pagina
+    $('html').animate({scrollTop: altura}, 800);
+  }
 
 $(document).ready(function($) {
   
@@ -33,11 +38,15 @@ $(document).ready(function($) {
   
   // posiciona a tela
   $(document).ajaxStop(function() {
-    $(".mascara").hide();
-    if($('html').scrollTop() < 290) {
-        $('html').animate({scrollTop : 290},800);  
-    }    
+    $(".mascara").hide();       
   });
+
+  
+  $('.menu ul li').click(function() {    
+    altScroll(290);
+  });
+
+  
 
   // add botão top
   $(window).scroll(function(){
@@ -53,6 +62,12 @@ $(document).ready(function($) {
 
   $('.btn-topo').click(function(){
     $('html').animate({scrollTop: 0}, 800);
+    return false;
+  });
+
+   $('.btn-topo').click(function(){
+     
+    $('html body').animate({scrollTop: 0}, 800);
     return false;
   });
 

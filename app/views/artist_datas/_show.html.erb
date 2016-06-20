@@ -22,9 +22,9 @@
 				<div class="painel-image">	
 					
 					<% if @artist_data.logo.present? %>
-						<%= image_tag(@artist_data.logo.url(:perfil), class: 'posicionamento  img-thumbnail') %>	
+						<%= image_tag(@artist_data.logo.url(:perfil), class: 'posicionamento  img-thumbnail', id: 'artista-profile') %>	
 					<% else %>
-						<%= image_tag("ImagemArtistaSemFoto.png", width:'500', height:'300', class: 'posicionamento perfil-display') %>
+						<%= image_tag("ImagemArtistaSemFoto.png", width:'500', height:'300', class: 'posicionamento perfil-display', id: 'artista-profile') %>
 					<% end %>
 
 					<div class="contato">
@@ -68,13 +68,13 @@
 					<% end %>
 
 				</div>
-				<nav class="sub-menu"> 
+				<nav class="sub-menu "> 
 						<ul>
 							<li><%= link_to 'Release', "/historia/#{@artist_data.id}", remote: true, :class => 'btn-sm btn-default-index'  %></li>
 							<li><%= link_to 'Albuns', "/album/#{@artist_data.id}/user", remote: true, :class => 'btn-sm btn-default-index' %></li>
 							<li><%= link_to 'Videos', "/videos/#{@artist_data.id}/user", remote: true, :class => 'btn-sm btn-default-index' %></li>
 							<li><%= link_to 'Contatos', "/contato/#{@artist_data.id}", remote: true, :class => 'btn-sm btn-default-index' %></li>
-							<li><%= link_to 'Agenda', "/agenda/#{@artist_data.id}/user", remote: true, :class => 'btn-sm btn-default-index' %></li>			
+							<li id='teste-btn' ><%= link_to 'Agenda', "/agenda/#{@artist_data.id}/user", remote: true, :class => 'btn-sm btn-default-index artista-menu'  %></li>			
 						</ul>
 					</nav>
 				<div class="painel-artistas">					
