@@ -441,26 +441,24 @@ body {
 	left: 450px;
 }
 
-.emails {
-	width: 100%;	
-	padding: 5px;
-}
 
 .emails ul {
 	position: relative;
 	left: -45px;
 }
 
-.emails ul li {
+.emails ul li {	
 	border: 1px solid #ccc;
 	box-shadow: 2px 2px 3px rgba(0,0,0,0.18);
 	-webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.18);
 	-moz-box-shadow: 2px 2px 3px rgba(0,0,0,0.18);
 	-o-box-shadow: 2px 2px 3px rgba(0,0,0,0.18);
 	padding: 5px 8px;
-	display: inline-block;
+	display: block;
 	margin: 5px;
 }
+
+
 
 /* pag contato */
 

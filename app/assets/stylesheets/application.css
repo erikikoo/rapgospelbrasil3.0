@@ -233,7 +233,7 @@
 .painel-show-info {
 	position: relative;
 	display: inline-block;
-	width: 100%;
+	width: 98%;
 	min-height: 100px;
 	margin: 10px auto;
 	padding: 10px 5px;
@@ -375,7 +375,7 @@
 }
 
 .painel-artistas {	
-	
+	clear: both;
 	margin: -400px auto 50px auto;
 	left: 5px;
 	height: auto;
