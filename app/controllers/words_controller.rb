@@ -5,7 +5,7 @@ class WordsController < ApplicationController
   # GET /words
   # GET /words.json
   def index  
-    @words = Word.order(created_at: :desc).paginate(page: params[:page], per_page: 5)
+    @words = Word.order(created_at: :desc)
   end
 
   # GET /words/1

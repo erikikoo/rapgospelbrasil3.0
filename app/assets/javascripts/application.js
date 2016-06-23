@@ -71,8 +71,7 @@ $(document).ready(function($) {
     return false;
   });
 
-   $('.btn-topo').click(function(){
-     
+   $('.btn-topo').click(function(){     
     $('html body').animate({scrollTop: 0}, 800);
     return false;
   });

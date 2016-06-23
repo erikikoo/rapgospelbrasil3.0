@@ -127,7 +127,6 @@ GEM
       activemodel (>= 3.2, < 5)
     maskedinput-rails (1.4.0.0)
     mime-types (2.99.2)
-    mime-types-data (3.2016.0521)
     mimemagic (0.3.0)
     mini_portile2 (2.1.0)
     minitest (5.9.0)
