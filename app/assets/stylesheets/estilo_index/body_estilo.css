@@ -1,6 +1,5 @@
 
 body {
-
 	min-width: 999px;
 	height:auto;	
 	background-image: url("http://res.cloudinary.com/dgql7hcka/image/upload/v1465059543/body-img/FundoPagina.jpg");
@@ -247,7 +246,7 @@ body {
 
 
 .body {	
-	min-height: 400px;
+	height: auto;
 }
 
 
