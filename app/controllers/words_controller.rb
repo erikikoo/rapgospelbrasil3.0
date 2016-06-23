@@ -6,6 +6,7 @@ class WordsController < ApplicationController
   # GET /words.json
   def index  
     @words = Word.order(created_at: :desc)
+    @profile = params[:profile] if !params[:profile].nil?
   end
 
   # GET /words/1
