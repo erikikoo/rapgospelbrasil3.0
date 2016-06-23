@@ -2,7 +2,7 @@ setTimeout(function(){
 	$("#mensagem").fadeOut();
 }, 5000);
 <% if @profile == 'admin' %>
-	$('.painel-artistas-adm').html('<%= escape_javascript (render partial: "words/index") %>'); 	
-<% else %>
-	$('.body').html('<%= escape_javascript (render partial: "words/index") %>'); 	
-<% end %>	
+	$('.painel-artistas-adm').html('<%= j render partial: "words/index" %>'); 	
+<% else %>		
+	$('.body').html('<%= escape_javascript render("words/index") %>');
+<% end %>

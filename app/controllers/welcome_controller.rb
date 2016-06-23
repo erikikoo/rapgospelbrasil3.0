@@ -5,7 +5,8 @@ class WelcomeController < ApplicationController
     @top5 = Top5.last
     @artistas = ArtistData.where(aprovado: true, bloqueado: false).order(created_at: :desc).limit(5)
    
-    @video = Video.where('artist_id = ? OR artist_id = ?', 1, 2).last    
+    @video = Video.where('artist_id = ? OR artist_id = ?', 1, 2).last 
+     
   end
  
   def red_index
@@ -18,8 +19,12 @@ class WelcomeController < ApplicationController
   end
  
   def palavra
-  	@words = Word.order(created_at: :desc)
-  	render 'words/index'
+  	@words = Word.order(created_at: :desc).paginate(page: params[:page], per_page: 5)
+  	respond_to do |format|
+      format.html
+      format.js { render 'words/index' }
+    end
+    
   end
 
   def artista

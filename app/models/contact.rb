@@ -7,7 +7,7 @@ class Contact < MailForm::Base
 	def headers
 		{
 			:subject => 'Contato do Portal RapGospelBrasil',
-			:to 	 => 'erikikoo@hotmail.com',
+			:to 	 => 'portalrapgospelbrasil@gmail.com',
 			:from	 => %("#{nome}" <#{email}>)	
 		}
 	end

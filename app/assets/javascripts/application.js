@@ -20,6 +20,7 @@
 //= require jquery.remotipart
 //= require cloudinary
 //= require maskedinput
+
 //= require_tree .
 
  
@@ -46,7 +47,10 @@ $(document).ready(function($) {
     altScroll(290);
   });
 
-  
+
+  //scroll infinite
+
+    
 
   // add botão top
   $(window).scroll(function(){
@@ -56,6 +60,8 @@ $(document).ready(function($) {
     else {
      $('.btn-topo').fadeOut('fast'); 
     }
+
+
   });
 
   // ao clicar no btn retorna para o topo

@@ -1,10 +1,11 @@
 class WordsController < ApplicationController
   before_action :set_word, only: [:show, :edit, :update, :destroy]
   before_action :get_words, only: [:create, :update, :index, :destroy]
-  before_action :get_profile , only: [:index, :update, :destroy, :show]
+  #before_action :get_profile , only: [:index, :update, :destroy, :show]
   # GET /words
   # GET /words.json
-  def index    
+  def index  
+    @words = Word.order(created_at: :desc).paginate(page: params[:page], per_page: 5)
   end
 
   # GET /words/1
@@ -75,6 +76,7 @@ class WordsController < ApplicationController
     end
 
     def get_words
+      #@words = Post.paginate()
       @words = Word.order(created_at: :desc)
     end 
 

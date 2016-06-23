@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get '/principal'                    => 'principal#index'
   get '/noticias'                     => 'welcome#noticia'
-  get '/palavras'                     => 'welcome#palavra'
+  get '/palavras'                     => 'words#index'
   get '/artistas'                     => 'welcome#artista'
   get '/videos'                       => 'welcome#video'
   #get '/contato'                      => 'welcome#contato'
