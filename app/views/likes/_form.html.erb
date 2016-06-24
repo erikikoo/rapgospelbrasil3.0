@@ -1,0 +1,14 @@
+<%= simple_form_for(@like) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :artist_data %>
+    <%= f.input :ip %>
+    <%= f.input :like %>
+    <%= f.input :unlike %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
