@@ -419,9 +419,7 @@ body {
 	width: 504px;	
 	border-radius: 2px;
 	padding: 8px 5px;
-	background: #eee;
-	background: -webkit-linear-gradient(#ccc, #eee, #ccc);
-	background: -o-linear-gradient(#ccc, #eee, #ccc);
+	background: #eee;		
 	box-shadow: 2px 2px 3px rgba(0,0,0,0.18);
 	-webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.18);
 	-moz-box-shadow: 2px 2px 3px rgba(0,0,0,0.18);

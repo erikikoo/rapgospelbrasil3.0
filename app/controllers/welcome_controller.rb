@@ -6,11 +6,13 @@ class WelcomeController < ApplicationController
     @artistas = ArtistData.where(aprovado: true, bloqueado: false).order(created_at: :desc).limit(5)
    
     @video = Video.where('artist_id = ? OR artist_id = ?', 1, 2).last 
+    @ip = request.remote_ip
      
   end
  
   def red_index
     redirect_to root_path
+
   end
 
   def noticia
