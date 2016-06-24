@@ -11,9 +11,17 @@ class ArtistDatasController < ApplicationController
   # GET /artist_datas/1
   # GET /artist_datas/1.json
   def show
-    #@agenda = Commitment.where("artist_data_id = ?", params[:id]).limit(2)
-  
-          
+    @artist_data = ArtistData.includes(:link_sound_cloud, :like).find(params[:id])
+    
+    
+    
+    if !@artist_data.like.nil? and @artist_data.like.like
+      @gostei = true 
+    elsif  !@artist_data.like.nil? and @artist_data.like.unlike
+      @gostei = false 
+    else
+      @gostei = nil     
+    end          
   end
 
   # GET /artist_datas/new

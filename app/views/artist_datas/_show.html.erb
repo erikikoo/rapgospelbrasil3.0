@@ -28,6 +28,10 @@
 					<% end %>
 
 					<div class="contato">
+						<div class="painel-like">
+							<%= render 'like' %>
+							
+						</div>
 						<%
 						 t = 0
 						 
@@ -39,7 +43,8 @@
 						 	end	
 						 %>
 						 	<%= cl_image_tag("body-img/IconeFone.png") %> 
-						 	<%= tel.telefone %>						 
+						 	<%= tel.telefone %>
+						 	
 						 <% end %>
 
 						<% 

@@ -1,6 +1,7 @@
 
 Rails.application.routes.draw do
 
+  resources :likes
   resources :link_sound_clouds
   devise_for :artists
   resources :top5s
@@ -10,6 +11,10 @@ Rails.application.routes.draw do
   
 
   mount Ckeditor::Engine => '/ckeditor'
+
+  get '/like/:id'                         => 'likes#create'
+  get '/like/:id/:status'                 => 'likes#update'
+  get '/unlike/:id'                       => 'likes#update'
 
   #index
   get 'index'                         => 'welcome#red_index'

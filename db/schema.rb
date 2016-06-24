@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160613184659) do
+ActiveRecord::Schema.define(version: 20160624181355) do
 
   create_table "artist_datas", force: :cascade do |t|
     t.string   "nome",       limit: 255
@@ -104,6 +104,17 @@ ActiveRecord::Schema.define(version: 20160613184659) do
 
   add_index "historys", ["artist_data_id"], name: "index_historys_on_artist_data_id", using: :btree
 
+  create_table "likes", force: :cascade do |t|
+    t.integer  "artist_data_id", limit: 4
+    t.string   "ip",             limit: 255
+    t.boolean  "like",                       default: false
+    t.boolean  "unlike",                     default: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+  end
+
+  add_index "likes", ["artist_data_id"], name: "index_likes_on_artist_data_id", using: :btree
+
   create_table "link_sound_clouds", force: :cascade do |t|
     t.integer  "artist_data_id", limit: 4
     t.string   "link",           limit: 255
@@ -191,6 +202,7 @@ ActiveRecord::Schema.define(version: 20160613184659) do
   add_foreign_key "discographys", "artist_datas"
   add_foreign_key "emails", "artist_datas"
   add_foreign_key "historys", "artist_datas"
+  add_foreign_key "likes", "artist_datas"
   add_foreign_key "link_sound_clouds", "artist_datas"
   add_foreign_key "notices", "artist_datas"
   add_foreign_key "phones", "artist_datas"
