@@ -1,3 +1,12 @@
+    <script>
+      jQuery(document).ready(function($) {
+        if ($('.body').height() < 100) {
+          $('.body').css('min-height','400px');
+          
+        }    
+      });
+</script>
+
 <% if !@status.nil? %>  
     <%= 
       case @action

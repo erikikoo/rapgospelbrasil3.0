@@ -1,2 +1,31 @@
-<div class="mapa-do-site"></div>
-<div class="teste"></div>
+<div class="mapa-do-site">
+	<span class="menu-mapa-do-site">		
+		<ul>
+			<li><h3>Companhia</h3></li>
+			<li><%= link_to 'Quem Somos','/quem_somos', remote: true%></li>
+			<li><%= link_to 'Contato','/contato' , remote: true%></li>
+		</ul>
+
+		<ul>
+			<li><h3>Serviços</h3></li>
+			<li><%= link_to 'Artistas','/artistas', remote: true %></li>
+			<li><%= link_to 'Videos','/videos', remote: true %></li>
+			<li><%= link_to 'Notícias','/noticias', remote: true %></li>
+			<li><%= link_to 'Palavras','/palavras', remote: true %></li>
+		</ul>	
+	</span>
+	<span class="logo-mapa-do-site">
+		<%= cl_image_tag("body-img/LogoRodape.jpg") %>
+	</span>
+
+</div>
+<div class="rodape-inferior">
+	<span class="texto-rodape-inferior">
+		&copy; 2001 - 2016 - Todos os direitos reservados.
+	</span>	
+	<!-- <span class="termos-rodape-inferior">
+		<%= link_to 'Política de privacidade', '#' %>
+		<br>
+		<%= link_to 'Termos de uso', '#' %>
+	</span> -->
+</div>

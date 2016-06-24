@@ -8,7 +8,7 @@
 			<div class="palavra-pag-index">
 				<%= image_tag(palavra.logo.url(:thumbnail)) if palavra.logo.present?  %>					
 				<div class="texto-palavra">
-					<h4><%= link_to "#{palavra.titulo.capitalize}", "/show_palavra/#{palavra.id}", remote: true %></h4>			
+					<h4><%= link_to "#{palavra.titulo}", "/show_palavra/#{palavra.id}", remote: true %></h4>			
 					<%= sub_texto(palavra.texto,200) %>	
 				</div>
 				<br />					

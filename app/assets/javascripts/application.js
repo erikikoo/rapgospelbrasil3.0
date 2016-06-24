@@ -23,7 +23,8 @@
 
 //= require_tree .
 
- 
+     
+
 
  function altScroll(altura) { // function centraliza pagina
     $('html').animate({scrollTop: altura}, 800);
@@ -31,6 +32,15 @@
 
 $(document).ready(function($) {
   
+  //verificar o height da div body
+
+
+  
+
+
+
+
+  //banner
   $('.blueberry').blueberry();
   
   $(document).ajaxStart(function() {          
@@ -46,7 +56,6 @@ $(document).ready(function($) {
   $('.menu ul li').click(function() {    
     altScroll(290);
   });
-
 
   //scroll infinite
 

@@ -4,17 +4,50 @@ footer {
 	width: 100%;		
 }
 
-.teste {
+.rodape-inferior {
 	height: 20px;
 	background-color: #000;
 	top: 10px;
 	bottom: 0px;
 }
 
+.texto-rodape-inferior {
+	position: relative;
+	left: 20px;
+	color: #fff;
+}
+
 .mapa-do-site {	
-	height: 231px;
+	height: 200px;
 	background-color: #8E0000;	
 	z-index: 2;
 }
 
+.menu-mapa-do-site {
+	position: absolute;
+	left: 50px;
+	color: #fff;	
+}
 
+.menu-mapa-do-site ul {
+	display: inline-block;
+}
+
+
+.menu-mapa-do-site ul + ul {
+	position: absolute;
+	top: 0;	
+}
+		
+.menu-mapa-do-site ul li, .menu-mapa-do-site a:link, .menu-mapa-do-site a:visited  {
+	list-style: none;
+	color: #fff;
+	padding: 5px 0;
+	font-size: 1.6rem;
+}
+
+.logo-mapa-do-site {
+	position: absolute;
+	right: 30px;
+	top: 50px;
+}
