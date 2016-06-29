@@ -132,19 +132,19 @@
 					});
 				}
 
-				//calculate and set height based on image width/height ratio and specified line height
-				var setsize = function(){
-					sliderWidth = $('.slides', obj).width();
-					cropHeight = Math.floor(((sliderWidth/imgRatio)/o.lineheight))*o.lineheight;
+				// //calculate and set height based on image width/height ratio and specified line height
+				// var setsize = function(){
+				// 	sliderWidth = $('.slides', obj).width();
+				// 	cropHeight = Math.floor(((sliderWidth/imgRatio)/o.lineheight))*o.lineheight;
 
-					$('.slides', obj).css({height: cropHeight});
-				};
-				setsize();
+				// 	$('.slides', obj).css({height: cropHeight});
+				// };
+				// setsize();
 
-				//bind setsize function to window resize event
-				$(window).resize(function(){
-					setsize();
-				});
+				// //bind setsize function to window resize event
+				// $(window).resize(function(){
+				// 	setsize();
+				// });
 				
 				
 

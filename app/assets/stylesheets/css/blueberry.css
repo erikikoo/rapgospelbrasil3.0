@@ -33,7 +33,7 @@
 .blueberry .slides li img {
 	display: block;
 	width: 958px;
-	height: 230px;
+	height: 220px;
 	max-width: none;
 }
 .blueberry .slides li.active { display: block; position: relative; }
@@ -53,6 +53,7 @@
 }
 .blueberry .pager li a {
 	padding: 18px 8px;
+	-o-border-radius: 6px;
 	-webkit-border-radius: 6px;
    -moz-border-radius: 6px;
 	border-radius: 6px;
