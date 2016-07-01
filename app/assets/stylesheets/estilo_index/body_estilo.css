@@ -484,7 +484,7 @@ body {
 	padding: 5px 0;
 }
 
-.pag-contato-right ul li a:hover, .rede-social-index a:hover {
+.pag-contato-right ul li a:hover, .rede-social-index a:hover, .painel-like a:hover {
 	color: #fff;
 	background-color: rgba(0,0,0,0);
 }
@@ -515,4 +515,10 @@ body {
 	right: 50px;
 	top: 20px;
 	z-index: 9;
+}
+
+.painel-like {
+	position: relative;
+	top: -40px;
+	margin-left: 140px;
 }

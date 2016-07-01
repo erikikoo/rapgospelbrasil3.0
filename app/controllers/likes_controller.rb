@@ -26,18 +26,18 @@ class LikesController < ApplicationController
   # PATCH/PUT /likes/1
   # PATCH/PUT /likes/1.json
   def update
-    @artist_data = ArtistData.includes(:link_sound_cloud, :like).find(params[:id])
+    
     @like = Like.find_by(artist_data_id: params[:id])    
     @status = params[:status] if params[:status].present?
     respond_to do |format|
       if @status.nil?
           @gostei = false
           @like.update_attributes({like: false, unlike: true})                  
-          format.js {render "artist_datas/like"  }          
+          format.js {render "artist_datas/index"  }          
       else          
         @gostei = true
         @like.update_attributes({like: true, unlike: false})        
-        format.js {render "artist_datas/like" }        
+        format.js {render "artist_datas/index" }        
       end
     end
   end
@@ -47,7 +47,7 @@ class LikesController < ApplicationController
     
 
     def set_artist_data
-      @artist_data = ArtistData.includes(:link_sound_cloud, :like).find(params[:id])
+      @artist_data = ArtistData.where(aprovado: true, bloqueado: false)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

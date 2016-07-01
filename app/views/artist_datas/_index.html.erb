@@ -12,6 +12,18 @@
             <%= link_to(image_tag("ImagemArtistaSemFoto.png", with:'200px', height:'200px', class: 'img-thumbnail artista-profile' ),"/show_artista/#{artist_data.id}", remote: true) %>
            <% end %> 
            <br/>
+
+          <div class="painel-like">           
+             <% if !artist_data.like.nil? and artist_data.like.like %> 
+                <%= link_to(cl_image_tag("body-img/BotCurtir.png"), "/unlike/#{artist_data.id}", remote: true) %>
+              <% elsif  !artist_data.like.nil? and artist_data.like.unlike %>   
+                <%= link_to(cl_image_tag("body-img/BotCurtido.png"), "/like/#{artist_data.id}/update", remote: true) %>
+              <% elsif artist_data.like.nil? %>    
+                <%= link_to(cl_image_tag("body-img/BotCurtido.png"), "/like/#{artist_data.id}", remote: true) %>
+              <% end %>
+          </div>
+
+
            <span class="text-center"> <%= artist_data.nome %> </span>
          </div>
          <% if @profile == "adm" %> 

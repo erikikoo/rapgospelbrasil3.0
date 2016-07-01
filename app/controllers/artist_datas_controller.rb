@@ -5,7 +5,7 @@ class ArtistDatasController < ApplicationController
   # GET /artist_datas
   # GET /artist_datas.json
   def index
-    @artist_data = ArtistData.where(aprovado: true, bloqueado: false)
+    @artist_data = ArtistData.where(aprovado: true, bloqueado: false).includes(:link_sound_cloud, :like)
   end
 
   # GET /artist_datas/1
@@ -15,13 +15,7 @@ class ArtistDatasController < ApplicationController
     
     
     
-    if !@artist_data.like.nil? and @artist_data.like.like
-      @gostei = true 
-    elsif  !@artist_data.like.nil? and @artist_data.like.unlike
-      @gostei = false 
-    else
-      @gostei = nil     
-    end          
+       
   end
 
   # GET /artist_datas/new

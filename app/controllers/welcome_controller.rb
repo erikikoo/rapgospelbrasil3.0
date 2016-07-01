@@ -28,6 +28,8 @@ class WelcomeController < ApplicationController
 
   def artista
     @artist_data = ArtistData.where(aprovado: true, bloqueado: false)    
+    
+    
     render 'artist_datas/index'
   end
 
