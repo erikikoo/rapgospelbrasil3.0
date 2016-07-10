@@ -36,6 +36,9 @@ class LogoUploader < CarrierWave::Uploader::Base
    version :thumbnail do
      process resize_to_fill: [60, 75]
    end
+   version :painel_like do
+     process resize_to_fill: [100, 120]
+   end
    version :small do
      process resize_to_fill: [120, 120]
    end

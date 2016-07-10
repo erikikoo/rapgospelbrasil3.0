@@ -36,7 +36,9 @@ $(document).ready(function($) {
 
 
   
-
+  $('.menu-mapa-do-site ul li').click(function(){
+    altScroll(290)
+  });
 
 
 
@@ -50,12 +52,16 @@ $(document).ready(function($) {
   // posiciona a tela
   $(document).ajaxStop(function() {
     $(".mascara").hide();       
+    
+    
+    
   });
 
   
-  $('.menu ul li').click(function() {    
+  $('.menu ul li, .btn-like').click(function() {    
     altScroll(290);
   });
+
 
   //scroll infinite
 
@@ -69,8 +75,6 @@ $(document).ready(function($) {
     else {
      $('.btn-topo').fadeOut('fast'); 
     }
-
-
   });
 
   // ao clicar no btn retorna para o topo
@@ -106,5 +110,6 @@ $(document).ready(function($) {
 
   
 });
+
 
 

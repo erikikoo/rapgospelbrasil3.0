@@ -25,8 +25,9 @@ footer {
 
 .menu-mapa-do-site {
 	position: absolute;
-	left: 50px;
-	color: #fff;	
+	left: 35px;
+	color: #fff;
+	top: 20px;	
 }
 
 .menu-mapa-do-site ul {
@@ -34,25 +35,39 @@ footer {
 }
 
 
-.menu-mapa-do-site ul + ul {
-	position: absolute;
-	top: 0;	
-	left: 160px;
+.menu-mapa-do-site ul > li {		
+	position:relative;	
+	left: 20px;
 }
 
-
-
-
+.menu-mapa-do-site ul:nth-child(even) {		
+	position:relative;
+	top: 0px;
+}
 		
-.menu-mapa-do-site ul li, .menu-mapa-do-site a:link, .menu-mapa-do-site a:visited  {
+.menu-mapa-do-site li, .menu-mapa-do-site a:link, .menu-mapa-do-site a:visited,   {
 	list-style: none;
 	color: #fff;
-	padding: 5px 0;
-	font-size: 1.6rem;
+	padding: 3px 0;
+	font-size: 1.2rem;
 }
 
+.menu-mapa-do-site ul li:first-child {
+	font-size: 1.8rem;
+}
 .logo-mapa-do-site {
 	position: absolute;
 	right: 30px;
 	top: 50px;
+}
+
+.link-development {
+	position: relative;
+	top:0;
+	float:right;
+	padding-right: 40px;
+}
+
+.link-development a:visited, .link-development a:active, .link-development a:link {
+	color: #fff;
 }

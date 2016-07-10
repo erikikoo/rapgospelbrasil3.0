@@ -1,0 +1,33 @@
+<div class="header-top5-likes-index">
+	<%= cl_image_tag("body-img/CabecalhoArtistasHome_n6u3f4.png") %>	
+</div>
+<div class="artist-mais-like-index">
+	<% i=0 %>		
+	<% @likes.each do |k,v|%>					
+									
+		<% @artist_data.each do |artista| %>		
+			<% if  k == artista.id %>
+				<ul>
+					<% if artista.logo.present? %>
+						<li><%= link_to(image_tag(artista.logo.url(:painel_like), class: 'img-rounded'),"/show_artista/#{artista.id}", remote: true) %> </li>
+					<% else %>
+						<li><%= link_to(image_tag("ImagemArtistaSemFoto.png", with:'80px', height:'120px'),"/show_artista/#{artista.id}", remote: true) %></li>
+					<% end %>
+				
+					<li><%= first_name(artista.nome) %></li>
+				
+					<li>
+						<strong>
+							<%= v > 1 ? raw("<strong>#{v}</strong> <br /> Salves") : raw("<strong>#{v}</strong><br />Salve") %>
+						</strong>
+					</li>
+				</ul>
+			<% end %>	
+			<% if i > 5
+				break	
+			end 
+		 	i = i + 1 %>
+		<% end %>
+	<% end %>
+			
+</div>

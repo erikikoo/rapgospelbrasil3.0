@@ -80,7 +80,7 @@ body {
 	left: 10px;
 	height: 90px;
 	top: 5px;
-	background-color: red;
+	background-color: #ddd;
 	padding-left: 10px;	
 } 
 
@@ -90,7 +90,7 @@ body {
 	height: 90px;
 	top: 5px;
 	left: 660px;
-	background-color: yellow;
+	background-color: #ddd;
 	
 } 
 
@@ -198,9 +198,9 @@ body {
 	position: relative;
 	width: 480px;
 	min-height: 145px;
-	top: -20px;
+	top: -51px;
 	left: 510px;
-	background-color: red;
+	background-color: #ccc;
 	
 }
 
@@ -241,12 +241,14 @@ body {
 
 .texto-noticias {
 	position: relative;	
-	padding: 10px;	
+	padding: 10px;
+	
 }
 
 
 .body {	
 	height: auto;
+	margin-bottom: 70px;
 }
 
 
@@ -345,7 +347,7 @@ body {
 }
 
 .painel-noticias-anuncio {
-	background-color: red;
+	background-color: #ddd;
 	height: 290px;
 	position: absolute;
 	width:250px;
@@ -436,6 +438,7 @@ body {
 
 .logo-redesocial {
 	position: absolute;
+	top: -395px;
 	left: 450px;
 }
 
@@ -484,7 +487,7 @@ body {
 	padding: 5px 0;
 }
 
-.pag-contato-right ul li a:hover, .rede-social-index a:hover, .painel-like a:hover {
+.pag-contato-right ul li a:hover, .rede-social-index a:hover, div[class^="painel-like-index"] a:hover, .painel-like-artist-show a:hover {
 	color: #fff;
 	background-color: rgba(0,0,0,0);
 }
@@ -517,8 +520,48 @@ body {
 	z-index: 9;
 }
 
-.painel-like {
+div[class^="painel-like-index"] {
 	position: relative;
+	top: -43px;
+	margin-left: 157px;
+}
+.painel-like-artist-show .qnt-like-pag-show{
+	position: absolute;	
+	left: 415px;	
+	top:0;
+	text-align:center;
+}
+
+.qnt-like-pag-show-sem-like {
+	position: absolute;	
+	left: 400px;	
+	top:0;
+	text-align:center;
+}
+
+.painel-like-artist-show img {
+	position: absolute;
+	top: -4px;
+	left: 470px;	
+}
+
+
+.table-like td:nth-child(3) {
+	padding-left: 30px;	
+}
+
+.nome-artist-index-artist {
+	position:relative;
 	top: -40px;
-	margin-left: 140px;
+}
+
+.artist-mais-like-index ul {	
+	margin:0;
+	padding:0;
+	display: inline-block;
+}
+
+.artist-mais-like-index li {	
+	list-style: none;
+	text-align: center;
 }

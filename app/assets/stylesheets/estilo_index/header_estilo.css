@@ -1,5 +1,5 @@
 header {
-	background-color: red;
+	background-color: #000;
 }
 
 .topo {	
@@ -83,9 +83,7 @@ header {
 	color: #AA1C20;	
 }
 
-header {
-	background-color: red;
-}
+
 
 .topo {	
 	height: 288px;
@@ -169,7 +167,7 @@ header {
 }
 
 header {
-	background-color: red;
+	background-color: #fff;
 }
 
 .topo {	

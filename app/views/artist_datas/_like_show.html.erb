@@ -1,0 +1,16 @@
+<% if @counter_like == 0 %>	
+	<%= raw("<span class='qnt-like-pag-show-sem-like'>")  %>
+	<strong>Nunhum</strong> <br/ > Salve	
+<% elsif @counter_like > 0 %>
+	<%= raw("<span class='qnt-like-pag-show'>")  %>	
+	<%= @counter_like >= 2 ? raw("<strong>#{@counter_like} <br/></strong> Salves") : raw("<strong>#{@counter_like}</strong><br />Salve") %>	
+<% end %>
+	</span>
+
+<% if @gostei == true %>	
+	<%= link_to(cl_image_tag("body-img/BotSalvado_zovmze.png"), "/unlike/#{@artist_data.id}/show", remote: true) %>
+<% elsif  @gostei == false %>		
+	<%= link_to(cl_image_tag("body-img/BotSalve_jagsoj.png"), "/like/#{@artist_data.id}/update/show", remote: true) %>
+<% elsif @artist_data.like.present? or @gostei.nil? %>		
+	<%= link_to(cl_image_tag("body-img/BotSalve_jagsoj.png"), "/like/#{@artist_data.id}/show", remote: true) %>
+<% end %>

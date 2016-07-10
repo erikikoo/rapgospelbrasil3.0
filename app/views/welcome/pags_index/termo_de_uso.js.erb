@@ -1,2 +1,7 @@
-$("#product-modal").html("<%= escape_javascript(render 'welcome/pags_index/termo_de_uso') %>")
-$("#product-modal").modal("show")
+<% if @target == 'index' %>
+	$('.body').html('<%= escape_javascript (render partial: "welcome/pags_index/termo_de_uso_text") %>'); 
+<% else %>
+
+	$("#product-modal").html("<%= escape_javascript(render 'welcome/pags_index/termo_de_uso') %>")
+	$("#product-modal").modal("show")
+<% end %>	

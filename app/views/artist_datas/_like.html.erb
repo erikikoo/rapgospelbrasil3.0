@@ -1,7 +1,9 @@
+
+
 <% if @gostei == true %>	
-	<%= link_to(cl_image_tag("body-img/BotCurtir.png", title: 'Curtir'), "/unlike/#{artist_data.id}", remote: true) %>
+	<%= link_to(cl_image_tag("body-img/BotSalvado_zovmze.png"), "/unlike/#{@artist_data.id}", remote: true) %>
 <% elsif  @gostei == false %>		
-	<%= link_to(cl_image_tag("body-img/BotCurtido.png", title: 'Descurtir'), "/like/#{artist_data.id}/update", remote: true) %>
-<% elsif @artist_data.like.nil? or @gostei.nil? %>		
-	<%= link_to(cl_image_tag("body-img/BotCurtido.png", title: 'Descurtir'), "/like/#{artist_data.id}", remote: true) %>
+	<%= link_to(cl_image_tag("body-img/BotSalve_jagsoj.png"), "/like/#{@artist_data.id}/update", remote: true) %>
+<% elsif @artist_data.like.present? or @gostei.nil? %>		
+	<%= link_to(cl_image_tag("body-img/BotSalve_jagsoj.png"), "/like/#{@artist_data.id}", remote: true) %>
 <% end %>

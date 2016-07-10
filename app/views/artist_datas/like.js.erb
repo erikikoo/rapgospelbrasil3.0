@@ -1,1 +1,6 @@
-$('.painel-like').html('<%= escape_javascript (render partial: "artist_datas/like") %>');
+<% if @target == 'show' %>
+	$('.painel-like-artist-show').html('<%= escape_javascript (render partial: "artist_datas/like_show") %>');
+
+<% else %>	
+	$('.painel-like-index-<%= @artist_data.id %>').html('<%= escape_javascript (render partial: "artist_datas/like") %>');
+<% end %>

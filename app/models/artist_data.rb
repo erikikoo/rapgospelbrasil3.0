@@ -5,7 +5,7 @@ class ArtistData < ActiveRecord::Base
 	has_many :discographys, dependent: :destroy
 	has_many :commitments, dependent: :destroy
 	has_many :videos, dependent: :destroy
-	has_one  :like, dependent: :destroy
+	has_many :likes, dependent: :destroy
 	has_one  :link_sound_cloud, dependent: :destroy
 	has_one  :history, dependent: :destroy
 	has_one  :rede_social, dependent: :destroy

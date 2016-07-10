@@ -54,8 +54,46 @@
 						%>	
 							<%= cl_image_tag("body-img/IconeEnvelope.png") %> 
 							<%= email.email %>	
-						<% end %>	
+						<% end %>							
+						
+						
+						
+						<div class="painel-like-artist-show"> 
+								<% if @counter_likes.empty? %>	
+									<%= raw("<span class='qnt-like-pag-show-sem-like'>")  %>
+									<strong>Nunhum</strong> <br/ > Salve
+								<% else %>
+									<%= raw("<span class='qnt-like-pag-show'>")  %>
+									<% @counter_likes.each do |k,v| %>							
+										<%= v > 1 ? raw("<strong>#{v}</strong><br /> Salves") : raw("<strong>#{v}</strong><br />Salve") %>
+									<% end %>								
+								<% end %>
+								</span>
 
+				            <%= raw("<div class=painel-like-pag-show>") %>
+				                 <% if @exist_likes.nil? %>
+				                    <%= link_to(cl_image_tag("body-img/BotSalve_jagsoj.png"), "/like/#{@artist_data.id}/show", remote: true) %>
+				                 <% else %>
+				                   <% @exist_likes.each do |like| %>          
+				                    <% if like.artist_data_id == @artist_data.id and like.curtido %>
+				                      <%= link_to(cl_image_tag("body-img/BotSalvado_zovmze.png"), "/unlike/#{@artist_data.id}/show", remote: true) %>
+				                      
+				                    <% elsif like.artist_data_id == @artist_data.id and like.unlike %>
+				                      <%= link_to(cl_image_tag("body-img/BotSalve_jagsoj.png"), "/like/#{@artist_data.id}/update/show", remote: true) %> 
+
+				                    <% elsif !@teste.has_key? @artist_data.id %>
+				                      <%= link_to(cl_image_tag("body-img/BotSalve_jagsoj.png"), "/like/#{@artist_data.id}", remote: true) %>
+				                     <% break %> 
+				                    <% end %>
+				                  
+				                  <% end %>
+				                <% end %>      
+				              </div> 
+									
+
+				            
+				        </div>					
+						
 						<span class="logo-redesocial">
 							<% if !@artist_data.rede_social.nil? %>
 								<%= link_to cl_image_tag("body-img/IconeTwitter.png"), "#{ @artist_data.rede_social.twitter}" , target: "_black" if @artist_data.rede_social.twitter.present? %>
@@ -66,7 +104,7 @@
 				</div>
 				<%= @artist_data.link_sound_cloud.present? ? raw('<div class="painel-agenda" id="id-painel-agenda">') : raw('<div class="painel-sem-agenda" id="id-painel-agenda">') %>							
 					<% if !@artist_data.link_sound_cloud.present? %>
-						<h5>Não possui repositóiro de musicas cadastrado </h5>
+						<h5>Não possui repositóiro de músicas cadastrado </h5>
 					<% end %>
 
 				</div>

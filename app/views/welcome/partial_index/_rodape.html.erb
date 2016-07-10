@@ -1,31 +1,51 @@
 <div class="mapa-do-site">
 	<span class="menu-mapa-do-site">		
 		<ul>
-			<li><h3>Companhia</h3></li>
-			<li><%= link_to 'Quem Somos','/quem_somos', remote: true%></li>
-			<li><%= link_to 'Contato','/contato' , remote: true%></li>
+			<li>Companhia</li>
+			<li><%= link_to 'Quem Somos','/quem_somos', remote: true%></li>			
+			<li><%= link_to 'Termo de uso','termo_de_uso/index',remote: true%></li>
+			<li><%= link_to 'Politica de privacidade','politica',remote: true%></li>			
+			<li><%= link_to 'Dúvidas ou sugestões','#',remote: true%></li>			
 		</ul>
 
 		<ul>
-			<li><h3>Serviços</h3></li>
+			<li>Serviços</li>
 			<li><%= link_to 'Artistas','/artistas', remote: true %></li>
 			<li><%= link_to 'Videos','/videos', remote: true %></li>
 			<li><%= link_to 'Notícias','/noticias', remote: true %></li>
 			<li><%= link_to 'Palavras','/palavras', remote: true %></li>
 		</ul>	
+
+		<ul>
+			<li>Área do Artista</li>
+			<li><%= link_to 'Acessar conta',new_artist_session_path %></li>
+			<li><%= link_to 'Criar conta',new_artist_registration_path%></li>			
+			<li><%= link_to 'Dicas de uso','#', remote: true%></li>
+			<li><%= link_to 'Perguntas frequentes','#', remote: true%></li>
+		</ul>
+
+		<ul>
+			<li>Contato</li>
+			<li><%= link_to 'Contato','/contato' , remote: true%></li>
+			<li><%= link_to 'Seja um parceiro','#', remote: true %></li>
+			<li><%= link_to 'Anuncie','#', remote: true %></li>
+			<li><%= link_to 'Envie sua notícia','#', remote: true %></li>
+		</ul>
 	</span>
 	<span class="logo-mapa-do-site">
-		<%= cl_image_tag("body-img/LogoRodape.jpg") %>
+		<ul>
+			<%= link_to cl_image_tag("body-img/TwitterRodape_as74ub.jpg"),'#' %>
+			<%= link_to cl_image_tag("body-img/YouTubeRodape_zo29d7.jpg"),'https://www.youtube.com/channel/UCUjVKFXge1yLuwUW5R2_Xbw',target: "_blank" %>
+			<%= link_to cl_image_tag("body-img/FacebookRodape_l5wzlg.jpg"),'https://www.facebook.com/Rap-Gospel-Brasil-662367990472646/',target: "_blank" %>
+		</ul>
 	</span>
 
 </div>
 <div class="rodape-inferior">
 	<span class="texto-rodape-inferior">
-		&copy; 2001 - 2016 - Todos os direitos reservados. <%= @ip %>
-	</span>	
-	<!-- <span class="termos-rodape-inferior">
-		<%= link_to 'Política de privacidade', '#' %>
-		<br>
-		<%= link_to 'Termos de uso', '#' %>
-	</span> -->
+		&copy; 2001 - 2016 - Todos os direitos reservados.
+		<div class="link-development">developed by <%= link_to "2H Web Solutions", '#', target: "_blank" %></div>	
+	</span>
+
+	
 </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160624181355) do
+ActiveRecord::Schema.define(version: 20160708224410) do
 
   create_table "artist_datas", force: :cascade do |t|
     t.string   "nome",       limit: 255
@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(version: 20160624181355) do
   create_table "likes", force: :cascade do |t|
     t.integer  "artist_data_id", limit: 4
     t.string   "ip",             limit: 255
-    t.boolean  "like",                       default: false
+    t.boolean  "curtido",                    default: false
     t.boolean  "unlike",                     default: false
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
