@@ -19,9 +19,9 @@ Rails.application.routes.draw do
 
   #pag show a artist
 
-  get '/like/:id/:target'                    => 'likes#create'
+  get '/showlike/:id/:target'                        => 'likes#create'
   get '/like/:id/:status/:target'            => 'likes#update'
-  get '/unlike/:id/:target'                   => 'likes#update'
+  get '/unlike/:id/:target'                  => 'likes#update'
 
 
   #index

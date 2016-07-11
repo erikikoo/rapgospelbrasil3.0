@@ -2,8 +2,8 @@
 	<%= cl_image_tag("body-img/CabecalhoArtistasHome_n6u3f4.png") %>	
 </div>
 <div class="artist-mais-like-index">
-	<% i=0 %>		
-	<% @likes.each do |k,v|%>					
+	<% i = 1 %>		
+	<% @likes.each do |k,v|%>
 									
 		<% @artist_data.each do |artista| %>		
 			<% if  k == artista.id %>
@@ -23,11 +23,9 @@
 					</li>
 				</ul>
 			<% end %>	
-			<% if i > 5
-				break	
-			end 
-		 	i = i + 1 %>
 		<% end %>
+		<% i += 1 %>		
+		<% i > 3 ? break : next %>					
 	<% end %>
 			
 </div>

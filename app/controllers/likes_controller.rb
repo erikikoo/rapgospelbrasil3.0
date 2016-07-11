@@ -16,7 +16,9 @@ class LikesController < ApplicationController
     respond_to do |format|
       if @like.save 
         @gostei = true         
-          format.js {render "artist_datas/like" }        
+        @counter_like = Like.where(artist_data_id: params[:id], curtido: true).count
+        @exist_likes = Like.select('curtido, unlike, artist_data_id')
+        format.js {render "artist_datas/like" }        
       else
         format.js { render :new }        
       end

@@ -1,4 +1,4 @@
-<% if @target == 'show' %>
+<% if @target == 'show' or @status == 'show' %>
 	$('.painel-like-artist-show').html('<%= escape_javascript (render partial: "artist_datas/like_show") %>');
 
 <% else %>	
