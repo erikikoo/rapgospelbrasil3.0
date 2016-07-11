@@ -8,48 +8,50 @@
        <div class="btn-group controle-login">       
 
        
-        <a class="btn btn-controle-login dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-cog"></span></a> 
-        
+          <a class="btn btn-controle-login dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-cog"></span></a> 
+          
 
 
-        <ul class="dropdown-menu"> 
+          <ul class="dropdown-menu"> 
 
-          <li>
-            <%= link_to destroy_artist_session_path, method: :delete do %>
-              Sair
-            <% end %>
-          </li>
-          <%if !current_artist.admin? %>   
-              <li>
-                <%= link_to principal_path do %>
-                  Perfil
-                <% end %>
-              </li>
-          <% end %>
-            <% if current_artist.admin? %>              
-              <li>
-              <%= link_to admin_index_path do %>
-                Painel Admin
+            <li>
+              <%= link_to destroy_artist_session_path, method: :delete do %>
+                Sair
               <% end %>
             </li>
+            <%if !current_artist.admin? %>   
+                <li>
+                  <%= link_to principal_path do %>
+                    Perfil
+                  <% end %>
+                </li>
             <% end %>
-             <li>
-              <%= link_to 'Visitar site', root_path  %>                
-            </li>        
-                  
-      </ul>
-    </div>  
-    <div class="img-perfil">
-      <% if @artist_data.nil? || !@artist_data.logo.present? %>
-        <%= cl_image_tag("ImagemArtistaSemFoto_hx6d8o.png", :width=>60, :height=>68, :gravity=>"face", :radius=>"max", :crop=>"thumb", :background=>'#404040') %>
-      <% elsif @artist_data.logo.present? %>
-        <%= cl_image_tag(@artist_data.logo, :width=>60, :height=>68, :gravity=>"face", :radius=>"max", :crop=>"thumb", :background=>'#404040') %>  
-       <% end %>
+              <% if current_artist.admin? %>              
+                <li>
+                <%= link_to admin_index_path do %>
+                  Painel Admin
+                <% end %>
+              </li>
+              <% end %>
+               <li>
+                <%= link_to 'Visitar site', root_path  %>                
+              </li>        
+                    
+        </ul>
+       </div>  
+      <div class="img-perfil">
+        <% if current_artist.admin? and current_artist.email == 'kleber@rapgospelbrasil.com.br' %>        
+          <%= cl_image_tag("eokjfzntpwhouygckco4.jpg", :width=>60, :height=>68, :gravity=>"face", :radius=>"max", :crop=>"thumb", :background=>'#404040') %>
+        <% elsif @artist_data.nil? || !@artist_data.logo.present? %>
+          <%= cl_image_tag("ImagemArtistaSemFoto_hx6d8o.png", :width=>60, :height=>68, :gravity=>"face", :radius=>"max", :crop=>"thumb", :background=>'#404040') %>
+        <% elsif @artist_data.logo.present? %>
+          <%= cl_image_tag(@artist_data.logo, :width=>60, :height=>68, :gravity=>"face", :radius=>"max", :crop=>"thumb", :background=>'#404040') %>  
+        <% end %>
 
-    </div>    
-    <% else %>
+      </div>    
+  <% else %>
     	
-      <%= link_to 'Login', artist_session_path %> 
+     <%= link_to 'Login', artist_session_path %> 
          
-    <% end %>
-  </div>
+  <% end %>
+</div>
