@@ -24,7 +24,6 @@ class ArtistDatasController < ApplicationController
     @count_per_ip = Like.where(ip: ip).group(:artist_data_id).count     
     @exist_likes = Like.select('curtido, unlike, artist_data_id, ip')
 
-    @remote_ip = ip
   end
 
   # GET /artist_datas/new
