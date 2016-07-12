@@ -94,3 +94,6 @@ gem 'mail_form', '~> 1.5', '>= 1.5.1'
 gem 'kaminari', '~> 0.16.3'
 #infinite scroll
 gem 'will_paginate', '~> 3.0'
+
+#gem search
+gem 'ransack'

@@ -13,11 +13,11 @@
       <div class="panel-body">
         <div class="search-artistas">
     			<ul>
-            <li><%= link_to "0-9", "search_artista/0-9", remote: true %></li>
-    				<% ('a'..'z').each do |letra| %>
-    					<li><%= link_to "#{letra}", "search_artista/#{letra}", remote: true %></li>
-    				<% end %>	
-    				<li><%= link_to "Todos", "search_artista/all", remote: true %></li>
+            <%= search_form_for(@q ,remote: true, url: '/search_artista', :method => :get ) do |f| %>
+              
+              <%= f.search_field :nome_cont, placeholder: 'Nome do artista' %>
+              <%= f.submit %>
+            <% end %>
     			</ul>
 		    </div>
       </div>

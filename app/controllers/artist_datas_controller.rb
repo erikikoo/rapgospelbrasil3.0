@@ -1,17 +1,15 @@
 class ArtistDatasController < ApplicationController
   before_action :set_artist_data, only: [:show,:edit, :update, :destroy,  :discography, :contact, :history, :agenda, :rede_social]
-  
+  before_action :like_query, only: [:search_artista  ,:index, :show]
   
   # GET /artist_datas
   # GET /artist_datas.json
   def index
-     ip = request.remote_ip
+     
 
-     @artist_data = ArtistData.includes(:likes).where(aprovado: true, bloqueado: false)
-     @count_per_ip = Like.where(ip: ip).group(:artist_data_id).count     
-     @exist_likes = Like.select('curtido, unlike, artist_data_id, ip').where(ip: ip)
-
-
+     #ransack
+     @q = ArtistData.where(aprovado: true, bloqueado: false).ransack(params[:q])
+     @artist_data = @q.result
 
   end
 
@@ -21,10 +19,10 @@ class ArtistDatasController < ApplicationController
     ip = request.remote_ip
     @artist_data = ArtistData.includes(:link_sound_cloud, :likes).find(params[:id])    
     @counter_likes = Like.where(artist_data_id: params[:id], curtido: true).group(:artist_data_id).count
-    @count_per_ip = Like.where(ip: ip).group(:artist_data_id).count     
-    @exist_likes = Like.select('curtido, unlike, artist_data_id, ip')
+    
 
   end
+  
 
   # GET /artist_datas/new
   def new
@@ -112,19 +110,27 @@ class ArtistDatasController < ApplicationController
   end  
 
   def search_artista     
-    if params[:word] == 'all'
-        @artist_data = ArtistData.where(aprovado: true, bloqueado: false)
-    else
-      @artist_data = ArtistData.where('nome LIKE ?', "#{params[:word]}%")  
-    end
+     
+
+     @q = ArtistData.where(aprovado: true, bloqueado: false).ransack(params[:q])
+     @artist_data = @q.result
+    
     respond_to do |format|  
+
       format.js
     end
   end
 
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    
+    def like_query
+      ip = request.remote_ip
+
+      @artist_data = ArtistData.includes(:likes).where(aprovado: true, bloqueado: false)
+      @count_per_ip = Like.where(ip: ip).group(:artist_data_id).count     
+      @exist_likes = Like.select('curtido, unlike, artist_data_id, ip').where(ip: ip)
+    end
 
     def set_artist_data
       @artist_data = ArtistData.find(params[:id])   

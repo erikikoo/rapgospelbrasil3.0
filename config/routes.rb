@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   get '/show_noticia/:id'             => 'notices#show'
   get '/show_palavra/:id'             => 'words#show'  
   get '/show_artista/:id'             => 'artist_datas#show'
-  get '/search_artista/:word'         => 'artist_datas#search_artista'
+  get '/search_artista'               => 'artist_datas#search_artista'
   #pag contato 
   
 
