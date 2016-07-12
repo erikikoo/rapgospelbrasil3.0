@@ -17,8 +17,8 @@
 	<div class="container ">
 		<div class="pag-show-artista">
 			
-				<span class="show-art-principal"><h3><%= @artist_data.nome %></h3></span>
-				
+				<!--<span class="show-art-principal"><h3><%= @artist_data.nome %></h3></span>-->
+				<span class="show-art-principal"><h3><%= request.remote_ip %></h3></span>
 				<div class="painel-image">	
 					
 					<% if @artist_data.logo.present? %>
