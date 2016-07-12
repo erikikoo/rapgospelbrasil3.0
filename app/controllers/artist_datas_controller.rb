@@ -5,9 +5,11 @@ class ArtistDatasController < ApplicationController
   # GET /artist_datas
   # GET /artist_datas.json
   def index
+     ip = request.remote_ip
+
      @artist_data = ArtistData.includes(:likes).where(aprovado: true, bloqueado: false)
-     @teste = Like.group(:artist_data_id).count
-     @exist_likes = Like.select('curtido, unlike, artist_data_id')
+     @count_per_ip = Like.where(ip: ip).group(:artist_data_id).count     
+     @exist_likes = Like.select('curtido, unlike, artist_data_id, ip').where(ip: ip)
 
 
 
@@ -16,10 +18,11 @@ class ArtistDatasController < ApplicationController
   # GET /artist_datas/1
   # GET /artist_datas/1.json
   def show
+    ip = request.remote_ip
     @artist_data = ArtistData.includes(:link_sound_cloud, :likes).find(params[:id])    
     @counter_likes = Like.where(artist_data_id: params[:id], curtido: true).group(:artist_data_id).count
-    @teste = Like.group(:artist_data_id).count
-    @exist_likes = Like.select('curtido, unlike, artist_data_id')
+    @count_per_ip = Like.where(ip: ip).group(:artist_data_id).count     
+    @exist_likes = Like.select('curtido, unlike, artist_data_id, ip')
   end
 
   # GET /artist_datas/new

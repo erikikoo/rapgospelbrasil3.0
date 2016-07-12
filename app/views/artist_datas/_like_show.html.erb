@@ -1,9 +1,9 @@
-<% if @counter_like == 0 %>	
+<% if @counter_likes == 0 %>	
 	<%= raw("<span class='qnt-like-pag-show-sem-like'>")  %>
 	<strong>Nunhum</strong> <br/ > Salve	
-<% elsif @counter_like > 0 %>
+<% elsif @counter_likes > 0 %>
 	<%= raw("<span class='qnt-like-pag-show'>")  %>	
-	<%= @counter_like >= 2 ? raw("<strong>#{@counter_like} <br/></strong> Salves") : raw("<strong>#{@counter_like}</strong><br />Salve") %>	
+	<%= @counter_likes >= 2 ? raw("<strong>#{@counter_likes} <br/></strong> Salves") : raw("<strong>#{@counter_likes}</strong><br />Salve") %>	
 <% end %>
 	</span>
 

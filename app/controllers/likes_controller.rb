@@ -28,25 +28,27 @@ class LikesController < ApplicationController
   # PATCH/PUT /likes/1
   # PATCH/PUT /likes/1.json
   def update
-    
-    @like = Like.find_by(artist_data_id: params[:id]) 
+    ip = request.remote_ip
+    @like = Like.find_by(artist_data_id: params[:id], ip: ip) 
     @artist_data = ArtistData.includes(:link_sound_cloud, :likes).find(params[:id])    
     @status = params[:status] if params[:status].present?
     @target = params[:target] 
 
-    #@counter_like = Like.where(artist_data_id: params[:id], curtido: true).count                      
+    @counter_like = Like.where(artist_data_id: params[:id], curtido: true).count                      
     respond_to do |format|
       if @status.nil?
           @gostei = false
           @like.update_attributes({curtido: false, unlike: true})                  
           #if @target == 'show'
           #end
-          @counter_like = Like.where(artist_data_id: params[:id], curtido: true).count
+          @counter_likes = Like.where(artist_data_id: params[:id], curtido: true).count
+          
             format.js {render "artist_datas/like"  }          
       else          
         @gostei = true
         @like.update_attributes({curtido: true, unlike: false})        
-        @counter_like = Like.where(artist_data_id: params[:id], curtido: true).count
+        @counter_likes = Like.where(artist_data_id: params[:id], curtido: true).count
+        
         format.js {render "artist_datas/like" }        
       end
     end
