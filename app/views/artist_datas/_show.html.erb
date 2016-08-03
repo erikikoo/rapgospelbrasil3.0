@@ -24,7 +24,7 @@
 					<% if @artist_data.logo.present? %>
 						<%= image_tag(@artist_data.logo.url(:perfil), class: 'posicionamento  img-thumbnail', id: 'artista-profile') %>	
 					<% else %>
-						<%= cl_image_tag("profile_qdwk96.jpg", width: '495' ,height: '385',class: 'posicionamento perfil-display', id: 'artista-profile') %>
+						<%= cl_image_tag("body-img/user_empty_img/profile_qdwk96.jpg", width: '495' ,height: '385',class: 'posicionamento perfil-display', id: 'artista-profile') %>
 					<% end %>
 
 					<div class="contato">

@@ -16,7 +16,7 @@ body {
 .left {
 	position: relative;
 	width:325px;	
-	height: 290px; 
+	height: 290px; 	
 	margin-top: -15px;
 	left: -10px;
 }
@@ -247,7 +247,7 @@ body {
 }
 
 
-.body {	
+.body1 {	
 	height: auto;
 	margin-bottom: 70px;
 }

@@ -14,7 +14,7 @@ class AdminController < ApplicationController
 
   before_action :authenticate_artist!
 
-
+  
 
   def index  	
     @users = Artist.where(admin: false)

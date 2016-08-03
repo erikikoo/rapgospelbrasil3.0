@@ -5,12 +5,9 @@ class ArtistDatasController < ApplicationController
   # GET /artist_datas
   # GET /artist_datas.json
   def index
-     
-
      #ransack
      @q = ArtistData.where(aprovado: true, bloqueado: false).ransack(params[:q])
      @artist_data = @q.result
-
   end
 
   # GET /artist_datas/1
