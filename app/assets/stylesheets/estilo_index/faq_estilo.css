@@ -1,0 +1,48 @@
+.menu_faq {
+	position: relative;
+	float: left; 
+	min-height: 300px;
+	width: 20%;
+	border-right: 3px solid #8E0000;	
+}
+
+.menu_faq ul {
+	position: relative;
+	top: 30px;
+	list-style: none;
+	text-align: center;
+	
+}
+
+.menu_faq ul li {			
+	height: 30px;
+	font-size: 1.4rem;
+}
+
+.menu_faq a {
+	position: relative;
+	top: 5px;
+}
+
+
+.menu_faq ul li:hover {	
+	color: #fff;
+	background-color: #8E0000;
+}
+
+
+
+.container h3 {
+	border-top: 2px solid #ccc;
+	border-bottom: 2px solid #ccc;
+	padding: 10px 0;
+	margin: 10px 0 20px;	
+}
+
+.content_faq {
+	position: relative;
+	float: left;
+	min-height: 300px;
+	width: 78%;
+	margin-left: 10px;	
+} 
