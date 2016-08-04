@@ -34,18 +34,27 @@ footer {
 	display: inline-block;
 }
 
+.menu-mapa-do-site ul:first-child, .menu-mapa-do-site ul:last-child  {
+	position: relative;
+	top: -23px;
+}
+
+.menu-mapa-do-site ul:last-child  {
+	position: relative;
+	top: -48px;
+}
 
 .menu-mapa-do-site ul > li {		
 	position:relative;	
 	left: 20px;
 }
 
-.menu-mapa-do-site ul:nth-child(even) {		
+.m1enu-mapa-do-site ul:nth-child(even) {		
 	position:relative;
 	top: 0px;
 }
 		
-.menu-mapa-do-site li, .menu-mapa-do-site a:link, .menu-mapa-do-site a:visited,   {
+.menu-mapa-do-site li, .menu-mapa-do-site a:link, .menu-mapa-do-site a:visited   {
 	list-style: none;
 	color: #fff;
 	padding: 3px 0;
