@@ -247,8 +247,8 @@ body {
 }
 
 
-.body1 {	
-	height: auto;
+.body {	
+	min-height: 300px;
 	margin-bottom: 70px;
 }
 
