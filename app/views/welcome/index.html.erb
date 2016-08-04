@@ -9,25 +9,26 @@
 		</div>		
 	</header>
 	<!-- Corpo Principal -->
-	<div class="body">
-		<div class="painel-principal">
-			<div class="container">
-				<div class="banner-pri">
-					<%= render "welcome/partial_index/banner" %>
-				</div>
+	<section>
+		<div class="body">
+			<div class="painel-principal">
+				<div class="container">
+					<div class="banner-pri">
+						<%= render "welcome/partial_index/banner" %>
+					</div>
 
-				<div class="ultimos-artistas">
-					<%= render "welcome/partial_index/ultimos_artistas" %>
-				</div>			
+					<div class="ultimos-artistas">
+						<%= render "welcome/partial_index/ultimos_artistas" %>
+					</div>			
+				</div>
+			</div>
+			<div class="corpo">
+				<div class="container">
+					<%= render partial: 'welcome/partial_index/corpo' %>	
+				</div>
 			</div>
 		</div>
-		<div class="corpo">
-			<div class="container">
-				<%= render partial: 'welcome/partial_index/corpo' %>	
-			</div>
-		</div>
-	</div>
-	
+	</section>
 	<footer>
 		<div class="rodape">
 			<%= render partial: 'welcome/partial_index/rodape' %>

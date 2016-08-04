@@ -1,5 +1,3 @@
-
-
 <% if @gostei == true %>	
 	<%= link_to(cl_image_tag("body-img/BotSalvado_zovmze.png"), "/unlike/#{@artist_data.id}", remote: true) %>
 <% elsif  @gostei == false %>		

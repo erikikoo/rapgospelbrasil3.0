@@ -71,7 +71,7 @@
 								</span>
 
 				            <%= raw("<div class=painel-like-pag-show>") %>
-				                 <% if @exist_likes.nil? %>
+				                 <% if @exist_likes.nil? || @exist_likes.empty? %>
 				                    <%= link_to(cl_image_tag("body-img/BotSalve_jagsoj.png"), "/like/#{@artist_data.id}/show", remote: true) %>
 				                 <% else %>
 				                   <% @exist_likes.each do |like| %>          

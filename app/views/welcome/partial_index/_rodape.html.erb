@@ -1,11 +1,10 @@
 <div class="mapa-do-site">
 	<span class="menu-mapa-do-site">		
 		<ul>
-			<li>Companhia</li>
+			<li>O Portal</li>
 			<li><%= link_to 'Quem Somos','/quem_somos', remote: true%></li>			
 			<li><%= link_to 'Termo de uso','termo_de_uso/index',remote: true%></li>
-			<li><%= link_to 'Politica de privacidade','politica',remote: true%></li>			
-			<li><%= link_to 'Dúvidas ou sugestões','#',remote: true%></li>			
+			<li><%= link_to 'Politica de privacidade','politica',remote: true%></li>						
 		</ul>
 
 		<ul>
@@ -21,14 +20,12 @@
 			<li><%= link_to 'Acessar conta',new_artist_session_path %></li>
 			<li><%= link_to 'Criar conta',new_artist_registration_path%></li>			
 			<li><%= link_to 'Dicas de uso','#', remote: true%></li>
-			<li><%= link_to 'Perguntas frequentes','#', remote: true%></li>
+			<li><%= link_to 'Perguntas frequentes','/faq', remote: true%></li>
 		</ul>
 
 		<ul>
 			<li>Contato</li>
-			<li><%= link_to 'Contato','/contato' , remote: true%></li>
-			<li><%= link_to 'Seja um parceiro','#', remote: true %></li>
-			<li><%= link_to 'Anuncie','#', remote: true %></li>
+			<li><%= link_to 'Contato','/contato' , remote: true%></li>			
 			<li><%= link_to 'Envie sua notícia','#', remote: true %></li>
 		</ul>
 	</span>

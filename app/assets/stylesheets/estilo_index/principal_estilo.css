@@ -4,6 +4,10 @@ textarea {
 	height: 100px;
 }
 
+.link a:active,.link a:hover,.link a:visited {
+	color: #fff;
+}
+
 a:active, a:hover, a:visited, a:link {
 	text-decoration: none;	
 }

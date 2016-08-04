@@ -43,12 +43,16 @@ class WelcomeController < ApplicationController
   end
 
   def termo_de_uso
-    @target = params[:target] if !params[:target].nil?
+    @target = params[:target] unless params[:target].nil?
     render 'welcome/pags_index/termo_de_uso'
   end  
 
   def politica
     render 'welcome/pags_index/politica_de_privacidade'
+  end
+
+  def faq
+    render 'welcome/pags_index/faq'
   end
   
 end
