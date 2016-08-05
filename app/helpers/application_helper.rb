@@ -40,6 +40,7 @@ module ApplicationHelper
     	
     	raw('<p><span class="alert alert-'+tipo+'" id="mensagem">'+msn+'</span></p>')    			
     end
+    
 
 	
 end

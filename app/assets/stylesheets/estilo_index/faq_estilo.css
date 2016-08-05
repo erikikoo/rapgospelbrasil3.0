@@ -1,5 +1,6 @@
 .menu_faq {
 	position: relative;
+	top: 50px;
 	float: left; 
 	min-height: 300px;
 	width: 20%;
@@ -10,33 +11,45 @@
 	position: relative;
 	top: 30px;
 	list-style: none;
-	text-align: center;
+	text-align: right;
 	
 }
 
 .menu_faq ul li {			
 	height: 30px;
-	font-size: 1.4rem;
+	font-size: 1.7rem;
+	color: #8E0000;
 }
 
-.menu_faq a {
+.menu_faq ul li a {
+	padding: 6px 15px;
+
+}			
+
+.btn_menu_faq, .btn_menu_faq a:hover, .btn_menu_faq a:active {	
 	position: relative;
-	top: 5px;
+	display: block;
+	width: 100%;
+	color: #8E0000;
+	height: 30px;			
 }
 
 
-.menu_faq ul li:hover {	
+.btn_menu_faq:hover, .btn_menu_faq:visited {	
 	color: #fff;
 	background-color: #8E0000;
 }
 
 
 
-.container h3 {
-	border-top: 2px solid #ccc;
-	border-bottom: 2px solid #ccc;
-	padding: 10px 0;
-	margin: 10px 0 20px;	
+
+.faq h3 {
+	position: relative;
+	width: 78%;
+	left: 40px;
+	color: #8E0000;	
+	top: 27px;
+
 }
 
 .content_faq {
@@ -44,5 +57,18 @@
 	float: left;
 	min-height: 300px;
 	width: 78%;
-	margin-left: 10px;	
+	left: 40px;	
+	top: 25px;	
 } 
+
+.faq_cadastro h4 {
+	color: #8E0000;
+}
+
+.faq_cadastro ul  { 
+	list-style: none;
+}
+.faq_cadastro ul > li {
+	width: 100%;
+	border-bottom: 1px dotted #ccc;
+}

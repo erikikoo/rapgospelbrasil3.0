@@ -54,5 +54,17 @@ class WelcomeController < ApplicationController
   def faq
     render 'welcome/pags_index/faq'
   end
+
+  def faq_integracao
+    render 'welcome/pags_index/faq_integracao'
+  end
+
+  def faq_cadastro
+    render 'welcome/pags_index/faq_cadastro'
+  end
+
+  def faq_anuncios
+    render 'welcome/pags_index/faq_anuncios'
+  end
   
 end

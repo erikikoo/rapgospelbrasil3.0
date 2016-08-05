@@ -43,6 +43,9 @@ Rails.application.routes.draw do
   get '/show_artista/:id'             => 'artist_datas#show'
   get '/search_artista'               => 'artist_datas#search_artista'
   get '/faq'                          => 'welcome#faq'
+  get '/faq_integracao'               => 'welcome#faq_integracao'
+  get '/faq_cadastro'                 => 'welcome#faq_cadastro'
+  get '/faq_anuncios'                 => 'welcome#faq_anuncios'
   #pag contato 
   
 
