@@ -187,22 +187,19 @@ body {
 
 .midia-maior {
 	position: relative;
-	width: 490px;
+	width: 480px;
 	left: 10px;
 	height: auto;
 	top: 5px;
 	
 } 
 
-.midia-anuncio-menor {
-	
+.midia-anuncio-menor {	
 	position: relative;
 	width: 480px;
 	min-height: 145px;
 	top: -51px;
-	left: 510px;
-	background-color: #ccc;
-	
+	left: 500px;	
 }
 
 .search-artistas ul li {	
@@ -570,4 +567,9 @@ div[class^="painel-like-index"] {
 .artist-nao-completo-email {
 	position: relative;
 	top: 235px;
+}
+
+.pag-send-event {
+	position: relative;
+	margin-bottom: 160px;
 }

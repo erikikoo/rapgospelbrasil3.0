@@ -20,10 +20,7 @@ class WelcomeController < ApplicationController
   def noticia
   	@notices = Notice.order(created_at: :desc)
     render 'notices/index'
-  end
- 
-    
-  
+  end  
 
   def artista
     @artist_data = ArtistData.where(aprovado: true, bloqueado: false).includes(:likes)
@@ -66,5 +63,6 @@ class WelcomeController < ApplicationController
   def faq_anuncios
     render 'welcome/pags_index/faq_anuncios'
   end
+
   
 end

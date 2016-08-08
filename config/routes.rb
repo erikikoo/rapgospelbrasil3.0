@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :words
   resources :notices
   resources :contacts, only: [:new, :create]
+  resources :eventos, only: [:new, :create]
   
 
   mount Ckeditor::Engine => '/ckeditor'
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
 
   #pag show a artist
 
-  get '/showlike/:id/:target'                        => 'likes#create'
+  get '/showlike/:id/:target'                => 'likes#create'
   get '/like/:id/:status/:target'            => 'likes#update'
   get '/unlike/:id/:target'                  => 'likes#update'
 
@@ -34,7 +35,7 @@ Rails.application.routes.draw do
   get '/artistas'                     => 'artist_datas#index'
   get '/videos'                       => 'welcome#video'
   #get '/contato'                      => 'welcome#contato'
-  get '/quem_somos'                   => 'welcome#quem_somos'
+  get '/quem_somos'                   => 'welcome#quem_somos'  
   get 'termo_de_uso'                  => 'welcome#termo_de_uso'
   get 'politica'                      => 'welcome#politica'
   get 'termo_de_uso/:target'          => 'welcome#termo_de_uso'
@@ -137,8 +138,12 @@ Rails.application.routes.draw do
 
 
   post '/videos/:user' => 'videos#create'
+  
   get '/contato'       => 'contacts#new' 
-  post '/contato'      => 'contacts#create' 
+  #post '/contato'      => 'contacts#create' 
+
+  get '/envie_notice'                 => 'eventos#new'
+  #get '/envie_notice'                 => 'events#create'
 
    resources :discographys
    resources :phones
