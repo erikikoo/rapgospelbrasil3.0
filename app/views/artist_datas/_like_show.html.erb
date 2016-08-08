@@ -3,8 +3,7 @@
 		<%= raw("<span class='qnt-like-pag-show-sem-like'>")  %>
 		<strong>Nunhum</strong> <br/ > Salve	
 	<% elsif @counter_like > 0 %>
-		<%= raw("<span class='qnt-like-pag-show'>")  %>	
-		<strong><%= @counter_like %></strong>
+		<%= raw("<span class='qnt-like-pag-show'>")  %>			
 		<%= @counter_like >= 2 ? raw("<strong>#{@counter_likes} <br/></strong> Salves") : raw("<strong>#{@counter_likes}</strong><br />Salve") %>	
 	<% end %>
 <% end %>	
