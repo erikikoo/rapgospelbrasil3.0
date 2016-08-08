@@ -13,10 +13,12 @@ class EventosController < ApplicationController
 		if @event.deliver
 			@status = 'success'
 			@action = 'create'
+			@location = 'evento'
 			render 'welcome/pags_index/checkout'
 		else
 			@status = 'danger'
 			@action = 'create'
+			@location = 'evento'
 			respond_to do |format|
 				format.js {render '/welcome/pags_index/event'}
 			end

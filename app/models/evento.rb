@@ -7,8 +7,8 @@ class Evento < MailForm::Base
 	def headers
 		{
 			:subject => 'Contato do Portal RapGospelBrasil',
-			#:to 	 => 'portalrapgospelbrasil@gmail.com',
-			:to 	 => 'erikikoo@hotmail.com',
+			:to 	 => 'portalrapgospelbrasil@gmail.com',
+			#:to 	 => 'erikikoo@hotmail.com',
 			:from	 => %("#{nome}" <#{email}>)	
 		}
 	end

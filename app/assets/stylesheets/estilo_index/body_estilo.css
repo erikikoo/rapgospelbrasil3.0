@@ -573,3 +573,9 @@ div[class^="painel-like-index"] {
 	position: relative;
 	margin-bottom: 160px;
 }
+
+.checkout {
+	width:  600px;
+	height: auto;
+	margin: 200px auto;
+}

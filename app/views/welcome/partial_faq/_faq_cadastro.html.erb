@@ -1,25 +1,58 @@
-<div class="faq">
+<div class="faq faq_cadastro">
 	<h4><i class='glyphicon glyphicon-chevron-down'></i> Cadastro</h4>
 
 	<ul>
 		<li><i class='glyphicon glyphicon-chevron-right'></i>
-			<strong>Todos podem ter um cadastro no portal Rap Gospel Brasil</strong>
+			<strong>Todos podem ter um cadastro no portal?</strong>
 			<p>
-				Todo artista gospel voltado ao rap / hip hop pode ter um cadastro no portal.
+				Todo artista gospel voltado ao Rap pode ter um cadastro no portal.
 			</p>
 		</li>
 		<li><i class='glyphicon glyphicon-chevron-right'></i>
-			<strong>O cadastro é pago?</strong>
-			<p>	
-				Não é cobrado nenhum valor para os artistas cadastrados.	
+			<strong>O Cadastro é pago?</strong>
+			<p class="text-justify">	
+				Não é cobrado nenhum valor para os artistas que se cadastrarem no portal	
 			</p>	
 		</li>
 		<li><i class='glyphicon glyphicon-chevron-right'></i>
-			<strong>Porque deve me cadastrar?</strong>
-			<p>
-				O portal Rap Gospel Brasil é uma excelente platagor de divulgação do seu trabalho e ministério e totalmente gratuito.
+			<strong>Porque devo me cadastrar?</strong>
+			<p class="text-justify">
+				O Portal <strong>Rap Gospel Brasil</strong> é uma excelente plataforma d divulgalção do seu ministério, banda ou grupo. Totalmente grátis!
 			</p>
 		</li>
+		<li><i class='glyphicon glyphicon-chevron-right'></i>
+			<strong>Como me cadastrar?</strong>
+			<p class="text-justify">
+				Basta clicar no botão no topo da página inicial do portal com o título “Novo Artista” e preencher os campos, ou clique no link abaixo:
+
+				<%= link_to 'http://www.rapgospelbrasil.com.br/artists/sign_up', new_artist_registration_path %>
+			</p>
+		</li>
+		<li><i class='glyphicon glyphicon-chevron-right'></i>
+			<strong>Estou com dificuldades para preencher as informações no meu perfil.</strong>
+			<p class="text-justify">
+				Para facilitar ainda mais seu acesso na sua área de artista criamos uma pagina com <%= link_to "Dicas de uso", "#" %> com um passo-a-passo muito simples que com certeza irá auxilia-lo.	
+			</p>
+		</li>
+
+		<li><i class='glyphicon glyphicon-chevron-right'></i>
+			<strong>Realizei meu cadastro porém meu login não aparece na página de artistas do portal por que?</strong>
+			<p class="text-justify">
+				O portal <strong>Rap Gospel Brasil </strong> é um portal voltado totalmente ao Rap Gospel, portanto não podemos permitir que conteúdo impróprio seja divulgado no portal, então para tentarmos diminuir essa possibilidade todo cadastro é analizado cuidadosamente por nossa equipe para tentarmos minimizar ao máximo esse contéudo.	
+			</p>
+		</li>	
+		<li><i class='glyphicon glyphicon-chevron-right'></i>
+			<strong>Quanto tempo irá demorar para liberarem meu login e assim estar disponível no portal?</strong>
+			<p class="text-justify">
+				Nossa equipe se dedica ao máximo para tentar liberar os artistas o mais breve possivel, mas o portal <strong>Rap Gospel Brasil</strong> estima um prazo de 5 dias para liberar o acesso na pagina do portal.	
+			</p>
+		</li>
+		<li><i class='glyphicon glyphicon-chevron-right'></i>
+			<strong>Sei que meu cadastro não está liberado, mais posso ir acessando ele para alimentar com minhas informações?</strong>
+			<p class="text-justify">
+				Sim, o seu login de acesso é liberado para poder ir alimentando suas informações em sua pagina de artista.	
+			</p>
+		</li>		
 	</ul>
 
 </div>
@@ -39,5 +72,25 @@
  	$('.faq ul li > strong:eq(2)').click(function() {    	
     	$('p:eq(2)').toggle(100);		  
 		$('ul li i:eq(2)').toggleClass('rotate'); 
+ 	});
+ 	$('.faq ul li > strong:eq(3)').click(function() {    	
+    	$('p:eq(3)').toggle(100);		  
+		$('ul li i:eq(3)').toggleClass('rotate'); 
+ 	});
+ 	$('.faq ul li > strong:eq(4)').click(function() {    	
+    	$('p:eq(4)').toggle(100);		  
+		$('ul li i:eq(4)').toggleClass('rotate'); 
+ 	});
+ 	$('.faq ul li > strong:eq(5)').click(function() {    	
+    	$('p:eq(5)').toggle(100);		  
+		$('ul li i:eq(5)').toggleClass('rotate'); 
+ 	});
+ 	$('.faq ul li > strong:eq(6)').click(function() {    	
+    	$('p:eq(6)').toggle(100);		  
+		$('ul li i:eq(6)').toggleClass('rotate'); 
+ 	});
+ 	$('.faq ul li > strong:eq(7)').click(function() {    	
+    	$('p:eq(7)').toggle(100);		  
+		$('ul li i:eq(7)').toggleClass('rotate'); 
  	});
 </script>

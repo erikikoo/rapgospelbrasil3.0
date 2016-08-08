@@ -3,11 +3,29 @@
 
 	<ul>
 		<li><i class='glyphicon glyphicon-chevron-right'></i>
-			<strong></strong>
+			<strong>Com quais mídias sociais o portal faz integração?</strong>
 			<p>
-				
+				Atualmente o portal está fazendo integração com o Facebook, Twitter, Youtube e Soundcloud, mais estamos trabalhando para implementar novas mídias.
 			</p>
 		</li>
+		<li><i class='glyphicon glyphicon-chevron-right'></i>
+			<strong>É importante curtir o conteúdo do portal nas mídias sociais?</strong>
+			<p>
+				Sim, por se tratar de um portal voltado ao Rap Gospel onde o objetivo é vidas, não estamos apenas curtindo e divulgando o portal, mais sim todos os artistas cadastrados e por consequência alcançando mais vidas.	
+			</p>
+		</li>
+		
 	</ul>
 
 </div>
+
+<script>
+	$('.faq ul li > strong:eq(0)').click(function() {
+		  $('p:eq(0)').toggle(100);		  
+		  $('ul li i:eq(0)').toggleClass('rotate'); 
+ 	});
+ 	$('.faq ul li > strong:eq(1)').click(function() {
+		  $('p:eq(1)').toggle(100);		  
+		  $('ul li i:eq(1)').toggleClass('rotate'); 
+ 	});
+</script>

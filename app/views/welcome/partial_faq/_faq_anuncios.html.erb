@@ -1,13 +1,29 @@
 <div class="faq_cadastro">
-	<h4><i class='glyphicon glyphicon-chevron-down'></i> Anúncios</h4>
+	<h4><i class='glyphicon glyphicon-chevron-down'></i> Anúncios e Parceiros</h4>
 
 	<ul>
 		<li><i class='glyphicon glyphicon-chevron-right'></i>
-			<strong></strong>
+			<strong>Como posso anunciar no portal?</strong>
 			<p>
-				
+				Solicite a tabela de preços através do email: portalrapgospelbrasil@gmail.com ou acesse nossa pagina de contato.
+			</p>
+		</li>
+		<li><i class='glyphicon glyphicon-chevron-right'></i>
+			<strong>Quero ser parceiro do portal.</strong>
+			<p>
+				O Portal Rap Gospel Brasil é uma iniciativa que demanda muito tempo e dinheiro para ser mantido, então toda ajuda é muito bem vinda. Nos envie um email e ajude o portal portalrapgospelbrasil@gmail.com
 			</p>
 		</li>
 	</ul>
 
 </div>
+<script>
+	$('.faq ul li > strong:eq(0)').click(function() {
+		  $('p:eq(0)').toggle(100);		  
+		  $('ul li i:eq(0)').toggleClass('rotate'); 
+ 	});
+ 	$('.faq ul li > strong:eq(1)').click(function() {
+		  $('p:eq(1)').toggle(100);		  
+		  $('ul li i:eq(1)').toggleClass('rotate'); 
+ 	});
+</script>

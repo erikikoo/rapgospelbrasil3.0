@@ -1,2 +1,5 @@
-
-$('.body').html('<%= escape_javascript (render partial: "welcome/pags_index/checkout_contato") %>'); 
+<% if @location == 'evento' %>
+	$('.body').html('<%= escape_javascript (render partial: "welcome/pags_index/checkout_event") %>'); 
+<% else %>
+	$('.body').html('<%= escape_javascript (render partial: "welcome/pags_index/checkout_contato") %>'); 
+<% end %>
