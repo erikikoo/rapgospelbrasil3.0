@@ -65,10 +65,24 @@
 	color: #8E0000;
 }
 
-.faq_cadastro ul  { 
+.faq ul  { 
 	list-style: none;
 }
-.faq_cadastro ul > li {
+.faq ul > li {
 	width: 100%;
 	border-bottom: 1px dotted #ccc;
+}
+
+.faq li > strong {
+	cursor: pointer;
+}
+
+.faq li > p {
+	display: none;
+}
+
+.rotate {
+	  -moz-transform: rotate(90deg);
+	  -webkit-transform: rotate(90deg);
+	  transform: rotate(90deg);
 }

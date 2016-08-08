@@ -19,7 +19,7 @@ class AdminController < ApplicationController
   def index  	
     @users = Artist.where(admin: false)
     @artist = ArtistData.where.not(artist_id: @adm.id)        
-    @aguardando_cadastro = ArtistData.where(nome: nil).where.not(artist_id: @adm.id)
+    @aguardando_cadastro = ArtistData.where(nome: nil).where.not(artist_id: @adm.id).includes(:artist)    
     @top5 = Top5.last 
 
     authorize @users

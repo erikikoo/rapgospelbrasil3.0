@@ -566,3 +566,8 @@ div[class^="painel-like-index"] {
 	list-style: none;
 	text-align: center;
 }
+
+.artist-nao-completo-email {
+	position: relative;
+	top: 235px;
+}

@@ -1,4 +1,4 @@
-<div class="faq_cadastro">
+<div class="faq">
 	<h4><i class='glyphicon glyphicon-chevron-down'></i> Cadastro</h4>
 
 	<ul>
@@ -23,3 +23,18 @@
 	</ul>
 
 </div>
+
+<script>
+	$('.faq ul li > strong:eq(0)').click(function() {    	
+    	$('p:eq(0)').toggle('fast');
+    	$('ul li i:eq(0)').toggleClass('rotate'); 
+ 	});
+ 	$('.faq ul li > strong:eq(1)').click(function() {    	
+    	$('p:eq(1)').toggle('fast'); 
+    	$('ul li i:eq(1)').toggleClass('rotate'); 
+ 	});
+ 	$('.faq ul li > strong:eq(2)').click(function() {    	
+    	$('p:eq(2)').toggle('fast'); 
+    	$('ul li i:eq(2)').toggleClass('rotate'); 
+ 	});
+</script>

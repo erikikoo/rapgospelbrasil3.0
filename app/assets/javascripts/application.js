@@ -37,6 +37,7 @@ $(document).ready(function($) {
 
   
   $('.menu-mapa-do-site ul li').click(function(){
+     
     altScroll(290)
   });
 
@@ -60,12 +61,7 @@ $(document).ready(function($) {
   
   $('.menu ul li, .btn-like').click(function() {    
     altScroll(290);
-  });
-
-
-  //scroll infinite
-
-    
+  });  
 
   // add botão top
   $(window).scroll(function(){

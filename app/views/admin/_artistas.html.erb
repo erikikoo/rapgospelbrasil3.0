@@ -18,7 +18,10 @@
 		      <% if artist.nome.nil? %>
 				<span class="text-danger artista-nao-aprovado">
 					<h5>Incompleto há <%= "#{get_day(artist.updated_at)} dias"  %> </h5>
-				</span>                       
+				</span>
+				<span class="text-info artist-nao-completo-email">
+					<%= artist.artist.email %>
+				</span>	                       
 		      <% end %>      
 			  
 			  <% if artist.logo.present? %>			  		
