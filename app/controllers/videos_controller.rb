@@ -2,7 +2,7 @@ class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
   #before_action :get_videos, only: [:index, :destroy]
   #before_action :get_artist_current
- 
+  require File.expand_path('lib/class/teste.rb')
   # GET /videos
   # GET /videos.json
   def index   
@@ -40,9 +40,10 @@ class VideosController < ApplicationController
   # POST /videos.json
   def create
     @video = Video.new(video_params)
-    @profile = params[:user]
-    video = @video.link.split('/watch?v=')
-    #video = Video.new(@video.link)
+    @profile = params[:user]    
+    #teste = @video.link
+    
+    video = Teste.new(@video.link)
     
     if @profile == 'admin'
       @video.artist_id = current_artist.id
@@ -50,7 +51,8 @@ class VideosController < ApplicationController
       @video.artist_data_id = current_artist.id
     end  
       respond_to do |format|
-        if video[0].length == 23 and video[0] == 'https://www.youtube.com' and video.length <= 60
+        if video.valido?
+        #if video[0].length == 23 and video[0] == 'https://www.youtube.com' and video.length <= 60
             if @video.save
               @status = 'success'
               @action = 'create'
