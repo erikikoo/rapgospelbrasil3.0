@@ -3,8 +3,9 @@
 	<div class="imagem-noticia">
 		<% if @video_adm.nil?  %>
 			<h5>Não existem video cadastrado!!</h5>
-		<% else %>			
-			<%= add_video(@video_adm.link.to_s,'index') %>				
+		<% else %>						
+			<%= add_video(@video_adm.link,'index') %>
+			
 			<div class="link_videos">
 				<%= link_to "Mais Vídeos", '/videos' , remote: true, class: 'btn-default-index' %>
 			</div>
