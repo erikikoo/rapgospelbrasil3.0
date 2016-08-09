@@ -1,5 +1,5 @@
 class Video < ActiveRecord::Base  
-  belongs_to :movies, :polymorphic => true
+  belongs_to :artist_data
 
   validates :link, presence: true
 end
