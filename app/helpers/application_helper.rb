@@ -20,7 +20,7 @@ module ApplicationHelper
 		(((Time.now - date)/3600)/24).to_i
 	end
 	
-	def add_video(video, local)		
+	def add_video(video, local)	
 		
 		video_desc = video.split('/watch?v=')		
 		video = video_desc[0] + '/embed/' + video_desc[1]
