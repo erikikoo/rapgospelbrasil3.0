@@ -40,14 +40,16 @@ class VideosController < ApplicationController
   # POST /videos.json
   def create
     @video = Video.new(video_params)
-    @profile = params[:user]   
+    @profile = params[:user]
+    video = @video.link.split('/watch?v=')
+
     if @profile == 'admin'
       @video.artist_id = current_artist.id
     else 
       @video.artist_data_id = current_artist.id
     end  
       respond_to do |format|
-        if @video.link.length <= 60          
+        if video[0].length <= 23 and @video.link.length <= 60          
             if @video.save
               @status = 'success'
               @action = 'create'
@@ -60,8 +62,7 @@ class VideosController < ApplicationController
                 @teste = '/adm'
                 format.js {render :show, location: @profile }
               end            
-            end
-          
+            end          
         else 
           if @profile == 'admin'
             @user = "/"+@profile

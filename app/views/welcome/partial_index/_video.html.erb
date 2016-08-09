@@ -1,7 +1,7 @@
 <div class="right">	
 	<span class="text-ultima">&Uacute;LTIMO </span> <span class="titulo-noticia">VÍDEO</span>	
 	<div class="imagem-noticia">
-		<% if @video_adm.nil?  %>
+		<% if @video_adm.nil? and %>
 			<h5>Não existem video cadastrado!!</h5>
 		<% else %>						
 			<%= add_video(@video_adm.link,'index') unless add_video(@video_adm.link,'index').nil?  %>
