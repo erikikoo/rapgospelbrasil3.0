@@ -43,7 +43,7 @@
         <% if current_artist.admin? and current_artist.email == 'kleber@rapgospelbrasil.com.br' %>        
           <%= cl_image_tag("eokjfzntpwhouygckco4.jpg", :width=>60, :height=>68, :gravity=>"face", :radius=>"max", :crop=>"thumb", :background=>'#404040') %>
         <% elsif @artist_data.nil? || !@artist_data.logo.present? %>
-          <%= cl_image_tag("ImagemArtistaSemFoto_hx6d8o.png", :width=>60, :height=>68, :gravity=>"face", :radius=>"max", :crop=>"thumb", :background=>'#404040') %>
+          <%= cl_image_tag("body-img/user_empty_img/ImagemArtistaSemFoto.png", :width=>60, :height=>68, :gravity=>"face", :radius=>"max", :crop=>"thumb", :background=>'#404040') %>
         <% elsif @artist_data.logo.present? %>
           <%= cl_image_tag(@artist_data.logo, :width=>60, :height=>68, :gravity=>"face", :radius=>"max", :crop=>"thumb", :background=>'#404040') %>  
         <% end %>

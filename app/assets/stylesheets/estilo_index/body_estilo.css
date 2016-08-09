@@ -76,11 +76,9 @@ body {
 
 .anuncio-maior {
 	position: absolute;
-	width: 650px;
-	left: 10px;
+	width: 650px;	
 	height: 90px;
-	top: 5px;
-	background-color: #ddd;
+	top: 5px;	
 	padding-left: 10px;	
 } 
 
@@ -89,8 +87,8 @@ body {
 	width: 292px;
 	height: 90px;
 	top: 5px;
-	left: 660px;
-	background-color: #ddd;
+	left: 623px;
+	
 	
 } 
 
@@ -584,3 +582,4 @@ div[class^="painel-like-index"] {
 	position: relative;
 	left: 15px;
 }
+
