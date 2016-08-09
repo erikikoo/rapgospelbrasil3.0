@@ -3,8 +3,8 @@
 
   <div class="form-inputs">
     
-    <%= f.input :facebook, autofocus: true %>
-    <%= f.input :twitter %>
+    <%= f.input :facebook,  placeholder: 'https://www.facebook.com/seu-perfil', autofocus: true %>
+    <%= f.input :twitter, placeholder: 'https://www.twitter.com/seu-perfil' %>
     <!--<%= f.input :instagram %>
     <%= f.input :googleplus %>
     <%= f.input :linkedid %>-->
@@ -14,3 +14,30 @@
     <%= f.button :submit, 'Inserir' %>
   </div>
 <% end %>
+
+<script>
+  $('#rede_social_facebook').focus(function(){
+    if ($(this).val() == '') {
+      $(this).val('https://www.facebook.com/');                
+    }
+  });
+  $('#rede_social_facebook').blur(function(){    
+    if ($(this).val() == 'https://www.facebook.com/') {
+      $(this).val('');          
+      return false;
+    }
+  });
+  
+  $('#rede_social_twitter').focus(function(){
+    if ($(this).val() == '') {
+      $(this).val('https://www.twitter.com/');          
+    }
+  });
+  $('#rede_social_twitter').blur(function(){
+    
+    if ($(this).val() == 'https://www.twitter.com/') {
+      $(this).val('');          
+      return false;
+    }
+  });
+</script>

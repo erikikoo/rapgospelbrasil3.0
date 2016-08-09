@@ -29,7 +29,7 @@ class WelcomeController < ApplicationController
   end
 
   def video
-    @videos = Video.where.not(artist_id: nil).select('link')
+    @videos = Video.where.not(artist_id: nil).select('link').order(created_at: :desc)
     render 'videos/index'
   end
   

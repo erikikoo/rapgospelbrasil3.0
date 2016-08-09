@@ -1,6 +1,6 @@
 
 <p>
-  <% if @profile == "adm" %>
+  <% if @profile == "adm" and @exist_rede_social_cad.empty? %>
     <%= link_to 'Adicionar Rede social', "/novo_rede_social/", remote: true, :class => 'btn btn-default'  %>
   <% end %>
 </p>
@@ -21,12 +21,11 @@
       <% end %>     
        
   </div>  
-        <% if @profile == "adm" %>          
-              <%= link_to 'Editar', "/edit_rede_social/#{@artist_data.rede_social.id}/adm", remote: true, class: 'btn btn-default'%>
-              <%= link_to 'Excluir', "/remove_rede_social/#{@artist_data.rede_social.id}/adm", method: :delete, :remote => true ,data: { confirm: 'Deseja excluir este link?' } , class: 'btn btn-danger'%>
-        <% end %>
+  <% if @profile == "adm" %>          
+      <%= link_to 'Editar', "/edit_rede_social/#{@artist_data.rede_social.id}/adm", remote: true, class: 'btn btn-default'%>
+      <%= link_to 'Excluir', "/remove_rede_social/#{@artist_data.rede_social.id}/adm", method: :delete, :remote => true ,data: { confirm: 'Deseja excluir este link?' } , class: 'btn btn-danger'%>
+  <% end %>      
       
-      <%= @rede %>
       </p>
     
 <% end %>

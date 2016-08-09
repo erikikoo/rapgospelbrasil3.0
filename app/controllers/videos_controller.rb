@@ -42,14 +42,15 @@ class VideosController < ApplicationController
     @video = Video.new(video_params)
     @profile = params[:user]
     video = @video.link.split('/watch?v=')
-
+    #video = Video.new(@video.link)
+    
     if @profile == 'admin'
       @video.artist_id = current_artist.id
     else 
       @video.artist_data_id = current_artist.id
     end  
       respond_to do |format|
-        if video[0].length <= 23 and @video.link.length <= 60          
+        if video[0].length == 23 and video[0] == 'https://www.youtube.com' and video.length <= 60
             if @video.save
               @status = 'success'
               @action = 'create'

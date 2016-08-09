@@ -579,3 +579,8 @@ div[class^="painel-like-index"] {
 	height: auto;
 	margin: 200px auto;
 }
+
+.artist-mais-like-index {
+	position: relative;
+	left: 15px;
+}

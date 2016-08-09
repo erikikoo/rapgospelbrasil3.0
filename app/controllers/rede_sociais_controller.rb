@@ -5,7 +5,8 @@ class RedeSociaisController < ApplicationController
   # GET /rede_sociais
   # GET /rede_sociais.json
   def index
-    
+    @exist_rede_social_cad = RedeSocial.where(artist_data_id: @artist_data.id)
+    #RedeSocial.where(artist_data_id: 5)
   end
 
   # GET /rede_sociais/1

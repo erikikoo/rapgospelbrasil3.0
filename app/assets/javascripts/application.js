@@ -83,11 +83,7 @@ $(document).ready(function($) {
    $('.btn-topo').click(function(){     
     $('html body').animate({scrollTop: 0}, 800);
     return false;
-  });
-
-
-    
-
+  });  
 
 // masrcara para o form phone
   var SPMaskBehavior = function (val) {
@@ -103,7 +99,7 @@ $(document).ready(function($) {
   $('#artist_data_phones_attributes_0_telefone').mask(SPMaskBehavior, spOptions);
   $('#commitment_telefone').mask(SPMaskBehavior, spOptions);
   
-
+  
   
 });
 

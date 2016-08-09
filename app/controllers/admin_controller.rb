@@ -50,7 +50,7 @@ class AdminController < ApplicationController
           @artists = ArtistData.where.not(aprovado: true, nome: nil)
           @option = "aguardando aprovação"
         elsif @query == 'i'
-          @artists = ArtistData.where(nome: nil).where.not(artist_id: @adm.id)     
+          @artists = ArtistData.where(nome: nil).where.not(artist_id: @adm.id).order(created_at: :desc)    
           @option = "com cadastro incompleto" 
       end
     @profile = 'admin'
