@@ -23,7 +23,7 @@ module ApplicationHelper
 	def add_video(video, local)	
 		
 		video_desc = video.split('/watch?v=')		
-		video = video_desc[0] + '/embed/' + video_desc[1]
+		video = video_desc[0] + '/embed/' + video_desc[1] unless video_desc.nil?
 		if local == 'index' 
 		   	raw("<iframe width='330' height='225' src='#{video}' frameborder='0' allowfullscreen ></iframe>")      	    	    
 		elsif local == 'show_video'
@@ -31,6 +31,7 @@ module ApplicationHelper
 		end				
     end
 
+    
     def first_name(name)
     	name_frac = name.split(' ')
     	name_frac[0]
