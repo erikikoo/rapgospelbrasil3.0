@@ -6,7 +6,7 @@ class WelcomeController < ApplicationController
     counter_likes = Like.where(curtido: true).group(:artist_data_id).count    
     @likes = counter_likes.sort_by{|k,v|v}.reverse.to_h    
     @artistas = ArtistData.where(aprovado: true, bloqueado: false).order(created_at: :desc).limit(5)   
-    @video = Video.where('artist_id = ? OR artist_id = ?', 1, 2).last     
+    @video_adm = Video.where.not('artist_id = ?', :nil).last        
   end
  
   def red_index
@@ -29,7 +29,7 @@ class WelcomeController < ApplicationController
   end
 
   def video
-    @videos = Video.where('artist_id = ? OR artist_id = ?', 1, 2)
+    @videos = Video.where.not('artist_id = ?', :nil)
     render 'videos/index'
   end
   
