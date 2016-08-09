@@ -21,10 +21,7 @@ module ApplicationHelper
 	end
 	
 	def add_video(video, local)			
-		video_desc = video.split('/watch?v=')		
-		if video_desc.length > 23
-			video_desc = video.split('/channel')
-		end
+		video_desc = video.split('/watch?v=')
 		video = video_desc[0] + '/embed/' + video_desc[1] unless video_desc.nil?
 		if local == 'index' 
 		   	raw("<iframe width='330' height='225' src='#{video}' frameborder='0' allowfullscreen ></iframe>")      	    	    
