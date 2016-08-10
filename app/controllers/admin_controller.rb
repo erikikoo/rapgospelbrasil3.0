@@ -38,21 +38,22 @@ class AdminController < ApplicationController
     if @query.nil?
       @query = params[:filtro][:option]          
     end
-    if @query == 't'
-          @artists = ArtistData.where.not(artist_id: @adm.id) 
-        elsif @query == 'a'
-          @option = "aprovado"
-          @artists = ArtistData.where(aprovado: true, bloqueado: false)
-        elsif @query == 'b'
-          @artists = ArtistData.where(bloqueado: true)        
-          @option = "bloqueado"
-        elsif @query == 'ap'
-          @artists = ArtistData.where.not(aprovado: true, nome: nil)
-          @option = "aguardando aprovação"
-        elsif @query == 'i'
-          @artists = ArtistData.where(nome: nil).where.not(artist_id: @adm.id).order(created_at: :desc)    
-          @option = "com cadastro incompleto" 
-      end
+    case @query    
+      when 't'
+        @artists = ArtistData.where.not(artist_id: @adm.id) 
+      when 'a'
+        @option = "aprovado"
+        @artists = ArtistData.where(aprovado: true, bloqueado: false)
+      when 'b'
+        @artists = ArtistData.where(bloqueado: true)        
+        @option = "bloqueado"
+      when 'ap'
+        @artists = ArtistData.where.not(aprovado: true, nome: nil)
+        @option = "aguardando aprovação"
+      when 'i'
+         @artists = ArtistData.where(nome: nil).where.not(artist_id: @adm.id).order(created_at: :desc)    
+         @option = "com cadastro incompleto" 
+    end    
     @profile = 'admin'
     respond_to do |format|    
       format.js
@@ -87,7 +88,7 @@ class AdminController < ApplicationController
 
 
   def videos    
-    @videos = Video.where("artist_id = ? OR artist_id = ?" ,1,2)
+    @videos = Video.where.not(artist_id: nil).select('link')
     @teste = "/admin"
   end
 

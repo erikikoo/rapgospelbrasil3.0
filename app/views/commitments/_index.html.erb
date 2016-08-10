@@ -13,12 +13,12 @@
 
 <% if @profile == "adm" %>
   <p>
-    <%= link_to 'Adicionar Show', '/novo_agenda', remote: true, :class => 'btn btn-default'  %>
+    <%= link_to 'Adicionar Show/Evento', '/novo_agenda', remote: true, :class => 'btn btn-default'  %>
   </p>
 <% end %>
 
 <% if @artist_data.commitments.empty? %>
-  <h5>Não possui agenda cadastrado </h5>
+  <h5>Não possui show e/ou evento cadastrado </h5>
 <% else %>
   
     <% @artist_data.commitments.each do |agenda| %>     

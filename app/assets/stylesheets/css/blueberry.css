@@ -53,15 +53,15 @@
 }
 .blueberry .pager li a {
 	padding: 18px 8px;
-	-o-border-radius: 6px;
-	-webkit-border-radius: 6px;
-   -moz-border-radius: 6px;
-	border-radius: 6px;
 }
 .blueberry .pager li a span {
 	overflow: hidden;
 	background: #8E0000;
 	text-indent: -9999px;
+	-o-border-radius: 50%;
+	-webkit-border-radius: 50%;
+   -moz-border-radius: 50%;
+	border-radius: 50%;
 
 }
 .blueberry .pager li.active a span { background: #F9F9F9; }
@@ -69,3 +69,7 @@
 .pager li > a, .pager li > span {
 	border: none;
 } 
+
+.blueberry .slides li:last-child {
+	top: -10px;
+}
