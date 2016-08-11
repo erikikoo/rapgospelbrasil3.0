@@ -24,7 +24,9 @@
 				
 			<% if @profile == "adm" %>
 				<%= link_to "Editar","/edit_telefone/#{tel.id}/adm", :class => "btn btn-default", :remote => true %>
-	        	<%= link_to 'Excluir', "/remove_telefone/#{tel.id}/adm", method: :delete, :remote => true ,data: { confirm: 'Deseja excluir este e-mail?' } , class: 'btn btn-danger'%>
+	        	<% if @phones_count > 1%>
+	        		<%= link_to 'Excluir', "/remove_telefone/#{tel.id}/adm", method: :delete, :remote => true ,data: { confirm: 'Deseja excluir este e-mail?' } , class: 'btn btn-danger'%>
+	        	<% end %>	
 			<% end %>
 		</div>			
 	<% end %>		

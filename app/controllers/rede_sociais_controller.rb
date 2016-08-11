@@ -5,7 +5,8 @@ class RedeSociaisController < ApplicationController
   # GET /rede_sociais
   # GET /rede_sociais.json
   def index
-    @exist_rede_social_cad = RedeSocial.where(artist_data_id: @artist_data.id)
+    exist_redesocial_to_user
+    
     #RedeSocial.where(artist_data_id: 5)
   end
 
@@ -34,6 +35,7 @@ class RedeSociaisController < ApplicationController
     
     respond_to do |format|
       if @rede_social.save
+        exist_redesocial_to_user
         format.js {render :index}
       else
         format.html { render :new }        
@@ -47,6 +49,7 @@ class RedeSociaisController < ApplicationController
     respond_to do |format|
       @profile = 'adm'
       if @rede_social.update(rede_social_params)
+        exist_redesocial_to_user
         format.js { render :index}        
       else
         format.js { render :edit }        
@@ -59,6 +62,7 @@ class RedeSociaisController < ApplicationController
   def destroy
     profile = 'adm'
     @rede_social.destroy
+    exist_redesocial_to_user
     respond_to do |format|
       format.js { render :index }
     end
@@ -66,7 +70,7 @@ class RedeSociaisController < ApplicationController
 
   private
     def get_artist_current
-      @artist_data = ArtistData.find_by('artist_id = ?', current_artist.id)
+      @artist_data = ArtistData.find_by(artist_id: current_artist.id)
     end
 
     def get_profile
@@ -78,6 +82,10 @@ class RedeSociaisController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_rede_social
       @rede_social = RedeSocial.find(params[:id])
+    end
+
+    def exist_redesocial_to_user
+       @exist_rede_social_cad = RedeSocial.where(artist_data_id: current_artist.id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

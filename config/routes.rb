@@ -115,6 +115,7 @@ Rails.application.routes.draw do
   get '/show_agenda/:id/:profile'           => 'commitments#index'
   get '/show_disco/:id/:profile'            => 'discographys#index'
   get '/show_historia/:id/:profile'         => 'historys#show'
+  get '/new_historia/:id/:profile'          => 'historys#new'
   get '/show_redesocial/:id/:profile'       => 'rede_sociais#index'
   get '/show_email/:id/:profile'            => 'emails#index'
   get '/show_telefone/:id/:profile'         => 'phones#index'

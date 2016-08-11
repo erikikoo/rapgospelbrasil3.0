@@ -9,12 +9,12 @@
 <% else %>
   <div class="painel-redesocial">   
       <p>
-      <% if !@artist_data.rede_social.facebook.empty? %>
+      <% unless @artist_data.rede_social.facebook.empty? %>
         <p>
         <strong>Facebook: </strong>     <%= @artist_data.rede_social.facebook %> <br/>
         </p>
       <% end %>
-      <% if !@artist_data.rede_social.twitter.empty? %>
+      <% unless @artist_data.rede_social.twitter.empty? %>
         <p>
         <strong>Twitter: </strong>     <%= @artist_data.rede_social.twitter %> <br/>
         </p>

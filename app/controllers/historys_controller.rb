@@ -1,11 +1,11 @@
 class HistorysController < ApplicationController
-  before_action :set_history, only: [:show, :edit, :update, :destroy]
+  before_action :set_history, only: [:edit, :update, :destroy]
  
   
   # GET /historys/1
   # GET /historys/1.json
   def show
-    @artist_data = ArtistData.find(params[:id])
+    @artist_data = ArtistData.find_by(id: params[:id])
   end
 
   # GET /historys/new
@@ -22,12 +22,13 @@ class HistorysController < ApplicationController
   # POST /historys.json
   def create
     @history = History.new(history_params)
-
+    @history.artist_data_id = current_artist.id
     respond_to do |format|
       if @history.save
-        format.html { render '/principal/perfil'}        
+        get_artist_current
+        format.js { render '/principal/perfil'}        
       else
-        format.html { render :new }        
+        format.js { render :new }        
       end
     end
   end
@@ -61,6 +62,11 @@ class HistorysController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_history
       @history = History.find(params[:id])
+      #@artist_data = ArtistData.find_by(id: params[:id])
+    end
+
+    def get_artist_current
+      @artist_data = ArtistData.find_by(artist_id: current_artist.id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

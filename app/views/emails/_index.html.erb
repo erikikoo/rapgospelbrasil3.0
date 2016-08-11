@@ -26,8 +26,9 @@
         <br />
         <% if @profile == "art" %>
           <%= link_to "Editar","/edit_email/#{email.id}/art", :class => "btn btn-default ", :remote => true %>
-
-              <%= link_to 'Excluir', "/remove_email/#{email.id}/adm", method: :delete, :remote => true ,data: { confirm: 'Deseja excluir este email?' } , class: 'btn btn-danger'%>
+          <% if @emails_count > 1 %>
+            <%= link_to 'Excluir', "/remove_email/#{email.id}/adm", method: :delete, :remote => true ,data: { confirm: 'Deseja excluir este email?' } , class: 'btn btn-danger'%>
+          <% end %>
         <% end %>
       </div>  
     <% end %>   

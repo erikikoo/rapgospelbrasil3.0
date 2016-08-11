@@ -6,8 +6,8 @@
 
 <p>
   <strong>Release:</strong>
-  <% if !@artist_data.nil? %>
-  	<%= raw(@artist_data.history.historia)%> 
+  <% unless @artist_data.nil? %>
+  	<%= raw(@artist_data.history.historia) if @artist_data.history.present? %> 
   <% end %>
 </p>
 

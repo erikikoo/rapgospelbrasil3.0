@@ -435,9 +435,15 @@ body {
 .logo-redesocial {
 	position: absolute;
 	top: -395px;
-	left: 450px;
+	left: 435px;
 }
 
+.logo-redesocial img {
+	border-radius: 5px;	
+	-webkit-border-radius: 5px;	
+	-o-border-radius: 5px;	
+	-moz-border-radius: 5px;	
+}
 
 .emails ul {
 	position: relative;

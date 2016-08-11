@@ -6,7 +6,7 @@ class EmailsController < ApplicationController
   # GET /emails.json
   def index
     @profile = 'art'    
-    @emails = Email.all
+    get_email_count   
   end
 
   # GET /emails/1
@@ -34,6 +34,7 @@ class EmailsController < ApplicationController
         @profile = 'art'
         @status = 'success'
         @action = 'create'
+        get_email_count
         format.js { render :index }        
       else
         @status = 'danger'
@@ -50,6 +51,7 @@ class EmailsController < ApplicationController
         @profile = 'art'
         @status = 'success'
         @action = 'update'
+        get_email_count   
         format.js { render :index }        
       else
         @status = 'danger'
@@ -63,8 +65,9 @@ class EmailsController < ApplicationController
   def destroy
     @email.destroy
     @profile = 'art'
-        @status = 'success'
-        @action = 'destroy'
+    @status = 'success'
+    @action = 'destroy'
+    get_email_count
     respond_to do |format|
       format.js { render :index}
     end
@@ -72,12 +75,17 @@ class EmailsController < ApplicationController
 
   private
     def get_artist_current
-      @artist_data = ArtistData.find_by('artist_id = ?', current_artist.id)
+      @artist_data = ArtistData.find_by('artist_id = ?', current_artist.id)     
     end
 
     # Use callbacks to share common setup or constraints between actions.
-    def set_email
+    def set_email      
       @email = Email.find(params[:id])
+      
+    end
+
+    def get_email_count
+      @emails_count = Email.where(artist_data_id: current_artist.id).count
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

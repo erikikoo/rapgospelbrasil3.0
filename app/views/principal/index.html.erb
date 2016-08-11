@@ -12,9 +12,11 @@
       <li><%= link_to 'Discográfia', "/show_disco/#{@artist_data.id}/adm", remote: :true, :class => 'btn btn-default btn-sm' %></li>
       <li><%= link_to 'Soundclound', "/show_soundcloud/#{@artist_data.id}/adm", remote: true, :class => 'btn btn-default btn-sm' %></li>
       <li><%= link_to 'Redesociais', "/show_redesocial/#{@artist_data.id}/adm", remote: true, :class => 'btn btn-default btn-sm' %></li>
-      <li><%= link_to 'Videos', "/show_video/#{@artist_data.id}/adm", remote: :true, :class => 'btn btn-default btn-sm' %></li>                
-      <li><%= link_to 'Release', "/show_historia/#{@artist_data.id}/adm", remote: :true, :class => 'btn btn-default btn-sm' %></li>          
-      
+      <li><%= link_to 'Videos', "/show_video/#{@artist_data.id}/adm", remote: :true, :class => 'btn btn-default btn-sm' %></li> <% if @artist_data.history.present? %>               
+          <li><%= link_to 'Release', "/show_historia/#{@artist_data.id}/adm", remote: :true, :class => 'btn btn-default btn-sm' %></li>          
+        <% else %>
+          <li><%= link_to 'Release', "/new_historia/#{@artist_data.id}/adm", remote: :true, :class => 'btn btn-default btn-sm' %></li>          
+        <% end %>
     </ul>
   </nav>
 </div>
