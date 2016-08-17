@@ -76,5 +76,46 @@ class WelcomeController < ApplicationController
     render 'welcome/pags_index/faq_conteudo'
   end
 
+  def dicas
+    render 'welcome/pags_index/dica_de_uso'
+  end
+
+  def dicas_cadastro
+    render 'welcome/pags_index/dicas_cadastro'
+  end
+
+  def dicas_perfil
+    render 'welcome/pags_index/dicas_perfil'
+  end
+
+  def dicas_eventos
+    render 'welcome/pags_index/dicas_eventos'
+  end
+
+  def dicas_email
+    render 'welcome/pags_index/dicas_email'
+  end
+
+  def dicas_telefone
+    render 'welcome/pags_index/dicas_telefone'
+  end
+
+  def dicas_redesocial
+    render 'welcome/pags_index/dicas_redesocial'
+  end
+
+  def dicas_discografia
+    render 'welcome/pags_index/dicas_discografia'
+  end
+
+  def dicas_soundcloud
+    render 'welcome/pags_index/dicas_soundcloud'
+  end
+
+  def dicas_videos
+    render 'welcome/pags_index/dicas_videos'
+  end
+
+ 
   
 end

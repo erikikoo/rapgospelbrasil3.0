@@ -1,17 +1,20 @@
 
 Rails.application.routes.draw do
 
-  resources :likes
-  resources :link_sound_clouds
+  #resources :likes
+  #resources :link_sound_clouds
   devise_for :artists
-  resources :top5s
-  resources :words
-  resources :notices
+  #resources :top5s
+  #resources :words
+  #resources :notices
   resources :contacts, only: [:new, :create]
   resources :eventos, only: [:new, :create]
   
 
   mount Ckeditor::Engine => '/ckeditor'
+
+
+
 
   #pag index artist
   get '/like/:id'                         => 'likes#create'
@@ -31,10 +34,10 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get '/principal'                    => 'principal#index'
   get '/noticias'                     => 'welcome#noticia'
-  get '/palavras'                     => 'words#index'
-  get '/artistas'                     => 'artist_datas#index'
+  get '/palavras'                     => 'welcome#palavra'
+  get '/art'                          => 'welcome#artistas' 
   get '/videos'                       => 'welcome#video'
-  #get '/contato'                      => 'welcome#contato'
+  get '/contato'                      => 'welcome#contato'
   get '/quem_somos'                   => 'welcome#quem_somos'  
   get 'termo_de_uso'                  => 'welcome#termo_de_uso'
   get 'politica'                      => 'welcome#politica'
@@ -50,6 +53,17 @@ Rails.application.routes.draw do
   get '/faq_integracao'               => 'welcome#faq_integracao'
   get '/faq_cadastro'                 => 'welcome#faq_cadastro'
   get '/faq_anuncios'                 => 'welcome#faq_anuncios'
+  get '/dicas'                        => 'welcome#dicas'
+  get '/dicas_cadastro'               => 'welcome#dicas_cadastro'
+  get '/dicas_perfil'                 => 'welcome#dicas_perfil'
+  get '/dicas_eventos'                => 'welcome#dicas_eventos'
+  get '/dicas_email'                  => 'welcome#dicas_email'
+  get '/dicas_telefone'               => 'welcome#dicas_telefone'
+  get '/dicas_discografia'            => 'welcome#dicas_discografia'
+  get '/dicas_redesocial'             => 'welcome#dicas_redesocial'
+  get '/dicas_soundcloud'             => 'welcome#dicas_soundcloud'
+  get '/dicas_videos'                 => 'welcome#dicas_videos'
+  
   #pag contato 
   
 
@@ -149,14 +163,14 @@ Rails.application.routes.draw do
   get '/envie_notice'                 => 'eventos#new'
   #get '/envie_notice'                 => 'events#create'
 
-   resources :discographys
-   resources :phones
-   resources :emails
-   resources :artist_datas
-   resources :rede_sociais
-   resources :videos
-   resources :commitments  
-   resources :historys
+   #resources :discographys
+   #resources :phones
+   #resources :emails
+   #resources :artist_datas
+   #resources :rede_sociais
+   #resources :videos
+   #resources :commitments  
+   #resources :historys
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
