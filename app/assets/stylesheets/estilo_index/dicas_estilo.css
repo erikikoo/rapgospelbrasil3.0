@@ -1,0 +1,20 @@
+.dicas h3 {
+	position: relative;
+	top: -15px;
+	left: 0;
+	color: #8E0000;
+
+}
+
+.content_dicas {
+	position: relative;
+	float: left;
+	min-height: 300px;
+	width: 75%;
+	left: 40px;	
+	top: 40px;	
+}
+
+.container_dicas li, .container_dicas img  {
+	margin-top: 20px;
+}
