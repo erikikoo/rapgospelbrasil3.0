@@ -1,7 +1,7 @@
 class WordsController < ApplicationController
   before_action :set_word, only: [:show, :edit, :update, :destroy]
   before_action :get_words, only: [:create, :update, :index, :destroy]
-  #before_action :get_profile , only: [:index, :update, :destroy, :show]
+  before_action :get_profile , only: [:index, :update, :destroy, :show]
   # GET /words
   # GET /words.json
   def index  

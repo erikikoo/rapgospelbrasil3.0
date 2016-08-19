@@ -15,6 +15,7 @@ class WelcomeController < ApplicationController
 
   def palavra
     @words = Word.order(created_at: :desc)
+    render 'words/index'
   end
     
   def noticia
@@ -34,6 +35,7 @@ class WelcomeController < ApplicationController
   end
   
   def contato
+    @contact = Contact.new
   end
 
   def quem_somos
@@ -116,6 +118,8 @@ class WelcomeController < ApplicationController
     render 'welcome/pags_index/dicas_videos'
   end
 
- 
+  def teste
+    render 'welcome/teste'
+  end
   
 end

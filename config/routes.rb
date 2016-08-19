@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   #resources :link_sound_clouds
   devise_for :artists
   #resources :top5s
-  #resources :words
+  resources :words
   #resources :notices
   resources :contacts, only: [:new, :create]
   resources :eventos, only: [:new, :create]
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
 
-
+  get '/teste' => 'welcome#teste'
 
   #pag index artist
   get '/like/:id'                         => 'likes#create'
