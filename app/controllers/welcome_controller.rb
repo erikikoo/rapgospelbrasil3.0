@@ -24,8 +24,11 @@ class WelcomeController < ApplicationController
   end  
 
   def artista
-    @artist_data = ArtistData.where(aprovado: true, bloqueado: false).includes(:likes)
-    
+     @artist_data = ArtistData.where(aprovado: true, bloqueado: false).includes(:likes)
+     like_query
+     #ransack
+     @q = ArtistData.where(aprovado: true, bloqueado: false).ransack(params[:q])
+     @artist_data = @q.result
     render 'artist_datas/index'
   end
 
@@ -121,5 +124,17 @@ class WelcomeController < ApplicationController
   def teste
     render 'welcome/teste'
   end
+
+
+
+  private
+
+  def like_query
+      ip = request.remote_ip
+
+      @artist_data = ArtistData.includes(:likes).where(aprovado: true, bloqueado: false)
+      @count_per_ip = Like.where(ip: ip).group(:artist_data_id).count     
+      @exist_likes = Like.select('curtido, unlike, artist_data_id, ip').where(ip: ip)
+    end
   
 end

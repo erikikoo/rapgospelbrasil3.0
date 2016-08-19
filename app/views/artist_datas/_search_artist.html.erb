@@ -15,7 +15,7 @@
     			<ul>
             <%= search_form_for(@q ,remote: true, url: '/search_artista', :method => :get ) do |f| %>
               
-              <%= f.search_field :nome_cont, placeholder: 'Nome do artista' %>
+              <%= f.search_field :nome_cont, placeholder: 'Nome do artista', class: 'form-control' %>
               <%= f.submit %>
             <% end %>
     			</ul>

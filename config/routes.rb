@@ -14,8 +14,7 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
 
-  get '/teste' => 'welcome#teste'
-
+  
   #pag index artist
   get '/like/:id'                         => 'likes#create'
   get '/like/:id/:status'                 => 'likes#update'
@@ -35,7 +34,7 @@ Rails.application.routes.draw do
   get '/principal'                    => 'principal#index'
   get '/noticias'                     => 'welcome#noticia'
   get '/palavras'                     => 'welcome#palavra'
-  get '/art'                          => 'welcome#artistas' 
+  get '/artistas'                     => 'welcome#artista' 
   get '/videos'                       => 'welcome#video'
   get '/contato'                      => 'welcome#contato'
   get '/quem_somos'                   => 'welcome#quem_somos'  
