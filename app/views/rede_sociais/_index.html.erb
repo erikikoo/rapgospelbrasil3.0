@@ -1,9 +1,3 @@
-  <%= render partial: 'login/carregando' %> 
-  <header>
-    <div class="topo">
-      <%= render partial: "welcome/partial_index/cabecalho" %>
-    </div>    
-  </header>
 
     <p>
       <% if @profile == "adm" and @exist_rede_social_cad.empty? %>
@@ -35,9 +29,3 @@
           </p>
         
     <% end %>
-
-    <footer>
-    <div class="rodape">
-      <%= render partial: 'welcome/partial_index/rodape' %>
-    </div>
-  </footer>
