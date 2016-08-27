@@ -97,4 +97,6 @@ config.action_mailer.default_url_options = { :host => 'https://young-reaches-999
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  config.assets.initialize_on_precompile = true
+
 end
