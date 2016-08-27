@@ -9,7 +9,7 @@ gem 'pundit'
  gem 'rails-i18n'
 #bootstrap
 #gem 'bootstrap-sass', '~> 3.3.1'
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 #Devise
 gem 'devise'
 gem 'devise-i18n-views'
