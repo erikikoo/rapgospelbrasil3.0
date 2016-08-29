@@ -28,7 +28,7 @@ Rails.application.configure do
   #config.serve_static_files = true
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
-  # config.assets.css_compressor = :sass
+  #config.assets.css_compressor = :yui
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   #config.assets.compile = false
@@ -68,6 +68,20 @@ Rails.application.configure do
   # SMTP settings for mailgun
 #   config.action_mailer.delivery_method = :smtp
   
+config.action_mailer.default_url_options = { :host => 'https://young-reaches-99974.herokuapp.com' }
+# # ActionMailer Config
+# # Setup for production - deliveries, no errors raised
+ config.action_mailer.delivery_method = :smtp
+# config.action_mailer.perform_deliveries = true
+
+ config.action_mailer.smtp_settings = {
+  address: "smtp.gmail.com",
+  port: 587,  
+  user_name: '240382013@eniac.edu.br',
+  password: 'HayHelena',
+  authentication: "plain",
+  enable_starttls_auto: true
+ }
 
 # config.action_mailer.raise_delivery_errors = false
 # config.action_mailer.default :charset => "utf-8"
@@ -84,6 +98,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  #config.assets.initialize_on_precompile = true
+  config.assets.initialize_on_precompile = true
 
 end

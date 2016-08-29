@@ -15,7 +15,7 @@
 // turbolinks foi removido para os plugins recarregarem ao redirecionar a pag
 // require turbolinks
 //= require ckeditor/init
-//= require twitter/bootstrap/
+//= require twitter/bootstrap
 //= require twitter/bootstrap/modal
 //= require jquery.remotipart
 //= require cloudinary
