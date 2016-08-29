@@ -21,10 +21,10 @@ Rails.application.configure do
   # config.action_dispatch.rack_cache = true
 
   # Disable serving static files from the `/public` folder by default since
-  # Apache or NGINX already handles this.  
+  # Apache or NGINX already handles this.
   
-  #config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present? -> muidei para o descrito na linha de baixo
-  config.serve_static_files = true
+  #config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present? --> alterado abaixo
+config.serve_static_files = true
   #config.serve_static_files = true
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -98,6 +98,6 @@ config.action_mailer.default_url_options = { :host => 'https://young-reaches-999
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.assets.initialize_on_precompile = true
+  
 
 end
