@@ -45,10 +45,9 @@ class PrincipalController < ApplicationController
 
     if @artist_data.nome.nil?
       @artist_data = ArtistData.new
-
-        @artist_data.phones.build
-        @artist_data.emails.build
-        @artist_data.build_history
+      @artist_data.phones.build
+      @artist_data.emails.build
+      @artist_data.build_history
       render 'artist_datas/novo_artista'
     else
       render :perfil
