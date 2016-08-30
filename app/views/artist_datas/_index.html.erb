@@ -1,65 +1,64 @@
-<% content_for :js do %> 
-   <%= javascript_include_tag "application" %> 
-<% end %>
 
-<div class="artistas">
-  <% if @artist_data.empty? %>
-      <h5>Não exitem artistas cadastrados</h5>
-  <% else %>
-      <div><%= render partial: 'artist_datas/search_artist' %></div>
-      
-      <% @artist_data.each do |artist_data| %>
-           <div class="item-artista">
-             <% if artist_data.logo.present? %>
-              <%= link_to(image_tag(artist_data.logo.url(:medium), class: 'img-thumbnail'), "/show_artista/#{artist_data.id}" , class: "artista-profile")  %>
-             <% else %>
-              <%= link_to(image_tag("ImagemArtistaSemFoto.png", with:'200px', height:'200px', class: 'img-thumbnail artista-profile' ),"/show_artista/#{artist_data.id}") %>
-             <% end %> 
-             <br/>
-              <!-- foi preciso fazer o painel numerado para atualizar somente o mesmo-->
-              <%= raw("<div class=painel-like-index-#{artist_data.id}>") %>
-                 <% if @exist_likes.empty? %>
-                    
-                    <%= link_to(cl_image_tag("body-img/BotSalve_jagsoj.png"), "/like/#{artist_data.id}", remote: true) %>
-                 <% else %>
-                    <% @exist_likes.each do |like| %>                    
-
-                      <% if like.artist_data_id == artist_data.id and like.curtido and like.ip == request.remote_ip %>
-                        
-                        <%= link_to(cl_image_tag("body-img/BotSalvado_zovmze.png"), "/unlike/#{artist_data.id}", remote: true) %>
-                        <% break %>
+  <div class="artistas">
+    <% if @artist_data.empty? %>
+      <div class="container">
+        <h5>Não exitem artistas cadastrados</h5>
+      </div>  
+    <% else %>
+        <div><%= render partial: 'artist_datas/search_artist' %></div>
+        <div class="container">
+        <% @artist_data.each do |artist_data| %>
+             <div class="item-artista">
+               <% if artist_data.logo.present? %>
+                <%= link_to(image_tag(artist_data.logo.url(:medium), class: 'img-thumbnail'), "/show_artista/#{artist_data.id}" , class: "artista-profile")  %>
+               <% else %>
+                <%= link_to(image_tag("ImagemArtistaSemFoto.png", with:'200px', height:'200px', class: 'img-thumbnail artista-profile' ),"/show_artista/#{artist_data.id}", data: {no_turbolink: true}) %>
+               <% end %> 
+               <br/>
+                <!-- foi preciso fazer o painel numerado para atualizar somente o mesmo-->
+                <%= raw("<div class=painel-like-index-#{artist_data.id}>") %>
+                   <% if @exist_likes.empty? %>
                       
-                      <% elsif like.artist_data_id == artist_data.id and like.unlike and like.ip == request.remote_ip %>
+                      <%= link_to(cl_image_tag("body-img/BotSalve_jagsoj.png"), "/like/#{artist_data.id}", remote: true) %>
+                   <% else %>
+                      <% @exist_likes.each do |like| %>                    
+
+                        <% if like.artist_data_id == artist_data.id and like.curtido and like.ip == request.remote_ip %>
+                          
+                          <%= link_to(cl_image_tag("body-img/BotSalvado_zovmze.png"), "/unlike/#{artist_data.id}", remote: true) %>
+                          <% break %>
                         
-                        <%= link_to(cl_image_tag("body-img/BotSalve_jagsoj.png"), "/like/#{artist_data.id}/update", remote: true) %> 
-                        <% break %>                   
-                      <% elsif like.ip != request.remote_ip %>
-                        
-                          <% break %>                         
-                      <% elsif !@count_per_ip.has_key? artist_data.id %>
-                        
-                        <%= link_to(cl_image_tag("body-img/BotSalve_jagsoj.png"), "/like/#{artist_data.id}", remote: true) %>
-                       <% break %>                         
-                      <% end %>
-                           
-                      <% end %>
+                        <% elsif like.artist_data_id == artist_data.id and like.unlike and like.ip == request.remote_ip %>
+                          
+                          <%= link_to(cl_image_tag("body-img/BotSalve_jagsoj.png"), "/like/#{artist_data.id}/update", remote: true) %> 
+                          <% break %>                   
+                        <% elsif like.ip != request.remote_ip %>
+                          
+                            <% break %>                         
+                        <% elsif !@count_per_ip.has_key? artist_data.id %>
+                          
+                          <%= link_to(cl_image_tag("body-img/BotSalve_jagsoj.png"), "/like/#{artist_data.id}", remote: true) %>
+                         <% break %>                         
+                        <% end %>
+                             
+                        <% end %>
+                    
+                    <% end %>
                   
-                  <% end %>
-                
-              </div>
-             
-             <span class="text-center nome-artist-index-artist"> <%= artist_data.nome %> </span>
-           </div>
-           <% if @profile == "adm" %> 
-                <%= link_to "Editar","/edit_disco/#{album.id}/adm", :class => "btn", :remote => true %>
+                </div>
+               
+               <span class="text-center nome-artist-index-artist"> <%= artist_data.nome %> </span>
+             </div>
+             <% if @profile == "adm" %> 
+                  <%= link_to "Editar","/edit_disco/#{album.id}/adm", :class => "btn", :remote => true %>
 
-                <%= link_to 'Apagar', "/remove_disco/#{album.id}/adm", method: :delete, :remote => true ,data: { confirm: 'Are you sure?' } , class: 'btn btn-danger'%>
-          <% end %>  
-         
-      <% end %>    
-  <% end %>    
-      
-</div>  
+                  <%= link_to 'Apagar', "/remove_disco/#{album.id}/adm", method: :delete, :remote => true ,data: { confirm: 'Are you sure?' } , class: 'btn btn-danger'%>
+            <% end %>  
+           
+        <% end %>    
+    <% end %>    
+        
+  </div>  
 
 
-
+</div>
