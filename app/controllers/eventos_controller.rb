@@ -1,9 +1,10 @@
 class EventosController < ApplicationController
+	layout 'welcome'
 
 	def new
 		@event = Evento.new
 		respond_to do |format|
-			format.js {render '/welcome/event'}
+			format.html {render '/welcome/paginas_index/envie_noticias'}
 		end
 	end
 

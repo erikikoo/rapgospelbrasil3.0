@@ -1,4 +1,6 @@
 class AdminController < ApplicationController
+  layout 'adm'
+  
   before_action :get_model_user  
   before_action :get_admin
   before_action :get_dados_artista, only: [:show_artista, :remove_artista, :aprova_artista,:bloquear_artista, :desbloquear_artista]
@@ -19,13 +21,15 @@ class AdminController < ApplicationController
   def index  	
     @users = Artist.where(admin: false)
     @artist = ArtistData.where.not(artist_id: @adm.id)        
+    
     @aguardando_cadastro = ArtistData.where(nome: nil).where.not(artist_id: @adm.id).includes(:artist)    
     @top5 = Top5.last 
 
     authorize @users
   end
 
-  def artistas  	
+  def artistas 
+  @admin = Artist.where(admin: true).select('id') 	
   end
 
   def show_artista 
@@ -34,6 +38,8 @@ class AdminController < ApplicationController
   end
 
   def artistas_filter    
+    @admin = Artist.where(admin: true).select('id')
+    
     @query = params[:option]    
     if @query.nil?
       @query = params[:filtro][:option]          
@@ -61,8 +67,9 @@ class AdminController < ApplicationController
   end
 
   def remove_artista
-      @artist_data.destroy
-      render :artistas  
+    @artist_data = ArtistData.find(params[:id])
+    @artist_data.destroy
+    render :artistas  
   end
 
   def aprova_artista

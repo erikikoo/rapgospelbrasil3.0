@@ -1,0 +1,40 @@
+<div class="container">
+	<h2>Contato</h2>
+	<div class="pag-contato-left contato-painel-dimenssao">
+		<p>
+			Preencha o formulário abaixo e nos envie uma mensagem
+		</p>	
+		<div class="contato-form">
+			<%= simple_form_for @contact, html: {remote: true} do |f| %>
+				<%= f.input :nome, required: true, autofocus: true %>
+				<%= f.input :email, as: :email, required: true %>
+				<%= f.input :assunto, required: true %>
+				<%= f.input :mensagem, as: :text, required: true %>
+				<%= f.button :submit, 'Enviar',class: 'btn btn-contato-enviar' %>
+			<% end %>
+		</div>
+
+	</div>
+
+	<div class="pag-contato-right contato-painel-dimenssao">
+		<ul>
+			<li>
+				<%= cl_image_tag("body-img/IconeEmailContato.png") %>
+				portalrapgospelbrasil@gmail.com
+			</li>
+			<!--<li>
+				<%= cl_image_tag("body-img/IconeWhattsContato.png") %>
+				+55 11 95269-7707
+			</li>-->
+			<li>
+				<%= link_to cl_image_tag("body-img/IconeYouTubeContato.png"), 'https://www.youtube.com/channel/UCUjVKFXge1yLuwUW5R2_Xbw', target: "_black" %>
+				YouTube
+			</li>
+			<li>
+				<%= link_to cl_image_tag("body-img/IconeFaceContato.png"), 'https://www.facebook.com/Rap-Gospel-Brasil-662367990472646/', target: "_black" %>
+				Facebook
+			</li>
+		</ul>
+
+	</div>
+</div>

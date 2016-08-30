@@ -1,4 +1,6 @@
 class PrincipalController < ApplicationController
+  layout 'adm'
+
   before_action :set_artistas, only: [:agenda, :contato, :disco, :email, :telefone, :video,  :historia]
   before_action :set_discos, only: [:edit_disco, :remove_disco]
   before_action :set_agendas, only: [:edit_agenda, :remove_agenda]

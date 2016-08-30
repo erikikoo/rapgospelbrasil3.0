@@ -1,10 +1,14 @@
-    <script>
-      jQuery(document).ready(function($) {
-        if ($('.body').height() < 100) {
-          $('.body').css('min-height','400px');
-          
-        }    
-      });
+<% content_for :js do %> 
+   <%= javascript_include_tag "application" %> 
+<% end %>
+
+
+<script>
+  jQuery(document).ready(function($) {
+    if ($('.body').height() < 100) {
+       $('.body').css('min-height','400px');
+    }    
+  });
 </script>
 
 <% if !@status.nil? %>  

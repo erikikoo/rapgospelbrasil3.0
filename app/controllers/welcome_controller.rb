@@ -39,22 +39,26 @@ class WelcomeController < ApplicationController
   
   def contato
     @contact = Contact.new
+    render 'welcome/paginas_index/contato'    
   end
 
   def quem_somos
+    render 'welcome/paginas_index/quem_somos'
   end
 
   def termo_de_uso
     @target = params[:target] unless params[:target].nil?
-    render 'welcome/pags_index/termo_de_uso'
+    if @target == 'index'
+      render 'welcome/paginas_index/termo_de_uso'
+    end      
   end  
 
   def politica
-    render 'welcome/pags_index/politica_de_privacidade'
+    render 'welcome/paginas_index/politica_de_privacidade'
   end
 
   def faq
-    render 'welcome/pags_index/faq'
+    render 'welcome/paginas_index/faq'
   end
 
   def faq_integracao
@@ -82,7 +86,7 @@ class WelcomeController < ApplicationController
   end
 
   def dicas
-    render 'welcome/pags_index/dica_de_uso'
+    render 'welcome/paginas_index/dica_de_uso'
   end
 
   def dicas_cadastro

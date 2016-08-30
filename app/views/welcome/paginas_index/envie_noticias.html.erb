@@ -1,0 +1,49 @@
+<div class="container pag-send-event">
+	<h2>Nos envie sua notícia / evento</h2>
+	<div class="pag-contato-left contato-painel-dimenssao">
+		<p>
+			Todos os grupos, produtores de eventos, cantores, DJ's e Assessores de imprensa tem a possibilidade de participar do portal.
+		</p>
+		<p>
+			Todos podem n enviar novidades sobre seu ministério/grupo por exemplo: Lançamentos, mixtape, clipe, cd e ext).
+		</p>
+		<p>
+			É importante que todo material gráfico seja enviado com boa qualidade, para arquivos com tamanho acima de 20 MB devem ser enviados por ficheiro público (4shared, megaupload, wetransfer e etc).
+		</p>	
+		<p>
+			Abaixo um formulário para facilitar esse envio. Ou se preferir nos envie por email: <strong>portalrapgospelbrasil@gmail.com</strong>
+		</p>
+		<div class="contato-form">
+			<%= simple_form_for @event, html: {remote: true} do |f| %>
+				<%= f.input :nome, required: true, autofocus: true %>
+				<%= f.input :email, as: :email, required: true %>
+				<%= f.input :assunto, required: true %>
+				<%= f.input :mensagem, as: :text, required: true %>
+				<%= f.button :submit, 'Enviar',class: 'btn btn-contato-enviar' %>
+			<% end %>		
+		</div>
+
+	</div>
+
+	<div class="pag-contato-right contato-painel-dimenssao">
+		<ul>
+			<li>
+				<%= cl_image_tag("body-img/IconeEmailContato.png") %>
+				portalrapgospelbrasil@gmail.com
+			</li>
+			<!--<li>
+				<%= cl_image_tag("body-img/IconeWhattsContato.png") %>
+				+55 11 95269-7707
+			</li>-->
+			<li>
+				<%= link_to cl_image_tag("body-img/IconeYouTubeContato.png"), 'https://www.youtube.com/channel/UCUjVKFXge1yLuwUW5R2_Xbw', target: "_black" %>
+				YouTube
+			</li>
+			<li>
+				<%= link_to cl_image_tag("body-img/IconeFaceContato.png"), 'https://www.facebook.com/Rap-Gospel-Brasil-662367990472646/', target: "_black" %>
+				Facebook
+			</li>
+		</ul>
+
+	</div>
+</div>

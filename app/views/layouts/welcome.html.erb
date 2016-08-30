@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <%= render 'welcome/partial_index/head' %>
+  	<%= yield :js %>
+  </head>
+  
+  <body>
+	<%= render partial: 'login/carregando' %>	
+	<header>
+		<div class="topo">
+			<%= render partial: "welcome/partial_index/cabecalho" %>
+		</div>		
+	</header>
+    
+    <%= yield %>
+    
+    <a href="#" class='btn-topo'><i class='glyphicon glyphicon-chevron-up'></i></a>
+    
+    <footer>
+		<div class="rodape">
+			<%= render partial: 'welcome/partial_index/rodape' %>
+		</div>
+	</footer>
+  </body>
+</html>

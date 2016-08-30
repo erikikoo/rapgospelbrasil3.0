@@ -15,7 +15,7 @@ a:active, a:hover, a:visited, a:link {
 .container {
 	position: relative;
 	width: 1002px !important;
-	height: auto;
+	min-height: 200px;
 	margin-right: auto;
 	margin-left: auto;
 	

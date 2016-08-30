@@ -1,4 +1,5 @@
 class ArtistDatasController < ApplicationController
+  layout 'welcome'
   before_action :set_artist_data, only: [:show,:edit, :update, :destroy,  :discography, :contact, :history, :agenda, :rede_social]
   before_action :like_query, only: [:search_artista  ,:index, :show]
   

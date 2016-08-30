@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 // turbolinks foi removido para os plugins recarregarem ao redirecionar a pag
-// require turbolinks
+//= require turbolinks
 //= require ckeditor/init
 //= require twitter/bootstrap
 //= require twitter/bootstrap/modal
