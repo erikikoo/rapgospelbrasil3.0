@@ -1,0 +1,70 @@
+ <% content_for :js do %> 
+   <%= javascript_include_tag "application" %> 
+<% end %>
+
+
+<script>
+  jQuery(document).ready(function($) {
+    if ($('.body').height() < 100) {
+       $('.body').css('min-height','400px');
+    }    
+  });
+</script>
+
+<% if !@status.nil? %>  
+    <%= 
+      case @action
+      when 'create'
+         alert(@status, 'Video adicionado com sucesso!')
+      when 'update'    
+         alert(@status, 'Video atualizado com sucesso!')
+      when 'destroy'      
+         alert(@status, 'Video removido com sucesso!')
+      end    
+      %>     
+<% end %>
+
+  
+  
+
+    <% if @profile == "admin" || @profile == "adm"  %>
+      <p>
+        <%= link_to 'Adicionar Video', "/novo_video#{@teste}", remote: true ,:class => 'btn btn-default'  %>  
+      </p>
+      
+    <% end %>
+
+  
+  <% if ((!@videos.nil? && @videos.empty?) || (!@artist_data.nil? && !@artist_data.videos.present?)) %>
+      <div class="container">
+        <h5>Não existem videos cadastrados!!</h5> 
+      </div> 
+  <% else %>
+  <div class="container-videos">
+        <div class="videos">
+          <ul>
+            <% if !@videos.nil? %>
+              <% @videos.each do |video| %> 
+                <li class='img-thumbnail'>
+                  <%= add_video(video.link,'show_video')%>          
+                  <% if @profile == "admin" || @profile == "adm" %>
+                    <br />
+                    <%= link_to 'Remover', "/remove_video/#{video.id}/#{@profile}", class: 'btn btn-danger',remote: true ,method: :delete, data: { confirm: 'Deseja realmente excluir esta video?' } %>
+                  <% end %>
+                </li>        
+              <% end %>     
+            <% else %>  
+              <% @artist_data.videos.each do |video| %>
+                <li class='img-thumbnail'>
+                  <%= add_video(video.link,'show_video')%>          
+                  <% if @profile == "admin" || @profile == "adm" %>
+                    <br />
+                    <%= link_to 'Remover', "/remove_video/#{video.id}/#{@profile}", class: 'btn btn-danger',remote: true ,method: :delete, data: { confirm: 'Deseja realmente excluir esta video?' } %>
+                  <% end %>
+                </li>   
+              <% end %>                  
+            <% end %>                
+          </ul>
+        </div>
+    </div>
+  <% end %>

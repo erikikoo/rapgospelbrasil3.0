@@ -6,6 +6,6 @@ class Artist < ActiveRecord::Base
  
  validates :termo_de_uso, acceptance: true
  
-  #has_one  :artist_data
+  has_one  :artist_data
   has_many :videos
 end

@@ -179,7 +179,7 @@
 
 
 .painel-artistas-adm {
-	top: -207px;
+	top: -180px;
 }
 
 .novo {
@@ -436,4 +436,9 @@
 
 .btn-topo:hover {
 	background-color: rgba(40, 40, 40, 1);
+}
+
+#mixtape-modal {
+	width: 98% !important;
+
 }

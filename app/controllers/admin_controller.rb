@@ -20,16 +20,17 @@ class AdminController < ApplicationController
 
   def index  	
     @users = Artist.where(admin: false)
-    @artist = ArtistData.where.not(artist_id: @adm.id)        
     
-    @aguardando_cadastro = ArtistData.where(nome: nil).where.not(artist_id: @adm.id).includes(:artist)    
+    @artist = ArtistData.where.not(artist_id: @adm.id)        
+    @admin = Artist.where(admin: true).select('id')
+    @aguardando_cadastro = ArtistData.where(nome: nil).where.not(artist_id: @adm.id)
     @top5 = Top5.last 
 
     authorize @users
   end
 
   def artistas 
-  @admin = Artist.where(admin: true).select('id') 	
+    @admin = Artist.where(admin: true).select('id') 	
   end
 
   def show_artista 
@@ -46,6 +47,7 @@ class AdminController < ApplicationController
     end
     case @query    
       when 't'
+        
         @artists = ArtistData.where.not(artist_id: @adm.id) 
       when 'a'
         @option = "aprovado"
@@ -57,6 +59,7 @@ class AdminController < ApplicationController
         @artists = ArtistData.where.not(aprovado: true, nome: nil)
         @option = "aguardando aprovação"
       when 'i'
+         #@artists = Artist.where(admin: false).includes(:artist_data)
          @artists = ArtistData.where(nome: nil).where.not(artist_id: @adm.id).order(created_at: :desc)    
          @option = "com cadastro incompleto" 
     end    

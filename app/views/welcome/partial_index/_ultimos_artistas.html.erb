@@ -7,9 +7,9 @@
 			<% @artistas.each do |artista| %>
 				<!--<li><img src="https://robohash.org/YOUR-TEXT.png?size=125x100"> </li>-->
 				<% if artista.logo.present? %>
-				<li><%= link_to(image_tag(artista.logo.url(:small), :class => 'img-rounded'),"/show_artista/#{artista.id}", remote: true) %> </li>
+				<li><%= link_to(image_tag(artista.logo.url(:small), :class => 'img-rounded'),"/show_artista/#{artista.id}") %> </li>
 				<% else %>
-					<li><%= link_to(image_tag("ImagemArtistaSemFoto.png", with:'120px', height:'120px', class: 'img-rounded'),"/show_artista/#{artista.id}", remote: true) %></li>
+					<li><%= link_to(image_tag("ImagemArtistaSemFoto.png", with:'120px', height:'120px', class: 'img-rounded'),"/show_artista/#{artista.id}") %></li>
 				<% end %>
 			<% end %>
 		</ul>
