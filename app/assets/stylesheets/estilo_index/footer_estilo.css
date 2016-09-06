@@ -4,6 +4,11 @@ footer {
 	width: 100%;		
 }
 
+.rodape {
+	position: relative;
+	margin-top: 60px;
+}
+
 .rodape-inferior {
 	height: 20px;
 	background-color: #000;
