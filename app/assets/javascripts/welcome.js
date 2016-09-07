@@ -8,10 +8,13 @@ function btnUp() {
 
 
 
+
 $(window).load(function() {	
 	
-	$("#mixtape-modal").modal("show");
+	$("#mixtape-modal").modal("show");	
 
+	
+	
 	setTimeout(function() {
 		btnDown();
 	},15000);	
@@ -22,6 +25,8 @@ $(window).load(function() {
 });
 
 $(document).ready(function() {	
+
+	
 
 	$('#teste').mouseover(function(event) {
 		btnUp();
