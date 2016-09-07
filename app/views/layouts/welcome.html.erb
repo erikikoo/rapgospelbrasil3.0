@@ -2,7 +2,10 @@
 <html lang="pt-BR">
   <head>
     <%= render 'welcome/partial_index/head' %>
-  	<%= yield :js %>
+  	<!-- contador de dowload -->
+    <script type='text/javascript' src='http://dstats.net/js/dstracker.js'></script>
+    <script type='text/javascript' src='http://dstats.net/dstatsjs.php?file=LINK_DOWNLOAD'></script>
+    <%= yield :js %>
   </head>
   
   <body>
