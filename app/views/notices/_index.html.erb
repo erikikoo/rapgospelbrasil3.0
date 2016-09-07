@@ -34,7 +34,7 @@
               <h3><%= noticia.titulo %></h3>
             <% else %>         
               <h3>
-                <%= link_to "#{noticia.titulo}", "/show_noticia/#{noticia.id}", remote: true %>
+                <%= link_to "#{noticia.titulo}", "/show_noticia/#{noticia.id}" %>
               </h3>
             <% end %>
           

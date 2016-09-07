@@ -1,4 +1,6 @@
 class NoticesController < ApplicationController
+  layout 'welcome'
+
   before_action :set_notice, only: [:show, :edit, :update, :destroy]
   before_action :get_notices, only: [:create, :update, :destroy, :index]
   before_action :get_profile, only: [:index, :show, :destroy]
@@ -10,10 +12,8 @@ class NoticesController < ApplicationController
 
   # GET /notices/1
   # GET /notices/1.json
-  def show        
-    respond_to do |format|
-      format.js
-    end
+  def show      
+    
   end
 
   # GET /notices/new

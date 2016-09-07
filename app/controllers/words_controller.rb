@@ -1,4 +1,6 @@
 class WordsController < ApplicationController
+  layout 'welcome'
+
   before_action :set_word, only: [:show, :edit, :update, :destroy]
   before_action :get_words, only: [:create, :update, :index, :destroy]
   before_action :get_profile , only: [:index, :update, :destroy, :show]
