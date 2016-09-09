@@ -101,3 +101,5 @@ gem 'will_paginate', '~> 3.0'
 
 #gem search
 gem 'ransack'
+
+gem 'faker'

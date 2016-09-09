@@ -3,6 +3,28 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+ol > li {
+	padding: 10px 0;
+}
+
+
+
+.mix_tape {
+	margin: 20px 0;
+}
+
+.dow_mix_tape li {
+	list-style: none;
+	display: inline;		
+}
+
+.dow_mix_tape li:not(:first-child) {
+	padding: 0 20px;
+}
+
+.dow_mix_tape ul {
+	margin-left: -40px;
+}
 
 
 .dropdown-menu {

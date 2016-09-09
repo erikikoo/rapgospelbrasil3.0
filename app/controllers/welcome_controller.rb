@@ -62,7 +62,7 @@ class WelcomeController < ApplicationController
   end
 
   def faq_integracao
-    render 'welcome/pags_index/faq_integracao'
+    render 'welcome/partial_faq/faq_integracao'
   end
 
   def faq_cadastro
@@ -125,10 +125,11 @@ class WelcomeController < ApplicationController
     render 'welcome/pags_index/dicas_videos'
   end
 
-  def teste
-    render 'welcome/teste'
+  def mix_tape
+  	render 'welcome/paginas_index/mix_tape'
   end
 
+  
 
 
   private

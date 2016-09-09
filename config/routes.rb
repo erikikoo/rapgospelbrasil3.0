@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   get '/videos'                       => 'welcome#video'
   get '/contato'                      => 'welcome#contato'
   get '/quem_somos'                   => 'welcome#quem_somos'  
+  get '/mix_tape'                     => 'welcome#mix_tape'
   get 'termo_de_uso'                  => 'welcome#termo_de_uso'
   get 'politica'                      => 'welcome#politica'
   get 'termo_de_uso/:target'          => 'welcome#termo_de_uso'
