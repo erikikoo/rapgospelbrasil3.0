@@ -11,10 +11,11 @@
 #Artist.create(email: 'erikikoo@hotmail.com', password: 'HayHelena', password_confirmation: 'HayHelena', admin: true )
 #(5..41).each do |f|
 
-(4..9).each do |f|
-	numero = Random.rand(50..300)
+a = ArtistData.where(aprovado: true).select('id')
+a.each do |f|
+	numero = Random.rand(1..50)
 	(1..numero).each do |i|  		
-  		Like.create!(artist_data_id: f, ip: Faker::Internet.public_ip_v4_address, curtido: true, unlike: false)  		
+  		Like.create!(artist_data_id: f.id, ip: Faker::Internet.public_ip_v4_address, curtido: true, unlike: false)  		
   	end	
 end  
 
