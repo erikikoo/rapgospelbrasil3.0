@@ -50,6 +50,8 @@ class WelcomeController < ApplicationController
     @target = params[:target] unless params[:target].nil?
     if @target == 'index'
       render 'welcome/paginas_index/termo_de_uso'
+    else 
+      render 'welcome/pags_index/termo_de_uso'
     end      
   end  
 
