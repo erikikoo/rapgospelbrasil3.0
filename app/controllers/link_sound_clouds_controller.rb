@@ -2,6 +2,8 @@ class LinkSoundCloudsController < ApplicationController
   before_action :set_link_sound_cloud, only: [:show, :edit, :update, :destroy]
   before_action :get_profile, only: [:index, :destroy, :update, :create]
   before_action :get_artist_current
+  
+  require File.expand_path('lib/class/soundcloud_class.rb')
   # GET /link_sound_clouds
   # GET /link_sound_clouds.json
   def index
@@ -31,17 +33,24 @@ class LinkSoundCloudsController < ApplicationController
     @link_sound_cloud = LinkSoundCloud.new(link_sound_cloud_params)
     @link_sound_cloud.artist_data_id = current_artist.id
     @profile = 'adm'
+    soundcloud = SoundcloudClass.new(@link_sound_cloud.link)
     respond_to do |format|
-      if @link_sound_cloud.save        
-        @status = 'success'
-        @action = 'create'
-        get_artist_current
-        format.js { render :index }
-      else
-        @status = 'danger'
-        @action = 'create'
-        format.js { render :new }  
-      end
+      if soundcloud.valido?
+	      if @link_sound_cloud.save       
+	        @status = 'success'
+	        @action = 'create'
+	        get_artist_current
+	        format.js { render :index }
+	      else
+	        @status = 'danger'
+	        @action = 'create'
+	        format.js { render :new }  
+	      end
+	    else 
+	    	@status = 'danger'
+	        @action = 'create'
+	        format.js { render :new }  
+	    end  
     end
   end
 
@@ -79,7 +88,7 @@ class LinkSoundCloudsController < ApplicationController
     end
 
     def get_artist_current
-       @artist_data = ArtistData.find_by('artist_id = ?', current_artist.id)
+       @artist_data = ArtistData.find_by(artist_id: current_artist.id)
     end  
 
     def get_profile
