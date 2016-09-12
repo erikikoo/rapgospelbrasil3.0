@@ -13,9 +13,9 @@
         <% @artist_data.each do |artist_data| %>
              <div class="item-artista">
                <% if artist_data.logo.present? %>
-                <%= link_to(image_tag(artist_data.logo.url(:medium), class: 'img-thumbnail'), "/show_artista/#{set_url(artist_data.nome)}" , class: "artista-profile")  %>
+                <%= link_to(image_tag(artist_data.logo.url(:medium), class: 'img-thumbnail'), "/show_artista/#{set_url(raw(artist_data.nome))}" , class: "artista-profile")  %>
                <% else %>
-                <%= link_to(image_tag("ImagemArtistaSemFoto.png", with:'200px', height:'200px', class: 'img-thumbnail artista-profile' ),"/show_artista/#{set_url(artist_data.nome)}") %>
+                <%= link_to(image_tag("ImagemArtistaSemFoto.png", with:'200px', height:'200px', class: 'img-thumbnail artista-profile' ),"/show_artista/#{set_url(raw(artist_data.nome))}") %>
                <% end %> 
                <br/>
                 <!-- foi preciso fazer o painel numerado para atualizar somente o mesmo-->

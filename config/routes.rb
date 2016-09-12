@@ -44,7 +44,7 @@ Rails.application.routes.draw do
   get 'termo_de_uso/:target'          => 'welcome#termo_de_uso'
   get '/show_noticia/:titulo'         => 'notices#show'
   get '/show_palavra/:titulo'         => 'words#show'  
-  get '/show_artista/:nome'           => 'artist_datas#show'
+  get '/show_artista/:nome'           => 'artist_datas#show' , :constraints => { :nome => /[^\/]+/ }
   get '/search_artista'               => 'artist_datas#search_artista'
   get '/faq'                          => 'welcome#faq'
   get '/faq_portal'                   => 'welcome#faq_portal'

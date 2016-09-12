@@ -45,7 +45,7 @@ module ApplicationHelper
     
     def set_url(link)
      	if link.include? '-'
-			link += '_'
+			link += '_'		
 		else
 			link_font = link.split(' ').join('-')
 		end			 

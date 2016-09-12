@@ -44,7 +44,9 @@ class ArtistDatasController < ApplicationController
   def create
     @artist_data = ArtistData.find_by('artist_id = ?', current_artist.id)
     if @artist_data.nil?
-      @artist_data = ArtistData.new(artist_data_params)
+      
+      @artist_data = ArtistData.new(artist_data_params)      
+         
       @artist_data.artist_id = current_artist.id
 
       @artist_data.save       

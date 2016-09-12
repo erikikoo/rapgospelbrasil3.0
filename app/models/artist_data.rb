@@ -16,7 +16,7 @@ class ArtistData < ActiveRecord::Base
 	accepts_nested_attributes_for :phones, :emails, :history
 
 	#validates :artist_id, uniqueness: true
-	validates :nome, presence: true
+	validates :nome, presence: true 	
 	
 	
 	mount_uploader :logo, LogoUploader
