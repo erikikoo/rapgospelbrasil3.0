@@ -42,13 +42,14 @@ class VideosController < ApplicationController
     @video = Video.new(video_params)
     @profile = params[:user]    
     #teste = @video.link
-    
+    get_videos
+
     video = Teste.new(@video.link)
     
     if @profile == 'admin'
       @video.artist_id = current_artist.id
     else 
-      @video.artist_data_id = current_artist.id
+      @video.artist_data_id = @artist_data.id
     end  
       respond_to do |format|
         if video.valido?        
@@ -117,8 +118,8 @@ class VideosController < ApplicationController
 
     def get_videos
        @artist_data = ArtistData.find_by('artist_id = ?', current_artist.id) 
-    end
-   
+    end   
+
     def get_videos_adm
       @videos = Video.where('artist_id = ? OR artist_id = ?', 1, 2) 
     end
