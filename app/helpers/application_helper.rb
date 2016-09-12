@@ -43,6 +43,8 @@ module ApplicationHelper
     	raw('<p><span class="alert alert-'+tipo+'" id="mensagem">'+msn+'</span></p>')    			
     end
     
-
+    def set_url(link)
+	 artist_url = link.split(' ').join('-')
+	end
 	
 end

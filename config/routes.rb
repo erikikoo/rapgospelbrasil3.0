@@ -42,8 +42,8 @@ Rails.application.routes.draw do
   get 'termo_de_uso'                  => 'welcome#termo_de_uso'
   get 'politica'                      => 'welcome#politica'
   get 'termo_de_uso/:target'          => 'welcome#termo_de_uso'
-  get '/show_noticia/:id'             => 'notices#show'
-  get '/show_palavra/:id'             => 'words#show'  
+  get '/show_noticia/:titulo'         => 'notices#show'
+  get '/show_palavra/:titulo'         => 'words#show'  
   get '/show_artista/:nome'           => 'artist_datas#show'
   get '/search_artista'               => 'artist_datas#search_artista'
   get '/faq'                          => 'welcome#faq'
@@ -70,7 +70,7 @@ Rails.application.routes.draw do
   #adm
   get '/top5/:profile'                     => 'admin#top5'
   
-  get '/show_artista/:id/:profile'         => 'admin#show_artista'  
+  get '/show_artista/:id/:profile'       => 'admin#show_artista'  
   get 'admin/index'
   get '/artistas/:profile'                 => 'admin#artistas'
   get '/artistas_filter'                   => 'admin#artistas_filter'
@@ -79,15 +79,15 @@ Rails.application.routes.draw do
   
   get '/palavras/:profile'                 => 'words#index'
   get '/nova_palavra/:profile'             => 'words#new'
-  get '/edit_palavra/:id/:profile'         => 'words#edit'
-  get '/show_palavra/:id/:profile'         => 'words#show'
+  get '/edit_palavra/:titulo/:profile'     => 'words#edit'
+  get '/show_palavra/:titulo/:profile'     => 'words#show'
   get '/show_soundcloud/:id/:profile'      => 'link_sound_clouds#index'    
   get '/palavras/:profile/:status'         => 'words#update'
 
   get '/noticias/:profile'                 => 'notices#index'
   get '/nova_noticia/:profile'             => 'notices#new'
-  get '/edit_noticia/:id/:profile'         => 'notices#edit'
-  get '/show_noticia/:id/:profile'         => 'notices#show'  
+  get '/edit_noticia/:titulo/:profile'     => 'notices#edit'
+  get '/show_noticia/:titulo/:profile'     => 'notices#show'  
   get '/noticias/:profile/:status'         => 'notices#index'
 
   get '/aprovar_artista/:id/:profile'      => 'admin#aprova_artista'

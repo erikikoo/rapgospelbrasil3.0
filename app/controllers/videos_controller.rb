@@ -51,8 +51,7 @@ class VideosController < ApplicationController
       @video.artist_data_id = current_artist.id
     end  
       respond_to do |format|
-        if video.valido?
-        #if video[0].length == 23 and video[0] == 'https://www.youtube.com' and video.length <= 60
+        if video.valido?        
             if @video.save
               @status = 'success'
               @action = 'create'

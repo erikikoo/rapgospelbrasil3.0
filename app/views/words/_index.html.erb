@@ -1,3 +1,7 @@
+<% content_for(:title) do %>
+  RapGospelBrasil - Palavras
+<% end %>
+
  <% content_for :js do %> 
    <%= javascript_include_tag "application" %> 
 <% end %>
@@ -33,7 +37,7 @@
               <h3><%= word.titulo %></h3>
             <% else %>         
               <h3>
-                <%= link_to "#{word.titulo}", "/show_palavra/#{word.id}" %>
+                <%= link_to "#{word.titulo}", "/show_palavra/#{set_url(word.titulo)}" %>
               </h3>
             <% end %>
           
@@ -49,9 +53,9 @@
                   <span class="criado-em"><strong>Data de criação : </strong><%= word.created_at.strftime('%d/%m/%Y') %></span>
 
                   <% if @profile == "admin" %>
-                      <td><%= link_to 'Mostar', "/show_palavra/#{word.id}/admin" ,class: 'btn btn-default', remote: true %></td>
-                      <td><%= link_to 'Editar', "/edit_palavra/#{word.id}/admin", class: 'btn btn-default', remote: true %></td>
-                      <td><%= link_to 'Remover', "/remove_palavra/#{word.id}/admin", class: 'btn btn-danger',remote: true ,method: :delete, data: { confirm: 'Deseja realmente excluir esta palavra?' } %></td>
+                      <td><%= link_to 'Mostar', "/show_palavra/#{set_url(word.titulo)}/admin" ,class: 'btn btn-default', remote: true %></td>
+                      <td><%= link_to 'Editar', "/edit_palavra/#{set_url(word.titulo)}/admin", class: 'btn btn-default', remote: true, data: {no_turbolink: true} %></td>
+                      <td><%= link_to 'Remover', "/remove_palavra/#{set_url(word.titulo)}/admin", class: 'btn btn-danger',remote: true ,method: :delete, data: { confirm: 'Deseja realmente excluir esta palavra?' } %></td>
                   <% end %> 
                 </p>  
             </div>

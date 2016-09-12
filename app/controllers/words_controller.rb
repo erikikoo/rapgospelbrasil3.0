@@ -4,6 +4,9 @@ class WordsController < ApplicationController
   before_action :set_word, only: [:show, :edit, :update, :destroy]
   before_action :get_words, only: [:create, :update, :index, :destroy]
   before_action :get_profile , only: [:index, :update, :destroy, :show]
+  
+  require File.expand_path('lib/class/default_class.rb')
+  require File.expand_path('lib/class/word_class.rb')
   # GET /words
   # GET /words.json
   def index  
@@ -73,9 +76,12 @@ class WordsController < ApplicationController
   end
 
   private
+    
+
     # Use callbacks to share common setup or constraints between actions.
     def set_word
-      @word = Word.find(params[:id])
+      word = WordClass.new(params[:titulo])
+      @word = Word.find_by(titulo: word.url_serialize)
     end
 
     def get_words

@@ -1,3 +1,7 @@
+<% content_for (:title) do %>
+  RapGospelBrasil - Noticias
+<% end %>
+
  <% content_for :js do %> 
    <%= javascript_include_tag "application" %> 
 <% end %>
@@ -34,7 +38,7 @@
               <h3><%= noticia.titulo %></h3>
             <% else %>         
               <h3>
-                <%= link_to "#{noticia.titulo}", "/show_noticia/#{noticia.id}" %>
+                <%= link_to "#{noticia.titulo}", "/show_noticia/#{set_url(noticia.titulo)}" %>
               </h3>
             <% end %>
           
@@ -50,9 +54,9 @@
                   <span class="criado-em"><strong>Data de criação : </strong><%= noticia.created_at.strftime('%d/%m/%Y') %></span>
 
                   <% if @profile == "admin" %>
-                      <td><%= link_to 'Mostar', "/show_noticia/#{noticia.id}/admin" ,class: 'btn btn-default', remote: true %></td>
-                      <td><%= link_to 'Editar', "/edit_noticia/#{noticia.id}/admin", class: 'btn btn-default', remote: true %></td>
-                      <td><%= link_to 'Remover', "/remove_noticia/#{noticia.id}/admin", class: 'btn btn-danger',remote: true ,method: :delete, data: { confirm: 'Deseja excluir esta noticia?' } %></td>
+                      <td><%= link_to 'Mostar', "/show_noticia/#{set_url(noticia.titulo)}/admin" ,class: 'btn btn-default', remote: true %></td>
+                      <td><%= link_to 'Editar', "/edit_noticia/#{set_url(noticia.titulo)}/admin", class: 'btn btn-default', remote: true %></td>
+                      <td><%= link_to 'Remover', "/remove_noticia/#{set_url(noticia.titulo)}/admin", class: 'btn btn-danger',remote: true ,method: :delete, data: { confirm: 'Deseja excluir esta noticia?' } %></td>
                   <% end %> 
                 </p>  
                 <span class="clear"></span>    

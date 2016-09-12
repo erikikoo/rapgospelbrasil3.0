@@ -4,6 +4,10 @@ class NoticesController < ApplicationController
   before_action :set_notice, only: [:show, :edit, :update, :destroy]
   before_action :get_notices, only: [:create, :update, :destroy, :index]
   before_action :get_profile, only: [:index, :show, :destroy]
+  
+  require File.expand_path('lib/class/default_class.rb')
+  require File.expand_path('lib/class/notice_class.rb')
+
   # GET /notices
   # GET /notices.json
   def index 
@@ -74,8 +78,9 @@ class NoticesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_notice
-      @notice = Notice.find(params[:id])
+    def set_notice      
+        notice = NoticeClass.new(params[:titulo])      
+        @notice = Notice.find_by(titulo: notice.url_serialize)
     end
 
     def get_notices
