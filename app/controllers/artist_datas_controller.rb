@@ -3,7 +3,7 @@ class ArtistDatasController < ApplicationController
   before_action :set_artist_data, only: [:show,:edit, :update, :destroy,  :discography, :contact, :history, :agenda, :rede_social]
   before_action :like_query, only: [:search_artista  ,:index, :show]
   
-
+  before_action :set_artist_data_from_id
   require File.expand_path('lib/class/artist_class.rb')
   # GET /artist_datas
   # GET /artist_datas.json
@@ -132,6 +132,10 @@ class ArtistDatasController < ApplicationController
 
     def set_artist_data      
       @artist_data = ArtistData.find_by(nome: params[:nome])    
+    end
+
+    def set_artist_data_from_id
+      @artist_data = ArtistData.find_by(id: params[:id])    
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
