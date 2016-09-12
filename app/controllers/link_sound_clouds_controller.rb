@@ -9,7 +9,8 @@ class LinkSoundCloudsController < ApplicationController
   def index
     if params[:profile]
       @profile = params[:profile]
-    end  
+    end 
+    exist_repositorio
   end
 
   # GET /link_sound_clouds/1
@@ -32,6 +33,7 @@ class LinkSoundCloudsController < ApplicationController
   def create
     @link_sound_cloud = LinkSoundCloud.new(link_sound_cloud_params)
     @link_sound_cloud.artist_data_id = current_artist.id
+    exist_repositorio
     @profile = 'adm'
     soundcloud = SoundcloudClass.new(@link_sound_cloud.link)
     respond_to do |format|
@@ -73,6 +75,7 @@ class LinkSoundCloudsController < ApplicationController
   # DELETE /link_sound_clouds/1
   # DELETE /link_sound_clouds/1.json
   def destroy
+    exist_repositorio
     @link_sound_cloud.destroy
     respond_to do |format|
       @status = 'success'
@@ -96,6 +99,10 @@ class LinkSoundCloudsController < ApplicationController
         @profile = params[:profile]
       end  
     end 
+
+    def exist_repositorio
+    	@exist_repositorio = LinkSoundCloud.where(artist_data_id: current_artist.id)   
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_sound_cloud_params

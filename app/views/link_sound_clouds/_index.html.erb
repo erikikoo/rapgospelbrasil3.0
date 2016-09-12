@@ -11,7 +11,7 @@
       %>   
 <% end %>
 <p>
-  <% if @profile == "adm" %>
+  <% if @profile == "adm" and @exist_repositorio.empty? %>
     <%= link_to 'Adicionar repositório', '/novo_link_sound_cloud', remote: true, :class => 'btn btn-default'  %>
   <% end %>
 </p>

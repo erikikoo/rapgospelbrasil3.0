@@ -107,14 +107,12 @@ class ArtistDatasController < ApplicationController
      @profile = params[:profile]   
   end  
 
-  def search_artista     
-     
+  def search_artista      
 
      @q = ArtistData.where(aprovado: true, bloqueado: false).ransack(params[:q])
      @artist_data = @q.result
     
     respond_to do |format|  
-
       format.js
     end
   end
