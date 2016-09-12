@@ -2,6 +2,10 @@
    <%= javascript_include_tag "application" %> 
 <% end %>
 
+ <% content_for(:title) do %>
+  artistas <%= @artist_data.nome %> 
+ <% end %>
+
 <script>
 	//Soundcloud 
 	SC.initialize({

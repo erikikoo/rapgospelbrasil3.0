@@ -44,7 +44,7 @@ Rails.application.routes.draw do
   get 'termo_de_uso/:target'          => 'welcome#termo_de_uso'
   get '/show_noticia/:id'             => 'notices#show'
   get '/show_palavra/:id'             => 'words#show'  
-  get '/show_artista/:id'             => 'artist_datas#show'
+  get '/show_artista/:nome'           => 'artist_datas#show'
   get '/search_artista'               => 'artist_datas#search_artista'
   get '/faq'                          => 'welcome#faq'
   get '/faq_portal'                   => 'welcome#faq_portal'

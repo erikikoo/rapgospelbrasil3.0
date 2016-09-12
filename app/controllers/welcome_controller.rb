@@ -1,4 +1,7 @@
 class WelcomeController < ApplicationController
+  
+  require File.expand_path('lib/class/artist_class.rb')  
+
   def index  	
     @noticia = Notice.last
     @palavras = Word.order(created_at: :desc)    
@@ -24,7 +27,7 @@ class WelcomeController < ApplicationController
   end  
 
   def artista
-     @artist_data = ArtistData.where(aprovado: true, bloqueado: false).includes(:likes)
+     @artist_data = ArtistData.where(aprovado: true, bloqueado: false).includes(:likes)     
      like_query
      #ransack
      @q = ArtistData.where(aprovado: true, bloqueado: false).ransack(params[:q])

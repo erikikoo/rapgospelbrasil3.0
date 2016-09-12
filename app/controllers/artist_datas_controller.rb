@@ -2,7 +2,7 @@ class ArtistDatasController < ApplicationController
   layout 'welcome'
   before_action :set_artist_data, only: [:show,:edit, :update, :destroy,  :discography, :contact, :history, :agenda, :rede_social]
   before_action :like_query, only: [:search_artista  ,:index, :show]
-  
+  require File.expand_path('lib/class/artist_class.rb')
   # GET /artist_datas
   # GET /artist_datas.json
   def index
@@ -14,9 +14,11 @@ class ArtistDatasController < ApplicationController
   # GET /artist_datas/1
   # GET /artist_datas/1.json
   def show
-    ip = request.remote_ip
-    @artist_data = ArtistData.includes(:link_sound_cloud, :likes).find(params[:id])    
-    @counter_likes = Like.where(artist_data_id: params[:id], curtido: true).group(:artist_data_id).count
+    ip = request.remote_ip    
+    artist_name = ArtistClass.new(params[:nome])    
+    @artist_data = ArtistData.find_by(nome: artist_name.get_name_artist) 
+    id = @artist_data.id
+    @counter_likes = Like.where(artist_data_id: id, curtido: true).group(:artist_data_id).count
     
 
   end
@@ -38,9 +40,7 @@ class ArtistDatasController < ApplicationController
   # POST /artist_datas
   # POST /artist_datas.json
   def create
-    @artist_data = ArtistData.find_by('artist_id = ?', current_artist.id)  
-    
-
+    @artist_data = ArtistData.find_by('artist_id = ?', current_artist.id)
     if @artist_data.nil?
       @artist_data = ArtistData.new(artist_data_params)
       @artist_data.artist_id = current_artist.id
@@ -79,8 +79,7 @@ class ArtistDatasController < ApplicationController
       @artist_data.destroy
       respond_to do |format|
         @artist_data.avatar = nil
-        format.html { redirect_to "/artistas/adm", notice: 'Artist data was successfully destroyed.' }
-        format.json { head :no_content }
+        format.html { redirect_to "/artistas/adm" }        
       end
 
   end
@@ -108,7 +107,6 @@ class ArtistDatasController < ApplicationController
   end  
 
   def search_artista      
-
      @q = ArtistData.where(aprovado: true, bloqueado: false).ransack(params[:q])
      @artist_data = @q.result
     
@@ -128,8 +126,8 @@ class ArtistDatasController < ApplicationController
       @exist_likes = Like.select('curtido, unlike, artist_data_id, ip').where(ip: ip)
     end
 
-    def set_artist_data
-      @artist_data = ArtistData.find(params[:id])   
+    def set_artist_data      
+      @artist_data = ArtistData.find_by(nome: params[:nome])    
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
