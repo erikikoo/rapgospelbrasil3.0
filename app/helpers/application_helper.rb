@@ -44,7 +44,11 @@ module ApplicationHelper
     end
     
     def set_url(link)
-	 artist_url = link.split(' ').join('-')
+     	if link.include? '-'
+			link += '_'
+		else
+			link_font = link.split(' ').join('-')
+		end			 
 	end
 	
 end

@@ -2,6 +2,8 @@ class ArtistDatasController < ApplicationController
   layout 'welcome'
   before_action :set_artist_data, only: [:show,:edit, :update, :destroy,  :discography, :contact, :history, :agenda, :rede_social]
   before_action :like_query, only: [:search_artista  ,:index, :show]
+  
+
   require File.expand_path('lib/class/artist_class.rb')
   # GET /artist_datas
   # GET /artist_datas.json
@@ -15,7 +17,7 @@ class ArtistDatasController < ApplicationController
   # GET /artist_datas/1.json
   def show
     ip = request.remote_ip    
-    artist_name = ArtistClass.new(params[:nome])    
+    artist_name = ArtistClass.new(params[:nome])
     @artist_data = ArtistData.find_by(nome: artist_name.get_name_artist) 
     id = @artist_data.id
     @counter_likes = Like.where(artist_data_id: id, curtido: true).group(:artist_data_id).count
