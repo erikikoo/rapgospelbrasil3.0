@@ -14,9 +14,9 @@ class ArtistClass
 
 	def get_name_artist						
 		if @link.include? '_'			
-			@link = @link.split('_').join('')
+			link = @link.split('_').join('-')
 		else
-			name = @link.split('-').join(' ')
+			link = @link.split('-').join(' ')			
 		end	
 	end	
 end
